@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+	<html>
+		
+		<head>
+			
+			{% include header.html %}
+			
+			
+
+		</head>
+		<body>
+			
+			<!--comments-->
+			<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId=389979625280769&autoLogAppEvents=1"></script>
+			
+			
+			 {% include nav.html %}
+			
+			<div class="container">
+			
+			{{ content }}
+
+
+				{% include ezoic_ads.html %}
+			 	
+			</div><!-- /.container -->
+			
+
+			<footer>
+				
+				{% include footer.html %}
+			
+	    	</footer>
+  
+		</body>
+	</html>

@@ -1,0 +1,123 @@
+title: programmerCave
+description: Everything Software Engineering
+keywords: Programming competitive programming books cpp cplusplus code coding C++ Python C Java Algorithm Data Structure kubernetes software development design
+language: "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+permalink: /blog/:year/:month/:day/:title
+plugins_dir:
+  - jekyll-seo-tag
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-paginate
+
+paginate: 5
+#paginate_path: '/page:num'
+
+plugins:
+  - jekyll-feed
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+
+feed:
+  tags: true
+
+author: programmerCave
+
+  
+comments: true
+  
+  
+url: https://programmercave0.github.io
+
+ 
+facebook_username: "programmercave"
+github_username: "abhiabhi0"
+instagram_username: "programmercave"
+telegram_username: "programmercave"
+twitter_username: "programmercave"
+medium_username: "@programmercave0"
+linkedin_username: "abhishek-singh-thakur-351488147/"
+youtube_username: "UCGpGM7FBgVm7Cmuo6OrUYGQ"
+disqus_username: "disqus_bW81CcXTbe"
+hackerank_username: "Botman1001"
+ 
+rss: true # just type anything here for a working RSS icon
+
+telegram: true
+
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_feed_layout: tag_feed
+tag_feed_dir: tag
+tag_permalink_style: pretty
+tag_cloud: true
+ 
+tag_page: '/blog/'
+  
+share-links-active:
+  twitter: true
+  facebook: true
+  linkedin: true
+  reddit: true
+  whatsapp: true
+  telegram: true
+
+# Character used to separate site title and description in HTML document title
+# and RSS feed title
+title-separator: "-"
+
+#
+# This file contains configuration flags to customize your site
+#
+
+#
+# Flags below are optional
+#
+
+link-col: "##4400ff"
+
+
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-102581341-3
+
+# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+# Used for Sitema.xml and your RSS feed
+
+
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://yourusername.github.io/repository-name)
+# and NOT your User repository (http://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+#baseurl: "/programmercave"
+
+#
+# !! You don't need to change any of the configuration flags below !!
+
+# Default YAML values (more information on Jekyll's site)
+
+
+# Use tags index page and make tags on each post clickable
+link-tags: true
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :compressed # You might prefer to minify using :compressed
+
+
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+  - vendor
+theme: jekyll-theme-minimal

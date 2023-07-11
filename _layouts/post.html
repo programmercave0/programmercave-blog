@@ -1,0 +1,90 @@
+---
+layout: default
+---
+<!-- AUto ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6819793054373827"
+     crossorigin="anonymous"></script>
+<!-- Post Header -->
+<!--<header class="intro-header" style="position: relative; background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% endif %}
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>-->
+
+<!--<header>
+    <div class="container">
+
+    </div>
+</header>-->
+
+<!-- Post Content -->
+<article style="padding-top: 50px;">
+    <div class="container">
+        <div class="row">
+          <!--  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">-->
+                
+                    <h2 style="padding-bottom: .5em;">{{ page.title }}</h2>
+                    <span class="meta">{{ page.date | date_to_string }} {{ page.author }}  </span>
+			{% if page.tags %} | 
+  			{% for tag in page.tags %}
+    			<a href="{{ site.baseurl }}{{ site.tag_page }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+ 			{% endfor %}
+  			{% endif %}
+                    <div class="post">
+             
+                        {{ content }}
+  
+                        {% include comments.html %}<br/>
+                         <br/>
+ 
+                        </div>
+              
+
+                <hr>
+
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <hr>
+
+                <hr>
+
+                {% if site.related_posts.size >= 1 %}
+                <div>
+                    <h3>Related Posts</h3>
+                    <ul>
+                    {% for related_post in site.related_posts limit: 5 %}
+                    <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+            </div>
+        <!--</div>-->
+    </div>
+</article>
+
+
+
