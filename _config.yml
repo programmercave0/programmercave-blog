@@ -1,6 +1,7 @@
 title: programmerCave
-description: Everything Software Engineering
-keywords: Programming competitive programming books cpp cplusplus code coding C++ Python C Java Algorithm Data Structure kubernetes software development design
+tagline: Beyond Syntax, Navigating the Programmer's Realm
+description: Welcome to ProgrammerCave, your ultimate destination for mastering the art of programming. Dive into a wealth of knowledge as we unravel software developer interview questions, competitive programming solutions, system design approaches, and language-specific insights. Our blog is a treasure trove for developers of all levels, providing comprehensive guides and step-by-step solutions to code challenges. Empower your coding skills through our in-depth articles, demystifying complex concepts, and guiding you towards excellence. Whether you're a beginner or a seasoned pro, ProgrammerCave equips you with the tools to crack the code and unlock the true potential of your programming journey. Join us on this transformative coding adventure! 
+keywords: programming, developer interview questions, competitive programming, system design, language-specific blogs, code challenges, coding skills, in-depth articles, programming journey Programming competitive programming books cpp cplusplus code coding C++ Python C Java Algorithm Data Structure kubernetes software development design
 language: "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
 
 markdown: kramdown
@@ -23,6 +24,8 @@ plugins:
   - jekyll-feed
   - jekyll/tagging
   - jekyll-tagging-related_posts
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 feed:
   tags: true
@@ -33,7 +36,7 @@ author: programmerCave
 comments: true
   
   
-url: https://programmercave0.github.io
+url: https://programmercave.com
 
  
 facebook_username: "programmercave"
