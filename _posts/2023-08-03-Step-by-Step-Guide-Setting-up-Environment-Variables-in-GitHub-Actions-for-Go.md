@@ -58,6 +58,8 @@ func main() {
 2. Inside the `.github` directory, create another directory named `workflows`.
 3. Create a new file named `main.yml` inside the `workflows` directory with the following content:
 
+{% raw %}
+
 ```yaml
 name: Execute Go Program
 
@@ -92,6 +94,7 @@ jobs:
 5. The second step sets up the environment variables `API_KEY` and `DB_PASSWORD` using repository secrets (`secrets.API_KEY` and `secrets.DB_PASSWORD`).
 6. The third step runs the Go program using `go run main.go` and passes the environment variables as command-line arguments (`"${{ env.API_KEY }}"` and `"${{ env.DB_PASSWORD }}"`).
 
+{% endraw %}
 ## Conclusion:
 
 By following the steps above, you can securely pass environment variables to your Go program in GitHub Actions. The use of repository secrets ensures that sensitive information is kept private and not exposed in plaintext in your workflows. With this setup, you can confidently automate your Go programs with GitHub Actions while maintaining a high level of security for your sensitive data.
