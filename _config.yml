@@ -19,6 +19,8 @@ plugins_dir:
   - jekyll-toc
   - jekyll-target-blank
 
+highlighter: rouge
+
 paginate: 10
 #paginate_path: '/page:num'
 
@@ -38,8 +40,39 @@ author:
   name: programmerCave
   email: programmercave@gmail.com
   uri: https://www.instagram.com/programmercave
+  url: https://www.instagram.com/programmercave
+  twitter: programmercave
+
+twitter:
+    username: programmercave
+    card: summary
   
 comments: true
+
+logo: /pc.jpg
+
+seo:
+  name: programmerCave for Software engineers
+  type: BlogPosting
+  links: 
+    - https://programmercave.com
+    - https://facebook.com/programmercave
+    - https://twitter.com/programmercave
+    - https://instgram.com/programmercave
+
+social:
+    name: programmerCave
+    links: 
+      - https://programmercave.com
+      - https://facebook.com/programmercave
+      - https://twitter.com/programmercave
+      - https://instgram.com/programmercave
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /pc.jpg
   
   
 url: https://programmercave.com
