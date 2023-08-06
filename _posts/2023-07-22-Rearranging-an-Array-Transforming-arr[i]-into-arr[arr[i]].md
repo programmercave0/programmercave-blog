@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rearranging an Array: Transforming arr[i] into arr[arr[i]]"
-subtitle: "Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner's guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index `i` becomes the value at index `arr[i]`."
+description: "Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner's guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index `i` becomes the value at index `arr[i]`."
 author: "Programmercave"
 header-img: "/assets/rearrange-array/rearrange-array-1.png"
 tags:  [Cpp, Competitive-Programming, Algorithm, Data-Structure, Python, Array-Manipulation]

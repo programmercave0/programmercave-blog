@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Best Memes on Linked List Data Structure"
-subtitle: "Here is the collection of some of the best memes on Linked List Data Structure"
+description: "Here is the collection of some of the best memes on Linked List Data Structure"
 author: "Programmercave"
 header-img: "/assets/Memes-Linkedlist/llmeme3.jpg"
 tags:  [Memes]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Best Memes on Javascript"
-subtitle: "Here is the collection of some of the best memes on Javascript."
+description: "Here is the collection of some of the best memes on Javascript."
 author: "Programmercave"
 header-img: "/assets/JS-Memes/jsmeme1.jpg"
 tags:  [Memes]

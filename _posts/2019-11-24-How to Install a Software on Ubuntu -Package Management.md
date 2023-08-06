@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Install a Software on Ubuntu | Package Management"
-subtitle: "A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs."
+description: "A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs."
 author: "Programmercave"
 header-img: "/assets/ubuntulogo.jpeg"
 tags:  [Operating-System, Linux, Ubuntu]

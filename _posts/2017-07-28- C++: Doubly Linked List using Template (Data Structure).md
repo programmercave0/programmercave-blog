@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Doubly Linked List | C++ Implementation"
-subtitle: "A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction."
+description: "A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction."
 author: "Programmercave"
 header-img: "/assets/doublylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]

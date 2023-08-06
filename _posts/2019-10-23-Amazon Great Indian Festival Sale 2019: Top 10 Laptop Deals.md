@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Amazon Great Indian Festival Sale 2019: Top 10 Laptop Deals"
-subtitle: "Great Indian Festival sale on Amazon.com starts from 21<sup>st</sup> Oct to 25<sup>th</sup> Oct. Products have heavy discounts and cashback offers. There is 10% Instant Discount + Bonus Offer on Axis Bank and Citi Bank Credit and Debit Cards."
+description: "Great Indian Festival sale on Amazon.com starts from 21<sup>st</sup> Oct to 25<sup>th</sup> Oct. Products have heavy discounts and cashback offers. There is 10% Instant Discount + Bonus Offer on Axis Bank and Citi Bank Credit and Debit Cards."
 author: "Programmercave"
 header-img: "/assets/amazon.png"
 tags:  [Top-Deals, Articles]

@@ -17,7 +17,7 @@ plugins_dir:
   - jekyll-redirect-from
   - jekyll-paginate
 
-paginate: 5
+paginate: 10
 #paginate_path: '/page:num'
 
 plugins:
@@ -30,8 +30,10 @@ plugins:
 feed:
   tags: true
 
-author: programmerCave
-
+author: 
+  name: programmerCave
+  email: programmercave@gmail.com
+  uri: https://www.instagram.com/programmercave
   
 comments: true
   

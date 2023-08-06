@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "orDer oF succeSsion - CodinGame | C++ Implementation"
-subtitle: "You have to output the order of succession to the British throne of a list of given people. The order is simple:
+description: "You have to output the order of succession to the British throne of a list of given people. The order is simple:
 From a descendant A, the next in the order is A’s first child B.
 Then, the next one is B’s first child C if any and so on.
 If C has no child, then the next one is B’s second child D.

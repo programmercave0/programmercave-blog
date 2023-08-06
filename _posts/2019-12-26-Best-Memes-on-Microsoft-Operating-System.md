@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Best Memes on Windows Operating System Failure"
-subtitle: "Here is the collection of some of the best memes on Microsoft Operating System."
+description: "Here is the collection of some of the best memes on Microsoft Operating System."
 author: "Programmercave"
 header-img: "/assets/Microsoft-Memes/msmeme3.jpg"
 tags:  [Memes]

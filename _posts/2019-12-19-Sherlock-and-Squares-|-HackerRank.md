@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sherlock and Squares | HackerRank"
-subtitle: "Watson likes to challenge Sherlock's math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of *square integers* within that range, inclusive of the endpoints."
+description: "Watson likes to challenge Sherlock's math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of *square integers* within that range, inclusive of the endpoints."
 author: "Programmercave"
 
 tags:  [Cpp, Algorithm, Data-Structure, Competitive-Programming, Hackerrank]

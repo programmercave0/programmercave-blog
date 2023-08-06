@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C++ Implementation"
-subtitle: "The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors."
+description: "The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors."
 author: "Programmercave"
 header-img: "/assets/gcd/gcd1.png"
 tags:  [C++, Algorithm, Data-Structure, Competitive-Programming, Number-Theory, Mathematics]

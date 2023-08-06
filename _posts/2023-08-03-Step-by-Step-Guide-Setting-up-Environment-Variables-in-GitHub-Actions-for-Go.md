@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Step-by-Step Guide: Setting up Environment Variables in GitHub Actions for Go"
-subtitle: "GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we'll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program."
+description: "GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we'll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program."
 author: "Programmercave"
 header-img: "/assets/github-action-env-var/github-action-env-var.png"
 tags:  [Github-Actions, Go, DevOps]

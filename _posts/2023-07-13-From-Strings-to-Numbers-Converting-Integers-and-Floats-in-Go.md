@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Strings to Numbers: Converting Integers and Floats in Go"
-subtitle: "In Go, working with integer and floating-point data types is fundamental for various programming tasks. This article will explore the integer and floating-point types available in Go, along with detailed instructions on how to convert strings to integers and floats using practical examples."
+description: "In Go, working with integer and floating-point data types is fundamental for various programming tasks. This article will explore the integer and floating-point types available in Go, along with detailed instructions on how to convert strings to integers and floats using practical examples."
 author: "Programmercave"
 header-img: "/assets/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/go-string-to-int.png"
 tags:  [Go]

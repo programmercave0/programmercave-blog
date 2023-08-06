@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Selection sort | C++ Implementation"
-subtitle: "Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array."
+description: "Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array."
 author: "Programmercave"
 header-img: "/assets/selectionsort.png"
 tags:  [Cpp, Algorithm, Sorting]
