@@ -1,108 +1,33 @@
 <div class="container">
-	<!---Buy me a coffee -->
-	<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="botman1001" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-<div class="row">
-<div class="col-lg-12 col-md-10">
-<div id="content" class="content">
-  {% include affiliate_links.html %}
-
-    {% include amazon_affiliate_laptops.html %} 
-    
-  <br>
-    <h3>Tags</h3> 
-    <p>
-    {% for tag in site.tags %}
-    <!-- Here's a hack to generate a "tag cloud" where the size of
-    the word is directly proportional to the number of posts with
-    that tag. -->
-    <a href="/blog/#{{ tag[0] | slugify }}" class="post-tag">
-        {{ tag[0] }}
-    </a>
-    {% endfor %}
-    </p>
-	</div>
-
-<div class="col-lg-8 col-lg-offset-4 col-md-10">
-
-	<a href="{{ site.url }}" class="fa fa-home"></a>
-	<a href="https://www.facebook.com/{{ site.facebook_username }}" class="fa fa-facebook"></a>
-	<a href="https://github.com/{{ site.github_username }}" class="fa fa-github"></a>
-	<a href="https://twitter.com/{{ site.twitter_username }}" class="fa fa-twitter"></a>
-	<a href="https://medium.com/{{ site.medium_username }}" class="fa fa-medium"></a>
-	<a href="https://www.instagram.com/{{ site.instagram_username }}" class="fa fa-instagram"></a>
-	<a href="https://t.me/{{ site.telegram_username }}" class="fa fa-telegram"></a>
-	<a href="https://www.youtube.com/channel/{{ site.youtube_username }}" class="fa fa-youtube"></a>
-	<a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="fa fa-rss"></a>
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="botman1001" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF"
+    data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+  <div class="row">
+    <div class="col-lg-12 col-md-10">
+      <div id="content" class="content">
+        {% include affiliate_links.html %}
+        {% include amazon_affiliate_laptops.html %}
+        <br>
+        <h3>Tags</h3>
+        <p>
+          {% for tag in site.tags %}
+          <a href="/blog/#{{ tag[0] | slugify }}" class="post-tag">
+            {{ tag[0] }}
+          </a>
+          {% endfor %}
+        </p>
+      </div>
+      <div class="col-lg-8 col-lg-offset-4 col-md-10">
+        <a href="{{ site.url }}" class="fa fa-home"></a>
+        <a href="https://www.facebook.com/{{ site.facebook_username }}" class="fa fa-facebook"></a>
+        <a href="https://github.com/{{ site.github_username }}" class="fa fa-github"></a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="fa fa-twitter"></a>
+        <a href="https://medium.com/{{ site.medium_username }}" class="fa fa-medium"></a>
+        <a href="https://www.instagram.com/{{ site.instagram_username }}" class="fa fa-instagram"></a>
+        <a href="https://t.me/{{ site.telegram_username }}" class="fa fa-telegram"></a>
+        <a href="https://www.youtube.com/channel/{{ site.youtube_username }}" class="fa fa-youtube"></a>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="fa fa-rss"></a>
+      </div>
+    </div>
+  </div>
 </div>
-    
-	          
-	
-<!--
-<div class="scrolling-wrapper-flexbox">
-  <div class="card"><a href="https://www.facebook.com/{{ site.facebook_username }}">Facebook</a></div>
-<div class="card"><a href="https://github.com/{{ site.github_username }}">Github</a></div>
-  <div class="card"><a href="https://www.instagram.com/{{ site.instagram_username }}">Instagram</a></div>
-  <div class="card"><a href="https://t.me/{{ site.telegtam_username }}">Telegram</a></div>
-  <div class="card"><a href="{{ "/atom.xml" | prepend: site.baseurl }}">RSS</a></div>
-</div> -->
-
-
-
-
-
-<!--
- <div class="bottom-block">
-               
-                    
-                      <li>  <a href="https://www.facebook.com/{{ site.facebook_username }}">Facebook</a></li>
-                    
-		   
-       <li>                 <a href="https://github.com/{{ site.github_username }}">Github</a></li>
-                    
-		  
-                    <li>    <a href="https://www.instagram.com/{{ site.instagram_username }}">Instagram</a></li>
-                 
-		   
-                      <li>  <a href="https://t.me/{{ site.telegtam_username }}">Telegram</a></li>
-                    
-                   
-                    <li>    <a href="{{ "/atom.xml" | prepend: site.baseurl }}">RSS</a></li>
-                    
-</div>-->
-
-	
-
-	
-
-
-
-
-
- 
-</div> 
-
-
-	</div>
-	<!-- jQuery -->
-<!--
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
--->
-<!-- Bootstrap Core JavaScript -->
-<!--
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
--->
-<!-- Custom Theme JavaScript -->
-<!--
-<script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        processEscapes: true
-    }
-  });
-</script>	
--->

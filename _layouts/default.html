@@ -1,49 +1,24 @@
-
 <!DOCTYPE html>
-	<html>
-		
-		<head>
-			
-			{% include header.html %}
-			
-			
+<html>
 
-		</head>
-		<body>
-			
-			<!--comments-->
-			<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId=389979625280769&autoLogAppEvents=1"></script>
-			
-			
-			 {% include nav.html %}
-			
-			<div class="container">
-			
-			{{ content }}
+<head>
+  {% include header.html %}
+</head>
 
+<body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId=389979625280769&autoLogAppEvents=1">
+  </script>
+  {% include nav.html %}
+  <div class="container">
+    {{ content }}
+    {% include ezoic_ads.html %}
+  </div>
+  <!-- /.container -->
+  <footer>
+    {% include footer.html %}
+  </footer>
+</body>
 
-				{% include ezoic_ads.html %}
-			 	
-			</div><!-- /.container -->
-			
-
-			<footer>
-				
-				{% include footer.html %}
-			
-	    	</footer>
-			<!-- infolinks ads -->
-			<!--<script type="text/javascript"> var infolinks_pid = 3210490; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>-->
-			
-			
-    
-			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddb8a2e8bc2a8a9"></script>
-
-		
-
-
-  
-		</body>
-	</html>
+</html>
