@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Host: http://programmercave0.github.io/
+Host: http://programmercave.com/
