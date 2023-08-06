@@ -38,36 +38,42 @@
   gtag('js', new Date());
   gtag('config', 'UA-102581341-3');
 </script>
-<meta property="fb:pages" content="1726497097665405" />
+
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.subtitle | default: site.description }}">
+
+<!-- Open Graph (OG) Meta Tags -->
 <meta property="og:site_name" content="{{ site.title }}" />
-<meta property="og:title" content="{{ page.title }}">
+<meta property="og:title" content="{{ page.title }}" />
 {% if page.title %}
-<meta content="article" property="og:type">
+    <meta property="og:type" content="article" />
 {% else %}
-<meta content="website" property="og:type">
+    <meta property="og:type" content="website" />
 {% endif %}
 {% if page.header-img %}
-<meta property="og:image" content="{{ site.url }}/{{ page.header-img }}">
-<meta property="og:image:width" content="600px">
-<meta property="og:image:height" content="600px">
+    <meta property="og:image" content="{{ site.url }}/{{ page.header-img }}" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="600" />
 {% else %}
-<meta property="og:image" content="{{ site.url }}/assets/programmerCavelogo.jpg">
+    <meta property="og:image" content="{{ site.url }}/assets/programmerCavelogo.jpg" />
 {% endif %}
 {% if page.subtitle %}
-<meta content="{{ page.subtitle }}" property="og:description">
+    <meta property="og:description" content="{{ page.subtitle }}" />
 {% endif %}
 {% if page.url %}
-<meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 {% endif %}
+
+<!-- Other meta tags -->
 <meta name="author" content="Programmercave" />
 <meta property="fb:app_id" content="389979625280769" />
 <meta property="og:locale" content="en_US" />
 <meta property="article:author" content="https://facebook.com/programmercave" />
 <meta property="article:publisher" content="https://www.facebook.com/programmercave" />
 {% for tag in page.tags %}
-<meta property="article:tag" content="{{ tag }}" />
+    <meta property="article:tag" content="{{ tag }}" />
 {% endfor %}
-<title>{{ post.title }}</title>
+
 <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
 <link rel="stylesheet" href="{{ "/css/clean-blog.css" | prepend: site.baseurl }}">
 <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
