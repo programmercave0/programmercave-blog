@@ -7,6 +7,8 @@ header-img: "/assets/Postgres-Triggers/after_insert.png"
 tags:  [SQL, PostgreSQL, DataBase]
 date: 2023-02-27
 ---
+* toc
+{:toc}
 
 # Introduction
 

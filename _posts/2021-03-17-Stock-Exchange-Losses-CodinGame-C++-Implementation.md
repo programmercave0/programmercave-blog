@@ -7,6 +7,8 @@ header-img: "/assets/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-L
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-03-17
 ---
+* toc
+{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Medium.
 

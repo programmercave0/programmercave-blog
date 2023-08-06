@@ -7,6 +7,8 @@ header-img: "/assets/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-03-01
 ---
+* toc
+{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Easy.
 

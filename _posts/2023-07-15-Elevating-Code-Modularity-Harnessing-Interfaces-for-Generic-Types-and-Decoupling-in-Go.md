@@ -7,6 +7,8 @@ header-img: "/assets/go-interfaces/go-interface-basics.png"
 tags:  [Go]
 date: 2023-07-15
 ---
+* toc
+{:toc}
 
 # Introduction:
 

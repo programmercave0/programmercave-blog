@@ -16,6 +16,8 @@ plugins_dir:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-toc
+  - jekyll-target-blank
 
 paginate: 10
 #paginate_path: '/page:num'
@@ -26,6 +28,8 @@ plugins:
   - jekyll-tagging-related_posts
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-toc
+  - jekyll-target-blank
 
 feed:
   tags: true
@@ -72,6 +76,19 @@ share-links-active:
   reddit: true
   whatsapp: true
   telegram: true
+
+# _config.yml
+toc:
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_id: toc
+  list_class: section-nav
+  sublist_class: ''
+  item_class: toc-entry
+  item_prefix: toc-
+
 
 # Character used to separate site title and description in HTML document title
 # and RSS feed title

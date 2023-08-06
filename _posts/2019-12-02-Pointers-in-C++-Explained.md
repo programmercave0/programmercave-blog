@@ -7,6 +7,8 @@ header-img: "/assets/2019-12-02-Pointers-in-C++-Explained/ptr.png"
 tags:  [Cpp]
 date: 2019-12-02
 ---
+* toc
+{:toc}
 
 A **pointer** is a special type of variable which holds the address of a value. A pointer is declared using * (asterisk).
 

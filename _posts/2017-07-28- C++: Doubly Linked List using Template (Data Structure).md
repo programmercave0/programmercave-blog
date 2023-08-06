@@ -7,6 +7,8 @@ header-img: "/assets/doublylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2017-07-28
 ---
+* toc
+{:toc}
 
 The nodes in a linked list are connected through *pointers*. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A *node* in a **doubly linked list** contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.
 

@@ -7,6 +7,8 @@ header-img: "/assets/rearrange-array/rearrange-array-1.png"
 tags:  [Cpp, Competitive-Programming, Algorithm, Data-Structure, Python, Array-Manipulation]
 date: 2023-07-22
 ---
+* toc
+{:toc}
 
 # Introduction
 

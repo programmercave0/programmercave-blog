@@ -7,6 +7,9 @@ header-img: "/assets/quicksort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-07-16
 ---
+* toc
+{:toc}
+
 Like mergesort, **quicksort** also follows *divide-and-conquer* approach. The algorithm selects an element as *pivot*. The input array is **divided** into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are **sorted** independently and then **merged** to form a single sorted array.
 
 **Related :** [Merge Sort]({{ site.url }}/blog/2017/08/24/C++-Implementation-of-Merge-Sort)

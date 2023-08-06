@@ -7,6 +7,8 @@ header-img: "/assets/Leviathan-OverTheWire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Leviathan, CTF]
 date: 2020-01-06
 ---
+* toc
+{:toc}
 
 Learn linux command by playing [Leviathan](https://overthewire.org/wargames/leviathan/) wargame from OverTheWire. This wargame doesn't require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.
 

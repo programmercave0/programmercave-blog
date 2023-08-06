@@ -7,6 +7,8 @@ header-img: "/assets/mergesortedlinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-02-06
 ---
+* toc
+{:toc}
 
 Given two sorted Linked List, we have to merge them without using another linked list.
   ```

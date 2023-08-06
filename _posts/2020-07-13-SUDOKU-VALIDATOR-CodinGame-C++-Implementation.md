@@ -7,6 +7,8 @@ header-img: "/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/su
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2020-07-13
 ---
+* toc
+{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Easy.
 

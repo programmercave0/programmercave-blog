@@ -7,6 +7,8 @@ header-img: "/assets/Microsoft-Memes/msmeme3.jpg"
 tags:  [Memes]
 date: 2019-12-26
 ---
+* toc
+{:toc}
 
 Here is the collection of some of the best memes on Microsoft Operating System.
 

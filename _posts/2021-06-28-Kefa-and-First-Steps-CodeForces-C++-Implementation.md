@@ -7,6 +7,8 @@ header-img: ""
 tags:  [Cpp, Competitive-Programming, CodeForces, Dynamic-Programming]
 date: 2021-06-28
 ---
+* toc
+{:toc}
 
 <h1>Problem:</h1>
 

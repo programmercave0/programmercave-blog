@@ -11,6 +11,8 @@ header-img: "/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_successio
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-04-11
 ---
+* toc
+{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Medium.
 

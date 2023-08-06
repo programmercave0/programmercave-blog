@@ -8,6 +8,8 @@ header-img: "/assets/2020-04-26-Bank-Robbers-CodinGame/CodinGame_Bank_Robbers.jp
 tags:  [Cpp, Competitive-Programming, CodinGame, Mathematics]
 date: 2020-04-26
 ---
+* toc
+{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Easy and tagged under Loops and Mathematics.
 

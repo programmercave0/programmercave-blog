@@ -7,6 +7,8 @@ header-img: "/assets/stackoverflow_memes/so_meme7.jpg"
 tags:  [Memes]
 date: 2019-11-28
 ---
+* toc
+{:toc}
 
 We have all copied code from [stackoverflow.com](https://stackoverflow.com/), [github.com](https://stackoverflow.com/) and from other sources. Please mention other sources to copy code from. These websites has helped us a lot to become a good programmer.
 

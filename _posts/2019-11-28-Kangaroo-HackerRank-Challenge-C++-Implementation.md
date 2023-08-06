@@ -7,6 +7,8 @@ header-img: "/assets/2019-11-28-Kangaroo-HackerRank-Challenge/HR_kangaroo.png"
 tags:  [Data-Structure, Cpp, Algorithm, Competitive-Programming, Hackerrank]
 date: 2019-11-28
 ---
+* toc
+{:toc}
 
 <h1>Problem:</h1>
 

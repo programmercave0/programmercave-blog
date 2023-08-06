@@ -7,6 +7,8 @@ header-img: "/assets/Understanding-Go-Exploring-Structs-and-Methods/Understandin
 tags:  [Go]
 date: 2023-07-01
 ---
+* toc
+{:toc}
 
 # Introduction:
 

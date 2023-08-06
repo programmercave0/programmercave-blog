@@ -7,6 +7,8 @@ header-img: "/assets/Square-Root/sq_root1.png"
 tags:  [Cpp, Algorithm, Data-Structures, Competitive-Programming, Mathematics]
 date: 2023-03-03
 ---
+* toc
+{:toc}
 
 Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.
 
@@ -68,5 +70,7 @@ In conclusion, finding the square root of a number is a common problem in mathem
 If you're interested in checking out some of my code related to algorithms and data structures, be sure to visit [Algo-Data-Structure](https://github.com/{{site.github_username}}/Algo-Data-Structure) on Github. For my solutions to problems from competitive programming sites, you can find them in [Competitive-Programming](https://github.com/{{site.github_username}}/Competitive-Programming).
 
 ---
+* toc
+{:toc}
 
 By the way, if you're a teacher or parent looking for resources to help your child get ready for school, you might be interested in these fun and informative workbooks developed by a pre-school teacher. Covering all the basic skills needed for school-readiness, they're perfect for the pre-school education niche. Check them out here: [WORKSHEETS FOR PRESCHOOL](https://ce8977zhz1vrft28uay3ofipe9.hop.clickbank.net/?cbpage=wfpaffiliate)

@@ -7,6 +7,8 @@ header-img: "/assets/2020-04-16-Single-Elevator-Simulation-in-Cpp/c++_elevator_s
 tags:  [Cpp, Project]
 date: 2020-04-16
 ---
+* toc
+{:toc}
 
 Here we are going to implement the **Single Elevator Simulation in C++**. Initially the elevator is at ground floor. It is represented by 0. Floors below ground floor are represented by negative integers.
 The elevator has maximum capacity it can carry, maximum and minimum floor it can carry to.

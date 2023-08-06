@@ -7,6 +7,8 @@ header-img: "/assets/reverselinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-01-23
 ---
+* toc
+{:toc}
 
 Given a singly linked list, we have to reverse it.
 

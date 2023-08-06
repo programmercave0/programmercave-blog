@@ -7,6 +7,8 @@ header-img: "/assets/github-action-env-var/github-action-env-var.png"
 tags:  [Github-Actions, Go, DevOps]
 date: 2023-08-03
 ---
+* toc
+{:toc}
 
 ## Introduction:
 

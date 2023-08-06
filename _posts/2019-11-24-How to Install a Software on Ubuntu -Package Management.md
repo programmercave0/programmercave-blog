@@ -7,6 +7,8 @@ header-img: "/assets/ubuntulogo.jpeg"
 tags:  [Operating-System, Linux, Ubuntu]
 date: 2019-11-24
 ---
+* toc
+{:toc}
 
 ![Range]({{ site.url }}/assets/ubuntulogo.jpeg){:class="img-responsive"}
 

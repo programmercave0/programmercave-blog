@@ -7,6 +7,8 @@ header-img: "/assets/2019-12-12-Bjarne-Stroustrup/bjarne.jpg"
 tags:  [Cpp, Articles]
 date: 2019-12-12
 ---
+* toc
+{:toc}
 
 [Bjarne Stroustrup](http://www.stroustrup.com/index.html) is a Technical Fellow and Managing Director at Morgan Stanley in New York City and a Visiting Professor at Columbia University. He's also the creator of C++.
 

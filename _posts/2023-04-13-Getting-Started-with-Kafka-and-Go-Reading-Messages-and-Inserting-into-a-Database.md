@@ -7,6 +7,8 @@ header-img: "/assets/Kafka/kgp.png"
 tags:  [Go, Kafka, SQL, PostgreSQL, DataBase]
 date: 2023-04-13
 ---
+* toc
+{:toc}
 
 # Introduction:
 

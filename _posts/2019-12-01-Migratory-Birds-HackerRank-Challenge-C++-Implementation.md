@@ -7,6 +7,8 @@ header-img: "/assets/2019-12-01-Migratory-Birds-HackerRank-Challenge-C++-Impleme
 tags:  [Cpp, Algorithm, Data-Structure, Competitive-Programming, Hackerrank]
 date: 2019-12-01
 ---
+* toc
+{:toc}
 
 <h1>Problem :</h1>
 

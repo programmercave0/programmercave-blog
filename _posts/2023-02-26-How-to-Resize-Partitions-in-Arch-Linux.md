@@ -7,6 +7,8 @@ header-img: "/assets/Resize-partions-ArchLinux/partiton2.png"
 tags:  [Linux, Arch-Linux, OpenSuse, Tumbleweed, Ubuntu, HowTo]
 date: 2023-02-26
 ---
+* toc
+{:toc}
 
 Running out of space on your root partition can be a frustrating experience when using Arch Linux. Fortunately, resizing your partitions can be done easily with the help of a live USB or CD and the GParted partition editor. In this guide, we'll walk you through the steps to resize your partitions and increase the size of your root partition in Arch Linux.
 
@@ -51,6 +53,8 @@ Resizing partitions is a relatively simple process when using GParted in a live 
 In this guide, we've walked you through the steps to resize your root partition in Arch Linux. We hope that this guide has been helpful to you. 
 
 ---
+* toc
+{:toc}
 
 If you have a dual-boot setup with **Arch Linux and Windows**, you may also want to consider using a tool like [Special Uninstaller](https://b02ff-tkq-xw8mfp78r96onjuc.hop.clickbank.net) to keep your Windows system running smoothly. While [Special Uninstaller](https://b02ff-tkq-xw8mfp78r96onjuc.hop.clickbank.net) can help you uninstall any unwanted programs from your Windows-based computer, including those that the standard Windows Add/Remove Programs tool may not be able to remove completely. By removing leftover files and registry entries, [Special Uninstaller](https://b02ff-tkq-xw8mfp78r96onjuc.hop.clickbank.net) can help improve the performance and stability of your system, making it easier to manage and maintain in the long run.
 

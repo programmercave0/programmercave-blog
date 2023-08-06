@@ -7,6 +7,8 @@ header-img: "/assets/linkedlistwithloop.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-01-20
 ---
+* toc
+{:toc}
 
 Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.
 

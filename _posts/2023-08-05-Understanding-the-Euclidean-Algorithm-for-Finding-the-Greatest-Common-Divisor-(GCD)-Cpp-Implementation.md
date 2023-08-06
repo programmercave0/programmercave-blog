@@ -7,6 +7,8 @@ header-img: "/assets/gcd/gcd1.png"
 tags:  [C++, Algorithm, Data-Structure, Competitive-Programming, Number-Theory, Mathematics]
 date: 2023-08-05
 ---
+* toc
+{:toc}
 
 ## Introduction
 
@@ -113,6 +115,8 @@ If you're interested in exploring the C++ implementation, you can find the compl
 The Euclidean algorithm's beauty lies in its versatility and efficiency, making it a valuable tool in diverse mathematical and computational scenarios. Whether you are calculating GCDs for advanced number theory or simply implementing it in a programming project, the Euclidean algorithm will serve you exceptionally well.
 
 ---
+* toc
+{:toc}
 
 # FAQs
 

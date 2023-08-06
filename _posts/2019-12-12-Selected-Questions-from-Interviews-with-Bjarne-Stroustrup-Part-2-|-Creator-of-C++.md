@@ -7,6 +7,8 @@ header-img: "/assets/2019-12-12-Bjarne-Stroustrup/bjarne1.jpg"
 tags:  [Cpp, Articles]
 date: 2019-12-12
 ---
+* toc
+{:toc}
 
 ![Bjarne Stroustrup]({{ site.url }}/assets/2019-12-12-Bjarne-Stroustrup/bjarne1.jpg){:class="img-responsive"}
 

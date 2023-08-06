@@ -7,6 +7,8 @@ header-img: "/assets/bellman.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2018-03-11
 ---
+* toc
+{:toc}
 
 **Bellman–Ford** algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex.
 

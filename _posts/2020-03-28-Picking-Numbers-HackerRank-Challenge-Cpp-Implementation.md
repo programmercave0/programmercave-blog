@@ -7,6 +7,8 @@ header-img: "/assets/2020-03-28-Picking-Numbers-Hacker-Challenge/HR_picking_numb
 tags:  [Cpp, Algorithm, Competitive-Programming, Hackerrank, Data-Structure]
 date: 2020-03-28
 ---
+* toc
+{:toc}
 
 <h1>Problem:</h1>
 

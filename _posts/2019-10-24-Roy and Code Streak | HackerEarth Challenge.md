@@ -8,6 +8,8 @@ header-img: "/assets/HERoy.png"
 tags:  [Data-Structure, Algorithm, Competitive-Programming, Hackerearth, Cpp]
 date: 2019-10-24
 ---
+* toc
+{:toc}
 
 This is the HackerEarth challenge of easy level. Problem Link[ Roy and Code Streak](https://www.hackerearth.com/problem/algorithm/roy-and-code-streak/).
 

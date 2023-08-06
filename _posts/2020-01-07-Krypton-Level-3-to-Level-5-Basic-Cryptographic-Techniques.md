@@ -7,6 +7,8 @@ header-img: "/assets/Krypton-OverTheWire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Krypton, CTF, Cryptography]
 date: 2020-01-07
 ---
+* toc
+{:toc}
 
 Learn basic cryptographic techniques by playing [Krypton](https://overthewire.org/wargames/krypton/) wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6.
 

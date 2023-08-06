@@ -7,6 +7,8 @@ header-img: "/assets/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-2
 tags:  [Cpp, Algorithm, Competitive-Programming, Hackerrank, Data-Structure]
 date: 2020-04-24
 ---
+* toc
+{:toc}
 
 <h1>Problem:</h1>
 

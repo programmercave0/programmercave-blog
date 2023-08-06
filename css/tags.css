@@ -1,16 +1,16 @@
 .post-tag {
   display: inline-block;
   background: rgba($theme-color, 0.15);
-  padding: 0 .5rem;
-  margin-right: .5rem;
-  border-radius: 4px;
+  padding: 0 .1rem;
+  margin-right: .1rem;
+  border-radius: 2px;
   color: $theme-color;
   font-family: $font-sans;
   font-size: 90%;
   &:before {
     content: "\f02b";
     font-family: $font-font-awesome;
-    padding-right: .5em;
+    padding-right: .1em;
   }
   &:hover {
     text-decoration: none;
@@ -31,7 +31,7 @@
     @media (min-width: 38em) {
       font-size: 1.6rem;
       .post-tag {
-        margin: .2em .3em;
+        margin: .1em .1em;
       }
     }
   }

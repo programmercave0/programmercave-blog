@@ -7,6 +7,8 @@ header-img: "/assets/moveevenbeforeodd.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structures]
 date: 2018-02-08
 ---
+* toc
+{:toc}
 
 Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.
 

@@ -7,6 +7,8 @@ author: "Programmercave"
 tags:  [Cpp, Ubuntu, Graphics, Project]
 date: 2019-10-09
 ---
+* toc
+{:toc}
 
 Here is the code to animate simple pendulum on Ubuntu Machine.
 

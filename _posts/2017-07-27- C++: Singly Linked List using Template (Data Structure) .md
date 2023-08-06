@@ -7,6 +7,8 @@ header-img: "/assets/singlylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2017-07-27
 ---
+* toc
+{:toc}
 
 A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty. In C++, nodes can be created using the `struct` keyword, which allows you to define a data type that contains a data item and a pointer to the next node.
 

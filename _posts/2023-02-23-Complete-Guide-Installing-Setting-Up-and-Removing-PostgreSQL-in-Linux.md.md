@@ -7,6 +7,8 @@ header-img: ""
 tags:  [Linux, Arch-Linux, OpenSuse, Tumbleweed, Ubuntu, HowTo]
 date: 2023-02-23
 ---
+* toc
+{:toc}
 
 # Introduction
 
