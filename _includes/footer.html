@@ -9,7 +9,7 @@
         <h3>Tags</h3>
         <p>
           {% for tag in site.tags %}
-          <a href="/tags/#{{ tag[0] | replace: " ","-" }}" class="post-tag">
+          <a href="/tags#{{ tag[0] | replace: " ","-" }}" class="post-tag">
             {{ tag[0] }}
           </a>,
           {% endfor %}
