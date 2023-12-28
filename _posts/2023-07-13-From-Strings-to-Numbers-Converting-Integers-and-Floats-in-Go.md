@@ -3,22 +3,20 @@ layout: post
 title: "From Strings to Numbers: Converting Integers and Floats in Go"
 description: "In Go, working with integer and floating-point data types is fundamental for various programming tasks. This article will explore the integer and floating-point types available in Go, along with detailed instructions on how to convert strings to integers and floats using practical examples."
 author: "Programmercave"
-header-img: "/assets/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/go-string-to-int.png"
+header-img: "/assets/images/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/go-string-to-int.png"
 tags:  [Go]
 date: 2023-07-13
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction:
 
 In Go, working with integer and floating-point data types is fundamental for various programming tasks. This article will explore the integer and floating-point types available in Go, along with detailed instructions on how to convert strings to integers and floats using practical examples.
 
-![From Strings to Numbers: Converting Integers and Floats in Go]({{ site.url }}/assets/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/go-string-to-int.png){:class="img-responsive"}
+![From Strings to Numbers: Converting Integers and Floats in Go]({{ site.url }}/assets/images/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/go-string-to-int.png){:class="img-responsive"}
 
 ---
-* toc
-{:toc}
+
+
 
 # Go Integer Data Types
 
@@ -40,8 +38,8 @@ Additionally, Go introduces two type aliases:
 - `rune`: Alias for `int32`, representing a Unicode code point
 
 ---
-* toc
-{:toc}
+
+
 
 # Converting a String to Integer in Go
 
@@ -105,8 +103,8 @@ In this code, we utilize the `strconv` package to convert the string `numStr` to
 Please note that this example omits error handling for brevity, but it's crucial to handle errors returned by the `strconv` functions in real-world scenarios.
 
 ---
-* toc
-{:toc}
+
+
 
 # Go Floating-Point Data Types
 
@@ -122,8 +120,8 @@ var x = 3.14 // x is inferred as float64
 ```
 
 ---
-* toc
-{:toc}
+
+
 
 # Converting a String to Float in Go
 
@@ -155,8 +153,8 @@ In the above code, we use the `strconv` package's `ParseFloat` function to conve
 Remember, error handling is excluded in this example for brevity, but it's essential to handle errors returned by `strconv.ParseFloat` in real-world applications.
 
 ---
-* toc
-{:toc}
+
+
 
 # Conclusion:
 

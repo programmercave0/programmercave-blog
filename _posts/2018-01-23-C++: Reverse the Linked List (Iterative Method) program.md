@@ -3,12 +3,12 @@ layout: post
 title: "How to Reverse a Linked List | C++ Implementation"
 description: "There are two ways to reverse a linked list, iterative method and recursive method."
 author: "Programmercave"
-header-img: "/assets/reverselinkedlist.png"
+header-img: "/assets/images/reverselinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-01-23
 ---
-* toc
-{:toc}
+
+
 
 Given a singly linked list, we have to reverse it.
 
@@ -16,7 +16,7 @@ Given a singly linked list, we have to reverse it.
 Input list: { a, b, c, d, e }
 Output list: { e, d, c, b, a }
 ```
-![Range]({{ site.url }}/assets/reverselinkedlist.png){:class="img-responsive"}
+![Range]({{ site.url }}/assets/images/reverselinkedlist.png){:class="img-responsive"}
 
 There are two ways to reverse a linked list, *iterative method* and *recursive method*.
 

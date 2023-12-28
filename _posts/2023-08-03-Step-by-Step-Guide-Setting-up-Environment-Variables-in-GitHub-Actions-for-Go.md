@@ -3,31 +3,29 @@ layout: post
 title: "Step-by-Step Guide: Setting up Environment Variables in GitHub Actions for Go"
 description: "GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we'll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program."
 author: "Programmercave"
-header-img: "/assets/github-action-env-var/github-action-env-var.png"
+header-img: "/assets/images/github-action-env-var/github-action-env-var.png"
 tags:  [Github-Actions, Go, DevOps]
 date: 2023-08-03
+toc: true
 ---
-* toc
-{:toc}
-
 ## Introduction:
 
 GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we'll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program.
 
-![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/github-action-env-var/github-action-env-var.png){:class="img-responsive"}
+![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/images/github-action-env-var/github-action-env-var.png){:class="img-responsive"}
 
 ## Creating Secrets in GitHub Repository:
 
  - Open your GitHub repository on the web.
  - Navigate to "Settings" in the right sidebar.
  - Click on "Secrets and variables" in the left sidebar and then "Actions".
- ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/github-action-env-var/github-action-env-var-1.png){:class="img-responsive"}
+ ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/images/github-action-env-var/github-action-env-var-1.png){:class="img-responsive"}
  - Click on "New repository secret."
- ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/github-action-env-var/github-action-env-var-2.png){:class="img-responsive"}
+ ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/images/github-action-env-var/github-action-env-var-2.png){:class="img-responsive"}
  - Enter the name of the secret (e.g., API_KEY) in the "Name" field.
  - Add the value of the secret (e.g., your actual API key) in the "Value" field.
  - Click "Add secret" to save it.
- ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/github-action-env-var/github-action-env-var-3.png){:class="img-responsive"}
+ ![Setting up Environment Variables in GitHub Actions for Go]({{ site.url }}/assets/images/github-action-env-var/github-action-env-var-3.png){:class="img-responsive"}
 
 Repeat the process for any other sensitive information you need to store, like passwords or access tokens.
 

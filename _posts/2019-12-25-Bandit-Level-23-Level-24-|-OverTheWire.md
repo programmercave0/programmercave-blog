@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 23 → Level 24 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 23 → Level 24.In this level we will learn about corntab files and write our first shell-script in this series. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-25
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 23 → Level 24. 
 
@@ -16,7 +16,7 @@ In this level we will learn about corntab files and write our first shell-script
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -74,7 +74,7 @@ done
 
 The command `cd /vars/pool/$myname` will change to *bandit24* directory and then all scripts in directory *bandit24* will be executed and then deleted. This is done in every 60 seconds as `timeout` is provided.
 
-![Bandit Level 23 24]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2324_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 23 24]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2324_terminal1.jpg){:class="img-responsive"}
 
 So if we put our script in */var/spool/bandit24* then it will be executed and then deleted. So we will write our script such that it will output password for next level.
 
@@ -84,7 +84,7 @@ mkdir /tmp/pcdir123
 chmod 777 pcdir123
 ```
 
-![Bandit Level 23 24]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2324_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 23 24]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2324_terminal2.jpg){:class="img-responsive"}
 
 Now create a script file *pass24script.sh* in */tmp/pcdir123* which will contain our script. The script is 
 ```
@@ -94,13 +94,13 @@ cat /etc/bandit_pass/bandit24 > /tmp/pcdir123/pass24file
 
 *pass24script.sh* is not executable, so make it executable for all users using command `chmod 777 pass24script`.
 
-![Bandit Level 23 24]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2324_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 23 24]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2324_terminal3.jpg){:class="img-responsive"}
 
 Copy this script in */var/spool/bandit/24* using command `cp pass24script.sh /var/spool/bandit24`
 
 When new minute starts, file pass24file is produced with password for the next level if the directory pcdir123 has write permission enabled. The password is `****` .
 
-![Bandit Level 23 24]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2324_terminal4.jpg){:class="img-responsive"}
+![Bandit Level 23 24]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2324_terminal4.jpg){:class="img-responsive"}
  
 Reference: [https://www.reddit.com/r/HowToHack/comments/cg3zu9/is_overthewires_bandit_level_2324_broken_spoilers/](https://www.reddit.com/r/HowToHack/comments/cg3zu9/is_overthewires_bandit_level_2324_broken_spoilers/)<br/>
 [https://www.billycody.com/otw-wargames/bandit/bandit-level-23](https://www.billycody.com/otw-wargames/bandit/bandit-level-23)

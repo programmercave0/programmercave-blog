@@ -3,13 +3,10 @@ layout: post
 title: "Dungeons and Maps - CodinGame | C++ Implementation"
 description: "You are given N maps for a dungeon. Each map may contain a path to a treasure T, from starting position [ startRow; startCol ]. Determine the index of the map which holds the shortest path from the starting position to T, but be careful a map may lead you to a TRAP."
 author: "Programmercave"
-header-img: "/assets/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps1.jpg"
+header-img: "/assets/images/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps1.jpg"
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-03-01
 ---
-* toc
-{:toc}
-
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Easy.
 
 <h1>Problem:</h1>
@@ -53,7 +50,7 @@ The integer variables `start_row` and `start_col` denote starting position on th
 
 This is how vector `maps` will look like -
 
-![Dungeons and Maps CodinGame]({{ site.url }}/assets/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps1.jpg){:class="img-responsive"}
+![Dungeons and Maps CodinGame]({{ site.url }}/assets/images/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps1.jpg){:class="img-responsive"}
 
 A `for` loop will be used to traverse through 2D verctor `maps` and `while` loop to traverse through each map.
 
@@ -120,11 +117,11 @@ We will terminate the processing of the map if empty square or wall is encounter
 
 Successfully reaching the treasure - 
 
-![Dungeons and Maps CodinGame]({{ site.url }}/assets/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps2.jpg){:class="img-responsive"}
+![Dungeons and Maps CodinGame]({{ site.url }}/assets/images/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps2.jpg){:class="img-responsive"}
 
 We will have to terminate the processing if a loop in formed in a map.
 
-![Dungeons and Maps CodinGame]({{ site.url }}/assets/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps3.jpg){:class="img-responsive"}
+![Dungeons and Maps CodinGame]({{ site.url }}/assets/images/2021-03-01-Dungeons-and-Maps-CodinGame/cg_dungeons_and_maps3.jpg){:class="img-responsive"}
 
 If the value of `next_row` is less than 0 and greater than and equal to the width of map, then we have to terminate the processing. Similarly, if the value of `next_col` is less than 0 and greater than and equal to height of the map, then also we have to terminate the processing.
 

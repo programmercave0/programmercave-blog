@@ -3,18 +3,16 @@ layout: post
 title: "Rearranging an Array: Transforming arr[i] into arr[arr[i]]"
 description: "Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner's guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index `i` becomes the value at index `arr[i]`."
 author: "Programmercave"
-header-img: "/assets/rearrange-array/rearrange-array-1.png"
+header-img: "/assets/images/rearrange-array/rearrange-array-1.png"
 tags:  [Cpp, Competitive-Programming, Algorithm, Data-Structure, Python, Array-Manipulation]
 date: 2023-07-22
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction
 
 Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner's guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index `i` becomes the value at index `arr[i]`.
 
-![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/rearrange-array/rearrange-array-1.png){:class="img-responsive"}
+![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/images/rearrange-array/rearrange-array-1.png){:class="img-responsive"}
 
 # The Problem
 
@@ -74,7 +72,7 @@ new_array[0] += 1 = 12 + 1 = 13
 Resulting array: [13, 8, 0, 4]
 ```
 
-![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/rearrange-array/arr-1.png){:class="img-responsive"}
+![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/images/rearrange-array/arr-1.png){:class="img-responsive"}
 
 
 1. **At index 1 (**`i=1`): We take the value at `new_array[1]`, which is `8`. We calculate the `new_index` by dividing `new_array[1]` by N, resulting in `new_index = 8/4 = 2`. Now, `new_index` represents the value of `a[1]` in the original array. We need to find the value `a[new_index]` in the original array and add it to `new_array[1]`. In this case, `a[1]` is `2`, so `a[new_index]` is `a[2]`, which is `0`. Thus, we add `0` to `new_array[1]`, resulting in `new_array[1] += 0 = 8`.
@@ -91,7 +89,7 @@ new_array[1] += 0 = 8
 Resulting array: [13, 8, 0, 4]
 ```
 
-![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/rearrange-array/arr-2.png){:class="img-responsive"}
+![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/images/rearrange-array/arr-2.png){:class="img-responsive"}
 
 1. **At index 2 (**`i=2`): We take the value at `new_array[2]`, which is `0`. We calculate the `new_index` by dividing `new_array[2]` by N, resulting in `new_index = 0/4 = 0`. Now, `new_index` represents the value of `a[2]` in the original array. We need to find the value `a[new_index]` in the original array and add it to `new_array[2]`. In this case, `a[2]` is `0`, so `a[new_index]` is `a[0]`, which is `3`. Thus, we add `3` to `new_array[2]`, resulting in `new_array[2] += 3 = 0 + 3 = 3`.
     
@@ -107,7 +105,7 @@ new_array[2] += 3 = 0 + 3 = 3
 Resulting array: [13, 8, 3, 4]
 ```
 
-![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/rearrange-array/arr-3.png){:class="img-responsive"}
+![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/images/rearrange-array/arr-3.png){:class="img-responsive"}
 
 1. **At index 3 (**`i=3`): We take the value at `new_array[3]`, which is `4`. We calculate the `new_index` by dividing `new_array[3]` by N, resulting in `new_index = 4/4 = 1`. Now, `new_index` represents the value of `a[3]` in the original array. We need to find the value `a[new_index]` in the original array and add it to `new_array[3]`. In this case, `a[3]` is `1`, so `a[new_index]` is `a[1]`, which is `2`. Thus, we add `2` to `new_array[3]`, resulting in `new_array[3] += 2 = 4 + 2 = 6`.
     
@@ -123,7 +121,7 @@ new_array[3] += 2 = 4 + 2 = 6
 Resulting array: [13, 8, 3, 6]
 ```
 
-![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/rearrange-array/arr-4.png){:class="img-responsive"}
+![Rearranging an Array: Transforming arr[i] into arr[arr[i]]]({{ site.url }}/assets/images/rearrange-array/arr-4.png){:class="img-responsive"}
 
 ## Step 3: Take the Mod of Each Element by N
 

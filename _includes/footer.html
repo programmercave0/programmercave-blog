@@ -2,8 +2,6 @@
   <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
     data-id="botman1001" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF"
     data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-  <div class="row">
-    <div class="col-lg-12 col-md-10">
       <div id="content" class="content">
         {% include affiliate_links.html %}
         {% include amazon_affiliate_laptops.html %}
@@ -11,24 +9,20 @@
         <h3>Tags</h3>
         <p>
           {% for tag in site.tags %}
-          <a href="/blog/#{{ tag[0] | slugify }}" class="post-tag">
+          <a href="/tags/#{{ tag[0] | replace: " ","-" }}" class="post-tag">
             {{ tag[0] }}
-          </a>
+          </a>,
           {% endfor %}
         </p>
       </div>
-      <div class="col-lg-8 col-lg-offset-4 col-md-10">
         <a href="{{ site.url }}" class="fa fa-home"></a>
-        <a href="https://www.facebook.com/{{ site.facebook_username }}" class="fa fa-facebook"></a>
-        <a href="https://github.com/{{ site.github_username }}" class="fa fa-github"></a>
-        <a href="https://twitter.com/{{ site.twitter_username }}" class="fa fa-twitter"></a>
-        <a href="https://medium.com/{{ site.medium_username }}" class="fa fa-medium"></a>
-        <a href="https://www.instagram.com/{{ site.instagram_username }}" class="fa fa-instagram"></a>
-        <a href="https://t.me/{{ site.telegram_username }}" class="fa fa-telegram"></a>
-        <a href="https://www.youtube.com/channel/{{ site.youtube_username }}" class="fa fa-youtube"></a>
-        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="fa fa-rss"></a>
-        <p>Copyright &copy; {{ site.author.name }} {{ 'now' | date: "%Y" }}</p>
-      </div>
-    </div>
-  </div>
+        <a href="https://www.facebook.com/{{ site.facebook_username }}" class="fab fa-facebook"></a>
+        <a href="https://github.com/{{ site.github_username }}" class="fab fa-github"></a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="fab fa-twitter"></a>
+        <a href="https://medium.com/{{ site.medium_username }}" class="fab fa-medium"></a>
+        <a href="https://www.instagram.com/{{ site.instagram_username }}" class="fab fa-instagram"></a>
+        <a href="https://t.me/{{ site.telegram_username }}" class="fab fa-telegram"></a>
+        <a href="https://www.youtube.com/channel/{{ site.youtube_username }}" class="fab fa-youtube"></a>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="fab fa-rss"></a>
+        <p>Copyright © {{ site.time | date: "%Y" }} {{ site.name }}</p>
 </div>

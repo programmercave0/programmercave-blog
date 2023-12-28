@@ -6,8 +6,8 @@ author: "Programmercave"
 tags:  [Graphics, Cpp, Ubuntu, Linux, HowTo]
 date: 2019-10-10
 ---
-* toc
-{:toc}
+
+
 
 In this post we are going to install `graphics.h` library on Ubuntu and to use it with `gcc` or `g++` compiler. `graphics.h` provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in `graphic.h` library in C/C++ visit [here](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1126/materials/cppdoc/graphics.html).
 

@@ -3,21 +3,21 @@ layout: post
 title: "Dijkstra's Algorithm | Single-Source Shortest Path"
 description: "Dijkstra's algorithm finds shortest paths from the source vertex to all vertices in the graph. The condition for the algorithm is that all edge weights should be non-negative. Thus, Dijkstra’s algorithm is efficient than the Bellman-Ford algorithm because it processes each edge only once, since it knows that there are no negative-weight edges in the graph."
 author: "Programmercave"
-header-img: "/assets/dijkstra.png"
+header-img: "/assets/images/dijkstra.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2018-03-14
 ---
-* toc
-{:toc}
+
+
 
 **Dijkstra's algorithm** finds shortest paths from the source vertex to all vertices in the graph. The condition for the algorithm is that all edge weights should be non-negative. Thus, Dijkstra’s algorithm is efficient than the Bellman-Ford algorithm because it processes each edge only once, since it knows that there are no negative-weight edges in the graph.
 
-![Dijkstra]({{ site.url }}/assets/dijkstra.png){:class="img-responsive"}
+![Dijkstra]({{ site.url }}/assets/images/dijkstra.png){:class="img-responsive"}
 
 In fig. (a) there is no negative-weight cycle, fig. (b) contains a negative-weight cycle 
 
-![Dijkstra]({{ site.url }}/assets/dijkstra1.png){:class="img-responsive"}
-![Dijkstra]({{ site.url }}/assets/dijkstra2.png){:class="img-responsive"}
+![Dijkstra]({{ site.url }}/assets/images/dijkstra1.png){:class="img-responsive"}
+![Dijkstra]({{ site.url }}/assets/images/dijkstra2.png){:class="img-responsive"}
 
 Here the source vertex is *a*. When the vertex is selected it becomes gray and when it is processed it becomes black. 
 
@@ -262,7 +262,7 @@ View this code on [Github](https://github.com/{{site.github_username}}/Algo-Data
 
 Output
 
-![Output]({{ site.url }}/assets/DijkstraOut.png){:class="img-responsive"}
+![Output]({{ site.url }}/assets/images/DijkstraOut.png){:class="img-responsive"}
 
 Get this post in pdf - [Dijkstra's Algorithm](https://www.file-up.org/em2k15628rez)
 

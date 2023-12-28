@@ -4,12 +4,12 @@ title: "Roy and Code Streak | HackerEarth Challenge"
 description: "Roy is working on HackerEarth Profile. Right now he is working on User Statistics.
 One of the statistics data (Code Streak) is as follows:"
 author: "Programmercave"
-header-img: "/assets/HERoy.png"
+header-img: "/assets/images/HERoy.png"
 tags:  [Data-Structure, Algorithm, Competitive-Programming, Hackerearth, Cpp]
 date: 2019-10-24
 ---
-* toc
-{:toc}
+
+
 
 This is the HackerEarth challenge of easy level. Problem Link[ Roy and Code Streak](https://www.hackerearth.com/problem/algorithm/roy-and-code-streak/).
 
@@ -44,7 +44,7 @@ For each test case output in a single line the required answer.
 
 Note: Sum of N over all the test cases in each file does not exceed 1000000 (10<sup>6</sup>) 
 
-![Sample]({{ site.url }}/assets/HERoy.png){:class="img-responsive"}
+![Sample]({{ site.url }}/assets/images/HERoy.png){:class="img-responsive"}
 
 # Solution:
 

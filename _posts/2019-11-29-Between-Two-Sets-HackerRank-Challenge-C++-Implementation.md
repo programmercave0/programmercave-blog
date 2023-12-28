@@ -3,12 +3,12 @@ layout: post
 title: "Between Two Sets - HackerRank Challenge | C++ Implementation"
 description: "You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions: 1. The elements of the first array are all factors of the integer being considered. 2. The integer being considered is a factor of all elements of the second array"
 author: "Programmercave"
-header-img: "/assets/2019-11-29-Between-Two-Sets-HackerRank-Challenge/HR_betweentwosets.jpg"
+header-img: "/assets/images/2019-11-29-Between-Two-Sets-HackerRank-Challenge/HR_betweentwosets.jpg"
 tags:  [Cpp, Algorithm, Competitive-Programming, Hackerrank, Data-Structure]
 date: 2019-11-29
 ---
-* toc
-{:toc}
+
+
 
 <h1>Problem</h1>
 
@@ -23,7 +23,7 @@ For example, given the arrays `a =[2, 6]` and `b = [24, 36]`, there are two numb
 
 Read the full problem here: [Between Two Sets](https://www.hackerrank.com/challenges/between-two-sets/problem)
 
-![Between Two Sets Hackerrank]({{ site.url }}/assets/2019-11-29-Between-Two-Sets-HackerRank-Challenge/HR_betweentwosets.jpg){:class="img-responsive"}
+![Between Two Sets Hackerrank]({{ site.url }}/assets/images/2019-11-29-Between-Two-Sets-HackerRank-Challenge/HR_betweentwosets.jpg){:class="img-responsive"}
 
 <h1>Solution</h1>
 

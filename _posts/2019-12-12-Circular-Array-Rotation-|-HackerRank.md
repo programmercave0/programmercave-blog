@@ -4,12 +4,12 @@ title: "Circular Array Rotation | HackerRank"
 description: "John Watson knows of an operation called a right circular rotation on an array of integers. One rotation operation moves the last array element to the first position and shifts all remaining elements right one. To test Sherlock's abilities, Watson provides Sherlock with an array of integers. Sherlock is to perform the rotation operation a number of times then determine the value of the element at a given position.
 For each array, perform a number of right circular rotations and return the value of the element at a given index."
 author: "Programmercave"
-header-img: "/assets/2019-12-12-Circular-Array-Rotation/HR_circulararrayrotation.jpg"
+header-img: "/assets/images/2019-12-12-Circular-Array-Rotation/HR_circulararrayrotation.jpg"
 tags:  [Cpp, Algorithm, Data-Structure, Competitive-Programming, Hackerrank]
 date: 2019-12-12
 ---
-* toc
-{:toc}
+
+
 
 This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like [CodeChef](https://www.codechef.com/), [HackerEarth](https://www.hackerearth.com/challenges/), [Codeforces](https://codeforces.com/) where you can practice coding.
 
@@ -41,7 +41,7 @@ If number of rotations is greater than the size of the input array then array af
 
 For eg. if the size of array is *3* and number of rotations are *5* then array after 5 rotations is equal to the array after 2 rotations.
 
-![Cirular Array Rotation HackerRank]({{ site.url }}/assets/2019-12-12-Circular-Array-Rotation/HR_circulararrayrotation.jpg){:class="img-responsive"}
+![Cirular Array Rotation HackerRank]({{ site.url }}/assets/images/2019-12-12-Circular-Array-Rotation/HR_circulararrayrotation.jpg){:class="img-responsive"}
 
 ```cpp
 int arr_size = array.size();

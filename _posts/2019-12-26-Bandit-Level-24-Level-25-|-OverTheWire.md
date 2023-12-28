@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 24 → Level 25 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 24 → Level 25. In this level you will learn how to bruteforce password and connect to a remote machine on a port. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-26
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 24 → Level 25. 
 
@@ -16,7 +16,7 @@ In this level you will learn how to bruteforce password and connect to a remote 
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -68,7 +68,7 @@ nc localhost 30002 < combinations.txt
 ```
 The password for the next level is `****` .
 
-![Bandit Level 24 25]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2425_terminal.jpg){:class="img-responsive"}
+![Bandit Level 24 25]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2425_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://unix.stackexchange.com/questions/432904/brute-force-4-digit-pin-with-pass-using-shell-script](https://unix.stackexchange.com/questions/432904/brute-force-4-digit-pin-with-pass-using-shell-script)<br/>
 [https://skyenet.tech/brute-force-password-attacking/](https://skyenet.tech/brute-force-password-attacking/)

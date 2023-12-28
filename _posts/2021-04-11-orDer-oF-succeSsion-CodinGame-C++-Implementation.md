@@ -7,12 +7,11 @@ Then, the next one is B’s first child C if any and so on.
 If C has no child, then the next one is B’s second child D.
 Then D’s children if any. Then B’s third child E… then A’s second child F"
 author: "Programmercave"
-header-img: "/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession4.jpg"
+header-img: "/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession4.jpg"
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-04-11
+toc: true
 ---
-* toc
-{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Medium.
 
@@ -27,7 +26,7 @@ Then D’s children if any. Then B’s third child E… then A’s second child 
 
 Let’s draw it with a tree:
 
-![orDer oF succeSsion]({{ site.url }}/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession1.jpg){:class="img-responsive"}
+![orDer oF succeSsion]({{ site.url }}/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession1.jpg){:class="img-responsive"}
 
 You see the order of succession: begin on the left of the tree, walk to the next level whenever possible otherwise continue to the right. Repeat until the whole tree is covered.
 Thus, the order is A-B-C-D-E-F.
@@ -185,7 +184,7 @@ while (true)
 
 If the current ruler does not have a sibling, the next ruler will be the sibling of their parent. If the parent does not have a sibling, we move on to check for the grandparent and so on, until we find the next ruler in the line of succession.
 
-![orDer oF succeSsion]({{ site.url }}/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession2.jpg){:class="img-responsive"}
+![orDer oF succeSsion]({{ site.url }}/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession2.jpg){:class="img-responsive"}
 
 Before processing, we make sure that the current ruler is not equal to the first ruler. If they are equal, it means we have processed everyone in the family and we can terminate the `while` loop.
 
@@ -233,7 +232,7 @@ Inside the `while` loop, we call the `map_parent_children` function again becaus
 
 In this function, we pass a vector of `Details` called `family` and an integer variable `curr_ruler_idx` as parameters. The function maps the ruler at `curr_ruler_idx` with their children.
 
-![orDer oF succeSsion]({{ site.url }}/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession3.jpg){:class="img-responsive"}
+![orDer oF succeSsion]({{ site.url }}/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession3.jpg){:class="img-responsive"}
 
 First, we declare two vectors of integers: `next_gen_m_idx` will store the indices of male children of the ruler at `curr_ruler_idx`, and `next_gen_f_idx` will store the indices of female children. These vectors will be used to store the indices of the children in the family vector.
 
@@ -285,7 +284,7 @@ if (family[curr_ruler_idx].has_child)
 
 In this function, we pass two integer vectors called `male_idx` and `female_idx`, a vector of `Details` called `family`, and an integer variable `curr_ruler_idx` as parameters. The `male_idx` and `female_idx` vectors are already sorted according to the ages of the siblings. The function's purpose is to form links between the siblings to determine the order of succession.
 
-![orDer oF succeSsion]({{ site.url }}/assets/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession4.jpg){:class="img-responsive"}
+![orDer oF succeSsion]({{ site.url }}/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession4.jpg){:class="img-responsive"}
 
 We first check if the `male_idx` vector is empty. If it is not, we set the `first_child` of the current ruler to the child at index `0` of the `male_idx` vector.
 

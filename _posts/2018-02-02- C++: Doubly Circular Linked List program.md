@@ -3,12 +3,12 @@ layout: post
 title: "Doubly Circular Linked List | C++ Implementation"
 description: "A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction."
 author: "Programmercave"
-header-img: "/assets/circulardoublylinkedlist.png"
+header-img: "/assets/images/circulardoublylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-02-02
 ---
-* toc
-{:toc}
+
+
 
 The nodes in a linked list are connected through *pointers*. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A `node` in a **doubly circular linked list** contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.
 
@@ -16,7 +16,7 @@ The nodes in a linked list are connected through *pointers*. Pointers represent 
 
 Here is a meme to understand Circular Linked List.
 
-![Split Linked List]({{ site.url }}/assets/cll.jpg){:class="img-responsive"}
+![Split Linked List]({{ site.url }}/assets/images/cll.jpg){:class="img-responsive"}
 
 The first node of the linked list is the head and the last node is the tail. If head is NULL then the list is empty.
 
@@ -40,7 +40,7 @@ struct Node
 To declare head and tail: `Node *head, *tail;`
 
 
-![Doubly Circular Linked List]({{ site.url }}/assets/circulardoublylinkedlist.png){:class="img-responsive"}
+![Doubly Circular Linked List]({{ site.url }}/assets/images/circulardoublylinkedlist.png){:class="img-responsive"}
 
 In the above fig. Node containing 5 is head and node containing 15 is tail. `prev` pointer in head points to the last node and `next` pointer in tail points to the head.
 

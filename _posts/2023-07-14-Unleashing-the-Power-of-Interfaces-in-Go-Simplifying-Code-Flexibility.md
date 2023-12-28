@@ -3,18 +3,16 @@ layout: post
 title: "Unleashing the Power of Interfaces in Go: Simplifying Code Flexibility"
 description: "In the world of programming, flexibility is a valuable asset. It allows us to write code that can work with different types of objects, even if they have different behaviors. In Go, a powerful language, interfaces play a significant role in achieving this flexibility. In this blog post, we'll dive into the concept of interfaces in Go, using a simple analogy and practical examples. By the end, you'll understand how interfaces help streamline code and enhance code reusability."
 author: "Programmercave"
-header-img: "/assets/go-interfaces/go-interface-basics.png"
+header-img: "/assets/images/go-interfaces/go-interface-basics.png"
 tags:  [Go]
 date: 2023-07-14
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction:
 
 In the world of programming, flexibility is a valuable asset. It allows us to write code that can work with different types of objects, even if they have different behaviors. In Go, a powerful language, interfaces play a significant role in achieving this flexibility. In this blog post, we'll dive into the concept of interfaces in Go, using a simple analogy and practical examples. By the end, you'll understand how interfaces help streamline code and enhance code reusability.
 
-![Unleashing the Power of Interfaces in Go: Simplifying Code Flexibility]({{ site.url }}/assets/go-interfaces/go-interface-basics.png){:class="img-responsive"}
+![Unleashing the Power of Interfaces in Go: Simplifying Code Flexibility]({{ site.url }}/assets/images/go-interfaces/go-interface-basics.png){:class="img-responsive"}
 
 # Understanding Interfaces:
 

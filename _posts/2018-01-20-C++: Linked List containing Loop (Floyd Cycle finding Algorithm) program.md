@@ -3,16 +3,16 @@ layout: post
 title: "How to find the Length of Loop in Linked List | C++ Implementation"
 description: "Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop."
 author: "Programmercave"
-header-img: "/assets/linkedlistwithloop.png"
+header-img: "/assets/images/linkedlistwithloop.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-01-20
 ---
-* toc
-{:toc}
+
+
 
 Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.
 
-![Floyd Cycle Finding Algorithm]({{ site.url }}/assets/linkedlistwithloop.png){:class="img-responsive"}
+![Floyd Cycle Finding Algorithm]({{ site.url }}/assets/images/linkedlistwithloop.png){:class="img-responsive"}
 
 To find loop in the linked list, we need two node pointers `slowPtr` and `fastPtr` which starts from the head. `slowPtr` increments by one node while `fastPtr` increments by two nodes. If these pointers point at the same node after starting from head then loop exists. This algorithm is known as *Floyd Cycle Finding Algorithm*.
 

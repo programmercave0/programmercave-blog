@@ -3,16 +3,16 @@ layout: post
 title: "Krypton Level 0 to Level 2 | Basic Cryptographic Techniques"
 description: "Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 0 → Level 1, Level 1 → Level 2 and Level 2 → Level 3."
 author: "Programmercave"
-header-img: "/assets/Krypton-OverTheWire/overthewire_poster.jpg"
+header-img: "/assets/images/Krypton-OverTheWire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Krypton, CTF, Cryptography]
 date: 2020-01-07
 ---
-* toc
-{:toc}
+
+
 
 Learn basic cryptographic techniques by playing [Krypton](https://overthewire.org/wargames/krypton/) wargame from OverTheWire. Below is the solution of Level 0 → Level 1, Level 1 → Level 2 and Level 2 → Level 3.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/overthewire_poster.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/overthewire_poster.jpg){:class="img-responsive"}
 
 ## [Krypton Level 0 → Level 1](https://overthewire.org/wargames/krypton/krypton0.html)
 
@@ -32,7 +32,7 @@ echo S1JZUFRPTklTR1JFQVQ= | base64 -d
 
 and the password is `KRYPTONISGREAT` .
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l01_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l01_terminal1.jpg){:class="img-responsive"}
 
 
 Reference : [How can I decode a base64 string from the command line?](https://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line)
@@ -50,7 +50,7 @@ Command to login `ssh krypton1@krypton.labs.overthewire.org -p 2222` and passwor
 
 The file *krypton2* is in directory */krypton/krypton1*. First change into that directory `cd /krypton/krypton1` .
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l12_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l12_terminal1.jpg){:class="img-responsive"}
 
 
 The password in *krypton2* file is encrypted using simple rotation. We can decrypt it like we did in [Bandit Level 11 → Level 12]({{ site.url }}/blog/2019/12/24/Bandit-Level-9-to-Level-12-OverTheWire). The command is
@@ -60,7 +60,7 @@ cat krypton2 | tr "[a-zA-Z]" "[n-za-mN-ZA-M]
 
 and the password is `ROTTEN` .
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l12_terminal2.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l12_terminal2.jpg){:class="img-responsive"}
 
 
 {% include ads.html %}<br/>
@@ -87,7 +87,7 @@ The encrypted password is in the *krypton3* which is in the */krypton/krypton2* 
 
 In the directory there is encrypt binary and *keyfile.dat* which contains the key but we cannot open it.  When we execute the binary the output says that a file containing plaintext should be executed along with the binary.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l23_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l23_terminal1.jpg){:class="img-responsive"}
 
 We can create a directory */tmp/programmercave* . This directory mush have executable permission set because we will execute the *encrypt* binary. This directory will contain a *plaintext* file with text ABCD. 
 ```
@@ -99,14 +99,14 @@ ABCD
 ^C
 ```
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l23_terminal2.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l23_terminal2.jpg){:class="img-responsive"}
 
 We need to create symbolic link to file */krypton/krypton2/keyfile.dat* because when encrypt is executed, key should there in that directory. This can be done using 
 ```
 ln -s /krypton/krypton2/keyfile.dat  
 ```
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l23_terminal3.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l23_terminal3.jpg){:class="img-responsive"}
 
 The command `/krypton/krypton2/encrypt plaintext` will encrypt the text ABCD in *plaintext* using key from *keyfile.dat* to new file *ciphertext*. The file *ciphertext* contains MNOP. This means the key is converting ABCD to MNOP.
 
@@ -116,7 +116,7 @@ cat /krypton/krypton2/krypton3 | tr "[m-za-lM-ZA-L]" "[a-zA-Z]"
 ```
 and the password is `CAESARISEASY` .
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l23_terminal4.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l23_terminal4.jpg){:class="img-responsive"}
 
 ### Next Post
 [Krypton Level 3 to Level 5]({{ site.url }}/blog/2020/01/07/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques)

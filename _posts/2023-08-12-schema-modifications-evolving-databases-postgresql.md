@@ -3,18 +3,16 @@ layout: post
 title: "When Designing a Product: Adapting Your Database with Schema Modifications"
 description: "Discover the essential art of schema modifications for evolving databases in this comprehensive guide. Learn how to adapt your data structure to accommodate growth while retaining valuable information. Uncover the power of daily login activity summarization and efficient reporting using PostgreSQL."
 author: "Programmercave"
-header-img: "/assets/schema-modification/psql.png"
+header-img: "/assets/images/schema-modification/psql.png"
 tags:  [PostgreSQL, SQL, Database]
 date: 2023-08-12
+toc: true
 ---
-* toc
-{:toc}
-
 ## Introduction
 
 In the world of database management and product design, it's essential to be prepared for potential schema modifications as your product evolves. These modifications could entail various changes to the structure of your database, such as adding or removing columns, altering data types, or optimizing for performance. However, during these transformations, it's crucial to ensure that you don't lose the valuable data you've accumulated in your existing database.
 
-![When Designing a Product: Adapting Your Database with Schema Modifications]({{ site.url }}/assets/schema-modification/psql.png){:class="img-responsive"}
+![When Designing a Product: Adapting Your Database with Schema Modifications]({{ site.url }}/assets/images/schema-modification/psql.png){:class="img-responsive"}
 
 ## Understanding the Original Table Structure
 

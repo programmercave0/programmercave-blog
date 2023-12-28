@@ -3,12 +3,12 @@ layout: post
 title: "Move all Odd numbers after Even numbers in Singly Linked List | C++ Implementation"
 description: "Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers."
 author: "Programmercave"
-header-img: "/assets/moveevenbeforeodd.png"
+header-img: "/assets/images/moveevenbeforeodd.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structures]
 date: 2018-02-08
 ---
-* toc
-{:toc}
+
+
 
 Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.
 
@@ -18,7 +18,7 @@ Given Linked List : 1, 2, 3, 4, 5, 6, 7
 After Modification : 2, 4, 6, 1, 3, 5, 7
 ```
 
-![Move Odd After Even]({{ site.url }}/assets/moveevenbeforeodd.png){:class="img-responsive"}
+![Move Odd After Even]({{ site.url }}/assets/images/moveevenbeforeodd.png){:class="img-responsive"}
 
 From the above fig. we can see that how the function will work.
 

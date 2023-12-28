@@ -3,12 +3,12 @@ layout: post
 title: "Picking Numbers - HackerRank | C++ Implementation"
 description: "Given an array of integers, find and print the maximum number of integers you can select from the array such that the absolute difference between any two of the chosen integers is less than or equal to 1. For example, if your array is a = [1, 1, 2, 2, 4, 4, 5, 5, 5], you can create two subarrays meeting the criterion: [1, 1, 2, 2] and [4, 4, 5, 5, 5]. The maximum length subarray has 5 elements."
 author: "Programmercave"
-header-img: "/assets/2020-03-28-Picking-Numbers-Hacker-Challenge/HR_picking_numbers.jpg"
+header-img: "/assets/images/2020-03-28-Picking-Numbers-Hacker-Challenge/HR_picking_numbers.jpg"
 tags:  [Cpp, Algorithm, Competitive-Programming, Hackerrank, Data-Structure]
 date: 2020-03-28
 ---
-* toc
-{:toc}
+
+
 
 <h1>Problem:</h1>
 
@@ -38,7 +38,7 @@ int subarray_first_element = array[0];
 
 `count` is initialised with `1` because we iterate from the index 1 of the array. The element being considered is checked with `subarray_first_element` and if the condition is `true`, `count` is incremented and we have two elements in the subarray.
 
-![Picking Numbers HackerRank]({{ site.url }}/assets/2020-03-28-Picking-Numbers-Hacker-Challenge/HR_picking_numbers.jpg){:class="img-responsive"}
+![Picking Numbers HackerRank]({{ site.url }}/assets/images/2020-03-28-Picking-Numbers-Hacker-Challenge/HR_picking_numbers.jpg){:class="img-responsive"}
 
 If the condition is `false`, `result` is updated if the `count` is greater than the `result` (or length of this subarray is greater than the previous subarray). `count` is initialised with `1` and `subarray_first_element` with `array[i]`.
 

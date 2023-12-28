@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 19 to Level 20 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21. In this post we will learn about setuid and how to use it to access files of other users. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-25
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21. 
 
@@ -16,7 +16,7 @@ In this post we will learn about setuid and how to use it to access files of oth
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -43,7 +43,7 @@ When an executable file's setuid permission is set, users may execute that progr
 
 When viewing a file's permissions with the `ls -l` command, the setuid permission is displayed as an "**s**" in the "user execute" bit position.
 
-![Bandit Level 19 20]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1920_terminal.jpg){:class="img-responsive"}
+![Bandit Level 19 20]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1920_terminal.jpg){:class="img-responsive"}
 
 Here setuid is set for the binary file (`-rwsr-x--`) and the user is *bandit20*. So if execute `./bandit20-do` it will run as user *bandit20* and password for *bandit20* is stored in */etc/bandit_paas/bandit20* which is only accessible through user *bandit20*.
 
@@ -78,7 +78,7 @@ First lets see how to create a TCP listener connection on our local machine. For
 
 Now in second terminal netcat client establishes connection to the server on port 5000. The command to do that is `nc -v localhost 5000`. Option `-v` give more verbose output. 
 
-![Bandit Level 20 21]({{ site.url }}/assets/Bandit-Overthewire/bandit2021.gif){:class="img-responsive"}
+![Bandit Level 20 21]({{ site.url }}/assets/images/Bandit-Overthewire/bandit2021.gif){:class="img-responsive"}
 
 Now login to a remote machine as user bandit20.
 
@@ -86,7 +86,7 @@ Binary file *suconnect* has escalated privilege as user *bandit21*. After runnin
 
 It also shows “*This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back*”.
 
-![Bandit Level 20 21]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2021_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 20 21]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2021_terminal2.jpg){:class="img-responsive"}
 
 First we have to establish a TCP connection like we did above. We can connect on any port for eg. port 12345. Then we pass the password of current level (bandit20). And if the password is correct, it will display password for level 21.
 
@@ -104,7 +104,7 @@ and the password is `****` .
 
 Here connection is also established on port 12346.
 
-![Bandit Level 20 21]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2021_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 20 21]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2021_terminal3.jpg){:class="img-responsive"}
 
 Reference : [https://unix.stackexchange.com/a/214480/244874](https://unix.stackexchange.com/a/214480/244874)<br/>
 [https://linux.die.net/man/1/nc](https://linux.die.net/man/1/nc)<br/>

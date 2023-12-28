@@ -3,14 +3,14 @@ layout: post
 title: "How to Install a Software on Ubuntu | Package Management"
 description: "A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs."
 author: "Programmercave"
-header-img: "/assets/ubuntulogo.jpeg"
+header-img: "/assets/images/ubuntulogo.jpeg"
 tags:  [Operating-System, Linux, Ubuntu]
 date: 2019-11-24
 ---
-* toc
-{:toc}
 
-![Range]({{ site.url }}/assets/ubuntulogo.jpeg){:class="img-responsive"}
+
+
+![Range]({{ site.url }}/assets/images/ubuntulogo.jpeg){:class="img-responsive"}
 
 **Package management** facilities helps us to install and maintain software on the system. The package file for Ubuntu and other Debian based OS ends with `.deb`. <br/>For eg. `draw.io-amd64-12.2.2.deb`
 

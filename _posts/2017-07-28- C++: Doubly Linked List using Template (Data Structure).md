@@ -3,12 +3,12 @@ layout: post
 title: "Doubly Linked List | C++ Implementation"
 description: "A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction."
 author: "Programmercave"
-header-img: "/assets/doublylinkedlist.png"
+header-img: "/assets/images/doublylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2017-07-28
 ---
-* toc
-{:toc}
+
+
 
 The nodes in a linked list are connected through *pointers*. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A *node* in a **doubly linked list** contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.
 
@@ -29,7 +29,7 @@ struct Node
 
 To declare head: `Node *head, *tail;`
 
-![Doubly Linked List]({{ site.url }}/assets/doublylinkedlist.png){:class="img-responsive"}
+![Doubly Linked List]({{ site.url }}/assets/images/doublylinkedlist.png){:class="img-responsive"}
 
 In the above fig. Node containing 5 is head and node containing 15 is tail.
 

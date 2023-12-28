@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 25 to Level 26 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 25 → Level 26 and 26 → Level 27. In this level we will learn how to change shell and how size of the terminal window can also help us to crack the password. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-26
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 25 → Level 26 and 26 → Level 27. 
 
@@ -16,7 +16,7 @@ In this level we will learn how to change shell and how size of the terminal win
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -47,11 +47,11 @@ Command to connect remote host : `ssh bandit25@bandit.labs.overthewire.org -p 22
 
 There is a private key in the file *bandit26.sshkey* in */home/bandit25* directory. If we use this private key to login as user *bandit26* using command `ssh -i bandit26.sshkey bandit26@localhost` we are logged out. We receive a message “*Connection to localhost closed*”.
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal1.jpg){:class="img-responsive"}
 
 Lets find some information of user bandit25 and bandit26. bandit25 uses */bin/sh* shell and bandit26 uses something */usr/bin/showtext*.
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal2.jpg){:class="img-responsive"}
 
 Lets see what is inside the showtext file. The content is
 ``` 
@@ -61,7 +61,7 @@ more ~/text.txt
 exit 0
 ```
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal3.jpg){:class="img-responsive"}
 
 Before exiting, command more `~/text.txt` is executed.
 
@@ -69,15 +69,15 @@ Before exiting, command more `~/text.txt` is executed.
 
 To enable `more` we have to decrease size of our terminal window.
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal4.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal4.jpg){:class="img-responsive"}
 
 Enter command `ssh -i bandit26.sshkey bandit26@localhost`.
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal5.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal5.jpg){:class="img-responsive"}
 
 After typing `v` we enter into vim editor then enter `:e /etc/bandit_pass/bandit26` to view password for next level. The password for next level is `****` .
 
-![Bandit Level 25 26]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2526_terminal6.jpg){:class="img-responsive"}
+![Bandit Level 25 26]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2526_terminal6.jpg){:class="img-responsive"}
 
 Reference : [How To View System Users in Linux on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-view-system-users-in-linux-on-ubuntu)<br/>
 [http://man7.org/linux/man-pages/man1/more.1.html](http://man7.org/linux/man-pages/man1/more.1.html)<br/>
@@ -107,7 +107,7 @@ To execute a command in subshell, enter `:!command`. Lets execute `:!ls -la`.
 
 There is a *bandit27-do* file with elevated privilege. It will help us to know the password.
 
-![Bandit Level 26 27]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2627_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 26 27]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2627_terminal1.jpg){:class="img-responsive"}
 
 Run command 
 ```
@@ -116,7 +116,7 @@ Run command
 
 and the password is `****` .
 
-![Bandit Level 26 27]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2627_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 26 27]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2627_terminal2.jpg){:class="img-responsive"}
 
 
 Reference : Vim tips: [Working with external commands](https://www.linux.com/tutorials/vim-tips-working-external-commands/)<br/>

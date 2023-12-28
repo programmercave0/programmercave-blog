@@ -3,12 +3,12 @@ layout: post
 title: "C++: Tic Tac Toe"
 description: "Here is the simple C++ implementation of Tic Tac Toe. "
 author: "Programmercave"
-header-img: "/assets/TTTOut1.png"
+header-img: "/assets/images/TTTOut1.png"
 tags:  [Cpp, Project, Games]
 date: 2018-04-05
 ---
-* toc
-{:toc}
+
+
 
 Here is the simple C++ implementation of Tic Tac Toe. 
 
@@ -138,8 +138,8 @@ int main()
 
 Output
 
-![Output1]({{ site.url }}/assets/TTTOut1.png)
+![Output1]({{ site.url }}/assets/images/TTTOut1.png)
 
-![Output2]({{ site.url }}/assets/TTTOut2.png)
+![Output2]({{ site.url }}/assets/images/TTTOut2.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xnzYE5khNdQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -3,23 +3,23 @@ layout: post
 title: "Bellman Ford Algorithm | Single-Source Shortest Path"
 description: "Bellman–Ford algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex."
 author: "Programmercave"
-header-img: "/assets/bellman.png"
+header-img: "/assets/images/bellman.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2018-03-11
 ---
-* toc
-{:toc}
+
+
 
 **Bellman–Ford** algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex.
 
 The algorithm returns TRUE if there is no negative-weight cycle and FALSE if there is a negative-weight cycle reachable from the source vertex. If there is a negative-weight cycle that is reachable from source vertex, then no solution exists.
 
-![Bellman-Ford]({{ site.url }}/assets/bellman.png){:class="img-responsive"}
+![Bellman-Ford]({{ site.url }}/assets/images/bellman.png){:class="img-responsive"}
 
 In fig. (a) there is no negative-weight cycle, so Bellman Ford algorithm finds the shortest path from source if fig. (a) is in a graph whereas fig. (b) contains a negative-weight cycle therefore no solution exists.
 
-![Bellman-Ford]({{ site.url }}/assets/bellman1.png){:class="img-responsive"}
-![Bellman-Ford]({{ site.url }}/assets/bellman2.png){:class="img-responsive"}
+![Bellman-Ford]({{ site.url }}/assets/images/bellman1.png){:class="img-responsive"}
+![Bellman-Ford]({{ site.url }}/assets/images/bellman2.png){:class="img-responsive"}
 
 In fig. (a) the graph is in inital configuration. All vertices were at distance infinity from source vertex *a*. Then vertices *b* and *c* are reached and their distance from vertex *a* is updated. 
 
@@ -200,7 +200,7 @@ int main()
 
 Output
 
-![Output]({{ site.url }}/assets/BellmanOut.png){:class="img-responsive"}
+![Output]({{ site.url }}/assets/images/BellmanOut.png){:class="img-responsive"}
 
 Get this post in pdf - [Bellman Ford Algorithm](https://www.file-up.org/1i0k5ezjgq66)
 

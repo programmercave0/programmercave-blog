@@ -3,13 +3,11 @@ layout: post
 title: "Getting Started with Kafka and Go: Reading Messages and Inserting into a Database"
 description: "In the below code, messages are read from a Kafka topic, parsed as JSON, and then inserted into a PostgreSQL database. This is a common use case for Kafka, where it is used as a data source for other applications or databases."
 author: "Programmercave"
-header-img: "/assets/Kafka/kgp.png"
+header-img: "/assets/images/Kafka/kgp.png"
 tags:  [Go, Kafka, SQL, PostgreSQL, DataBase]
 date: 2023-04-13
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction:
 
 Kafka is a popular distributed streaming platform that is used for building real-time data pipelines and streaming applications. It is designed to handle high-volume data streams in real-time and provide reliable and scalable data streaming. Kafka is used for a wide range of applications, including real-time analytics, monitoring, log aggregation, and messaging systems.
@@ -41,7 +39,7 @@ cd kafka_2.13-2.8.0
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-![Read Kafka Message]({{ site.url }}/assets/Kafka/kgo1.png){:class="img-responsive"}
+![Read Kafka Message]({{ site.url }}/assets/images/Kafka/kgo1.png){:class="img-responsive"}
 
 This command starts the ZooKeeper service, which is required by Kafka to run.
 
@@ -63,7 +61,7 @@ To create a topic in Kafka, open a new terminal window and navigate to the Kafka
 bin/kafka-topics.sh --create --topic mytopic --bootstrap-server localhost:9092
 ```
 
-![Read Kafka Message]({{ site.url }}/assets/Kafka/kgo2.png){:class="img-responsive"}
+![Read Kafka Message]({{ site.url }}/assets/images/Kafka/kgo2.png){:class="img-responsive"}
 
 Note: Replace mytopic with the name of your topic.
 
@@ -75,7 +73,7 @@ To check if Kafka is installed and running properly, open a new terminal window 
 bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ```
 
-![Read Kafka Message]({{ site.url }}/assets/Kafka/kgo3.png){:class="img-responsive"}
+![Read Kafka Message]({{ site.url }}/assets/images/Kafka/kgo3.png){:class="img-responsive"}
 
 This command should display the list of topics that are available in Kafka. If you see your topic in the list, then Kafka is installed and running properly.
 
@@ -137,7 +135,7 @@ First setup postgres and create database, user and table. Visit [Complete Guide:
 
 I have created table `kafka_mytopic` in database `kafka_responses` and the user is `user_mytopic`.
 
-![Read Kafka Message]({{ site.url }}/assets/Kafka/kgo4.png){:class="img-responsive"}
+![Read Kafka Message]({{ site.url }}/assets/images/Kafka/kgo4.png){:class="img-responsive"}
 
 In the code snippet provided, we see that the PostgreSQL database connection is set up using the `database/sql` package.
 
@@ -262,7 +260,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 
 This command opens an interactive console where you can enter messages to send to the specified Kafka topic. Each message should be a JSON object with "key" and "value" fields.
 
-![Read Kafka Message]({{ site.url }}/assets/Kafka/Kafka-.gif){:class="img-responsive"}
+![Read Kafka Message]({{ site.url }}/assets/images/Kafka/Kafka-.gif){:class="img-responsive"}
 
 In a Go program, you can use the kafka-go package to send messages to a Kafka topic. Here's an example:
 

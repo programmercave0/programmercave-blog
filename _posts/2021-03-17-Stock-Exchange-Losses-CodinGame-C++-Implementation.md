@@ -3,12 +3,11 @@ layout: post
 title: "Stock Exchange Losses - CodinGame | C++ Implementation"
 description: "A finance company is carrying out a study on the worst stock investments and would like to acquire a program to do so. The program must be able to analyze a chronological series of stock values in order to show the largest loss that it is possible to make by buying a share at a given time t0 and by selling it at a later date t1. The loss will be expressed as the difference in value between t0 and t1. If there is no loss, the loss will be worth 0."
 author: "Programmercave"
-header-img: "/assets/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img1.png"
+header-img: "/assets/images/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img1.png"
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2021-03-17
+toc: true
 ---
-* toc
-{:toc}
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Medium.
 
@@ -42,7 +41,7 @@ Output
 -3
 ```
 
-![Stock Exchange Losses]({{ site.url }}/assets/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img1.png){:class="img-responsive"}
+![Stock Exchange Losses]({{ site.url }}/assets/images/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img1.png){:class="img-responsive"}
 
 ```
 Input
@@ -53,7 +52,7 @@ Output
 -4
 ```
 
-![Stock Exchange Losses]({{ site.url }}/assets/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img2.png){:class="img-responsive"}
+![Stock Exchange Losses]({{ site.url }}/assets/images/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img2.png){:class="img-responsive"}
 
 ```
 Input
@@ -64,7 +63,7 @@ Output
 0
 ```
 
-![Stock Exchange Losses]({{ site.url }}/assets/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img3.png){:class="img-responsive"}
+![Stock Exchange Losses]({{ site.url }}/assets/images/2021-03-17-Stock-Exchange-Losses-CodinGame/Stock-Exchange-Losses-img3.png){:class="img-responsive"}
 
 From the test cases, we can see that there is a loss only when the stock price at time `t2` is less than the stock price at time `t1` (where `t2` > `t1`). Otherwise, the loss is 0.
 

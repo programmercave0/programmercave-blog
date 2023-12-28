@@ -3,12 +3,12 @@ layout: post
 title: "Pointers in C++"
 description: "A pointer is a special type of variable which holds the address of a value. A pointer is declared using * (asterisk).A constant pointer only points to the object it was initialized to.In a pointer to a constant, the pointer can not be used to modify the value at which it points."
 author: "Programmercave"
-header-img: "/assets/2019-12-02-Pointers-in-C++-Explained/ptr.png"
+header-img: "/assets/images/2019-12-02-Pointers-in-C++-Explained/ptr.png"
 tags:  [Cpp]
 date: 2019-12-02
 ---
-* toc
-{:toc}
+
+
 
 A **pointer** is a special type of variable which holds the address of a value. A pointer is declared using * (asterisk).
 
@@ -18,7 +18,7 @@ int * ptr;  // an integer pointer or a pointer to an int
 ptr = &a; // assign address of a to ptr
 ```
 
-![Pointers]({{ site.url }}/assets/2019-12-02-Pointers-in-C++-Explained/ptr.png){:class="img-responsive"}
+![Pointers]({{ site.url }}/assets/images/2019-12-02-Pointers-in-C++-Explained/ptr.png){:class="img-responsive"}
 
 In the above figure (a), `a` and `ptr` are name of location in the memory and value stored at `a` is `5` and value stored at `ptr` is `0x41a`. The address of a is `0x41a` and address of ptr is `0x021`. So ptr stores the address of `a` and we can also define another pointer which stores the address of `ptr` i.e. `0x021`.
 

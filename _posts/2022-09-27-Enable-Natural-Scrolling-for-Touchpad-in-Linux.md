@@ -3,12 +3,13 @@ layout: post
 title: "How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed"
 description: "Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don't worry, we've got you covered. We've gone through the process of searching various websites and experimenting with different techniques, and we've finally found a solution. We'll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot. Please note that this tutorial is specifically for enabling natural scrolling on a touchpad, not a mouse. There are plenty of other resources available for enabling natural scrolling on a mouse."
 author: "Programmercave"
-header-img: "/assets/Enable-Natural-Scrolling/pic1.png"
+header-img: "/assets/images/Enable-Natural-Scrolling/pic1.png"
 tags:  [Linux, Ubuntu, OpenSuse, Tumbleweed]
 date: 2022-09-27
+toc: true
 ---
-* toc
-{:toc}
+
+## Introduction
 
 Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don't worry, we've got you covered. We've gone through the process of searching various websites and experimenting with different techniques, and we've finally found a solution. We'll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot. Please note that this tutorial is specifically for enabling natural scrolling on a touchpad, not a mouse. There are plenty of other resources available for enabling natural scrolling on a mouse.
 
@@ -16,7 +17,7 @@ Are you having trouble getting natural scrolling to work on your touchpad after 
 
 If you want to manage your input devices on OpenSuse Tumbleweed, xinput is the tool you need. To install xinput, simply open a terminal and run `sudo zypper install xinput`. Once xinput is installed, you can use it to list all the input devices currently connected to your system. To do this, run `xinput --list` in the terminal. With this information, you can easily configure and customize your input devices to suit your needs.
 
-![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/Enable-Natural-Scrolling/pic1.png){:class="img-responsive"}
+![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/images/Enable-Natural-Scrolling/pic1.png){:class="img-responsive"}
 
 You should see entries for both your mouse and touchpad. To view the options available for a specific input device, use the `xinput --list-props` command followed by the device ID. For example, to view the options for your mouse, you would run `xinput --list-props <mouse device ID>`, and to view the options for your touchpad, you would run `xinput --list-props <touchpad device ID>`. This will give you a list of all the options you can set for each device, allowing you to customize them to your liking.
 
@@ -34,7 +35,7 @@ For example, if you want to change the scroll speed of your mouse, you can use t
 
 This would set the "Device Accel Constant Deceleration" option for your mouse (device ID 12) to a value of 2. You can experiment with different values to find the scroll speed that works best for you.
 
-![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/Enable-Natural-Scrolling/pic2.png){:class="img-responsive"}
+![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/images/Enable-Natural-Scrolling/pic2.png){:class="img-responsive"}
 
 We can see Mouse has option for Natural Scrolling.
 
@@ -89,7 +90,7 @@ This will unload and then reload the touchpad driver, which may cause your chang
 
 Keep in mind that these instructions are specific to the Synaptics touchpad driver. If you are using a different touchpad driver, the options and steps for enabling natural scrolling may be different.
 
-![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/Enable-Natural-Scrolling/pic3.png){:class="img-responsive"}
+![Enable Natural Scrolling for Touchpad in Linux]({{ site.url }}/assets/images/Enable-Natural-Scrolling/pic3.png){:class="img-responsive"}
 
  If you followed the steps outlined, you should now be able to scroll in the opposite direction of your finger movement on your touchpad, which can be a more intuitive and natural way of scrolling for some users.
 

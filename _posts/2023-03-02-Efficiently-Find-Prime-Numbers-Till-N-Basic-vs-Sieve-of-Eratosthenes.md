@@ -3,12 +3,12 @@ layout: post
 title: "Efficiently Find Prime Numbers Till N: Basic vs. Sieve of Eratosthenes"
 description: "Finding all prime numbers till N is a common problem in computer science and mathematics. There are various ways to solve this problem, but we will be discussing an optimized algorithm that is efficient and easy to implement."
 author: "Programmercave"
-header-img: "/assets/Prime-Numbers/sieve.png"
+header-img: "/assets/images/Prime-Numbers/sieve.png"
 tags:  [Cpp, Algorithm, Data-Structures, Competitive-Programming, Mathematics]
 date: 2023-03-02
+toc: true
 ---
-* toc
-{:toc}
+## Introduction
 
 Are you looking for a way to find all the prime numbers till N? If so, then you have landed on the right page! In this blog post, we will discuss how to find all prime numbers till N using an optimized algorithm.
 
@@ -38,7 +38,7 @@ The algorithm works as follows:
 
 The time complexity of this algorithm is **O(N*log(log(N)))**, which is much more efficient than the basic algorithm.
 
-![Sieve of Eratosthenes]({{ site.url }}/assets/Prime-Numbers/sieve.png){:class="img-responsive"}
+![Sieve of Eratosthenes]({{ site.url }}/assets/images/Prime-Numbers/sieve.png){:class="img-responsive"}
 
 ## Implementation
 
@@ -76,7 +76,7 @@ In conclusion, finding all prime numbers till N is a common problem in computer 
 If you're interested in checking out some of my code related to algorithms and data structures, be sure to visit [Algo-Data-Structure](https://github.com/{{site.github_username}}/Algo-Data-Structure) on Github. For my solutions to problems from competitive programming sites, you can find them in [Competitive-Programming](https://github.com/{{site.github_username}}/Competitive-Programming).
 
 ---
-* toc
-{:toc}
+
+
 
 By the way, if you're a teacher or parent looking for resources to help your child get ready for school, you might be interested in these fun and informative workbooks developed by a pre-school teacher. Covering all the basic skills needed for school-readiness, they're perfect for the pre-school education niche. Check them out here: [WORKSHEETS FOR PRESCHOOL](https://ce8977zhz1vrft28uay3ofipe9.hop.clickbank.net/?cbpage=wfpaffiliate)

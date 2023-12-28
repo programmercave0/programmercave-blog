@@ -3,12 +3,12 @@ layout: post
 title: "Sudoku Validator - CodinGame | C++ Implementation"
 description: "A sudoku grid consists of 9*9 = 81 cells split in 9 sub-grids of 3*3 = 9 cells. For the grid to be correct, each row must contain one occurrence of each digit(1 to 9), each column must contain one occurrence of each digit (1 to 9) and each sub-grid must contain one occurrence of each digit (1 to 9)"
 author: "Programmercave"
-header-img: "/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku1.jpg"
+header-img: "/assets/images/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku1.jpg"
 tags:  [Cpp, Competitive-Programming, CodinGame]
 date: 2020-07-13
 ---
-* toc
-{:toc}
+
+
 
 The problem is from [CodinGame](https://www.codingame.com/home) with difficulty level Easy.
 
@@ -24,7 +24,7 @@ Read full problem here : [Sudoku Validator](https://www.codingame.com/training/e
 
 <h1>Solution:</h1>
 
-![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku1.jpg){:class="img-responsive"}
+![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/images/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku1.jpg){:class="img-responsive"}
 
 
 To verify that each row contains only one occurrence of each digit (1 to 9) , we will make an array which will verify that the count of each digit is one. If the count of any digit is more than 1 than the function returns false.
@@ -79,7 +79,7 @@ for (int i = 0; i < 9; ++i)
 
 Here, array `col_values` makes sure that count of each digit is one.
 
-![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku2.jpg){:class="img-responsive"}
+![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/images/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku2.jpg){:class="img-responsive"}
 
 To verify diagonal subgrids, this code is used. It happens when `i == 0` or `i % 3 == 0`.
 
@@ -109,7 +109,7 @@ for (int i = 0; i < 9; ++i)
 }
 ```
 
-![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku4.jpg){:class="img-responsive"}
+![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/images/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku4.jpg){:class="img-responsive"}
 
 To verify these subgrids, this code is used. It happens when `i % 3 == 0`.
 
@@ -159,7 +159,7 @@ for (int i = 0; i < 9; ++i)
 }
 ```
 
-![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku5.jpg){:class="img-responsive"}
+![SUDOKU VALIDATOR CodinGame]({{ site.url }}/assets/images/2020-07-13-SUDOKU-VALIDATOR-CodinGame-C++-Implementation/sudoku5.jpg){:class="img-responsive"}
 
 To verify these subgrids, this code is used. It happens when `i == 6`.
 

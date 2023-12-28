@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 13 to Level 15 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 13 → Level 14, Level 14 → Level 15 and Level 15 → Level 16. In this post we will learn how to use ssh key instead of password to login in a remote machine. We will learn about Secure Scoket Layer and how to establish a connection to a remote machine on a port. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-24
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 13 → Level 14, Level 14 → Level 15 and Level 15 → Level 16. 
 
@@ -16,7 +16,7 @@ In this post we will learn how to use ssh key instead of password to login in a 
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -49,7 +49,7 @@ The password is stored in */etc/bandit_pass/bandit14*.
 
 The command is `cat /etc/bandit_pass/bandit14` and the password is `****` .
 
-![Bandit Level 13 14]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1314_terminal.jpg){:class="img-responsive"}
+![Bandit Level 13 14]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1314_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://linux.die.net/man/1/ssh](https://linux.die.net/man/1/ssh)<br/>
 [https://support.rackspace.com/how-to/logging-in-with-an-ssh-private-key-on-linuxmac/](https://support.rackspace.com/how-to/logging-in-with-an-ssh-private-key-on-linuxmac/)
@@ -78,7 +78,7 @@ nc localhost 30000
 ```
 and then enter password of this level. The password for the next level is `****` .
 
-![Bandit Level 14 15]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1415_terminal.jpg){:class="img-responsive"}
+![Bandit Level 14 15]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1415_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://www.commandlinux.com/man-page/man1/nc.1.html](https://www.commandlinux.com/man-page/man1/nc.1.html)
 
@@ -110,7 +110,7 @@ openssl s_client -connect localhost:30001
 ```
 and then enter password for the current level. The password for the next level is `****` .
 
-![Bandit Level 15 16]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1516_terminal.jpg){:class="img-responsive"}
+![Bandit Level 15 16]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1516_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)
 

@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 12 → Level 13 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 12 → Level 13. In this post we will learn about various compression techniques and how to decompress file. We will learn how to convert binary to hex file and vice-versa. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-24
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 12 → Level 13. 
 
@@ -16,7 +16,7 @@ In this post we will learn about various compression techniques and how to decom
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -40,14 +40,14 @@ Command to connect remote host : `ssh bandit12@bandit.labs.overthewire.org -p 22
 
 As mentioned in question make a new directory in /tmp and rename the file.
 
-![Bandit Level 12 13]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1213_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 12 13]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1213_terminal1.jpg){:class="img-responsive"}
 
 `xxd` program is used to make a hexdump or to do the reverse. Option `-r` convert hexdump into the binary. File `myfile.txt` is a hexdump and convert it into a binary file `myfile1.bin` using command
 ```
 xxd -r myfile.txt > myfile1.bin
 ```
 
-![Bandit Level 12 13]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1213_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 12 13]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1213_terminal2.jpg){:class="img-responsive"}
 
 Using command `file myfile1.bin` , we found that `myfile1.bin` is a *gzip compressed data*.
 
@@ -56,7 +56,7 @@ Using command `file myfile1.bin` , we found that `myfile1.bin` is a *gzip compre
 zcat myfile1.bin > myfile2
 ```
 
-![Bandit Level 12 13]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1213_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 12 13]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1213_terminal3.jpg){:class="img-responsive"}
 
 Again using `file` command on `myfile2`, we found that it is *bzip2 compressed data*.
 
@@ -65,7 +65,7 @@ Again using `file` command on `myfile2`, we found that it is *bzip2 compressed d
 bzcat myfile2 > myfile3
 ```
 
-![Bandit Level 12 13]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1213_terminal4.jpg){:class="img-responsive"}
+![Bandit Level 12 13]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1213_terminal4.jpg){:class="img-responsive"}
 
 
 `myfile3` is *gzip compressed file* so use `zcat` program to decompress it in `myfile4`. `myfile4` is a POSIX tar archive.
@@ -83,7 +83,7 @@ This command outputs file `data5.bin` which is again a *tar archive*. Again use 
 
 The password for the next level is `****` .
 
-![Bandit Level 12 13]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1213_terminal5.jpg){:class="img-responsive"}
+![Bandit Level 12 13]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1213_terminal5.jpg){:class="img-responsive"}
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)<br/>
 [https://linux.die.net/man/1/xxd](https://linux.die.net/man/1/xxd)

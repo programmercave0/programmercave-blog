@@ -3,19 +3,19 @@ layout: post
 title: "Depth First Search using Adjacency List | Graph traversal"
 description: "Depth first search explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started. "
 author: "Programmercave"
-header-img: "/assets/dfs.png"
+header-img: "/assets/images/dfs.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2018-03-05
 ---
-* toc
-{:toc}
+
+
 
 **Depth first search** explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started. 
 
 Initially all the vertices are white and when a vertex is discovered it becomes gray and then black when it is finished or processed.
 
-![Depth First Search]({{ site.url }}/assets/dfs.png){:class="img-responsive"}
-![Depth First Search]({{ site.url }}/assets/dfs_.png){:class="img-responsive"}
+![Depth First Search]({{ site.url }}/assets/images/dfs.png){:class="img-responsive"}
+![Depth First Search]({{ site.url }}/assets/images/dfs_.png){:class="img-responsive"}
 
 First source vertex 1 is discovered so it becomes gray. Then vertex 4 is discovered. Since there are no vertex after vertex 4 on that path so vertex 4 is processed or finished and it becomes black. Then vertex 2 is discovered and so on. When vertex 3 is processed, control backtracks to the previous vertex which is 2.
 

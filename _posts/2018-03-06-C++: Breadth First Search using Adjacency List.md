@@ -3,16 +3,16 @@ layout: post
 title: "Breadth First Search using Adjacency List | Graph traversal"
 description: "Breadth first search (BFS) explores the graph level by level. First it explore every vertex that is connected to source vertex. If the vertex is discovered, it becomes gray or black. Initially all the vertices are white."
 author: "Programmercave"
-header-img: "/assets/bfs.png"
+header-img: "/assets/images/bfs.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2018-03-06
 ---
-* toc
-{:toc}
+
+
 
 **Breadth first search** (BFS) explores the graph level by level. First it explore every vertex that is connected to source vertex. If the vertex is discovered, it becomes gray or black. Initially all the vertices are white.
 
-![Breadth First Search]({{ site.url }}/assets/bfs.png){:class="img-responsive"}
+![Breadth First Search]({{ site.url }}/assets/images/bfs.png){:class="img-responsive"}
 
 If vertex 1 is the source vertex, then it is at level 0. Vertex 2 and 4 are at level 1 and vertex 3 and 5 are at level 2. Vertex 6 is at level 3. Thus, we can calculate the distance from source vertex to other vertex.
 
@@ -164,7 +164,7 @@ int main()
 
 Output
 
-![Output]({{ site.url }}/assets/BFSAdjOut.png){:class="img-responsive"}
+![Output]({{ site.url }}/assets/images/BFSAdjOut.png){:class="img-responsive"}
 
 Get this post in pdf - [Breadth First Search](https://www.file-up.org/6qdpmefooxad)
 

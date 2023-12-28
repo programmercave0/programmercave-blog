@@ -3,12 +3,12 @@ layout: post
 title: "Repeated String - HackerRank | C++ Implementation"
 description: "Lilah has a string, s, of lowercase English letters that she repeated infinitely many times. Given an integer, n, find and print the number of letter a's in the first n letters of Lilah's infinite string.For example, if the string s = ‘abcac’ and n = 10, the substring we consider is , abcacabcac the first 10 characters of her infinite string. There are 4 occurrences of a in the substring. "
 author: "Programmercave"
-header-img: "/assets/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-2.jpg"
+header-img: "/assets/images/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-2.jpg"
 tags:  [Cpp, Algorithm, Competitive-Programming, Hackerrank, Data-Structure]
 date: 2020-04-24
 ---
-* toc
-{:toc}
+
+
 
 <h1>Problem:</h1>
 
@@ -26,7 +26,7 @@ Let us consider that `sub_str` is the input string and `str_len` is the length o
 
 When the `str_len` is less than the length of `sub_str`, we can easily calculate the number of *a*’s by iterating over the string.
 
-![Repeated String HackerRank]({{ site.url }}/assets/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-1.jpg){:class="img-responsive"}
+![Repeated String HackerRank]({{ site.url }}/assets/images/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-1.jpg){:class="img-responsive"}
 
 ```cpp
 long i = 0;
@@ -42,7 +42,7 @@ while (i < str_len)
 
 Now, when the `str_len` is greater than the length of the `sub_str` length.
 
-![Repeated String HackerRank]({{ site.url }}/assets/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-2.jpg){:class="img-responsive"}
+![Repeated String HackerRank]({{ site.url }}/assets/images/2020-04-24-Repeated-String-HackerRank/HR_repeated_strings-2.jpg){:class="img-responsive"}
 
 First, we will find the number of sub strings (`sub_str`) in the string we are considering.
 

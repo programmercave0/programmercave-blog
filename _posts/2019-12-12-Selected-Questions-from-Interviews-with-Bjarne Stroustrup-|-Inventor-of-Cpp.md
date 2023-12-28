@@ -3,12 +3,12 @@ layout: post
 title: "Selected Questions from Interviews with Bjarne Stroustrup Part 1| Creator of C++ "
 description: "What tips would you give to a budding programmer? Programming can be fun, but it is not all fun and games. Our civilization depends on good software.Whatever you are interested in, there will be a use for programming: literature, automobile production, history, coffee making, wind and solar energy, movie making, rocket science, farm management, medicine, science, engineering, and so much more.You might eventually be able to make a significant contribution to whatever field you find important or interesting! To do that you’ll have to know the field and the tools and techniques of software development. Be sure you learn about fundamentals, such as data structures and how machines work."
 author: "Programmercave"
-header-img: "/assets/2019-12-12-Bjarne-Stroustrup/bjarne.jpg"
+header-img: "/assets/images/2019-12-12-Bjarne-Stroustrup/bjarne.jpg"
 tags:  [Cpp, Articles]
 date: 2019-12-12
 ---
-* toc
-{:toc}
+
+
 
 [Bjarne Stroustrup](http://www.stroustrup.com/index.html) is a Technical Fellow and Managing Director at Morgan Stanley in New York City and a Visiting Professor at Columbia University. He's also the creator of C++.
 
@@ -16,7 +16,7 @@ In 1975, Bjarne got his MSc degree from Department of Mathematics at Aarhus Univ
 
 Bjarne Stroustrup created the C++ programming language in 1979, and it’s still just as important today as it was 38 years ago, especially with its expansion into mobile development.
 
-![Bjarne Stroustrup]({{ site.url }}/assets/2019-12-12-Bjarne-Stroustrup/bjarne.jpg){:class="img-responsive"}
+![Bjarne Stroustrup]({{ site.url }}/assets/images/2019-12-12-Bjarne-Stroustrup/bjarne.jpg){:class="img-responsive"}
 
 This is the first post of the series Selected Questions from Interviews with Bjarne Stroustrup.<br/>
 Selected Questions from Interviews with Bjarne Stroustrup Part 1<br/>

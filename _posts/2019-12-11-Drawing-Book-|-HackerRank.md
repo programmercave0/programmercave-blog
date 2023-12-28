@@ -3,12 +3,12 @@ layout: post
 title: "Drawing Book | HackerRank"
 description: "Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time. When she opens the book, page 1 is always on the right side.When she flips page 1, she sees pages 2 and 3. Each page except the last page will always be printed on both sides. The last page may only be printed on the front, given the length of the book. If the book is n pages long, and she wants to turn to page p, what is the minimum number of pages she will turn? She can start at the beginning or the end of the book."
 author: "Programmercave"
-header-img: "assets/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook1.jpg"
+header-img: "assets/images/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook1.jpg"
 tags:  [Cpp, Algorithm, Data-Structure, Competitive-Programming, Hackerrank]
 date: 2019-12-11
 ---
-* toc
-{:toc}
+
+
 
 This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like [CodeChef](https://www.codechef.com/), [HackerEarth](https://www.hackerearth.com/challenges/), [Codeforces](https://codeforces.com/) where you can practice coding.
 
@@ -16,7 +16,7 @@ This is an easy hackerrank challenge which will help you to become good at compe
 
 Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time. When she opens the book, page *1* is always on the right side:
 
-![Drawing Book Hackerrank]({{ site.url }}/assets/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook.jpg){:class="img-responsive"}
+![Drawing Book Hackerrank]({{ site.url }}/assets/images/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook.jpg){:class="img-responsive"}
 
 When she flips page *1*, she sees pages *2* and *3*. Each page except the last page will always be printed on both sides. The last page may only be printed on the front, given the length of the book. If the book is *n* pages long, and she wants to turn to page *p*, what is the minimum number of pages she will turn? She can start at the beginning or the end of the book.
 
@@ -26,7 +26,7 @@ Read full problem here : [Drawing Book](https://www.hackerrank.com/challenges/dr
 
 Except first (and last page if number of pages in the book is even), a reader always sees two pages where page number on left page is even and page number on right page is odd. So number of flips from the front page to any pages *p* and *p+1* is equal. Thus if *p* is even then increment *p* by 1 and calculate number of minimum number of flips to *p* from front or back of the book. 
 
-![Drawing Book Hackerrank]({{ site.url }}/assets/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook1.jpg){:class="img-responsive"}
+![Drawing Book Hackerrank]({{ site.url }}/assets/images/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook1.jpg){:class="img-responsive"}
 
 Here for `p = 2` and `p = 3`, number of flips from front page is `1`.
 
@@ -57,9 +57,9 @@ for (int i = 0; i <= n/2; ++i)
 
 For the above example the array `right_page_number` is :
 
-![Drawing Book Hackerrank]({{ site.url }}/assets/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook2.jpg){:class="img-responsive"}
+![Drawing Book Hackerrank]({{ site.url }}/assets/images/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook2.jpg){:class="img-responsive"}
 
-![Drawing Book Hackerrank]({{ site.url }}/assets/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook3.jpg){:class="img-responsive"}
+![Drawing Book Hackerrank]({{ site.url }}/assets/images/2019-12-11-Drawing-Book-HackerRank/HR_drawingbook3.jpg){:class="img-responsive"}
 
 The index of the array `right_page_number` tells the number of flips from the front page to the page number. For eg. number of flips from front to page number 4 (*p = 5*) is 2.
 

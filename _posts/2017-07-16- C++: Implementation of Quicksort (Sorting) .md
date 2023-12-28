@@ -3,18 +3,18 @@ layout: post
 title: "Quicksort | C++ Implementation"
 description: "The algorithm selects an element as pivot. The input array is divided into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are sorted independently and then merged to form a single sorted array."
 author: "Programmercave"
-header-img: "/assets/quicksort.png"
+header-img: "/assets/images/quicksort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-07-16
 ---
-* toc
-{:toc}
+
+
 
 Like mergesort, **quicksort** also follows *divide-and-conquer* approach. The algorithm selects an element as *pivot*. The input array is **divided** into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are **sorted** independently and then **merged** to form a single sorted array.
 
 **Related :** [Merge Sort]({{ site.url }}/blog/2017/08/24/C++-Implementation-of-Merge-Sort)
 
-![Quicksort]({{ site.url }}/assets/quicksort.png){:class="img-responsive"}
+![Quicksort]({{ site.url }}/assets/images/quicksort.png){:class="img-responsive"}
 
 In fig. (a) 4 is selected as the pivot and in fig. (b) all elements left to the 4 are smaller than it and all elements right to the 4 are greater than it and then these two subarrays are solved independently.
 
@@ -45,7 +45,7 @@ int split(int a[], int start_index, int end_index)
 
 Here is the operation of `split` for the first time.
 
-![Quicksort]({{ site.url }}/assets/quicksortsplit.png){:class="img-responsive"}
+![Quicksort]({{ site.url }}/assets/images/quicksortsplit.png){:class="img-responsive"}
 
 ```cpp
 void quicksort(int a[], int start_index, int end_index)

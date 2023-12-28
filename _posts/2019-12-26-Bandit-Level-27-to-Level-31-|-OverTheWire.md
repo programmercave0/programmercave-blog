@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 27 to Level 31 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32. In this post we will learn about git and its terminal command. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-26
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32. 
 
@@ -16,7 +16,7 @@ In this post we will learn about git and its terminal command.
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -59,7 +59,7 @@ and enter this level’s password.
 
 The password is in the README in *repo* directory and the password is `****` .
 
-![Bandit Level 27 28]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2728_terminal.jpg){:class="img-responsive"}
+![Bandit Level 27 28]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2728_terminal.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
@@ -86,12 +86,12 @@ git clone  ssh://bandit28-git@localhost/home/bandit28-git/repo
 
 But README.md file does not contain password.
 
-![Bandit Level 28 29]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2829_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 28 29]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2829_terminal1.jpg){:class="img-responsive"}
 
 
 The file README.md has been updated. The `git show` command shows the most recent commit on the current branch. This command shows the changes made in the README.md file. The password for the next level is `****` .
 
-![Bandit Level 28 29]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2829_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 28 29]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2829_terminal2.jpg){:class="img-responsive"}
 
 Reference : [https://git-scm.com/docs/user-manual](https://git-scm.com/docs/user-manual)
 
@@ -117,7 +117,7 @@ Initial part is same as the previous level. Clone the repository under *tmp* dir
 
 The README file does not contain password. Infact password is not in the production. Lets check other branches.
 
-![Bandit Level 29 30]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2930_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 29 30]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2930_terminal1.jpg){:class="img-responsive"}
 
 `git branch` command shows you the list of branch heads.
 
@@ -127,7 +127,7 @@ The repository may also have had other branches, though, and your local reposito
 
 The README.md file in dev branch has the password for the next level and the password is `****` .
 
-![Bandit Level 29 30]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2930_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 29 30]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2930_terminal2.jpg){:class="img-responsive"}
 
 Reference : [https://git-scm.com/docs/user-manual](https://git-scm.com/docs/user-manual)<br/>
 [Git Checkout](https://www.atlassian.com/git/tutorials/using-branches/git-checkout)
@@ -154,15 +154,15 @@ Clone the repository in tmp directory using command `git clone ssh://bandit30-gi
 
 The README.md file does not contain the password. 
 
-![Bandit Level 30 31]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3031_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 30 31]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3031_terminal1.jpg){:class="img-responsive"}
 
 `git show`, `git log` and `git branch -r` does not help us in this level.
 
-![Bandit Level 30 31]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3031_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 30 31]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3031_terminal2.jpg){:class="img-responsive"}
 
 `git tag` create, list, delete or verify a tag object signed with GPG. This command tells us about the `secret` tag. We can view this tag using `git show secret` and the password is `****` .
 
-![Bandit Level 30 31]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3031_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 30 31]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3031_terminal3.jpg){:class="img-responsive"}
 
 Reference : [https://git-scm.com/docs/user-manual](https://git-scm.com/docs/user-manual)<br/>
 [https://git-scm.com/docs/git-tag](https://git-scm.com/docs/git-tag)
@@ -194,19 +194,19 @@ git commit -m “commit message”
 git push origin master
 ```
 
-![Bandit Level 31 32]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3132_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 31 32]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3132_terminal1.jpg){:class="img-responsive"}
 
 But when we try to add file it tell us that *.gitignore* file is ignoring our file.
 
-![Bandit Level 31 32]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3132_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 31 32]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3132_terminal2.jpg){:class="img-responsive"}
 
 We can delete the *.gitignore* file.
 
-![Bandit Level 31 32]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3132_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 31 32]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3132_terminal3.jpg){:class="img-responsive"}
 
 Now if add and push our file it will show us the password for next level and the password is `****` .
 
-![Bandit Level 31 32]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3132_terminal4.jpg){:class="img-responsive"}
+![Bandit Level 31 32]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3132_terminal4.jpg){:class="img-responsive"}
 
 ### Next Post
 

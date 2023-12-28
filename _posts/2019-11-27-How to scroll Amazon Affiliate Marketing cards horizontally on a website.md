@@ -5,8 +5,8 @@ author: "Programmercave"
 tags:  [HowTo, HTML, CSS]
 date: 2019-11-27
 ---
-* toc
-{:toc}
+
+
 
 I wanted to put my amazon affiliate marketing product on website. But on smaller screens it was messing up my website's interface. I searched on internet tried many things but no result. Then I tried it with `<table>` in html and css and it worked. Here is the code for that.
 
@@ -71,8 +71,6 @@ You can find these codes in this repository.
 {% include ads.html %}<br/>
 
 This is how it will look.
-
-{% include amazon_affiliate_laptops.html %}
 
 {% include ads.html %}<br/>
 

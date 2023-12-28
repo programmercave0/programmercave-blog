@@ -3,13 +3,11 @@ layout: post
 title: "Creating triggers in PostgreSQL to monitor changes in tables"
 description: "In a database management system, triggers are special types of stored procedures that are automatically executed in response to specific database events, such as insert, update, or delete operations on a table. Triggers can be used for a variety of purposes, such as enforcing data integrity rules, logging changes to a table, or sending notifications when certain events occur."
 author: "Programmercave"
-header-img: "/assets/Postgres-Triggers/after_insert.png"
+header-img: "/assets/images/Postgres-Triggers/after_insert.png"
 tags:  [SQL, PostgreSQL, DataBase]
 date: 2023-02-27
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction
 
 In a database management system, triggers are special types of stored procedures that are automatically executed in response to specific database events, such as insert, update, or delete operations on a table. Triggers can be used for a variety of purposes, such as enforcing data integrity rules, logging changes to a table, or sending notifications when certain events occur.
@@ -203,7 +201,7 @@ Using a single trigger function for all types of operations can make it easier t
 
 This is how our `employee` table looks like:
 
-![Employee Table]({{ site.url }}/assets/Postgres-Triggers/employee_table.png){:class="img-responsive"}
+![Employee Table]({{ site.url }}/assets/images/Postgres-Triggers/employee_table.png){:class="img-responsive"}
 
 To test our triggers, we need to listen to the `employee_table_changes` channel in the database using the following command:
 
@@ -221,7 +219,7 @@ INSERT INTO employee (name, department) VALUES ('Alice', 'Marketing');
 
 After running this `INSERT` statement, a notification should be sent to the `employee_table_changes` channel with the following payload:
 
-![Employee Table]({{ site.url }}/assets/Postgres-Triggers/after_insert.png){:class="img-responsive"}
+![Employee Table]({{ site.url }}/assets/images/Postgres-Triggers/after_insert.png){:class="img-responsive"}
 
 Next, we can update Alice's department using the following `UPDATE` statement:
 
@@ -231,7 +229,7 @@ UPDATE employee SET department = 'Sales' WHERE name = 'Alice';
 
 After running this `UPDATE` statement, a notification should be sent to the `employee_table_changes` channel with the following payload:
 
-![Employee Table]({{ site.url }}/assets/Postgres-Triggers/after_update.png){:class="img-responsive"}
+![Employee Table]({{ site.url }}/assets/images/Postgres-Triggers/after_update.png){:class="img-responsive"}
 
 Finally, we can delete Alice's record using the following `DELETE` statement:
 
@@ -241,6 +239,6 @@ DELETE FROM employee WHERE name = 'Alice';
 
 After running this `DELETE` statement, a notification should be sent to the `employee_table_changes` channel with the following payload:
 
-![Employee Table]({{ site.url }}/assets/Postgres-Triggers/after_delete.png){:class="img-responsive"}
+![Employee Table]({{ site.url }}/assets/images/Postgres-Triggers/after_delete.png){:class="img-responsive"}
 
 By using triggers and notifications, we can easily track changes to a database table and respond to them in real-time. This can be useful for building real-time applications or monitoring systems that need to react to changes in a database.

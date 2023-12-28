@@ -3,29 +3,29 @@ layout: post
 title: "Best Memes on Javascript"
 description: "Here is the collection of some of the best memes on Javascript."
 author: "Programmercave"
-header-img: "/assets/JS-Memes/jsmeme1.jpg"
+header-img: "/assets/images/JS-Memes/jsmeme1.jpg"
 tags:  [Memes]
 date: 2019-12-26
 ---
-* toc
-{:toc}
+
+
 
 Here is the collection of some of the best memes on Javascript.
 
 
-![Javascript Memes]({{ site.url }}/assets/JS-Memes/jsmeme.jpg){:class="img-responsive"}
+![Javascript Memes]({{ site.url }}/assets/images/JS-Memes/jsmeme.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
-![Javascript Memes]({{ site.url }}/assets/JS-Memes/jsmeme1.jpg){:class="img-responsive"}
+![Javascript Memes]({{ site.url }}/assets/images/JS-Memes/jsmeme1.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
-![Javascript Memes]({{ site.url }}/assets/JS-Memes/jsmeme2.jpg){:class="img-responsive"}
+![Javascript Memes]({{ site.url }}/assets/images/JS-Memes/jsmeme2.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
-![Javascript Memes]({{ site.url }}/assets/JS-Memes/jsmeme3.jpg){:class="img-responsive"}
+![Javascript Memes]({{ site.url }}/assets/images/JS-Memes/jsmeme3.jpg){:class="img-responsive"}
 
 ### Realted Posts:
 

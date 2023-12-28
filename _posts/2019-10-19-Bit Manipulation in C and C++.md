@@ -3,12 +3,12 @@ layout: post
 title: "How to Manipulate Bits in C and C++"
 description: "All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits."
 author: "Programmercave"
-header-img: "/assets/bitmtable1.png"
+header-img: "/assets/images/bitmtable1.png"
 tags:  [Cpp, Competitive-Programming, Bitmasking]
 date: 2019-10-19
 ---
-* toc
-{:toc}
+
+
 
 All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.
 
@@ -20,7 +20,7 @@ Here is the bit representation of 32 bit int number 10:<br/>
 
 In C++, `int` is either *signed* or *unsigned* and so a bit representation is either *signed* or *unsigned*. 
 
-![Range]({{ site.url }}/assets/bitmtable1.png){:class="img-responsive"}
+![Range]({{ site.url }}/assets/images/bitmtable1.png){:class="img-responsive"}
 
 In a signed representation, first bit represents the sign of a number (0 for positive and 1 for negative), and remaining n-1 bits contains the magnitude of the number.
  <br/><input type="hidden" name="IL_IN_ARTICLE"> <br/>
@@ -38,7 +38,7 @@ In a signed representation, the next number after 2<sup>n – 1</sup> – 1 is -
 
 # Bit Operations
 
-![Operations]({{ site.url }}/assets/bitmtable2.png){:class="img-responsive"}
+![Operations]({{ site.url }}/assets/images/bitmtable2.png){:class="img-responsive"}
 
 
 We can use & operator to check if a number is even or odd. If `x & 1 = 0` then `x` is even and if `x & 1 = 1` then `x` is odd. We can also say that, `x` is divisible by 2<sup>k</sup> exactly when x & (2<sup>k</sup> – 1) = 0.

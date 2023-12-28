@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 16 to Level 18 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 16 → Level 17, Level 17 → Level 18 and Level 18 → Level 19. In this post we will learn how to scan for open ports and how to private key to login in a remote machine. We will learn how to find difference in two text files and how to use psuedo terminals. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-24
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 16 → Level 17, Level 17 → Level 18 and Level 18 → Level 19. 
 
@@ -16,7 +16,7 @@ In this post we will learn how to scan for open ports and how to private key to 
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -45,7 +45,7 @@ Nmap (“Network Mapper”) will help us to scan for ports. Option `-p` provides
 nmap localhost -p31000-32000 
 ```
 
-![Bandit Level 16 17]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1617_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 16 17]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1617_terminal1.jpg){:class="img-responsive"}
 
 We found two ports and port 31790 is open. Open port means server on that port is listening.
 
@@ -77,7 +77,7 @@ SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
 
 Save this key locally on your computer with name bandit17.key.
 
-![Bandit Level 16 17]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1617_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 16 17]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1617_terminal2.jpg){:class="img-responsive"}
 
 
 In level 13 we login using a ssh private key. We will try to do it here with command
@@ -92,7 +92,7 @@ sudo chmod 400 bandit17.key
 
 Now we can login into bandit17.
 
-![Bandit Level 16 17]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1617_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 16 17]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1617_terminal3.jpg){:class="img-responsive"}
 
 
 Reference : [https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)<br/>
@@ -126,7 +126,7 @@ diff --normal passwords.new passwords.old
 
 and the difference in passwords.new is `****` . 
 
-![Bandit Level 17 18]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1718_terminal.jpg){:class="img-responsive"}
+![Bandit Level 17 18]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1718_terminal.jpg){:class="img-responsive"}
 
 Reference : [http://man7.org/linux/man-pages/man1/diff.1.html](http://man7.org/linux/man-pages/man1/diff.1.html)
 
@@ -159,7 +159,7 @@ ssh -t bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 
 and the password for the next level is `***` .
 
-![Bandit Level 18 19]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1819_terminal.jpg){:class="img-responsive"}
+![Bandit Level 18 19]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1819_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://linux.die.net/man/1/ssh](https://linux.die.net/man/1/ssh)<br/>
 [https://unix.stackexchange.com/a/21150/244874](https://unix.stackexchange.com/a/21150/244874)<br/>

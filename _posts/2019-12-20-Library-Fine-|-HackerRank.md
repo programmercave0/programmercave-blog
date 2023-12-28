@@ -7,12 +7,12 @@ description: "Your local library needs your help! Given the expected and actual 
  • If the book is returned after the expected return month but still within the same calendar year as the expected return date, the fine = 500 Hackos * (the number of months late). 
  • If the book is returned after the calendar year in which it was expected, there is a fixed fine of 10000 Hackos."
 author: "Programmercave"
-header-img: "/assets/2019-12-20-Library-Fine/Hackerrank_poster.jpg"
+header-img: "/assets/images/2019-12-20-Library-Fine/Hackerrank_poster.jpg"
 tags:  [Cpp, Algorithm, Data-Structure, Competitive-Programming, Hackerrank]
 date: 2019-12-20
 ---
-* toc
-{:toc}
+
+
 
 This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like [CodeChef](https://www.codechef.com/), [HackerEarth](https://www.hackerearth.com/challenges/), [Codeforces](https://codeforces.com/) where you can practice coding.
 
@@ -29,7 +29,7 @@ Charges are based only on the least precise measure of lateness. For example, wh
  
 Read full problem : [Library Fine](https://www.hackerrank.com/challenges/library-fine/problem)
 
-![Library Fine HackerRank]({{ site.url }}/assets/2019-12-20-Library-Fine/Hackerrank_poster.jpg){:class="img-responsive"}
+![Library Fine HackerRank]({{ site.url }}/assets/images/2019-12-20-Library-Fine/Hackerrank_poster.jpg){:class="img-responsive"}
 
 <h2>Solution : </h2>
 

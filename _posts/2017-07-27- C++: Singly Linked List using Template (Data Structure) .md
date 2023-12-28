@@ -3,12 +3,12 @@ layout: post
 title: "Singly Linked List | C++ Implementation"
 description: "A node in a singly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction."
 author: "Programmercave"
-header-img: "/assets/singlylinkedlist.png"
+header-img: "/assets/images/singlylinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2017-07-27
 ---
-* toc
-{:toc}
+
+
 
 A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty. In C++, nodes can be created using the `struct` keyword, which allows you to define a data type that contains a data item and a pointer to the next node.
 
@@ -23,7 +23,7 @@ struct Node
 
 The constructor `Node(T val): data(val), next(nullptr){}` is used to initialize the `data` and `next` members of the `struct Node`. The `T` parameter indicates that the `Node` struct is generic and can store values of any data type. To declare a head node in C++, you can use the syntax `Node *head;`. This creates a pointer to a `Node` struct and assigns it to the `head` variable. You can then use the `head` pointer to reference the first node in a linked list. 
 
-![Singly Linked List]({{ site.url }}/assets/singlylinkedlist.png){:class="img-responsive"}
+![Singly Linked List]({{ site.url }}/assets/images/singlylinkedlist.png){:class="img-responsive"}
 
 In the above fig. Node containing 5 is head, node containing 15 is tail and its next pointer points to nullptr.
 

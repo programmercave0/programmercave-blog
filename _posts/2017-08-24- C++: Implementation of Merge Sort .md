@@ -3,16 +3,16 @@ layout: post
 title: "Merge Sort | C++ Implementation"
 description: "Merge sort follows *divide-and-conquer* approach. It divides an array of n elements into two subarrays of n/2 elements each. Then it sort the two subarrays recursively using merge sort. And then these subarrays are merged to produce a single sorted array."
 author: "Programmercave"
-header-img: "/assets/mergesort.png"
+header-img: "/assets/images/mergesort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-08-24
 ---
-* toc
-{:toc}
+
+
 
 **Merge sort** follows *divide-and-conquer* approach. It **divides** an array of *n* elements into two subarrays of *n*/2 elements each. Then it **sort** the two subarrays recursively using merge sort. And then these subarrays are **merged** to produce a single sorted array.
 
-![Mergesort]({{ site.url }}/assets/mergesort.png){:class="img-responsive"}
+![Mergesort]({{ site.url }}/assets/images/mergesort.png){:class="img-responsive"}
 
 If the size of the array is even then the size of subarrays is equal and if it is odd then first array has one element more than the second array. The division of array stops when subarrays contain only one element and then merging of subaarrays starts. The arrays are merged in sorted order.
 
@@ -93,7 +93,7 @@ void merge_sort(std::vector<T>& v, int p, int r)
 
 Here is the output of merge sort with generic functions.
 
-![Mergesort]({{ site.url }}/assets/mergesortout.png){:class="img-responsive"}
+![Mergesort]({{ site.url }}/assets/images/mergesortout.png){:class="img-responsive"}
 
 <h3>C++ Implementation of Merge Sort</h3>
     

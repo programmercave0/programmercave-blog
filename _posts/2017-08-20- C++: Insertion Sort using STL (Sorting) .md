@@ -3,16 +3,16 @@ layout: post
 title: "Insertion Sort | C++ Implementation"
 description: "Insertion sort is an efficient algorithm for sorting a small number of elements. The algorithm selects an element from the unsorted array and put it in the proper position in the sorted. This process is repeated until all elements in the array are sorted.  The sorting is in-place means array consists of sorted portion and unsorted portion in it."
 author: "Programmercave"
-header-img: "/assets/insertionsort.png"
+header-img: "/assets/images/insertionsort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-08-20
 ---
-* toc
-{:toc}
+
+
 
 **Insertion sort** is an efficient algorithm for sorting a small number of elements. The algorithm selects an element from the unsorted array and put it in the proper position in the sorted. This process is repeated until all elements in the array are sorted.  The sorting is in-place means array consists of sorted portion and unsorted portion in it.
 
-![Insertion Sort]({{ site.url }}/assets/insertionsort.png){:class="img-responsive"}
+![Insertion Sort]({{ site.url }}/assets/images/insertionsort.png){:class="img-responsive"}
 
 The index of the *key* starts from 1. The algorithm finds the correct position of the *key* in the array and put the *key* at that position and then the element with next index becomes *key*.
 
@@ -69,7 +69,7 @@ So when array is `{ 2, 5, 4, 6, 1, 3 }` and in the range \[2, 4), 5 is the great
 
 Here is the position of elements in the array after each iteration.
 
-![Insertion Sort]({{ site.url }}/assets/insertionsort1.png){:class="img-responsive"}
+![Insertion Sort]({{ site.url }}/assets/images/insertionsort1.png){:class="img-responsive"}
 
 <h3>C++ implementation of Insertion Sort</h3>
 

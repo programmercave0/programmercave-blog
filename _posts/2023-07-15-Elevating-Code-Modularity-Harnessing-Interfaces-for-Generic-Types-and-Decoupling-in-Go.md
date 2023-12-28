@@ -3,18 +3,16 @@ layout: post
 title: "Elevating Code Modularity: Harnessing Interfaces for Generic Types and Decoupling in Go"
 description: "In Go programming, interfaces serve as powerful tools for defining generic types, streamlining code, and decoupling functionality. By leveraging interfaces, you can write more efficient and flexible code that can accommodate various types without explicitly specifying each one. This blog post will guide you through the process of using interfaces to define generic types, demonstrate how they simplify code by abstracting common behaviors and showcase how interfaces enable easy modification of functionality without impacting code that utilizes them."
 author: "Programmercave"
-header-img: "/assets/go-interfaces/go-interface-basics.png"
+header-img: "/assets/images/go-interfaces/go-interface-basics.png"
 tags:  [Go]
 date: 2023-07-15
+toc: true
 ---
-* toc
-{:toc}
-
 # Introduction:
 
 In Go programming, interfaces serve as powerful tools for defining generic types, streamlining code, and decoupling functionality. By leveraging interfaces, you can write more efficient and flexible code that can accommodate various types without explicitly specifying each one. In the [previous blog]({{site.url}}/blog/2023/07/14/Unleashing-the-Power-of-Interfaces-in-Go-Simplifying-Code-Flexibility), we learned about the basics of Interfaces. This blog post will guide you through the process of using interfaces to define generic types, demonstrate how they simplify code by abstracting common behaviors and showcase how interfaces enable easy modification of functionality without impacting code that utilizes them.
 
-![Elevating Code Modularity: Harnessing Interfaces for Generic Types and Decoupling in Go]({{ site.url }}/assets/go-interfaces/go-interface-basics.png){:class="img-responsive"}
+![Elevating Code Modularity: Harnessing Interfaces for Generic Types and Decoupling in Go]({{ site.url }}/assets/images/go-interfaces/go-interface-basics.png){:class="img-responsive"}
 
 # Defining Generic Types with Interfaces
 

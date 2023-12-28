@@ -3,22 +3,22 @@ layout: post
 title: "Heapsort | C++ Implementation"
 description: "Heapsort is implemented using heap data structure. Heap helps us to represent binary tree without using any pointers. Using heap an array can be viewed as a binary tree and each node of the tree stores an element of the array."
 author: "Programmercave"
-header-img: "/assets/heapsort.png"
+header-img: "/assets/images/heapsort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-07-15
 ---
-* toc
-{:toc}
+
+
 
 **Heapsort** is implemented using *heap* data structure. Heap helps us to represent binary tree without using any *pointers*. Using heap an array can be viewed as a *binary tree* and each node of the tree stores an element of the array.
 
 There are two kinds of binary heaps: max-heaps and min-heaps. In *max-heap*, the value stored at the parent node is greater than the value stored at its children nodes. Thus in a max-heap, root node contains the largest element. In *min-heap*, the value stored at the parent node is smaller than the value stored at its children nodes. Thus in a min-heap, root node contains the smallest element.
 
-![Heapsort]({{ site.url }}/assets/binaryheap.png){:class="img-responsive"}
+![Heapsort]({{ site.url }}/assets/images/binaryheap.png){:class="img-responsive"}
 
 Max-heap is used in heapsort algorithm and min-heap is used in priority queues.
 
-![Heapsort]({{ site.url }}/assets/heapsort.png){:class="img-responsive"}
+![Heapsort]({{ site.url }}/assets/images/heapsort.png){:class="img-responsive"}
 
 When `arr[i] = parent`, then `left_child = 2*i + 1` and `right_child = 2*i + 2`.
 
@@ -59,7 +59,7 @@ void build_max_heap(std::vector<int>& arr)
 }
 ```
 
-![Heapsort]({{ site.url }}/assets/heapsort1.png){:class="img-responsive"}
+![Heapsort]({{ site.url }}/assets/images/heapsort1.png){:class="img-responsive"}
 
 `heapsort` sorts an array in-place.
 

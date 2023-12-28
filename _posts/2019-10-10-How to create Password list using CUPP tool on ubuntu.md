@@ -3,12 +3,12 @@ layout: post
 title: "How to create Password list using CUPP tool on Ubuntu"
 description: "People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it."
 author: "Programmercave"
-header-img: "/assets/cupp1.png"
+header-img: "/assets/images/cupp1.png"
 tags:  [Python, Ubuntu, Linux, HowTo, Hacking]
 date: 2019-10-10
 ---
-* toc
-{:toc}
+
+
 
 People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.
 
@@ -29,7 +29,7 @@ You can view the available options using this command:
   ```
   python3 cupp.py -h
   ```
-![Options]({{ site.url }}/assets/cupp.png)
+![Options]({{ site.url }}/assets/images/cupp.png)
 
 Before starting you should gather enough information about the victim so that chance of password in the list increases.
 <input type="hidden" name="IL_IN_ARTICLE"> 
@@ -38,7 +38,7 @@ To start tool in interactive mode write this command and enter details.
   python3 cupp.py -i
   ```
   
-![Output]({{ site.url }}/assets/cupp1.png)
+![Output]({{ site.url }}/assets/images/cupp1.png)
 
 The file is saved in the same folder with the name provided above.
 

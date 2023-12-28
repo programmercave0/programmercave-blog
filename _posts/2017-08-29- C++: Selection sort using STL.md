@@ -3,16 +3,16 @@ layout: post
 title: "Selection sort | C++ Implementation"
 description: "Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array."
 author: "Programmercave"
-header-img: "/assets/selectionsort.png"
+header-img: "/assets/images/selectionsort.png"
 tags:  [Cpp, Algorithm, Sorting]
 date: 2017-08-29
 ---
-* toc
-{:toc}
+
+
 
 **Selection sort** is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array.
 
-![Selectionsort]({{ site.url }}/assets/selectionsort.png){:class="img-responsive"}
+![Selectionsort]({{ site.url }}/assets/images/selectionsort.png){:class="img-responsive"}
 
 First the algorithm finds the smallest element in the array which is 1 and it is added to the sorted array and then the algorithm finds smallest element in the remaining array and so on.
 
@@ -72,7 +72,7 @@ The function can take a vector of integers or vector of characters or a vector o
 
 Here is the output after running generic function.
 
-![Selectionsort]({{ site.url }}/assets/selectionsortout.png){:class="img-responsive"}
+![Selectionsort]({{ site.url }}/assets/images/selectionsortout.png){:class="img-responsive"}
 
 <h3>C++ Implementation of Selection Sort</h3>
 

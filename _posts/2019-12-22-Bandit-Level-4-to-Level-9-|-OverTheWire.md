@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 4 to Level 8 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9. In this post we will learn how to find a human readable file with certain size in bytes and with certain user. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-22
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9. 
 
@@ -16,7 +16,7 @@ In this post we will learn how to find a human readable file with certain size i
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -64,7 +64,7 @@ Command `find . -type f | xargs file` finds all the regular files in the current
 
 The password for the next level is `****` .
 
-![Bandit Level 4 5]({{ site.url }}/assets/Bandit-Overthewire/bandit_l45_terminal.jpg){:class="img-responsive"}
+![Bandit Level 4 5]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l45_terminal.jpg){:class="img-responsive"}
 
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)<br/>
@@ -97,7 +97,7 @@ find . -type f -size 1033c ! - executable | xargs file
 
 The password for the next level is `****` .
 
-![Bandit Level 5 6]({{ site.url }}/assets/Bandit-Overthewire/bandit_l56_terminal.jpg){:class="img-responsive"}
+![Bandit Level 5 6]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l56_terminal.jpg){:class="img-responsive"}
 
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)<br/>
@@ -145,7 +145,7 @@ find -user bandit7 -group bandit6 -size 33c | xargs file
 
 The password for the next level is `****` .
 
-![Bandit Level 6 7]({{ site.url }}/assets/Bandit-Overthewire/bandit_l67_terminal.jpg){:class="img-responsive"}
+![Bandit Level 6 7]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l67_terminal.jpg){:class="img-responsive"}
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)<br/>
 [http://man7.org/linux/man-pages/man1/find.1.html](http://man7.org/linux/man-pages/man1/find.1.html)
@@ -174,7 +174,7 @@ cat data.txt | grep millionth
 ```
 The password for next level is `****` .
 
-![Bandit Level 7 8]({{ site.url }}/assets/Bandit-Overthewire/bandit_l78_terminal.jpg){:class="img-responsive"}
+![Bandit Level 7 8]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l78_terminal.jpg){:class="img-responsive"}
 
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)<br/>
@@ -202,7 +202,7 @@ sort data.txt | uniq -u
 
 and password is `****` .
 
-![Bandit Level 8 9]({{ site.url }}/assets/Bandit-Overthewire/bandit_l89_terminal.jpg){:class="img-responsive"}
+![Bandit Level 8 9]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l89_terminal.jpg){:class="img-responsive"}
 
 
 Reference : [http://man7.org/linux/man-pages/man1/uniq.1.html](http://man7.org/linux/man-pages/man1/uniq.1.html)<br/>

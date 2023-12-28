@@ -3,18 +3,18 @@ layout: post
 title: "Bandit Level 32 → Level 33 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 32 → Level 33. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-26
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 32 → Level 33. 
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -43,7 +43,7 @@ sh, man
 
 Command to connect remote host : `ssh bandit32@bandit.labs.overthewire.org -p 2220` password is `****` .
 
-![Bandit Level 32 33]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3233_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 32 33]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3233_terminal1.jpg){:class="img-responsive"}
 
 THE UPPERCASE SHELL is converting every command into uppercase.                  
 
@@ -58,7 +58,7 @@ cat /etc/bandit_pass/bandit33
 
 and the password is `****` .
 
-![Bandit Level 32 33]({{ site.url }}/assets/Bandit-Overthewire/bandit_l3233_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 32 33]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l3233_terminal2.jpg){:class="img-responsive"}
 
 Reference : [https://bash.cyberciti.biz/guide/$0](https://bash.cyberciti.biz/guide/$0)<br/>
 [https://unix.stackexchange.com/a/280458/244874](https://unix.stackexchange.com/a/280458/244874)<br/>

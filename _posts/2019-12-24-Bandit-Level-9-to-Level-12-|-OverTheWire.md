@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 9 to Level 11 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 9 → Level 10, Level 10 → Level 11 and Level 11 → Level 12. In this post we will learn how to find a sting of certain pattern in a text file. How to decode a file from certain encoding and how to transform string in command line. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-24
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 9 → Level 10, Level 10 → Level 11 and Level 11 → Level 12. 
 
@@ -16,7 +16,7 @@ In this post we will learn how to find a sting of certain pattern in a text file
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -42,7 +42,7 @@ strings data.txt | grep =
 
 and the password for next level is `****` .
 
-![Bandit Level 9 10]({{ site.url }}/assets/Bandit-Overthewire/bandit_l910_terminal.jpg){:class="img-responsive"}
+![Bandit Level 9 10]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l910_terminal.jpg){:class="img-responsive"}
 
 Reference : [http://man7.org/linux/man-pages/man1/strings.1.html](http://man7.org/linux/man-pages/man1/strings.1.html)
 
@@ -69,7 +69,7 @@ base64 -d data.txt
 
 and the password is `****` .
 
-![Bandit Level 10 11]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1011_terminal.jpg){:class="img-responsive"}
+![Bandit Level 10 11]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1011_terminal.jpg){:class="img-responsive"}
 
 Reference : [https://linux.die.net/man/1/base64](https://linux.die.net/man/1/base64)
 
@@ -96,7 +96,7 @@ cat data.txt | tr "[a-zA-Z]" "[n-za-mN-ZA-M]"
 
 and the password for the next level is `****` .
 
-![Bandit Level 11 12]({{ site.url }}/assets/Bandit-Overthewire/bandit_l1112_terminal.jpg){:class="img-responsive"}
+![Bandit Level 11 12]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l1112_terminal.jpg){:class="img-responsive"}
 
 Reference : [http://man7.org/linux/man-pages/man1/tr.1p.html](http://man7.org/linux/man-pages/man1/tr.1p.html)<br/>
 [https://unix.stackexchange.com/questions/19772/how-does-tr-a-z-n-za-m-work](https://unix.stackexchange.com/questions/19772/how-does-tr-a-z-n-za-m-work)

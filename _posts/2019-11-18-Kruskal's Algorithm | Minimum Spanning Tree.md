@@ -3,12 +3,12 @@ layout: post
 title: "Kruskal's Algorithm | Minimum Spanning Tree"
 description: "When edges connects all vertices in a graph and form a tree then it is known as *spanning tree*. While connecting edges no cycle should be formed.  A minimum spanning tree is the spanning tree whose sum of edge weights is as small as possible."
 author: "Programmercave"
-header-img: "/assets/kruskal.png"
+header-img: "/assets/images/kruskal.png"
 tags:  [Cpp, Algorithm, Graph-Algorithms]
 date: 2019-11-18
 ---
-* toc
-{:toc}
+
+
 
 When edges connects all vertices in a graph and form a tree then it is known as *spanning tree*. While connecting edges no cycle should be formed.  A *minimum spanning tree* is the spanning tree whose sum of edge weights is as small as possible.
 
@@ -19,9 +19,9 @@ Kruskal’s algorithm is a *greedy algorithm*, because at each step it adds an e
 
 Here are the given edges and their weight, arranged in increasing order.
 
-![Kruskal]({{ site.url }}/assets/kruskaltable.png){:class="img-responsive"}
+![Kruskal]({{ site.url }}/assets/images/kruskaltable.png){:class="img-responsive"}
 
-![kruskal]({{ site.url }}/assets/kruskal.png){:class="img-responsive"}
+![kruskal]({{ site.url }}/assets/images/kruskal.png){:class="img-responsive"}
 
 
 In the above fig. algorithm add edges with minimum weight and if it does not create cycle. Weight of edge *b - e* is less than edge *d – f* but it was creating a cycle *a – b – e – a* , so it was not added.

@@ -3,16 +3,16 @@ layout: post
 title: "Krypton Level 3 to Level 5 | Basic Cryptographic Techniques"
 description: "Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6."
 author: "Programmercave"
-header-img: "/assets/Krypton-OverTheWire/overthewire_poster.jpg"
+header-img: "/assets/images/Krypton-OverTheWire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Krypton, CTF, Cryptography]
 date: 2020-01-07
 ---
-* toc
-{:toc}
+
+
 
 Learn basic cryptographic techniques by playing [Krypton](https://overthewire.org/wargames/krypton/) wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/overthewire_poster.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 [Krypton Level 0 to Level 2]({{ site.url }}/blog/2020/01/07/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques)
@@ -36,21 +36,21 @@ First lets change to directory where we will find *krypton4* . `cd /krypton/kryp
 
 In the directory there are *found1*, *found2* and *found3* files which are encrypted using same key. These files contains the encrypted text like *krypton4*.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l34_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l34_terminal1.jpg){:class="img-responsive"}
 
 Using these files and an automated cryptogram solver [quipquip](https://quipqiup.com/), we can crack the password.
 
 First copy all the content of files *found1*, *found2* and *found3* in the puzzle box and click solve. The output we get make sense, so it has decrypted the text.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l34_terminal2.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l34_terminal2.jpg){:class="img-responsive"}
 
 Now in another tab enter the content of file *krypton4*, but there are nine possible output.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l34_terminal3.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l34_terminal3.jpg){:class="img-responsive"}
 
 Since the quipquip produced only one output when we ran it with the content of *found1*, *found2* and *found3*. So we can add the content of *krypton4* with the content of these files. We have added the content of *krypton4* file at the end, so our password will be at the end. The decrypted text at the end is *DONE THE LEVEL FOUR PASSWORD IS BRUTE*. So password for next level is `BRUTE` . 
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l34_terminal4.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l34_terminal4.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
@@ -93,11 +93,11 @@ In content in file *found1* and *found2* will help to find us the key. Copy the 
 
 The first decrypted text make sense and the key we get from here is `FREKEY`. 
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l45_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l45_terminal1.jpg){:class="img-responsive"}
 
 Now enter the encrypted password from the file *krypton5* in the decoder box and the key `FREKEY` in the key section. The output we get is `CLEAR TEXT`, and the password for the next level is `CLEARTEXT`.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l45_terminal2.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l45_terminal2.jpg){:class="img-responsive"}
 
 {% include ads.html %}<br/>
 
@@ -115,15 +115,15 @@ Command to login `ssh krypton5@krypton.labs.overthewire.org -p 2222` and passwor
 
 Change into directory */krypton/krypton5*. We have *found1*, *found2* and *found3* files which will help us. We do not know key length and key.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l56_terminal1.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l56_terminal1.jpg){:class="img-responsive"}
 
 We can use [Vigenère Cipher – Decoder](https://www.dcode.fr/vigenere-cipher) to get the key. Copy the content of files *found1*, *found2* and *found3* in the decoder box and click Automatic Decryption. The first output make sense and the key is `KEYLENGTH`.
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l56_terminal2.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l56_terminal2.jpg){:class="img-responsive"}
 
 Now copy the encrypted text from file *krypton6* and enter the key. The ouput we get is `RANDO M` and the password is `RANDOM` .
 
-![Krypton OverTheWire]({{ site.url }}/assets/Krypton-OverTheWire/kryp_l56_terminal3.jpg){:class="img-responsive"}
+![Krypton OverTheWire]({{ site.url }}/assets/images/Krypton-OverTheWire/kryp_l56_terminal3.jpg){:class="img-responsive"}
 
 ### Other Wargames
 [Bandit Wargame from OverTheWire All Level Solutions]({{ site.url }}/blog/#overthewire-bandit)<br/>

@@ -1,55 +1,30 @@
-title: programmerCave
+# Site
+name: "programmerCave"
+title: "programmerCave"
 tagline: Beyond Syntax, Navigating the Programmer's Realm
 description: Welcome to ProgrammerCave, your ultimate destination for mastering the art of programming. Dive into a wealth of knowledge as we unravel software developer interview questions, competitive programming solutions, system design approaches, and language-specific insights. Our blog is a treasure trove for developers of all levels, providing comprehensive guides and step-by-step solutions to code challenges. Empower your coding skills through our in-depth articles, demystifying complex concepts, and guiding you towards excellence. Whether you're a beginner or a seasoned pro, ProgrammerCave equips you with the tools to crack the code and unlock the true potential of your programming journey. Join us on this transformative coding adventure! 
-keywords: programming, developer interview questions, competitive programming, system design, language-specific blogs, code challenges, coding skills, in-depth articles, programming journey Programming competitive programming books cpp cplusplus code coding C++ Python C Java Algorithm Data Structure kubernetes software development design
-language: "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
-
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
+baseurl: ''
+logo: '/pc.jpg'
+favicon: '/pc.jpg'
+google_analytics: 'UA-102581341-3'
+include: ["_pages"]
 permalink: /blog/:year/:month/:day/:title
-plugins_dir:
-  - jekyll-seo-tag
-  - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jekyll-paginate
-  - jekyll-toc
-  - jekyll-target-blank
 
-highlighter: rouge
+# Authors
+authors:
+  programmerCave:
+    name: programmerCave
+    display_name: programmerCave
+    email: programmercave@gmail.com
+    twitter: https://twitter.com/programmercave
 
-paginate: 10
-#paginate_path: '/page:num'
-
+# Plugins
 plugins:
-  - jekyll-feed
-  - jekyll/tagging
-  - jekyll-tagging-related_posts
-  - jekyll-seo-tag
+  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-toc
-  - jekyll-target-blank
-
-feed:
-  tags: true
-
-author: 
-  name: programmerCave
-  email: programmercave@gmail.com
-  uri: https://www.instagram.com/programmercave
-  url: https://www.instagram.com/programmercave
-  twitter: programmercave
-
-twitter:
-    username: programmercave
-    card: summary
-  
-comments: true
-
-logo: /pc.jpg
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
 
 seo:
   name: programmerCave for Software engineers
@@ -68,13 +43,6 @@ social:
       - https://twitter.com/programmercave
       - https://instgram.com/programmercave
 
-defaults:
-  - scope:
-      path: ""
-    values:
-      image: /pc.jpg
-  
-  
 url: https://programmercave.com
 
  
@@ -90,89 +58,35 @@ disqus_username: "disqus_bW81CcXTbe"
 hackerank_username: "Botman1001"
  
 rss: true # just type anything here for a working RSS icon
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 12
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
 
-telegram: true
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
-tag_page_layout: tag_page
-tag_page_dir: tag
-tag_feed_layout: tag_feed
-tag_feed_dir: tag
-tag_permalink_style: pretty
-tag_cloud: true
- 
-tag_page: '/blog/'
-  
-share-links-active:
-  twitter: true
-  facebook: true
-  linkedin: true
-  reddit: true
-  whatsapp: true
-  telegram: true
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "enabled"
+adsense-data-ad-client: "ca-pub-6819793054373827"
+adsense-data-ad-slot: "5181450275"
 
-# _config.yml
-toc:
-  min_level: 1
-  max_level: 6
-  ordered_list: false
-  no_toc_section_class: no_toc_section
-  list_id: toc
-  list_class: section-nav
-  sublist_class: ''
-  item_class: toc-entry
-  item_prefix: toc-
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
 
-
-# Character used to separate site title and description in HTML document title
-# and RSS feed title
-title-separator: "-"
-
-#
-# This file contains configuration flags to customize your site
-#
-
-#
-# Flags below are optional
-#
-
-link-col: "##4400ff"
-
-
-
-# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-102581341-3
-
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitema.xml and your RSS feed
-
-
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
-# then add in the baseurl here, like this: "/repository-name"
-#baseurl: "/programmercave"
-
-#
-# !! You don't need to change any of the configuration flags below !!
-
-# Default YAML values (more information on Jekyll's site)
-
-
-# Use tags index page and make tags on each post clickable
-link-tags: true
-
-# Set the Sass partials directory, as we're using @imports
-sass:
-  style: :compressed # You might prefer to minify using :compressed
-
-
-
-# Exclude these files from your production _site
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
-  - vendor
-theme: jekyll-theme-minimal
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]

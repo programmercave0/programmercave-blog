@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 21 to Level 22 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 21 → Level 22 and Level 22 → Level 23. In this post we will learn about crontab files. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-25
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 21 → Level 22, Level 22 → Level 23 and and Level 23 → Level 24. 
 
@@ -16,7 +16,7 @@ In this post we will learn about crontab files.
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ### Previous Post
 
@@ -48,11 +48,11 @@ A *crontab* file contains instructions for the cron(8) daemon in the following s
 
 In directory */etc/crond.d/*, file important to us is *cronjob_bandit22*. It is a crontab file and contain commands. The content can be viewed using `cat cronjob_bandit22`.
 
-![Bandit Level 21 22]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2122_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 21 22]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2122_terminal1.jpg){:class="img-responsive"}
 
 The command is executing the file *cronjob_bandit22.sh* which is in the directory */usr/bin/*. Lets see the content of file *cronjob_bandit22.sh* using command `cat /usr/bin/cronjob_bandit22.sh`.
 
-![Bandit Level 21 22]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2122_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 21 22]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2122_terminal2.jpg){:class="img-responsive"}
 
 Now we know that file */tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv* contains the password for the next level. We can view the password using command `cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv` and the password is `****` .
 
@@ -84,7 +84,7 @@ ls
 cat cronjob_bandit23
 ```
 
-![Bandit Level 22 23]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2223_terminal1.jpg){:class="img-responsive"}
+![Bandit Level 22 23]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2223_terminal1.jpg){:class="img-responsive"}
 
 File *cronjob_bandit23.sh* copies password of bandit22 in another file and it is readable and executable by user bandit22. 
 ```
@@ -93,7 +93,7 @@ File *cronjob_bandit23.sh* copies password of bandit22 in another file and it is
 
 So we cannot modify it. But we want to copy password of bandit23 instead of bandit22.
 
-![Bandit Level 22 23]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2223_terminal2.jpg){:class="img-responsive"}
+![Bandit Level 22 23]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2223_terminal2.jpg){:class="img-responsive"}
 
 After executing *cronjob_bandit23.sh* using `./cronjob_bandit23.sh` it generates a file in *tmp* directory and the name of the file is md5 hash containing bandit22.
  
@@ -103,7 +103,7 @@ To generate new hash run `echo I am user bandit23 | md5sum | cut -d ' ' -f 1` on
 
 To see password run `cat /tmp/8ca319486bfbbc3663ea0fbe81326349` and the password is `****` .
 
-![Bandit Level 22 23]({{ site.url }}/assets/Bandit-Overthewire/bandit_l2223_terminal3.jpg){:class="img-responsive"}
+![Bandit Level 22 23]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l2223_terminal3.jpg){:class="img-responsive"}
 
 ### Next Post
 

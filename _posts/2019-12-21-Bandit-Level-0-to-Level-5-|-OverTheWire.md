@@ -3,12 +3,12 @@ layout: post
 title: "Bandit Level 0 to Level 3 | OverTheWire"
 description: "Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level0, Level 0 → Level 1, Level 1 → Level 2, Level 2 → Level 3, and Level 3 → Level 4. In this post we will learn how to connect to a remote machine using ssh and how to find a file with certain attributes in the machine. The passwords are hidden, so you have to find the passwords for next level yourself."
 author: "Programmercave"
-header-img: "/assets/Bandit-Overthewire/overthewire_poster.jpg"
+header-img: "/assets/images/Bandit-Overthewire/overthewire_poster.jpg"
 tags:  [Linux, OverTheWire-Bandit, CTF]
 date: 2019-12-21
 ---
-* toc
-{:toc}
+
+
 
 Learn linux command by playing [Bandit](https://overthewire.org/wargames/bandit/) wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level0, Level 0 → Level 1, Level 1 → Level 2, Level 2 → Level 3, and Level 3 → Level 4. 
 
@@ -16,7 +16,7 @@ In this post we will learn how to connect to a remote machine using ssh and how 
 
 The passwords are hidden, so you have to find the passwords for next level yourself.
 
-![Bandit OverTheWire]({{ site.url }}/assets/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
+![Bandit OverTheWire]({{ site.url }}/assets/images/Bandit-Overthewire/overthewire_poster.jpg){:class="img-responsive"}
 
 ## [Bandit Level 0](https://overthewire.org/wargames/bandit/bandit0.html)
 
@@ -42,7 +42,7 @@ So the command to connect to bandit server is :
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
-![Bandit Level 0]({{ site.url }}/assets/Bandit-Overthewire/bandit_l0_terminal.jpg){:class="img-responsive"}
+![Bandit Level 0]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l0_terminal.jpg){:class="img-responsive"}
 
 A message “The authenticity of host … can’t be established” is displayed when connection is established for first time. To connect enter “yes” and once the connection is established, the user is asked to enter the password which is *bandit0* for this level.
 
@@ -72,7 +72,7 @@ Enter command `ls` to know the files and directories. There is a file *readme* i
 
 Exit the remote session using command `exit`.
 
-![Bandit Level 0 1]({{ site.url }}/assets/Bandit-Overthewire/bandit_l01_terminal.jpg){:class="img-responsive"}
+![Bandit Level 0 1]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l01_terminal.jpg){:class="img-responsive"}
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)
 
@@ -103,7 +103,7 @@ cat ./-
 
 The password for the next level is `****` .
 
-![Bandit Level 1 2]({{ site.url }}/assets/Bandit-Overthewire/bandit_l12_terminal.jpg){:class="img-responsive"}
+![Bandit Level 1 2]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l12_terminal.jpg){:class="img-responsive"}
 
 
 Reference: [https://www.cs.ait.ac.th/~on/O/oreilly/unix/upt/ch23_14.htm](https://www.cs.ait.ac.th/~on/O/oreilly/unix/upt/ch23_14.htm)<br/>
@@ -140,7 +140,7 @@ Since in that directory there is only file we can also use *tab button*, after t
 
 The password for the next level is `****` .
 
-![Bandit Level 2 3]({{ site.url }}/assets/Bandit-Overthewire/bandit_l23_terminal.jpg){:class="img-responsive"}
+![Bandit Level 2 3]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l23_terminal.jpg){:class="img-responsive"}
 
 
 Reference: [https://askubuntu.com/questions/101587/how-do-i-enter-a-file-or-directory-with-special-characters-in-its-name](https://askubuntu.com/questions/101587/how-do-i-enter-a-file-or-directory-with-special-characters-in-its-name)
@@ -167,7 +167,7 @@ Our current working directory is */home/bandit3* and our desired working directo
 
 It is given that the password is stored in the hidden file and after running command `ls` we do not find any file in the directory. Files whose name starts with a period (**.**) are hidden file and command `ls -a` list all files, even those with names that begin with a period, which are normally not listed (i. e., hidden). So the name of the file is *.hidden* and command `cat .hidden` is used to see the content of the file. The password to the next level is `****` .
 
-![Bandit Level 3 4]({{ site.url }}/assets/Bandit-Overthewire/bandit_l34_terminal.jpg){:class="img-responsive"}
+![Bandit Level 3 4]({{ site.url }}/assets/images/Bandit-Overthewire/bandit_l34_terminal.jpg){:class="img-responsive"}
 
 
 Reference : [The Linux Command Line – A Complete Introduction](https://amzn.to/2PDVmZz)

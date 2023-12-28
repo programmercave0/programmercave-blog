@@ -3,18 +3,16 @@ layout: post
 title: "Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C++ Implementation"
 description: "The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors."
 author: "Programmercave"
-header-img: "/assets/gcd/gcd1.png"
+header-img: "/assets/images/gcd/gcd1.png"
 tags:  [C++, Algorithm, Data-Structure, Competitive-Programming, Number-Theory, Mathematics]
 date: 2023-08-05
+toc: true
 ---
-* toc
-{:toc}
-
 ## Introduction
 
 The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors.
 
-![Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD)]({{ site.url }}/assets/gcd/gcd1.png){:class="img-responsive"}
+![Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD)]({{ site.url }}/assets/images/gcd/gcd1.png){:class="img-responsive"}
 
 ## Algorithm
 
@@ -69,7 +67,7 @@ The culmination of our journey arrives at this step. The GCD of the original num
 
 **Example:** In our case, the GCD of 48 and 18 is `6`.
 
-![Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD)]({{ site.url }}/assets/gcd/gcd2.png){:class="img-responsive"}
+![Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD)]({{ site.url }}/assets/images/gcd/gcd2.png){:class="img-responsive"}
 
 ## Recursive Implementation of Euclidean Algorithm
 
@@ -115,8 +113,8 @@ If you're interested in exploring the C++ implementation, you can find the compl
 The Euclidean algorithm's beauty lies in its versatility and efficiency, making it a valuable tool in diverse mathematical and computational scenarios. Whether you are calculating GCDs for advanced number theory or simply implementing it in a programming project, the Euclidean algorithm will serve you exceptionally well.
 
 ---
-* toc
-{:toc}
+
+
 
 # FAQs
 

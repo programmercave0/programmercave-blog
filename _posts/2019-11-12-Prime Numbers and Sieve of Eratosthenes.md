@@ -6,8 +6,8 @@ author: "Programmercave"
 tags:  [Number-Theory, Cpp, Competitive-Programming]
 date: 2019-11-12
 ---
-* toc
-{:toc}
+
+
 
 A **prime number** is an integer *n* > 1 which is only divisible by 1 and *n*(itself). For example, 2, 3, 5 are prime numbers, but 6, 8, 9 are not prime numbers.
 

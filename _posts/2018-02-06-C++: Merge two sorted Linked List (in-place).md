@@ -3,12 +3,12 @@ layout: post
 title: "Merge two sorted Linked List (in-place) | C++ Implementation"
 description: "Given two sorted Linked List, we have to merge them without using another linked list."
 author: "Programmercave"
-header-img: "/assets/mergesortedlinkedlist.png"
+header-img: "/assets/images/mergesortedlinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-02-06
 ---
-* toc
-{:toc}
+
+
 
 Given two sorted Linked List, we have to merge them without using another linked list.
   ```
@@ -17,7 +17,7 @@ Given two sorted Linked List, we have to merge them without using another linked
   Merged List : { 5, 6, 8, 10, 11, 18, 20, 25 }
   ```
   
-![Merge linked list]({{ site.url }}/assets/mergesortedlinkedlist.png){:class="img-responsive"}
+![Merge linked list]({{ site.url }}/assets/images/mergesortedlinkedlist.png){:class="img-responsive"}
 
 From the above fig. we can see that merging two linked list is same as merging two sorted array in mergesort.
 

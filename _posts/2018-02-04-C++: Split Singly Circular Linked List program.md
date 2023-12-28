@@ -3,12 +3,12 @@ layout: post
 title: "Split Singly Circular Linked List | C++ Implementation"
 description: "Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list."
 author: "Programmercave"
-header-img: "/assets/splitsinglycircularlinkedlist.png"
+header-img: "/assets/images/splitsinglycircularlinkedlist.png"
 tags:  [Cpp, Algorithm, Linked-List, Data-Structure]
 date: 2018-02-04
 ---
-* toc
-{:toc}
+
+
 
 Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list.
 
@@ -20,9 +20,9 @@ Output List 2 : { 25, 5 }
 
 Here is a meme to understand Circular Linked List
 
-![Split Linked List]({{ site.url }}/assets/cll.jpg){:class="img-responsive"}
+![Split Linked List]({{ site.url }}/assets/images/cll.jpg){:class="img-responsive"}
 
-![Split Linked List]({{ site.url }}/assets/splitsinglycircularlinkedlist.png){:class="img-responsive"}
+![Split Linked List]({{ site.url }}/assets/images/splitsinglycircularlinkedlist.png){:class="img-responsive"}
 
 From the above fig. first we have to find middle node of the given singly circular linked list.
 
