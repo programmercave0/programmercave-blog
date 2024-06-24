@@ -40,6 +40,7 @@ User user = new Student();
 ### Method Overloading (Compile time polymorphism)
 - feature that allows a class to have more than one method having the same name, if their argument lists are different. 
 - It is similar to constructor overloading in Java, that allows a class to have more than one constructor having different argument lists.
+
 ```java
 public class User {
 	private String name;
@@ -59,6 +60,7 @@ public class User {
 
 ### Method Overriding (Runtime polymorphism)
 - Runtime polymorphism is also called Dynamic method dispatch. Instead of resolving the overridden method at compile-time, it is resolved at runtime.
+
 ```java
 public class User {
 	private String name;
