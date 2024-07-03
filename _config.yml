@@ -87,6 +87,6 @@ adsense-data-ad-client: "ca-pub-6819793054373827"
 adsense-data-ad-slot: "5181450275"
 
 # Lazy Images ("enabled" or "disabled")
-lazyimages: "disabled"
+lazyimages: "enabled"
 
 exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]

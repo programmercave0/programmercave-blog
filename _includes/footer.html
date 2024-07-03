@@ -5,6 +5,9 @@
       <div id="content" class="content">
         {% include affiliate_links.html %}
         <br>
+        {% if site.adsense == "enabled" %}
+          {% include ads_infeed.html %}
+        {% endif %} 
         <h3>Tags</h3>
         <p>
           {% for tag in site.tags %}

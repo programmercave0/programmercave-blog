@@ -76,6 +76,9 @@ post_class: post-template
                 <!-- End Toc -->
                 {{content}}
             </div>
+            {% if site.adsense == "enabled" %}
+                {% include ads_multiplex.html %}
+            {% endif %}
 
             <!-- Rating -->
             {% if page.rating %}
