@@ -60,7 +60,3 @@ Adding more partitions improves parallelism, enabling consumers to process messa
 Consumer lag is not just a performance issue—it can affect SLAs and system reliability. By combining proactive monitoring, optimized processing, and proper scaling strategies, you can keep Kafka systems running smoothly.  
 
 If your system is lagging behind, it’s time to address the bottlenecks and ensure uninterrupted data flow in your Kafka pipeline.  
-
-
-
-
