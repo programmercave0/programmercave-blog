@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Thread-Safe Implementation of Map in Go"
+title: "Interview Question: Thread-Safe Implementation of Map in Go"
 description: "Explore two approaches to implementing thread-safe maps in Go: using `sync.Mutex` for control and `sync.Map` for simplicity. Learn their differences, use cases, and examples for concurrent programming."
-keywords: "thread-safe map, Go programming, sync.Mutex, sync.Map, concurrent programming, Golang map, multi-threading, safe map implementation, Go synchronization, map concurrency."
+keywords: "thread-safe map, Go programming, sync.Mutex, sync.Map, concurrent programming, Golang map, multi-threading, safe map implementation, Go synchronization, map concurrency, interview question"
 header-img: ""
-tags:  [Go]
+tags:  [Go, Interview-Questions]
 date: 2024-11-20
 toc: true
 ---
