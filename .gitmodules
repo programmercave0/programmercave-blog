@@ -4,3 +4,7 @@
 [submodule "themes/cayman-hugo-theme"]
 	path = themes/cayman-hugo-theme
 	url = https://github.com/zwbetz-gh/cayman-hugo-theme.git
+[submodule "public"]
+	path = public
+	url = git@github.com:programmercave0/programmercave0.github.io.git
+	branch = main
