@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: programmercave.com
-Token: 43e6939d93b16b8b0d139cb13deb8ed4c3a769388e29f2aae3ec6cc24cc08a42

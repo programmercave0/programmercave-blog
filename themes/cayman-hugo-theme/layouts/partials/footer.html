@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <span class="site-footer-credits">
+    
+    <a href="{{ .Site.BaseURL }}" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/{{ .Site.Params.facebook_username }}" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/{{ .Site.Params.github_username }}" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/{{ .Site.Params.twitter_username }}" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/{{ .Site.Params.medium_username }}" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/{{ .Site.Params.instagram_username }}" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/{{ .Site.Params.telegram_username }}" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/{{ .Site.Params.youtube_username }}" class="fab fa-youtube"></a>
+
+    <p>Copyright © {{ now.Format "2006" }} {{ .Site.Title }}</p>  </span>
+</footer>
