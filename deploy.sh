@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#hugo server to run locally
 # Navigate to the Hugo site directory
 hugo -t cayman-hugo-theme
 
