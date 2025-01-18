@@ -19,7 +19,20 @@ Slices are built on top of arrays and offer a dynamic way to manage sequences of
 - **Length**: Indicates the number of elements in the slice.
 - **Capacity**: The maximum number of elements the slice can accommodate without requiring reallocation.
 
-**Example Diagram**:
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var a = []int{10, 20, 30, 40, 50}
+	b := a[:3]
+	fmt.Println(b) // [10 20 30]
+	fmt.Println(len(b)) // 3
+	fmt.Println(cap(b)) // 5
+}
+```
+
 ```
 Underlying Array: [10, 20, 30, 40, 50]
 Slice Header: {
