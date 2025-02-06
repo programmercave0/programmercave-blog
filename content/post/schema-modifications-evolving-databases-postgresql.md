@@ -9,7 +9,7 @@ header-img: /assets/images/schema-modification/psql.png
 tags:
 - PostgreSQL
 - SQL
-- Database
+- DataBase
 title: 'When Designing a Product: Adapting Your Database with Schema Modifications'
 toc: true
 ---
