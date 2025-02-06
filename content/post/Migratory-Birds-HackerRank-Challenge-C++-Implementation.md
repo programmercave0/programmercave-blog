@@ -87,7 +87,7 @@ for (unsigned short i = 1; i < type_count.size(); ++i)
 }
 ```
 
-**Related:** [Kangaroo HackerRank Challenge](/Kangaroo-HackerRank-Challenge-C++-Implementation)
+**Related:** [Kangaroo HackerRank Challenge](/Kangaroo-HackerRank-Challenge-C-Implementation)
 
 <h3>C++ Implementation</h3>
 

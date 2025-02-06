@@ -15,7 +15,7 @@ header-img: /assets/images/go-unit-test-cases/unit_test_case.png
 tags:
 - PostgreSQL
 - SQL
-- Database
+- DataBase
 - Go
 title: Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go
 toc: true

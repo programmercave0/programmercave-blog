@@ -56,7 +56,7 @@ To use `graphics.h`on Ubuntu platform we need to compile and install `libgraph`.
       libslang2-dev libasound2 libasound2-dev
       ```
     
-3. Download `libgraph` from [here](download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz) and extract `libgraph-1.0.2.tar.gz` file.    
+3. Download `libgraph` from [here](https://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz) and extract `libgraph-1.0.2.tar.gz` file.    
  <input type="hidden" name="IL_IN_ARTICLE"> 
 4. Go to the extracted folder and run following commands.
      ```

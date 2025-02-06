@@ -165,7 +165,7 @@ int main()
 View this on [Github](https://github.com/{{< param "github_username" >}}/Competitive-Programming/blob/master/Hackerrank/Between_two_Sets.cpp).
 
 <h3>You may also like</h3>
-[Kangaroo HackerRank Challenge](/Kangaroo-HackerRank-Challenge-C++-Implementation)<br/>
+[Kangaroo HackerRank Challenge](/Kangaroo-HackerRank-Challenge-C-Implementation)<br/>
 [Roy and Code Streak HackerEarth Challenge](/Roy-and-Code-Streak-HackerEarth-Challenge)
 
 

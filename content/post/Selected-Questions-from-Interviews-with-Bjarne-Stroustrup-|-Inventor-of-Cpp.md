@@ -30,7 +30,7 @@ Bjarne Stroustrup created the C++ programming language in 1979, and it’s still
 
 This is the first post of the series Selected Questions from Interviews with Bjarne Stroustrup.<br/>
 Selected Questions from Interviews with Bjarne Stroustrup Part 1<br/>
-[Selected Questions from Interviews with Bjarne Stroustrup Part 2](/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2-Creator-of-C++).
+[Selected Questions from Interviews with Bjarne Stroustrup Part 2](/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2-Creator-of-C-).
 
 <br/>
 
