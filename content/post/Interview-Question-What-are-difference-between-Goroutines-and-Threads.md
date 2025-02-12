@@ -6,7 +6,7 @@ keywords: goroutines, threads, management, weight, context switching, creation, 
 tags:
 - Go
 - Interview-Questions
-title: 'Interview Question: What are difference between Goroutines and Threads?'
+title: 'Interview Question: What are the differences between Goroutines and Threads?'
 toc: true
 ---
 If you're preparing for a software engineering interview, it's important to understand the difference between goroutines and threads. These two concepts are related to concurrency, which is the ability of a program to execute multiple tasks simultaneously. In this blog, we'll break down the key differences between goroutines and threads in a simple and efficient way.
