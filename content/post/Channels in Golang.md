@@ -21,6 +21,8 @@ Go's concurrency model is one of its standout features, and **channels** are at 
 
 ![What are Channels in Golang?](/assets/images/Golang/Channels-in-Golang.png)
 
+[What are Goroutines?](/Interview-Question-What-are-Goroutines/)
+
 ## **What Are Channels?**
 
 A **channel** is a conduit through which goroutines can send and receive values. It ensures safe communication between goroutines without the need for locks or other synchronization mechanisms.
@@ -238,6 +240,8 @@ case msg := <-ch2:
     fmt.Println("Received:", msg)
 }
 ```
+
+[Understanding the select Statement in Go](/Understanding-the-select-Statement-in-Go/)
 
 ## **Memory Internals of Channels**
 

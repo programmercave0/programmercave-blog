@@ -24,6 +24,8 @@ If you're preparing for a software engineering interview and are new to Go (Gola
 
 The `select` statement in Go allows you to handle multiple channel operations at the same time. It waits for one or more communication operations (sending or receiving data on channels) to complete and proceeds when one of them is ready. If multiple cases are ready, it randomly picks one to execute.
 
+[What are Channels in Golang?](/Channels-in-Golang/)
+
 ### Why is it Useful?
 - **Concurrency Management:** Helps coordinate multiple goroutines by managing their communication through channels.
 - **Non-Blocking Behavior:** Prevents your program from freezing when no channels are ready.

@@ -20,6 +20,8 @@ If you're preparing for a software engineering interview, it's important to unde
 
 ![What are difference between Goroutines and Threads?](/assets/images/Golang/Goroutines-vs-Threads.png)
 
+[What are Goroutines?](/Interview-Question-What-are-Goroutines/)
+
 ## Management
 
 The first key difference between goroutines and threads is how they are managed. 
@@ -30,6 +32,8 @@ The first key difference between goroutines and threads is how they are managed.
 | Feature | Threads | Goroutines |
 | --- | --- | --- |
 | Management | Managed by OS | Managed by Go runtime |
+
+[Can You Explain the Lifecycle and Scheduling of a Goroutine?](/Interview-Question-Can-You-Explain-the-Lifecycle-and-Scheduling-of-a-Goroutine/)
 
 ## Weight
 

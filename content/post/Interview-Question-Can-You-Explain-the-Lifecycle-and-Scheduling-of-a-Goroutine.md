@@ -20,6 +20,8 @@ toc: true
 
 ![Explain the Lifecycle and Scheduling of a Goroutine?](/assets/images/Golang/Lifecycle-and-Scheduling-of-a-Goroutine.png)
 
+[What are Goroutines?](/Interview-Question-What-are-Goroutines/)
+
 ## 1. Key Components in Go Scheduler  
 
 1. **G (Goroutine):**  

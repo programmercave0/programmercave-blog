@@ -37,7 +37,7 @@ Every Go program starts with a **main Goroutine**. If it exits, all other Gorout
 | **Management**     | Go runtime                 | Operating System       |  
 | **Scheduling**     | M:N model (see below)      | 1:1 with OS threads    |  
 
-
+[What are the differences between Goroutines and Threads?](/Interview-Question-What-are-difference-between-Goroutines-and-Threads/)
 
 ## Concurrency vs. Parallelism  
 
@@ -88,6 +88,8 @@ Goroutines are **nonpreemptive** but appear preemptive because the Go runtime:
 
 This hybrid model simplifies concurrency without manual yield points.  
 [Goroutine Scheduling: Preemptive or Nonpreemptive?](/Goroutine-Scheduling-Preemptive-or-Nonpreemptive/)
+
+[Can You Explain the Lifecycle and Scheduling of a Goroutine?](/Interview-Question-Can-You-Explain-the-Lifecycle-and-Scheduling-of-a-Goroutine/)
 
 ## Summary  
 
