@@ -26,6 +26,8 @@ Explore the reasons why Go (Golang) is one of the fastest programming languages 
 
 [Memory Management in Golang](/Memory-Management-in-Golang/)
 
+[How Garbage Collection in Go works?](/Interview-Question-How-Garbage-Collection-in-Go-works/)
+
 ## 4. Simplicity and Readability
 - **Minimalistic Design**: The language emphasizes simplicity and clarity, which leads to less complex code that is easier to maintain and optimize. Simple code often results in fewer bugs and more efficient execution.
 
