@@ -4,6 +4,7 @@
 # Navigate to the Hugo site directory
 hugo -t cayman-hugo-theme
 
+#hugo server
 # Deploy the public folder
 cd public
 git add .

@@ -288,7 +288,7 @@ Reference:<br/>
 [Split Singly Circular Linked List](/C-Split-Singly-Circular-Linked-List-program)<br/>
 [Doubly Circular Linked List](/C-Doubly-Circular-Linked-List-program)<br/>
 [Reverse the Linked List](/C-Reverse-the-Linked-List-Iterative-Method-program)
-[[Finding Length of Loop in Linked List](/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program)<br/>
+[Finding Length of Loop in Linked List](/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program)<br/>
 [Doubly Linked List](/C-Doubly-Linked-List-using-Template-Data-Structure)<br/>
 [Singly Linked List](/C-Singly-Linked-List-using-Template-Data-Structure)
 
