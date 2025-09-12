@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on programmerCave</title>
+    <link>https://programmercave.com/tags/Cpp/</link>
+    <description>Recent content in Cpp on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+    <item>
+      <title>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search</title>
+      <link>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</link>
+      <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</guid>
+      <description>Introduction Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.&#xA;Linear Search Method The linear search method is a simple algorithm that iteratively checks each integer number from 1 to n to see if its square is equal to the input number n.</description>
+    </item>
+    <item>
+      <title>Efficiently Find Prime Numbers Till N: Basic vs. Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</guid>
+      <description>Introduction Are you looking for a way to find all the prime numbers till N? If so, then you have landed on the right page! In this blog post, we will discuss how to find all prime numbers till N using an optimized algorithm.&#xA;Finding all prime numbers till N is a common problem in computer science and mathematics. There are various ways to solve this problem, but we will be discussing an optimized algorithm that is efficient and easy to implement.</description>
+    </item>
+    <item>
+      <title>Optimized Algorithm for Checking Prime Numbers: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</guid>
+      <description>Introduction Prime numbers are a fundamental concept in mathematics and computer science. A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself. In other words, a prime number is a number that is only divisible by 1 and itself.&#xA;In this blog, we will discuss different methods to check if a number is a prime number or not, and analyze their time complexity.</description>
+    </item>
+    <item>
+      <title>Kefa and First Steps - CodeForces | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</guid>
+      <description>Kefa decided to make some money doing business on the Internet for exactly n days. He knows that on the i-th day (1≤i≤n) he makes ai money. Kefa loves progress, that&amp;rsquo;s why he wants to know the length of the maximum non-decreasing subsegment in sequence ai. Let us remind you that the subsegment of the sequence is its continuous fragment. A subsegment of numbers is called non-decreasing if all numbers in it follow in the non-decreasing order.</description>
+    </item>
+    <item>
+      <title>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;You have to output the order of succession to the British throne of a list of given people. The order is simple: From a descendant A, the next in the order is A’s first child B. Then, the next one is B’s first child C if any and so on. If C has no child, then the next one is B’s second child D.</description>
+    </item>
+    <item>
+      <title>Stock Exchange Losses - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;A finance company is carrying out a study on the worst stock investments and would like to acquire a program to do so. The program must be able to analyze a chronological series of stock values in order to show the largest loss that it is possible to make by buying a share at a given time t0 and by selling it at a later date t1.</description>
+    </item>
+    <item>
+      <title>Dungeons and Maps - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy.&#xA;You are given N maps for a dungeon. Each map may contain a path to a treasure T, from starting position [ startRow; startCol ]. Determine the index of the map which holds the shortest path from the starting position to T, but be careful a map may lead you to a TRAP.&#xA;A path is marked on the map with ^, v, &amp;lt;, &amp;gt; symbols, each corresponding to UP, DOWN, LEFT, RIGHT directions respectively, i.</description>
+    </item>
+    <item>
+      <title>Bank Robbers - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy and tagged under Loops and Mathematics.&#xA;A gang of R foolish robbers decides to heist a bank. In the bank there are V vaults (indexed from 0 to V-1). The robbers have managed to extract some information from the bank&amp;rsquo;s director:&#xA;The combination of a vault is composed of C characters (digits/vowels). The first N characters consist of digits from 0 to 9.</description>
+    </item>
+    <item>
+      <title>Left Rotation - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>A left rotation operation on an array of size n shifts each of the array&amp;rsquo;s elements 1 unit to the left. For example, if 2 left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].&#xA;Given an array of n integers and a number, d, perform d left rotations on the array. Then print the updated array as a single line of space-separated integers.</description>
+    </item>
+    <item>
+      <title>Repeated String - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.&#xA;Given an integer, n, find and print the number of letter a&amp;rsquo;s in the first n letters of Lilah&amp;rsquo;s infinite string.&#xA;For example, if the string s = ‘abcac’ and n = 10, the substring we consider is , abcacabcac the first 10 characters of her infinite string. There are 4 occurrences of a in the substring.</description>
+    </item>
+    <item>
+      <title>Single Elevator Simulation in C&#43;&#43;</title>
+      <link>https://programmercave.com/Single-Elevator-Simulation-in-Cpp/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Single-Elevator-Simulation-in-Cpp/</guid>
+      <description>Here we are going to implement the Single Elevator Simulation in C++. Initially the elevator is at ground floor. It is represented by 0. Floors below ground floor are represented by negative integers. The elevator has maximum capacity it can carry, maximum and minimum floor it can carry to.&#xA;The elevator accepts the request of floor the passengers want to go. If the elevator is empty then the first request sets the direction of the elevator.</description>
+    </item>
+    <item>
+      <title>Picking Numbers - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Given an array of integers, find and print the maximum number of integers you can select from the array such that the absolute difference between any two of the chosen integers is less than or equal to 1.&#xA;For example, if your array is a = [1, 1, 2, 2, 4, 4, 5, 5, 5], you can create two subarrays meeting the criterion: [1, 1, 2, 2] and [4, 4, 5, 5, 5].</description>
+    </item>
+    <item>
+      <title>Library Fine | HackerRank</title>
+      <link>https://programmercave.com/Library-Fine--HackerRank/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Library-Fine--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Your local library needs your help! Given the expected and actual return dates for a library book, create a program that calculates the fine (if any). The fee structure is as follows:&#xA;• If the book is returned on or before the expected return date, no fine will be charged (i.</description>
+    </item>
+    <item>
+      <title>Sherlock and Squares | HackerRank</title>
+      <link>https://programmercave.com/Sherlock-and-Squares--HackerRank/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Sherlock-and-Squares--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Watson likes to challenge Sherlock&amp;rsquo;s math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of square integers within that range, inclusive of the endpoints.&#xA;Note: A square integer is an integer which is the square of an integer, e.</description>
+    </item>
+    <item>
+      <title>Circular Array Rotation | HackerRank</title>
+      <link>https://programmercave.com/Circular-Array-Rotation--HackerRank/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Circular-Array-Rotation--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;John Watson knows of an operation called a right circular rotation on an array of integers. One rotation operation moves the last array element to the first position and shifts all remaining elements right one. To test Sherlock&amp;rsquo;s abilities, Watson provides Sherlock with an array of integers.</description>
+    </item>
+    <item>
+      <title>Selected Questions from Interviews with Bjarne Stroustrup Part 1| Creator of C&#43;&#43; </title>
+      <link>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup--Inventor-of-Cpp/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup--Inventor-of-Cpp/</guid>
+      <description>Bjarne Stroustrup is a Technical Fellow and Managing Director at Morgan Stanley in New York City and a Visiting Professor at Columbia University. He&amp;rsquo;s also the creator of C++.&#xA;In 1975, Bjarne got his MSc degree from Department of Mathematics at Aarhus University when the now Department of Computer Science was still embedded in the Math Department.&#xA;Bjarne Stroustrup created the C++ programming language in 1979, and it’s still just as important today as it was 38 years ago, especially with its expansion into mobile development.</description>
+    </item>
+    <item>
+      <title>Selected Questions from Interviews with Bjarne Stroustrup Part 2| Creator of C&#43;&#43;</title>
+      <link>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2--Creator-of-C-/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2--Creator-of-C-/</guid>
+      <description>This is the second post of the series Selected Questions from Interviews with Bjarne Stroustrup. Selected Questions from Interviews with Bjarne Stroustrup Part 1 Selected Questions from Interviews with Bjarne Stroustrup Part 2.&#xA;Interview by Pramod Shadishidhaa: Mapping the Journey. A podcast with transcript. July 2017. Pramod: BELL labs was the go to place for top computer scientists. How did you get this opportunity? What was the experience working with some great engineers at Bell Labs?</description>
+    </item>
+    <item>
+      <title>Drawing Book | HackerRank</title>
+      <link>https://programmercave.com/Drawing-Book--HackerRank/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Drawing-Book--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time.</description>
+    </item>
+    <item>
+      <title>Pointers in C&#43;&#43;</title>
+      <link>https://programmercave.com/Pointers-in-C-Explained/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Pointers-in-C-Explained/</guid>
+      <description>A pointer is a special type of variable which holds the address of a value. A pointer is declared using * (asterisk).&#xA;int a = 5; //an integer variable int * ptr; // an integer pointer or a pointer to an int ptr = &amp;amp;a; // assign address of a to ptr In the above figure (a), a and ptr are name of location in the memory and value stored at a is 5 and value stored at ptr is 0x41a.</description>
+    </item>
+    <item>
+      <title>Migratory Birds - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You have been asked to help study the population of birds migrating across the continent. Each type of bird you are interested in will be identified by an integer value. Each time a particular kind of bird is spotted, its id number will be added to your array of sightings. You would like to be able to find out which type of bird is most common given a list of sightings.</description>
+    </item>
+    <item>
+      <title>Between Two Sets - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:&#xA;The elements of the first array are all factors of the integer being considered The integer being considered is a factor of all elements of the second array These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.&#xA;For example, given the arrays a =[2, 6] and b = [24, 36], there are two numbers between them: 6 and 12.</description>
+    </item>
+    <item>
+      <title>Kangaroo HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You are choreographing a circus show with various animals. For one act, you are given two kangaroos o a number line ready to jump in the positive direction (i.e, toward positive infinity).&#xA;• The first kangaroo starts at location x1 and moves at a rate of v1 meters per jump. • The second kangaroo starts at location x2 and moves at a rate of v2 meters per jump.&#xA;You have to figure out a way to get both kangaroos at the same location at the same time as part of the show.</description>
+    </item>
+    <item>
+      <title>Kruskal&#39;s Algorithm | Minimum Spanning Tree</title>
+      <link>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</guid>
+      <description>When edges connects all vertices in a graph and form a tree then it is known as spanning tree. While connecting edges no cycle should be formed. A minimum spanning tree is the spanning tree whose sum of edge weights is as small as possible.&#xA;Initially no vertices are connected to any other vertex means the spanning tree does not contain any edges, it only contain vertices. Kruskal’s algorithm adds an edge to the tree which has the smallest weight if it does not create a cycle.</description>
+    </item>
+    <item>
+      <title>Prime Numbers and Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</guid>
+      <description>A prime number is an integer n &amp;gt; 1 which is only divisible by 1 and n(itself). For example, 2, 3, 5 are prime numbers, but 6, 8, 9 are not prime numbers.&#xA;Every integer n &amp;gt; 1 can be uniquely expressed as the product of prime numbers. For example 8 = 2 * 2 * 2.&#xA;A perfect number is a number n if n is equal to the sum of its factors between 1 and n – 1.</description>
+    </item>
+    <item>
+      <title>Roy and Code Streak | HackerEarth Challenge</title>
+      <link>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</guid>
+      <description>This is the HackerEarth challenge of easy level. Problem Link Roy and Code Streak.&#xA;Problem: Roy is working on HackerEarth Profile. Right now he is working on User Statistics. One of the statistics data (Code Streak) is as follows:&#xA;Given the User Activity Data, find the maximum number of continuous correct solutions submitted by any user. Seems easy eh? Here&amp;rsquo;s the catch! In order to maximize this number a user could have submitted a correct answer to the same problem which he has already solved.</description>
+    </item>
+    <item>
+      <title>How to Manipulate Bits in C and C&#43;&#43;</title>
+      <link>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</guid>
+      <description>All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.&#xA;Bits representation In programming, an n bit integer is stored as a binary number that consists of n bits. So a 32-bit integer consists of 32 bits and 64 bit integer consists of 64 bits.</description>
+    </item>
+    <item>
+      <title>Stack Overflow Vulnerability</title>
+      <link>https://programmercave.com/Stack-Overflow-Vulnerability/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stack-Overflow-Vulnerability/</guid>
+      <description>Stack overflow is a type of buffer overflow vulnerability. When we pour water in a glass more than its capacity the water spills or overflow, similarly when we enter data in a buffer more than its capacity the data overflows to adjacents memory location causing program to crash. This is know as buffer overflow.&#xA;Stack Overflow is an old vulnerability. We will see this vulnerabiltiy in the C or C++ languages, because in these languages we can use pointer freely.</description>
+    </item>
+    <item>
+      <title>How to Install graphics.h C/C&#43;&#43; library on Ubuntu</title>
+      <link>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</guid>
+      <description>In this post we are going to install graphics.h library on Ubuntu and to use it with gcc or g++ compiler. graphics.h provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in graphic.h library in C/C++ visit here.&#xA;To use graphics.hon Ubuntu platform we need to compile and install libgraph. libgraph is an implementation of the TurboC graphics API (graphics.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Simple Pendulum Animation on Ubuntu Machine</title>
+      <link>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</guid>
+      <description>Here is the code to animate simple pendulum on Ubuntu Machine.&#xA;We have to add #include &amp;lt;graphics.h&amp;gt; header file.&#xA;If you want to install C/C++ graphic.h header file on Ubuntu you can visit this post. How to Install graphics.h C/C++ library on Ubuntu&#xA;We have to also write int gd = DETECT, gm; initgraph(&amp;amp;gd, &amp;amp;gm, NULL);&#xA;initgraph() initializes the graphics system by loading a graphics driver from disk (or validating a registered driver), and putting the system into graphics mode.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Tic Tac Toe</title>
+      <link>https://programmercave.com/C-Tic-Tac-Toe/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Tic-Tac-Toe/</guid>
+      <description>Here is the simple C++ implementation of Tic Tac Toe.&#xA;#include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; void draw_board(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { std::cout &amp;lt;&amp;lt; &amp;#34; 0 1 2 \n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; for (int i = 0; i &amp;lt; vec.size(); i++) { std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; ; for (int j = 0; j &amp;lt; vec[i].size(); j++) { std::cout &amp;lt;&amp;lt; &amp;#34;| &amp;#34; &amp;lt;&amp;lt; vec[i][j] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } std::cout &amp;lt;&amp;lt; &amp;#34;|&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; } } void enter(unsigned int row, unsigned int col, char ch, std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { vec[row][col] = ch; } bool check(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { //to check diagonals if ((vec[0][0] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;X&amp;#39;) || (vec[0][2] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;X&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player X won this game\n&amp;#34;; return true; } else if ((vec[0][0] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;O&amp;#39;) || (vec[0][2] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;O&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player O won this game\n&amp;#34;; return true; } //to check horizonatal and vertical for (int i = 0; i &amp;lt; vec.</description>
+    </item>
+    <item>
+      <title>Dijkstra&#39;s Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</guid>
+      <description>Dijkstra&amp;rsquo;s algorithm finds shortest paths from the source vertex to all vertices in the graph. The condition for the algorithm is that all edge weights should be non-negative. Thus, Dijkstra’s algorithm is efficient than the Bellman-Ford algorithm because it processes each edge only once, since it knows that there are no negative-weight edges in the graph.&#xA;In fig. (a) there is no negative-weight cycle, fig. (b) contains a negative-weight cycle</description>
+    </item>
+    <item>
+      <title>Bellman Ford Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</guid>
+      <description>Bellman–Ford algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex.&#xA;The algorithm returns TRUE if there is no negative-weight cycle and FALSE if there is a negative-weight cycle reachable from the source vertex. If there is a negative-weight cycle that is reachable from source vertex, then no solution exists.</description>
+    </item>
+    <item>
+      <title>Breadth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</guid>
+      <description>Breadth first search (BFS) explores the graph level by level. First it explore every vertex that is connected to source vertex. If the vertex is discovered, it becomes gray or black. Initially all the vertices are white.&#xA;If vertex 1 is the source vertex, then it is at level 0. Vertex 2 and 4 are at level 1 and vertex 3 and 5 are at level 2. Vertex 6 is at level 3.</description>
+    </item>
+    <item>
+      <title>Depth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</guid>
+      <description>Depth first search explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started.&#xA;Initially all the vertices are white and when a vertex is discovered it becomes gray and then black when it is finished or processed.</description>
+    </item>
+    <item>
+      <title>Move all Odd numbers after Even numbers in Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</guid>
+      <description>Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.&#xA;For eg.&#xA;Given Linked List : 1, 2, 3, 4, 5, 6, 7 After Modification : 2, 4, 6, 1, 3, 5, 7 From the above fig. we can see that how the function will work.&#xA;While the head of the list is odd, the head is copied to an auxiliary node and element next to the head will become new head.</description>
+    </item>
+    <item>
+      <title>Merge two sorted Linked List (in-place) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</guid>
+      <description>Given two sorted Linked List, we have to merge them without using another linked list.&#xA;List 1 : { 5, 10, 18, 25 } List 2 : { 6, 8, 11, 20 } Merged List : { 5, 6, 8, 10, 11, 18, 20, 25 } From the above fig. we can see that merging two linked list is same as merging two sorted array in mergesort.&#xA;Related: Merge Sort</description>
+    </item>
+    <item>
+      <title>Split Singly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</guid>
+      <description>Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list.&#xA;Input : { 2, 3, 18, 25, 5 } Output List 1 : { 2, 3, 18 } Output List 2 : { 25, 5 } Here is a meme to understand Circular Linked List</description>
+    </item>
+    <item>
+      <title>Doubly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.</description>
+    </item>
+    <item>
+      <title>How to Reverse a Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</guid>
+      <description>Given a singly linked list, we have to reverse it.&#xA;Input list: { a, b, c, d, e } Output list: { e, d, c, b, a } There are two ways to reverse a linked list, iterative method and recursive method.&#xA;Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } Node* recursiveReverse(Node* head) { if(head == nullptr) return nullptr; if(head-&amp;gt;next == nullptr) return head; Node *firstElement = head; Node *secondElement = firstElement-&amp;gt;next; head = firstElement-&amp;gt;next; firstElement-&amp;gt;next = nullptr; //unlink first node Node *remainingList = recursiveReverse(head); secondElement-&amp;gt;next = firstElement; return remainingList; } #include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; template &amp;lt;class T&amp;gt; class LinkedList { struct Node { T data; Node * next; Node(T value) : data(std::move(value)), next(nullptr) {} }; Node *head; public: LinkedList() : head(nullptr) {} LinkedList(const LinkedList&amp;amp; ll) = delete; //copy constructor LinkedList(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move constructor LinkedList&amp;amp; operator=(const LinkedList&amp;amp; ll) = delete; //copy assignment LinkedList&amp;amp; operator=(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move assignment ~LinkedList(); void insert(T); void printList(); void iterativeReverse() { head = iterativeReverse(head); } private: Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } }; template &amp;lt;class T&amp;gt; void LinkedList&amp;lt;T&amp;gt;::insert(T data) { Node *node = new Node(std::move(data)); Node *tmp = head; if(tmp == nullptr) { head = node; } else { while(tmp-&amp;gt;next !</description>
+    </item>
+    <item>
+      <title>How to find the Length of Loop in Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</guid>
+      <description>Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.&#xA;To find loop in the linked list, we need two node pointers slowPtr and fastPtr which starts from the head. slowPtr increments by one node while fastPtr increments by two nodes. If these pointers point at the same node after starting from head then loop exists. This algorithm is known as Floyd Cycle Finding Algorithm.</description>
+    </item>
+    <item>
+      <title>Selection sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Selection-sort-using-STL/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Selection-sort-using-STL/</guid>
+      <description>Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array.&#xA;First the algorithm finds the smallest element in the array which is 1 and it is added to the sorted array and then the algorithm finds smallest element in the remaining array and so on.</description>
+    </item>
+    <item>
+      <title>Merge Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Merge-Sort/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Merge-Sort/</guid>
+      <description>Merge sort follows divide-and-conquer approach. It divides an array of n elements into two subarrays of n/2 elements each. Then it sort the two subarrays recursively using merge sort. And then these subarrays are merged to produce a single sorted array.&#xA;If the size of the array is even then the size of subarrays is equal and if it is odd then first array has one element more than the second array.</description>
+    </item>
+    <item>
+      <title>Insertion Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</guid>
+      <description>Insertion sort is an efficient algorithm for sorting a small number of elements. The algorithm selects an element from the unsorted array and put it in the proper position in the sorted. This process is repeated until all elements in the array are sorted. The sorting is in-place means array consists of sorted portion and unsorted portion in it.&#xA;The index of the key starts from 1. The algorithm finds the correct position of the key in the array and put the key at that position and then the element with next index becomes key.</description>
+    </item>
+    <item>
+      <title>Doubly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</link>
+      <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.&#xA;The first node of the linked list is the head and the last node is the tail.</description>
+    </item>
+    <item>
+      <title>Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</link>
+      <pubDate>Thu, 27 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</guid>
+      <description>A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty.</description>
+    </item>
+    <item>
+      <title>Quicksort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</guid>
+      <description>Like mergesort, quicksort also follows divide-and-conquer approach. The algorithm selects an element as pivot. The input array is divided into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are sorted independently and then merged to form a single sorted array.&#xA;Related : Merge Sort&#xA;In fig. (a) 4 is selected as the pivot and in fig.</description>
+    </item>
+    <item>
+      <title>Heapsort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</guid>
+      <description>Heapsort is implemented using heap data structure. Heap helps us to represent binary tree without using any pointers. Using heap an array can be viewed as a binary tree and each node of the tree stores an element of the array.&#xA;There are two kinds of binary heaps: max-heaps and min-heaps. In max-heap, the value stored at the parent node is greater than the value stored at its children nodes. Thus in a max-heap, root node contains the largest element.</description>
+    </item>
+  </channel>
+</rss>

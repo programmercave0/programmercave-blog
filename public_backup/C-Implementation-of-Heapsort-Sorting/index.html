@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Heapsort is implemented using heap data structure. Heap helps us to represent binary tree without using any pointers. Using heap an array can be viewed as a binary tree and each node of the tree stores an element of the array.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Heapsort | C&#43;&#43; Implementation | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Heapsort | C&#43;&#43; Implementation</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2017-07-15
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Sorting/&#34;&gt;Sorting&lt;/a&gt;
+    </div>
+  
+  <p><strong>Heapsort</strong> is implemented using <em>heap</em> data structure. Heap helps us to represent binary tree without using any <em>pointers</em>. Using heap an array can be viewed as a <em>binary tree</em> and each node of the tree stores an element of the array.</p>
+<p>There are two kinds of binary heaps: max-heaps and min-heaps. In <em>max-heap</em>, the value stored at the parent node is greater than the value stored at its children nodes. Thus in a max-heap, root node contains the largest element. In <em>min-heap</em>, the value stored at the parent node is smaller than the value stored at its children nodes. Thus in a min-heap, root node contains the smallest element.</p>
+<p><img src="/assets/images/binaryheap.png" alt="Heapsort"></p>
+<p>Max-heap is used in heapsort algorithm and min-heap is used in priority queues.</p>
+<p><img src="/assets/images/heapsort.png" alt="Heapsort"></p>
+<p>When <code>arr[i] = parent</code>, then <code>left_child = 2*i + 1</code> and <code>right_child = 2*i + 2</code>.</p>
+<!-- raw HTML omitted -->
+<p><code>max_heapify</code> maintains the max-heap property of the heap. The input array, index of the element and size of the array is passed as an argument.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">max_heapify</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr, <span style="color:#b00040">int</span> i, <span style="color:#b00040">int</span> size_)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> largest, l <span style="color:#666">=</span> (<span style="color:#666">2</span><span style="color:#666">*</span>i) <span style="color:#666">+</span> <span style="color:#666">1</span>, r <span style="color:#666">=</span> l <span style="color:#666">+</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(l <span style="color:#666">&lt;</span> size_ <span style="color:#666">&amp;&amp;</span> arr[l] <span style="color:#666">&gt;</span> arr[i])
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> l;
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> i;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(r <span style="color:#666">&lt;</span> size_ <span style="color:#666">&amp;&amp;</span> arr[r] <span style="color:#666">&gt;</span> arr[largest])
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> r;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(largest <span style="color:#666">!=</span> i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>swap(arr[i], arr[largest]);
+</span></span><span style="display:flex;"><span>        max_heapify(arr, largest, size_);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If <code>arr[i]</code> is <code>largest</code>, then subtree rooted at node <code>i</code> is a max-heap and function terminates. Otherwise, <code>largest</code> stores the index of child whose value is greatest of the three elements and <code>arr[i]</code> is swapped with <code>arr[largest]</code> and thus max-heap property is satisfied at node <code>i</code>. Then <code>max_heapify</code> with node indexed by <code>largest</code> is called to satisfy max-heap property at node <code>largest</code>.</p>
+<p><code>build_max_heap</code> produces a max-heap from an input array.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">build_max_heap</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span>(<span style="color:#b00040">int</span> i <span style="color:#666">=</span> (arr.size() <span style="color:#666">/</span> <span style="color:#666">2</span>); i <span style="color:#666">&gt;=</span> <span style="color:#666">0</span>; i<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>    max_heapify(arr, i, arr.size());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="/assets/images/heapsort1.png" alt="Heapsort"></p>
+<p><code>heapsort</code> sorts an array in-place.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">heap_sort</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   build_max_heap(arr);
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">int</span> sz <span style="color:#666">=</span> arr.size();
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">for</span>(<span style="color:#b00040">int</span> i <span style="color:#666">=</span> arr.size() <span style="color:#666">-</span> <span style="color:#666">1</span>; i <span style="color:#666">&gt;</span> <span style="color:#666">0</span>; i<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>swap(arr[<span style="color:#666">0</span>], arr[i]);
+</span></span><span style="display:flex;"><span>        sz<span style="color:#666">--</span>;
+</span></span><span style="display:flex;"><span>        max_heapify(arr, <span style="color:#666">0</span>, sz);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><code>heapsort</code> starts with <code>build_max_heap</code> and now largest element of the array is at index 0. So the first value is  swapped with the last value and then the node with largest value is removed from the tree and new max-heap is created with <code>max_heapify</code>.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;iostream&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;vector&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;algorithm&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00"></span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">max_heapify</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr, <span style="color:#b00040">int</span> i, <span style="color:#b00040">int</span> size_)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> largest, l <span style="color:#666">=</span> (<span style="color:#666">2</span><span style="color:#666">*</span>i) <span style="color:#666">+</span> <span style="color:#666">1</span>, r <span style="color:#666">=</span> l <span style="color:#666">+</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(l <span style="color:#666">&lt;</span> size_ <span style="color:#666">&amp;&amp;</span> arr[l] <span style="color:#666">&gt;</span> arr[i])
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> l;
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> i;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(r <span style="color:#666">&lt;</span> size_ <span style="color:#666">&amp;&amp;</span> arr[r] <span style="color:#666">&gt;</span> arr[largest])
+</span></span><span style="display:flex;"><span>        largest <span style="color:#666">=</span> r;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(largest <span style="color:#666">!=</span> i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>swap(arr[i], arr[largest]);
+</span></span><span style="display:flex;"><span>        max_heapify(arr, largest, size_);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">build_max_heap</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span>(<span style="color:#b00040">int</span> i <span style="color:#666">=</span> (arr.size() <span style="color:#666">/</span> <span style="color:#666">2</span>); i <span style="color:#666">&gt;=</span> <span style="color:#666">0</span>; i<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>    max_heapify(arr, i, arr.size());
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">heap_sort</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;&amp;</span> arr)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   build_max_heap(arr);
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">int</span> sz <span style="color:#666">=</span> arr.size();
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">for</span>(<span style="color:#b00040">int</span> i <span style="color:#666">=</span> arr.size() <span style="color:#666">-</span> <span style="color:#666">1</span>; i <span style="color:#666">&gt;</span> <span style="color:#666">0</span>; i<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>swap(arr[<span style="color:#666">0</span>], arr[i]);
+</span></span><span style="display:flex;"><span>        sz<span style="color:#666">--</span>;
+</span></span><span style="display:flex;"><span>        max_heapify(arr, <span style="color:#666">0</span>, sz);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> arr <span style="color:#666">=</span> {<span style="color:#666">4</span>, <span style="color:#666">1</span>, <span style="color:#666">3</span>, <span style="color:#666">2</span>, <span style="color:#666">16</span>, <span style="color:#666">9</span>, <span style="color:#666">10</span>, <span style="color:#666">14</span>, <span style="color:#666">8</span>, <span style="color:#666">7</span>};
+</span></span><span style="display:flex;"><span>    heap_sort(arr);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span>(<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> arr.size(); i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>         std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> arr[i] <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Reference:<!-- raw HTML omitted -->
+<a href="https://amzn.to/2OarGBs">Introduction to Algorithms</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2CH9h9Z">The Algorithm Design Manual</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2NLM0dd">Data Structures and Algorithms Made Easy</a><!-- raw HTML omitted -->
+Competitive Programmer’s Handbook - Antti Laaksonen<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><a href="/C-Selection-sort-using-STL">Selection sort</a><!-- raw HTML omitted -->
+<a href="/C-Implementation-of-Merge-Sort">Merge Sort</a><!-- raw HTML omitted -->
+<a href="/C-Insertion-Sort-using-STL-Sorting">Insertion Sort</a><!-- raw HTML omitted -->
+<a href="/C-Implementation-of-Quicksort-Sorting">Quicksort</a><!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Sorting/&#34;&gt;Sorting&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

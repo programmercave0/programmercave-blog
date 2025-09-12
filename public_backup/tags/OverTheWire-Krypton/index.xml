@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OverTheWire-Krypton on programmerCave</title>
+    <link>https://programmercave.com/tags/OverTheWire-Krypton/</link>
+    <description>Recent content in OverTheWire-Krypton on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/OverTheWire-Krypton/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Krypton Level 0 to Level 2 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 0 → Level 1, Level 1 → Level 2 and Level 2 → Level 3.&#xA;Krypton Level 0 → Level 1 Level Info Welcome to Krypton! The first level is easy. The following string encodes the password using Base64: S1JZUFRPTklTR1JFQVQ=&#xA;Use this password to log in to krypton.labs.overthewire.org with username krypton1 using SSH on port 2222.</description>
+    </item>
+    <item>
+      <title>Krypton Level 3 to Level 5 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6.&#xA;Previous Post Krypton Level 0 to Level 2&#xA;Krypton Level 3 → Level 4 Level Info In this example, the cipher mechanism is not available to you, the attacker.&#xA;However, you have been lucky. You have intercepted more than one message.</description>
+    </item>
+  </channel>
+</rss>

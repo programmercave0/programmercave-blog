@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Notes on Constructor, Access modifiers, Inheritance, Diamond Problem from Scaler">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Constructor, Access modifiers, Inheritance, Diamond Problem | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Constructor, Access modifiers, Inheritance, Diamond Problem</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-06-22
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+  <h2 id="constructor">Constructor</h2>
+<ul>
+<li>special method that is called when an object is created.</li>
+<li>used to initialize the object.</li>
+<li>called automatically when the object is created.</li>
+<li>used to set initial values for object attributes.</li>
+<li><strong>it&rsquo;s a method, but it has no return type</strong></li>
+<li><strong>implicitly returns the type of the object that it creates</strong></li>
+</ul>
+<p><strong>Syntax of a constructor</strong></p>
+<ul>
+<li>In Java, Constructor declarations begin with access modifiers: They can be public, private, protected, or package access, based on other access modifiers.</li>
+<li>Unlike methods, a constructor can&rsquo;t be abstract, static, final, native, or synchronized.</li>
+</ul>
+<h3 id="types-of-constructor">Types of Constructor</h3>
+<h4 id="default-constructor">Default constructor</h4>
+<ul>
+<li>constructor created by the compiler if we do not define any constructor(s) for a class.</li>
+</ul>
+<h4 id="parameterized-constructor">Parameterized constructor</h4>
+<ul>
+<li>real benefit of constructors is that they help us maintain encapsulation when injecting state into the object.</li>
+</ul>
+<hr>
+<h2 id="access-modifiers">Access modifiers</h2>
+<ul>
+<li>There are two types of modifiers in Java: <strong>access modifiers</strong> and <strong>non-access modifiers</strong>.</li>
+</ul>
+<h3 id="types-of-access-modifiers-in-java">Types of access modifiers in Java</h3>
+<ul>
+<li><strong>public</strong> - The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the package</li>
+<li><strong>protected</strong> - The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.</li>
+<li><strong>private</strong> - The access level of a private modifier is only within the class. It cannot be accessed from outside the class.</li>
+<li><strong>default</strong> - The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any access level, it will be the default.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Class</th>
+<th>Package</th>
+<th>Subclass</th>
+<th>Global</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Protected</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Private</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li>mechanism that allows one class to acquire all the properties from another class by inheriting the class.</li>
+<li>represents the IS-A relationship which is also known as a parent-child relationship.</li>
+</ul>
+<h3 id="types-of-inheritance">Types of inheritance</h3>
+<ul>
+<li><strong>Single</strong> - when a class can have only one parent class.</li>
+<li><strong>Multilevel</strong> - when a class can have multiple parent classes at different levels.</li>
+<li><strong>Hierarchical</strong> - When two or more classes inherits a single class, it is known as hierarchical inheritance.</li>
+<li><strong>Multiple</strong> - When a class can have multiple parent classes, it is known as multiple inheritance.</li>
+</ul>
+<hr>
+<h2 id="diamond-problem">Diamond Problem</h2>
+<ul>
+<li>ambiguity that arises when two classes B and C inherit from A, and class D inherits from both B and C.</li>
+<li>If there is a method in A that B and C have overridden, and D does not override it, then which version of the method does D inherit: that of B, or that of C.</li>
+</ul>
+<p><img src="/assets/images/LLD/diamond-problem.png" alt="Diamond Problem"></p>
+<hr>
+<h2 id="java-code">Java Code</h2>
+<p>User.java</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.AllArgsConstructor</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Getter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.NoArgsConstructor</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Setter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Getter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Setter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@AllArgsConstructor</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@NoArgsConstructor</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">User</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>email;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">changeEmail</span>(String<span style="color:#bbb"> </span>email)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">email</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>email;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">printInfo</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">printInfo</span>(String<span style="color:#bbb"> </span>title)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34; \n User: &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>title<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#ba2121">&#34; &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">getName</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Student.java</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Getter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Setter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Getter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Setter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Student</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">extends</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>batchName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>Integer<span style="color:#bbb"> </span>psp;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>StudentStatus<span style="color:#bbb"> </span>status<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>StudentStatus.<span style="color:#7d9029">ACTIVE</span>;<span style="color:#bbb"> </span><span style="color:#408080;font-style:italic">// ACTIVE, PAUSED, COMPLETED</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#408080;font-style:italic">// Define parametrised constructor</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Student</span>(String<span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>email,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>batchName,<span style="color:#bbb"> </span>Integer<span style="color:#bbb"> </span>psp)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">super</span>(name,<span style="color:#bbb"> </span>email);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">batchName</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>batchName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(psp<span style="color:#bbb"> </span><span style="color:#666">&lt;</span><span style="color:#bbb"> </span>0<span style="color:#bbb"> </span><span style="color:#666">||</span><span style="color:#bbb"> </span>psp<span style="color:#bbb"> </span><span style="color:#666">&gt;</span><span style="color:#bbb"> </span>100)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#008000;font-weight:bold">throw</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>IllegalArgumentException(<span style="color:#ba2121">&#34;PSP should be between 0 and 100&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">psp</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>psp;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Student</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">changeBatch</span>(String<span style="color:#bbb"> </span>batchName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">batchName</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>batchName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">printInfo</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;\nStudent: &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>getName()<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#ba2121">&#34; &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>getBatchName());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>StudentStatus.java</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">enum</span><span style="color:#bbb"> </span>StudentStatus<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>ACTIVE,<span style="color:#bbb"> </span>PAUSED,<span style="color:#bbb"> </span>COMPLETED,<span style="color:#bbb"> </span>EDGE<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Mentor.java</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">java.util.ArrayList</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">java.util.List</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Getter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">lombok.Setter</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Getter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Setter</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Mentor</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">extends</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>List<span style="color:#666">&lt;</span>Student<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>mentees<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>ArrayList<span style="color:#666">&lt;&gt;</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>company;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Mentor</span>(String<span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>email,<span style="color:#bbb"> </span>List<span style="color:#666">&lt;</span>Student<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>mentees,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>company)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">super</span>(name,<span style="color:#bbb"> </span>email);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">mentees</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>mentees;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">company</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>company;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>App.java</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">java.util.List</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler.Student</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">com.scaler.lld.scaler.User</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">App</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>User<span style="color:#bbb"> </span>student<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Student(<span style="color:#ba2121">&#34;student&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;student@scaler.in&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;batch&#34;</span>,<span style="color:#bbb"> </span>100);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>student.<span style="color:#7d9029">printInfo</span>();<span style="color:#bbb"> </span><span style="color:#408080;font-style:italic">// inheritance</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">resetEmail</span>(List<span style="color:#666">&lt;</span>User<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>users)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">for</span><span style="color:#bbb"> </span>(User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>users)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>user.<span style="color:#7d9029">changeEmail</span>(<span style="color:#ba2121">&#34;&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(user<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">instanceof</span><span style="color:#bbb"> </span>Student)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>Student<span style="color:#bbb"> </span>student<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>(Student)<span style="color:#bbb"> </span>user;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;Name :&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>student.<span style="color:#7d9029">getName</span>()<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#ba2121">&#34; &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>student.<span style="color:#7d9029">getPsp</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>student.<span style="color:#7d9029">setPsp</span>(0);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;Name :&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>student.<span style="color:#7d9029">getName</span>()<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#ba2121">&#34; &#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>student.<span style="color:#7d9029">getPsp</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">            
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><blockquote>
+<p>These are my notes from the Low-Level Design (LLD) course I took at Scaler.</p>
+</blockquote>
+<blockquote>
+<p>Check Python, Java and Go code on <a href="https://github.com/abhiabhi0/scaler-fundamentals/tree/master/oop/code">Github Repo</a></p>
+</blockquote>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

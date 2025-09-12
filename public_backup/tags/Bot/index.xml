@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bot on programmerCave</title>
+    <link>https://programmercave.com/tags/Bot/</link>
+    <description>Recent content in Bot on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Bot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a Python Telegram Bot on Oracle Cloud</title>
+      <link>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</guid>
+      <description>Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities. Here’s a step-by-step guide on setting up and deploying a bot on an Ubuntu instance in Oracle Cloud. For this example, I&amp;rsquo;ll use the Atmanam Viddhi Bot, a bot that responds to the /wisdom command, sharing random quotes from a collection on GitHub and featuring user cooldowns and interactive buttons.</description>
+    </item>
+  </channel>
+</rss>

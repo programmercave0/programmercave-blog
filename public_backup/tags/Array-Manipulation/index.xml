@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Array-Manipulation on programmerCave</title>
+    <link>https://programmercave.com/tags/Array-Manipulation/</link>
+    <description>Recent content in Array-Manipulation on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Array-Manipulation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+  </channel>
+</rss>

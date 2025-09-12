@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on programmerCave</title>
+    <link>https://programmercave.com/tags/CSS/</link>
+    <description>Recent content in CSS on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/CSS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to scroll Amazon Affiliate Marketing cards horizontally on a website</title>
+      <link>https://programmercave.com/How-to-scroll-Amazon-Affiliate-Marketing-cards-horizontally-on-a-website/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-scroll-Amazon-Affiliate-Marketing-cards-horizontally-on-a-website/</guid>
+      <description>I wanted to put my amazon affiliate marketing product on website. But on smaller screens it was messing up my website&amp;rsquo;s interface. I searched on internet tried many things but no result. Then I tried it with &amp;lt;table&amp;gt; in html and css and it worked. Here is the code for that.&#xA;Table with only one reow is needed and we will put products&amp;rsquo; card on that row and when the table width is greater than screen&amp;rsquo;s width it will scroll horizontaly.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software-Engineering on programmerCave</title>
+    <link>https://programmercave.com/tags/Software-Engineering/</link>
+    <description>Recent content in Software-Engineering on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Software-Engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Structural Design Patterns - Decorator and Facade</title>
+      <link>https://programmercave.com/Structural-Design-Patterns-Decorator-and-Facade/</link>
+      <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Structural-Design-Patterns-Decorator-and-Facade/</guid>
+      <description>Decorator&#xA;structural design pattern that allows adding new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors. Facade&#xA;structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. Decorator attaches additional responsibilities to an object dynamically. Problem Let us say we want to build a class that sends our users emails with a greeting. We can start with a simple class: public class EmailService { public void sendEmail(String email, String message) { .</description>
+    </item>
+    <item>
+      <title>Structural Design Patterns - Adapter and Flyweight</title>
+      <link>https://programmercave.com/Structural-Design-Patterns-Adapter-and-Flyweight/</link>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Structural-Design-Patterns-Adapter-and-Flyweight/</guid>
+      <description>Structural Patterns&#xA;design patterns that ease the design by identifying a simple way to realize relationships between entities. concerned with how classes and objects are composed to form larger structures. Adapter&#xA;allows the interface of an existing class to be used from another interface. It is often used to make existing classes work with others without modifying their source code. Flyweight&#xA;lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.</description>
+    </item>
+    <item>
+      <title>Creational Design Patterns - Prototype, Factory Method and Abstract Factory</title>
+      <link>https://programmercave.com/Creational-Design-Patterns-Prototype-Factory-Method-and-Abstract-Factory/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creational-Design-Patterns-Prototype-Factory-Method-and-Abstract-Factory/</guid>
+      <description>Prototype&#xA;is a creational design pattern that can be used to create objects that are similar to each other. The pattern is used to avoid the cost of creating new objects by cloning an existing object and avoiding dependencies on the class of the object that needs to be cloned. Factory&#xA;is a creational design pattern that can be used to create objects without specifying the exact class of the object that will be created.</description>
+    </item>
+    <item>
+      <title>Creational Design Patterns - Singleton and Builder</title>
+      <link>https://programmercave.com/Creational-Design-Patterns-Singleton-and-Builder/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creational-Design-Patterns-Singleton-and-Builder/</guid>
+      <description>Design Pattern&#xA;is a general, reusable solution to a commonly occurring problem within a given context in software design. are formalized best practices that the programmer can use to solve common problems when designing an application or system. Creational Design Patterns&#xA;provide various object creation mechanisms, which increase flexibility and reuse of existing code. Singleton&#xA;is a software design pattern that restricts the instantiation of a class to one object. Builder</description>
+    </item>
+    <item>
+      <title>SOLID - Liskov Substitution, Interface Segregation, and Dependency Inversion</title>
+      <link>https://programmercave.com/SOLID-Liskov-Substitution-Interface-Segregation-and-Dependency-Inversion/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/SOLID-Liskov-Substitution-Interface-Segregation-and-Dependency-Inversion/</guid>
+      <description>Liskov Substitution Principle states that objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program Let us take a look at our final version of the Bird class from SOLID - Single Responsibility, Open/Closed Principle We started with a Bird class which had SRP and OCP violations. We now have a Bird abstract class which can be extended by the Eagle, Penguin and Parrot subclasses.</description>
+    </item>
+    <item>
+      <title>SOLID - Single Responsibility, Open/Closed Principle</title>
+      <link>https://programmercave.com/SOLID-Single-Responsibility-Open-Closed-Principle/</link>
+      <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/SOLID-Single-Responsibility-Open-Closed-Principle/</guid>
+      <description>Single Responsibility Principle states that a class should do one thing, and therefore it should have only a single reason to change. Case study - Design a bird A bird could have the following attributes: Weight Colour Type Size BeakType A bird would also exhibit the following behaviours: Fly Eat Make a sound public class Bird { private int weight; private String colour; private String type; private String size; private String beakType; public void fly() { .</description>
+    </item>
+    <item>
+      <title>Polymorphism</title>
+      <link>https://programmercave.com/Polymorphism/</link>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Polymorphism/</guid>
+      <description>ability of a message to be represented in many forms. Polymorphism in Java can be achieved in two ways i.e., method overloading and method overriding. Polymorphism in Java is mainly divided into two types. Compile-time polymorphism Runtime polymorphism Compile-time polymorphism can be achieved by method overloading Runtime polymorphism can be achieved by method overriding. Subtyping concept in object-oriented programming that allows a variable of a base class to reference a derived class object.</description>
+    </item>
+    <item>
+      <title>Constructor, Access modifiers, Inheritance, Diamond Problem</title>
+      <link>https://programmercave.com/Constructor-Access-modifiers-Inheritance-Diamond-Problem/</link>
+      <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Constructor-Access-modifiers-Inheritance-Diamond-Problem/</guid>
+      <description>Constructor special method that is called when an object is created. used to initialize the object. called automatically when the object is created. used to set initial values for object attributes. it&amp;rsquo;s a method, but it has no return type implicitly returns the type of the object that it creates Syntax of a constructor&#xA;In Java, Constructor declarations begin with access modifiers: They can be public, private, protected, or package access, based on other access modifiers.</description>
+    </item>
+    <item>
+      <title>Low Level Design - What and Why?</title>
+      <link>https://programmercave.com/Low-Level-Design-What-and-Why/</link>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Low-Level-Design-What-and-Why/</guid>
+      <description>What is LLD: component-level design process that follows a step-by-step refinement process. used for designing data structures, required software architecture, source code and ultimately, performance algorithms. Overall, the data organization may be defined during requirement analysis and then refined during data design work. Post-build, each component is specified in detail Why LLD? goal of LLD or a low-level design (LLD) is to give the internal logical design of the actual program code.</description>
+    </item>
+    <item>
+      <title>Programming paradigms - Procedural vs Object Oriented Programming</title>
+      <link>https://programmercave.com/Programming-paradigms-Procedural-vs-Object-Oriented-Programming/</link>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Programming-paradigms-Procedural-vs-Object-Oriented-Programming/</guid>
+      <description>Types of Programming paradigms Imperative:&#xA;an imperative program consists of commands for the computer to perform to change state e.g. C, Java, Python, etc. Declarative:&#xA;focuses on what the program should accomplish without specifying all the details of how the program should achieve the result e.g. SQL, Lisp, etc. Imperative Procedural programming: programming paradigm that uses a sequence of steps to solve a problem. based on the concept of the procedure call.</description>
+    </item>
+    <item>
+      <title>Unraveling the Power of Virtualization: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Unraveling-the-Power-of-Virtualization-A-Comprehensive-Guide/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Unraveling-the-Power-of-Virtualization-A-Comprehensive-Guide/</guid>
+      <description>Introduction In the dynamic realm of technology, virtualization stands as a bedrock, reshaping our approach to computing resources. Originating in the late 1960s at IBM, virtualization has undergone a profound transformation, allowing multiple operating systems and applications to coexist on a single physical machine. This blog aims to unravel the intricacies of virtualization, catering to both beginners and seasoned engineers.&#xA;Understanding Virtualization Virtualization, at its core, empowers a single physical machine to host multiple operating systems and their corresponding applications concurrently.</description>
+    </item>
+  </channel>
+</rss>

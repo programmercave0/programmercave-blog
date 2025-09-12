@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Master CAP Theorem for your software engineering interview with simple explanations, real-world examples, and PACELC insights. Learn trade-offs between consistency, availability, and partition tolerance.">
+  <meta name="keywords" content="CAP, Theorem,, PACELC, Theorem,, distributed, systems,, consistency,, availability,, partition, tolerance,, software, engineering, interview,, system, design,, database, trade-offs,, interview, preparation">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Interview Question: Explain CAP Theorem | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Interview Question: Explain CAP Theorem</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2025-01-29
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Distributed-Systems/&#34;&gt;Distributed-Systems&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+  <h2 id="1-what-is-the-cap-theorem"><strong>1. What is the CAP Theorem?</strong></h2>
+<p>The CAP Theorem states that a distributed system can only guarantee <strong>two out of three properties</strong> at the same time:</p>
+<ol>
+<li><strong>Consistency (C):</strong> All users see the same data simultaneously.</li>
+<li><strong>Availability (A):</strong> The system always responds to requests (even with stale data).</li>
+<li><strong>Partition Tolerance (P):</strong> The system works even if parts of it lose communication.</li>
+</ol>
+<p><strong>Key Insight:</strong> Network partitions (e.g., server crashes, dropped messages) are unavoidable. During a partition, you <strong>must choose between C and A</strong>.</p>
+<p><img src="/assets/images/Distributed-System/CAP-Theorem.png" alt="Explain CAP Theorem"></p>
+<h2 id="2-real-world-example-rohits-reminder-startup"><strong>2. Real-World Example: Rohit’s “Reminder” Startup</strong></h2>
+<p>Imagine Rohit runs a company called <em>Reminder</em> where he writes down customer reminders in a diary. When he hires Raj to help, problems arise:</p>
+<h3 id="problem-1-inconsistency"><strong>Problem 1: Inconsistency</strong></h3>
+<ul>
+<li><strong>Scenario:</strong> Rohit writes a reminder in his diary, but Raj doesn’t update his copy.</li>
+<li><strong>Result:</strong> Customers get inconsistent information.
+<pre tabindex="0"><code>[Client] --&gt; [Rohit&#39;s Diary: &#34;Call X&#34;]  
+[Client] --&gt; [Raj&#39;s Diary: &#34;No Entry&#34;]  
+</code></pre></li>
+<li><strong>Solution:</strong> Both must write entries simultaneously to ensure <strong>consistency</strong>.</li>
+</ul>
+<h3 id="problem-2-availability-issues"><strong>Problem 2: Availability Issues</strong></h3>
+<ul>
+<li><strong>Scenario:</strong> If Raj is unavailable, Rohit can’t respond to requests until Raj returns.</li>
+<li><strong>Result:</strong> Delays frustrate customers.
+<pre tabindex="0"><code>[Client Request] --&gt; [Rohit: Available ✅]  
+                   [Raj: Unavailable ❌]  
+</code></pre></li>
+<li><strong>Solution:</strong> Accept entries even if one person is missing, and sync later.</li>
+</ul>
+<h3 id="problem-3-network-partition"><strong>Problem 3: Network Partition</strong></h3>
+<ul>
+<li><strong>Scenario:</strong> Rohit and Raj can’t communicate. The system must either:
+<ul>
+<li><strong>Reject requests</strong> (prioritize <strong>consistency</strong> but lose availability).</li>
+<li><strong>Accept requests</strong> (prioritize <strong>availability</strong> but risk inconsistency).</li>
+</ul>
+<pre tabindex="0"><code>Partition Occurs:  
+[Rohit] --✂️ Network Failure ✂️-- [Raj]  
+Choose:  
+1. Reject writes ➔ Consistency ✔️, Availability ❌  
+2. Accept writes ➔ Availability ✔️, Consistency ❌  
+</code></pre></li>
+</ul>
+<h2 id="3-cap-trade-offs-cp-vs-ap-vs-ca"><strong>3. CAP Trade-offs: CP vs. AP vs. CA</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>System Type</strong></th>
+<th><strong>Prioritizes</strong></th>
+<th><strong>Sacrifices</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CP</strong></td>
+<td>Consistency + Partition Tolerance</td>
+<td>Availability</td>
+<td>Banking systems (e.g., PostgreSQL)</td>
+</tr>
+<tr>
+<td><strong>AP</strong></td>
+<td>Availability + Partition Tolerance</td>
+<td>Consistency</td>
+<td>Social media (e.g., Cassandra)</td>
+</tr>
+<tr>
+<td><strong>CA</strong></td>
+<td>Consistency + Availability</td>
+<td>Partition Tolerance</td>
+<td>Single-server databases (e.g., non-replicated MySQL)</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ <strong>CA systems are theoretical</strong> – real-world distributed systems <strong>must handle partitions (P)</strong>.</p>
+<h2 id="4-pacelc-theorem-beyond-cap"><strong>4. PACELC Theorem: Beyond CAP</strong></h2>
+<p>The PACELC Theorem extends CAP to address <strong>normal operations</strong> (no partitions):</p>
+<ul>
+<li><strong>PAC:</strong> During a <strong>partition (P)</strong>, choose between <strong>A</strong> (availability) and <strong>C</strong> (consistency).</li>
+<li><strong>ELC:</strong> <strong>Else (E)</strong>, choose between <strong>L</strong> (latency) and <strong>C</strong> (consistency).</li>
+</ul>
+<h3 id="examples"><strong>Examples</strong></h3>
+<ul>
+<li><strong>Banking Apps:</strong> Prioritize <strong>consistency</strong> (e.g., ATMs must show accurate balances).</li>
+<li><strong>Social Media:</strong> Prioritize <strong>availability</strong> (e.g., Facebook News Feed can show stale posts).</li>
+<li><strong>Messaging Apps:</strong> Prioritize <strong>consistency</strong> (e.g., WhatsApp must show messages in order).</li>
+</ul>
+<h2 id="5-cap-in-popular-databases"><strong>5. CAP in Popular Databases</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Database</strong></th>
+<th><strong>CAP Type</strong></th>
+<th><strong>Use Case</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cassandra</td>
+<td>AP</td>
+<td>High availability (social media, IoT)</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>CP (tunable)</td>
+<td>Consistency-focused apps (e-commerce)</td>
+</tr>
+<tr>
+<td>DynamoDB</td>
+<td>AP (default)</td>
+<td>Scalable web apps (Amazon)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-takeaways"><strong>Key Takeaways</strong></h2>
+<p>✅ <strong>CAP Theorem:</strong> Choose 2/3 properties during a partition.<br>
+✅ <strong>PACELC:</strong> Adds latency vs. consistency trade-offs in normal conditions.<br>
+✅ <strong>AP vs. CP:</strong> Match the system to the use case (e.g., social media = AP, banking = CP).</p>
+<p><strong>Further Reading:</strong></p>
+<ul>
+<li><a href="https://www.bmc.com/blogs/cap-theorem/">CAP Theorem Explained (BMC)</a></li>
+<li><a href="https://www.educative.io/blog/what-is-cap-theorem">PACELC Deep Dive (Educative)</a></li>
+</ul>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Distributed-Systems/&#34;&gt;Distributed-Systems&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

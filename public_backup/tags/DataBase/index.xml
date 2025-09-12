@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DataBase on programmerCave</title>
+    <link>https://programmercave.com/tags/DataBase/</link>
+    <description>Recent content in DataBase on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/DataBase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interview Question: What is the difference between SQL and NoSQL Databases?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-the-difference-between-SQL-and-NoSQL-Databases/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-the-difference-between-SQL-and-NoSQL-Databases/</guid>
+      <description>SQL vs NoSQL: The Ultimate Guide for Software Engineering Interviews Understanding the differences between SQL and NoSQL databases is a common requirement for technical interviews. Whether you&amp;rsquo;re a new grad or a seasoned engineer, interviewers often test your ability to choose the right database for specific use cases. Let’s break down these differences to help you prepare effectively.&#xA;Why SQL vs NoSQL Matters in Interviews Interviewers assess your understanding of database fundamentals to evaluate your system design skills.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is the difference between MySQL and PostgreSQL?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-the-difference-between-MySQL-and-PostgreSQL/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-the-difference-between-MySQL-and-PostgreSQL/</guid>
+      <description>Database Type MySQL: A purely relational database management system known for its simplicity and speed, making it suitable for web applications and read-heavy workloads. PostgreSQL: An object-relational database management system (ORDBMS) that supports advanced features like table inheritance and custom data types, making it versatile for complex applications. Data Integrity and Concurrency PostgreSQL: Strongly emphasizes data integrity with Multi-Version Concurrency Control (MVCC), allowing multiple transactions without locking the database. It is ACID-compliant from the ground up.</description>
+    </item>
+    <item>
+      <title>Interview Question: How Does Internally Indexing Work in Databases?</title>
+      <link>https://programmercave.com/Interview-Question-How-Does-Internally-Indexing-Work-in-Databases/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-How-Does-Internally-Indexing-Work-in-Databases/</guid>
+      <description>Definition of Indexing Indexing is a technique used to improve the speed of data retrieval in databases by creating a separate data structure that maps search keys to their corresponding data locations. Internal Structures B-Tree Structure:&#xA;The most common structure for indexes, allowing sorted data and efficient searching, insertion, and deletion. B-Tree Diagram [Root] / \ / \ [A] [B] / \ / \ [C] [D] [E] [F] Leaf Nodes: Store actual data pointers.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is Database Sharding?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-Database-Sharding/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-Database-Sharding/</guid>
+      <description>Key Concepts of Database Sharding Definition:&#xA;Database sharding is the process of partitioning a large database into smaller, manageable pieces called shards. Each shard operates independently and contains a subset of the total data, allowing for parallel processing and improved query performance. Purpose:&#xA;The main objective of sharding is to effectively manage large datasets. As applications grow, a single database instance may struggle with increased data volume and user demand, resulting in slower response times.</description>
+    </item>
+    <item>
+      <title>Exploring JSONB in PostgreSQL: A Beginner&#39;s Guide to Storing and Querying Structured Data</title>
+      <link>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</guid>
+      <description>Introduction In the realm of databases, PostgreSQL stands tall, renowned for its robust features and adaptability. Among its many offerings, JSONB shines as a versatile data type, facilitating the efficient storage and retrieval of semi-structured data. This article delves into the depths of JSONB within PostgreSQL, elucidating the process of storing and querying structured data with vivid examples.&#xA;Unraveling JSONB JSONB, the binary manifestation of JSON (JavaScript Object Notation) data, serves as a pivotal component within PostgreSQL.</description>
+    </item>
+    <item>
+      <title>Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go</title>
+      <link>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</guid>
+      <description>Introduction Unit testing is a critical part of software development that ensures the reliability and functionality of code modules. In this blog post, we will explore unit testing for Go functions that interact with SQL or PostgreSQL databases. Specifically, we will look at how to create strong test cases for functions that execute database queries. To achieve this, we will use mocking to create a mock database environment. This approach separates our functions under test from the actual database, enabling us to carefully evaluate their logic and behavior.</description>
+    </item>
+    <item>
+      <title>When Designing a Product: Adapting Your Database with Schema Modifications</title>
+      <link>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</guid>
+      <description>Introduction In the world of database management and product design, it&amp;rsquo;s essential to be prepared for potential schema modifications as your product evolves. These modifications could entail various changes to the structure of your database, such as adding or removing columns, altering data types, or optimizing for performance. However, during these transformations, it&amp;rsquo;s crucial to ensure that you don&amp;rsquo;t lose the valuable data you&amp;rsquo;ve accumulated in your existing database.&#xA;Understanding the Original Table Structure Let&amp;rsquo;s begin by examining the original table described in the prompt.</description>
+    </item>
+    <item>
+      <title>Getting Started with Kafka and Go: Reading Messages and Inserting into a Database</title>
+      <link>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</link>
+      <pubDate>Thu, 13 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</guid>
+      <description>Introduction: Kafka is a popular distributed streaming platform that is used for building real-time data pipelines and streaming applications. It is designed to handle high-volume data streams in real-time and provide reliable and scalable data streaming. Kafka is used for a wide range of applications, including real-time analytics, monitoring, log aggregation, and messaging systems.&#xA;In this blog post, we will demonstrate how to read Kafka messages in Go and store them in a PostgreSQL database.</description>
+    </item>
+    <item>
+      <title>Creating triggers in PostgreSQL to monitor changes in tables</title>
+      <link>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</link>
+      <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</guid>
+      <description>Introduction In a database management system, triggers are special types of stored procedures that are automatically executed in response to specific database events, such as insert, update, or delete operations on a table. Triggers can be used for a variety of purposes, such as enforcing data integrity rules, logging changes to a table, or sending notifications when certain events occur.&#xA;In this article, we will discuss how to create triggers in PostgreSQL that can send notifications when records are inserted, updated, or deleted from a table.</description>
+    </item>
+  </channel>
+</rss>

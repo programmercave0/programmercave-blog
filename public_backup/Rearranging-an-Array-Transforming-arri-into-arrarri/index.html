@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&#39;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index `i` becomes the value at index `arr[i]`.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]] | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2023-07-22
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structure/&#34;&gt;Data-Structure&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Python/&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Array-Manipulation/&#34;&gt;Array-Manipulation&lt;/a&gt;
+    </div>
+  
+  <h1 id="introduction">Introduction</h1>
+<p>Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index <code>i</code> becomes the value at index <code>arr[i]</code>.</p>
+<p><img src="/assets/images/rearrange-array/rearrange-array-1.png" alt="Rearranging an Array: Transforming arr[i] into arr[arr[i]]"></p>
+<h1 id="the-problem">The Problem</h1>
+<p>Let&rsquo;s consider the problem statement:</p>
+<p>Given an array containing numbers in the range from 0 to N-1, the task is to rearrange the array such that each number at the index <code>i</code> in the array becomes the number at the index <code>a[i]</code> in the same array.</p>
+<h1 id="the-solution">The Solution</h1>
+<h2 id="step-1-create-a-new-array-and-multiply-every-element-by-n">Step 1: Create a New Array and Multiply Every Element by N</h2>
+<p>We begin by traversing the input array and create a new array by multiplying each element by <code>N</code>. This multiplication ensures that all elements in the new array become greater than or equal to <code>N</code>. Since the original array&rsquo;s elements are in the range <code>[0, N-1]</code>, this step guarantees that no element will be less than <code>N</code>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">create_new_array</span>(arr, N):
+</span></span><span style="display:flex;"><span>    new_array <span style="color:#666">=</span> [element <span style="color:#666">*</span> N <span style="color:#008000;font-weight:bold">for</span> element <span style="color:#a2f;font-weight:bold">in</span> arr]
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> new_array
+</span></span></code></pre></div><p>For example, let&rsquo;s take an initial array <code>[3, 2, 0, 1]</code> with N=4:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Initial array: [3, 2, 0, 1]
+</span></span><span style="display:flex;"><span>N = 4
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>After multiplying by N:
+</span></span><span style="display:flex;"><span>new_array = [12, 8, 0, 4]
+</span></span></code></pre></div><h2 id="step-2-adding-the-value-of-anew_arrayin-to-each-element">Step 2: Adding the Value of <code>a[new_array[i]/N]</code> to Each Element</h2>
+<p>If we take the mod of every element of the new_array by <code>N</code>, it will give 0. We don&rsquo;t want that. We want <code>new_array[i]</code> at index <code>i</code> to be equal to <code>a[a[i]]</code>. So, we add <code>new_array[i]</code> with <code>a[new_array[i]/N]</code>. By doing so, when we take the mod by <code>N</code>, it will return <code>a[new_array[i]/N]</code>, and <code>a[new_array[i]/N]</code> is nothing but <code>a[a[i]]</code>.</p>
+<p>Now, we iterate through each element of the <code>new_array</code>, and for each element at the index <code>i</code>, we need to find the value to be added such that the condition <code>new_array[i]</code> = <code>a[a[i]]</code> is satisfied.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">rearrange_array</span>(new_array, arr, N):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">range</span>(<span style="color:#008000">len</span>(new_array)):
+</span></span><span style="display:flex;"><span>        new_index <span style="color:#666">=</span> new_array[i] <span style="color:#666">//</span> N
+</span></span><span style="display:flex;"><span>        new_array[i] <span style="color:#666">+=</span> arr[new_index]
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> new_array
+</span></span></code></pre></div><p>Let&rsquo;s walk through the process of adding the values for each element:</p>
+<ol>
+<li><strong>At index 0 (</strong><code>i=0</code>): We take the value at <code>new_array[0]</code>, which is <code>12</code>. To find the value to be added, we calculate the <code>new_index</code> by dividing <code>new_array[0]</code> by N, resulting in <code>new_index = 12/4 = 3</code>. Now, <code>new_index</code> represents the value of <code>a[0]</code> in the original array. We need to find the value <code>a[new_index]</code> in the original array and add it to <code>new_array[0]</code>. In this case, <code>a[0]</code> is <code>3</code>, so <code>a[new_index]</code> is <code>a[3]</code>, which is <code>1</code>. Thus, we add <code>1</code> to <code>new_array[0]</code>, resulting in <code>new_array[0] += 1 = 12 + 1 = 13</code>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>new_array = [12, 8, 0, 4]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>At index 0 (i=0):
+</span></span><span style="display:flex;"><span>new_array[0] = 12
+</span></span><span style="display:flex;"><span>new_index = 12/4 = 3
+</span></span><span style="display:flex;"><span>a[new_index] = a[3] = 1
+</span></span><span style="display:flex;"><span>new_array[0] += 1 = 12 + 1 = 13
+</span></span><span style="display:flex;"><span>Resulting array: [13, 8, 0, 4]
+</span></span></code></pre></div><p><img src="/assets/images/rearrange-array/arr-1.png" alt="Rearranging an Array: Transforming arr[i] into arr[arr[i]]"></p>
+<ol>
+<li><strong>At index 1 (</strong><code>i=1</code>): We take the value at <code>new_array[1]</code>, which is <code>8</code>. We calculate the <code>new_index</code> by dividing <code>new_array[1]</code> by N, resulting in <code>new_index = 8/4 = 2</code>. Now, <code>new_index</code> represents the value of <code>a[1]</code> in the original array. We need to find the value <code>a[new_index]</code> in the original array and add it to <code>new_array[1]</code>. In this case, <code>a[1]</code> is <code>2</code>, so <code>a[new_index]</code> is <code>a[2]</code>, which is <code>0</code>. Thus, we add <code>0</code> to <code>new_array[1]</code>, resulting in <code>new_array[1] += 0 = 8</code>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>new_array = [13, 8, 0, 4]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>At index 1 (i=1):
+</span></span><span style="display:flex;"><span>new_array[1] = 8
+</span></span><span style="display:flex;"><span>new_index = 8/4 = 2
+</span></span><span style="display:flex;"><span>a[new_index] = a[2] = 0
+</span></span><span style="display:flex;"><span>new_array[1] += 0 = 8
+</span></span><span style="display:flex;"><span>Resulting array: [13, 8, 0, 4]
+</span></span></code></pre></div><p><img src="/assets/images/rearrange-array/arr-2.png" alt="Rearranging an Array: Transforming arr[i] into arr[arr[i]]"></p>
+<ol>
+<li><strong>At index 2 (</strong><code>i=2</code>): We take the value at <code>new_array[2]</code>, which is <code>0</code>. We calculate the <code>new_index</code> by dividing <code>new_array[2]</code> by N, resulting in <code>new_index = 0/4 = 0</code>. Now, <code>new_index</code> represents the value of <code>a[2]</code> in the original array. We need to find the value <code>a[new_index]</code> in the original array and add it to <code>new_array[2]</code>. In this case, <code>a[2]</code> is <code>0</code>, so <code>a[new_index]</code> is <code>a[0]</code>, which is <code>3</code>. Thus, we add <code>3</code> to <code>new_array[2]</code>, resulting in <code>new_array[2] += 3 = 0 + 3 = 3</code>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>new_array = [13, 8, 0, 4]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>At index 2 (i=2):
+</span></span><span style="display:flex;"><span>new_array[2] = 0
+</span></span><span style="display:flex;"><span>new_index = 0/4 = 0
+</span></span><span style="display:flex;"><span>a[new_index] = a[0] = 3
+</span></span><span style="display:flex;"><span>new_array[2] += 3 = 0 + 3 = 3
+</span></span><span style="display:flex;"><span>Resulting array: [13, 8, 3, 4]
+</span></span></code></pre></div><p><img src="/assets/images/rearrange-array/arr-3.png" alt="Rearranging an Array: Transforming arr[i] into arr[arr[i]]"></p>
+<ol>
+<li><strong>At index 3 (</strong><code>i=3</code>): We take the value at <code>new_array[3]</code>, which is <code>4</code>. We calculate the <code>new_index</code> by dividing <code>new_array[3]</code> by N, resulting in <code>new_index = 4/4 = 1</code>. Now, <code>new_index</code> represents the value of <code>a[3]</code> in the original array. We need to find the value <code>a[new_index]</code> in the original array and add it to <code>new_array[3]</code>. In this case, <code>a[3]</code> is <code>1</code>, so <code>a[new_index]</code> is <code>a[1]</code>, which is <code>2</code>. Thus, we add <code>2</code> to <code>new_array[3]</code>, resulting in <code>new_array[3] += 2 = 4 + 2 = 6</code>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>new_array = [13, 8, 3, 4]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>At index 3 (i=3):
+</span></span><span style="display:flex;"><span>new_array[3] = 4
+</span></span><span style="display:flex;"><span>new_index = 4/4 = 1
+</span></span><span style="display:flex;"><span>a[new_index] = a[1] = 2
+</span></span><span style="display:flex;"><span>new_array[3] += 2 = 4 + 2 = 6
+</span></span><span style="display:flex;"><span>Resulting array: [13, 8, 3, 6]
+</span></span></code></pre></div><p><img src="/assets/images/rearrange-array/arr-4.png" alt="Rearranging an Array: Transforming arr[i] into arr[arr[i]]"></p>
+<h2 id="step-3-take-the-mod-of-each-element-by-n">Step 3: Take the Mod of Each Element by N</h2>
+<p>In this final step, we complete the rearrangement by taking the modulo of each element in the <code>new_array</code> by N (4). This step is necessary because we previously multiplied each element by N, and now we need to revert them to their original values.</p>
+<p>Let&rsquo;s take the modulo of each element in <code>new_array</code> by N (4):</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">take_mod</span>(arr, N):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> [element <span style="color:#666">%</span> N <span style="color:#008000;font-weight:bold">for</span> element <span style="color:#a2f;font-weight:bold">in</span> arr]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>After taking the modulo by N:
+</span></span><span style="display:flex;"><span>new_array = [1, 0, 3, 2]
+</span></span></code></pre></div><p>Now the array is rearranged as required, and each element <code>a[i]</code> is equal to <code>a[a[i]]</code>.</p>
+<p>By mastering this array rearrangement challenge, you will sharpen your problem-solving skills and be better prepared for software developer interviews and similar technical assessments.</p>
+<h2 id="space-and-time-complexity-analysis">Space and Time Complexity Analysis:</h2>
+<p>Let&rsquo;s analyze the space and time complexities of the first approach, where we created a new array.</p>
+<h3 id="using-a-new-array">Using a New Array</h3>
+<p><strong>Space Complexity</strong>: In this approach, we created a new array of the same size as the original array. Therefore, the space complexity is <code>O(N)</code>, where <code>N</code> is the size of the array.</p>
+<p><strong>Time Complexity</strong>: The time complexity involves iterating over the array multiple times, which is done in linear time. Thus, the time complexity is <code>O(N)</code>, where <code>N</code> is the size of the array. Now, let&rsquo;s move to the second approach, where we avoid creating a new array by modifying the original array directly.</p>
+<h3 id="modifying-the-original-array">Modifying the Original Array</h3>
+<p><strong>Space Complexity</strong>: In this approach, we directly modify the original array without creating a new array. Hence, there is no additional space used, and the space complexity is <code>O(1)</code>, constant space complexity.</p>
+<p><strong>Time Complexity</strong>: Similar to the first approach, time complexity involves iterating over the array multiple times, which is done in linear time. Therefore, the time complexity is <code>O(N)</code>, where <code>N</code> is the size of the array.</p>
+<p><strong>For C++ Implementation using Modifying the Original Array:</strong></p>
+<p>If you&rsquo;re interested in exploring the C++ implementation of this magical array rearrangement algorithm, you can find the complete code on our <a href="https://github.com/abhiabhi0/Algo-Data-Structure/blob/master/Maths/rearrange.cpp">Github</a>.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Congratulations on successfully navigating the array rearrangement challenge! Through this beginner&rsquo;s guide to data structures and algorithms, you&rsquo;ve gained valuable insights into problem-solving techniques for arrays. The step-by-step solution presented here empowers you to transform an array in a way that each element <code>arr[i]</code> becomes <code>arr[arr[i]]</code>.</p>
+<p>As you continue your journey in computer science engineering, keep exploring new problems and algorithms. Practicing such challenges will enhance your proficiency as a software developer and strengthen your ability to tackle a wide array of interview questions with confidence.</p>
+<p>Remember that continuous learning and practice are the cornerstones of excellence in the world of algorithms and data structures. Happy coding!</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structure/&#34;&gt;Data-Structure&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Python/&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Array-Manipulation/&#34;&gt;Array-Manipulation&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

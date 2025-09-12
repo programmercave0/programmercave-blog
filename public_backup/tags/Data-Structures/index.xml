@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data-Structures on programmerCave</title>
+    <link>https://programmercave.com/tags/Data-Structures/</link>
+    <description>Recent content in Data-Structures on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Data-Structures/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search</title>
+      <link>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</link>
+      <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</guid>
+      <description>Introduction Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.&#xA;Linear Search Method The linear search method is a simple algorithm that iteratively checks each integer number from 1 to n to see if its square is equal to the input number n.</description>
+    </item>
+    <item>
+      <title>Efficiently Find Prime Numbers Till N: Basic vs. Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</guid>
+      <description>Introduction Are you looking for a way to find all the prime numbers till N? If so, then you have landed on the right page! In this blog post, we will discuss how to find all prime numbers till N using an optimized algorithm.&#xA;Finding all prime numbers till N is a common problem in computer science and mathematics. There are various ways to solve this problem, but we will be discussing an optimized algorithm that is efficient and easy to implement.</description>
+    </item>
+    <item>
+      <title>Optimized Algorithm for Checking Prime Numbers: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</guid>
+      <description>Introduction Prime numbers are a fundamental concept in mathematics and computer science. A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself. In other words, a prime number is a number that is only divisible by 1 and itself.&#xA;In this blog, we will discuss different methods to check if a number is a prime number or not, and analyze their time complexity.</description>
+    </item>
+    <item>
+      <title>Move all Odd numbers after Even numbers in Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</guid>
+      <description>Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.&#xA;For eg.&#xA;Given Linked List : 1, 2, 3, 4, 5, 6, 7 After Modification : 2, 4, 6, 1, 3, 5, 7 From the above fig. we can see that how the function will work.&#xA;While the head of the list is odd, the head is copied to an auxiliary node and element next to the head will become new head.</description>
+    </item>
+  </channel>
+</rss>

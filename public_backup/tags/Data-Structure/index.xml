@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data-Structure on programmerCave</title>
+    <link>https://programmercave.com/tags/Data-Structure/</link>
+    <description>Recent content in Data-Structure on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Data-Structure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</guid>
+      <description>Introduction The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors.</description>
+    </item>
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+    <item>
+      <title>Left Rotation - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>A left rotation operation on an array of size n shifts each of the array&amp;rsquo;s elements 1 unit to the left. For example, if 2 left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].&#xA;Given an array of n integers and a number, d, perform d left rotations on the array. Then print the updated array as a single line of space-separated integers.</description>
+    </item>
+    <item>
+      <title>Repeated String - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.&#xA;Given an integer, n, find and print the number of letter a&amp;rsquo;s in the first n letters of Lilah&amp;rsquo;s infinite string.&#xA;For example, if the string s = ‘abcac’ and n = 10, the substring we consider is , abcacabcac the first 10 characters of her infinite string. There are 4 occurrences of a in the substring.</description>
+    </item>
+    <item>
+      <title>Picking Numbers - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Given an array of integers, find and print the maximum number of integers you can select from the array such that the absolute difference between any two of the chosen integers is less than or equal to 1.&#xA;For example, if your array is a = [1, 1, 2, 2, 4, 4, 5, 5, 5], you can create two subarrays meeting the criterion: [1, 1, 2, 2] and [4, 4, 5, 5, 5].</description>
+    </item>
+    <item>
+      <title>Library Fine | HackerRank</title>
+      <link>https://programmercave.com/Library-Fine--HackerRank/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Library-Fine--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Your local library needs your help! Given the expected and actual return dates for a library book, create a program that calculates the fine (if any). The fee structure is as follows:&#xA;• If the book is returned on or before the expected return date, no fine will be charged (i.</description>
+    </item>
+    <item>
+      <title>Sherlock and Squares | HackerRank</title>
+      <link>https://programmercave.com/Sherlock-and-Squares--HackerRank/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Sherlock-and-Squares--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Watson likes to challenge Sherlock&amp;rsquo;s math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of square integers within that range, inclusive of the endpoints.&#xA;Note: A square integer is an integer which is the square of an integer, e.</description>
+    </item>
+    <item>
+      <title>Circular Array Rotation | HackerRank</title>
+      <link>https://programmercave.com/Circular-Array-Rotation--HackerRank/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Circular-Array-Rotation--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;John Watson knows of an operation called a right circular rotation on an array of integers. One rotation operation moves the last array element to the first position and shifts all remaining elements right one. To test Sherlock&amp;rsquo;s abilities, Watson provides Sherlock with an array of integers.</description>
+    </item>
+    <item>
+      <title>Drawing Book | HackerRank</title>
+      <link>https://programmercave.com/Drawing-Book--HackerRank/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Drawing-Book--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time.</description>
+    </item>
+    <item>
+      <title>Migratory Birds - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You have been asked to help study the population of birds migrating across the continent. Each type of bird you are interested in will be identified by an integer value. Each time a particular kind of bird is spotted, its id number will be added to your array of sightings. You would like to be able to find out which type of bird is most common given a list of sightings.</description>
+    </item>
+    <item>
+      <title>Between Two Sets - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:&#xA;The elements of the first array are all factors of the integer being considered The integer being considered is a factor of all elements of the second array These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.&#xA;For example, given the arrays a =[2, 6] and b = [24, 36], there are two numbers between them: 6 and 12.</description>
+    </item>
+    <item>
+      <title>Kangaroo HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You are choreographing a circus show with various animals. For one act, you are given two kangaroos o a number line ready to jump in the positive direction (i.e, toward positive infinity).&#xA;• The first kangaroo starts at location x1 and moves at a rate of v1 meters per jump. • The second kangaroo starts at location x2 and moves at a rate of v2 meters per jump.&#xA;You have to figure out a way to get both kangaroos at the same location at the same time as part of the show.</description>
+    </item>
+    <item>
+      <title>Roy and Code Streak | HackerEarth Challenge</title>
+      <link>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</guid>
+      <description>This is the HackerEarth challenge of easy level. Problem Link Roy and Code Streak.&#xA;Problem: Roy is working on HackerEarth Profile. Right now he is working on User Statistics. One of the statistics data (Code Streak) is as follows:&#xA;Given the User Activity Data, find the maximum number of continuous correct solutions submitted by any user. Seems easy eh? Here&amp;rsquo;s the catch! In order to maximize this number a user could have submitted a correct answer to the same problem which he has already solved.</description>
+    </item>
+    <item>
+      <title>Merge two sorted Linked List (in-place) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</guid>
+      <description>Given two sorted Linked List, we have to merge them without using another linked list.&#xA;List 1 : { 5, 10, 18, 25 } List 2 : { 6, 8, 11, 20 } Merged List : { 5, 6, 8, 10, 11, 18, 20, 25 } From the above fig. we can see that merging two linked list is same as merging two sorted array in mergesort.&#xA;Related: Merge Sort</description>
+    </item>
+    <item>
+      <title>Split Singly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</guid>
+      <description>Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list.&#xA;Input : { 2, 3, 18, 25, 5 } Output List 1 : { 2, 3, 18 } Output List 2 : { 25, 5 } Here is a meme to understand Circular Linked List</description>
+    </item>
+    <item>
+      <title>Doubly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.</description>
+    </item>
+    <item>
+      <title>How to Reverse a Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</guid>
+      <description>Given a singly linked list, we have to reverse it.&#xA;Input list: { a, b, c, d, e } Output list: { e, d, c, b, a } There are two ways to reverse a linked list, iterative method and recursive method.&#xA;Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } Node* recursiveReverse(Node* head) { if(head == nullptr) return nullptr; if(head-&amp;gt;next == nullptr) return head; Node *firstElement = head; Node *secondElement = firstElement-&amp;gt;next; head = firstElement-&amp;gt;next; firstElement-&amp;gt;next = nullptr; //unlink first node Node *remainingList = recursiveReverse(head); secondElement-&amp;gt;next = firstElement; return remainingList; } #include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; template &amp;lt;class T&amp;gt; class LinkedList { struct Node { T data; Node * next; Node(T value) : data(std::move(value)), next(nullptr) {} }; Node *head; public: LinkedList() : head(nullptr) {} LinkedList(const LinkedList&amp;amp; ll) = delete; //copy constructor LinkedList(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move constructor LinkedList&amp;amp; operator=(const LinkedList&amp;amp; ll) = delete; //copy assignment LinkedList&amp;amp; operator=(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move assignment ~LinkedList(); void insert(T); void printList(); void iterativeReverse() { head = iterativeReverse(head); } private: Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } }; template &amp;lt;class T&amp;gt; void LinkedList&amp;lt;T&amp;gt;::insert(T data) { Node *node = new Node(std::move(data)); Node *tmp = head; if(tmp == nullptr) { head = node; } else { while(tmp-&amp;gt;next !</description>
+    </item>
+    <item>
+      <title>How to find the Length of Loop in Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</guid>
+      <description>Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.&#xA;To find loop in the linked list, we need two node pointers slowPtr and fastPtr which starts from the head. slowPtr increments by one node while fastPtr increments by two nodes. If these pointers point at the same node after starting from head then loop exists. This algorithm is known as Floyd Cycle Finding Algorithm.</description>
+    </item>
+    <item>
+      <title>Doubly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</link>
+      <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.&#xA;The first node of the linked list is the head and the last node is the tail.</description>
+    </item>
+    <item>
+      <title>Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</link>
+      <pubDate>Thu, 27 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</guid>
+      <description>A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty.</description>
+    </item>
+  </channel>
+</rss>

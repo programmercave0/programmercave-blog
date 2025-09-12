@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="You have to output the order of succession to the British throne of a list of given people. The order is simple: From a descendant A, the next in the order is A’s first child B. Then, the next one is B’s first child C if any and so on. If C has no child, then the next one is B’s second child D. Then D’s children if any. Then B’s third child E… then A’s second child F">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2021-04-11
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CodinGame/&#34;&gt;CodinGame&lt;/a&gt;
+    </div>
+  
+  <p>The problem is from <a href="https://www.codingame.com/home">CodinGame</a> with difficulty level Medium.</p>
+<!-- raw HTML omitted -->
+<p>You have to output the order of succession to the British throne of a list of given people.
+The order is simple:
+From a descendant A, the next in the order is A’s first child B.
+Then, the next one is B’s first child C if any and so on.
+If C has no child, then the next one is B’s second child D.
+Then D’s children if any. Then B’s third child E… then A’s second child F…</p>
+<p>Let’s draw it with a tree:</p>
+<p><img src="/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession1.jpg" alt="orDer oF succeSsion"></p>
+<p>You see the order of succession: begin on the left of the tree, walk to the next level whenever possible otherwise continue to the right. Repeat until the whole tree is covered.
+Thus, the order is A-B-C-D-E-F.</p>
+<p>In fact, in siblings of the same person, the male descendants are ordered before the female descendants. For example, if the order of birth of the children (M for male, F for female) is Fa Ma Me Fe then the order of succession in these siblings is Ma Me Fa Fe.</p>
+<p><strong>Ordering rules</strong>
+(a) in order of generation
+(b) in order of gender
+(c) in order of age (year of birth)</p>
+<p><strong>Outputting rules</strong>
+(a) exclude dead people (but include siblings of dead people)
+(b) exclude people who are catholic (but include siblings of catholic people)</p>
+<p><strong>Constraints</strong>
+Exactly one people does not have a parent (the parent’s name is replaced by the hyphen <code>-</code>).</p>
+<p>Read full problem here : <a href="https://www.codingame.com/ide/puzzle/order-of-succession">orDer oF succeSsion</a></p>
+<!-- raw HTML omitted -->
+<p>For each individual, we can store their personal information such as name, parent&rsquo;s name, year of birth and death, etc. in a struct called Details.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Details</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string name;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string parent_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> birth; <span style="color:#408080;font-style:italic">// year of birth
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>string death;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string religion;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string gender;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> index;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">bool</span> has_child <span style="color:#666">=</span> <span style="color:#008000">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">bool</span> processed <span style="color:#666">=</span> <span style="color:#008000">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> parent;
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> sibling;
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> first_child;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details(){}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details(std<span style="color:#666">::</span>string name_, std<span style="color:#666">::</span>string parent_name_, <span style="color:#b00040">int</span> birth_, std<span style="color:#666">::</span>string death_, std<span style="color:#666">::</span>string religion_, std<span style="color:#666">::</span>string gender_, <span style="color:#b00040">int</span> index_)<span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>        name(name_), parent_name(parent_name_), birth(birth_), death(death_), religion(religion_), 
+</span></span><span style="display:flex;"><span>        gender(gender_), index(index_), parent(<span style="color:#008000;font-weight:bold">nullptr</span>), sibling(<span style="color:#008000;font-weight:bold">nullptr</span>), first_child(<span style="color:#008000;font-weight:bold">nullptr</span>) {}
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>In the main function, we can store the personal information of multiple individuals in a vector of structures called <code>Details</code>. This can be done using the following code:</p>
+<pre tabindex="0"><code>std::vector&lt;Details&gt; family_details;
+</code></pre><p>This creates a new vector called <code>family_details</code> that is capable of storing <code>Details</code> structures.</p>
+<p>To determine the first ruler in a given family, we can find the person whose parent does not exist in the <code>family_details</code> vector. This person is considered the first ruler, and we can store their index in the vector in an integer variable called <code>first_ruler_index</code>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> first_ruler_idx;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">++</span>) 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string name;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string parent;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> birth;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string death;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string religion;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string gender;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> name <span style="color:#666">&gt;&gt;</span> parent <span style="color:#666">&gt;&gt;</span> birth <span style="color:#666">&gt;&gt;</span> death <span style="color:#666">&gt;&gt;</span> religion <span style="color:#666">&gt;&gt;</span> gender; std<span style="color:#666">::</span>cin.ignore();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (parent <span style="color:#666">==</span> <span style="color:#ba2121">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        first_ruler_idx <span style="color:#666">=</span> i;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    family_details.push_back( Details(name, parent, birth, death, religion, gender, i));
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If the <code>parent_name</code> field is <code>-</code>, it indicates that the person is the first ruler and their index is stored in <code>first_ruler_index</code>.</p>
+<!-- raw HTML omitted -->
+<p>In this function, we pass a vector of <code>Details</code> and an integer variable <code>first_ruler_idx</code> as parameters. The function returns a vector of strings in the order of succession.</p>
+<p>We declare a vector of strings rulers and an integer variable <code>curr_ruler_idx</code>. Then, we call the <code>map_parent_children</code> function, which maps the ruler at <code>curr_ruler_idx</code> with his or her children.</p>
+<p>To order the rulers, we use a <code>while</code> loop whose condition is always <code>true</code>. In the loop, we check that the person is eligible to rule by making sure they are not dead and their religion is not Catholic. We also set a boolean variable processed for each person to <code>true</code> once they have been processed to ensure that the same person is not processed twice.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">while</span> (<span style="color:#008000">true</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].death <span style="color:#666">==</span> <span style="color:#ba2121">&#34;-&#34;</span> <span style="color:#666">&amp;&amp;</span> 
+</span></span><span style="display:flex;"><span>        family[curr_ruler_idx].religion <span style="color:#666">!=</span> <span style="color:#ba2121">&#34;Catholic&#34;</span> <span style="color:#666">&amp;&amp;</span> <span style="color:#666">!</span>family[curr_ruler_idx].processed)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        rulers.push_back(family[curr_ruler_idx].name);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    family[curr_ruler_idx].processed <span style="color:#666">=</span> <span style="color:#008000">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After adding the ruler at <code>curr_ruler_idx</code> to the vector ruler, we check if they have a child. If they do, we update the value of <code>curr_ruler_idx</code> to the index of the first child.</p>
+<p>Note that the siblings are already ordered according to their age and gender in the <code>map_parent_children</code> function.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">while</span> (<span style="color:#008000">true</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].first_child<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    map_parent_children(family, curr_ruler_idx); 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If the current ruler does not have a child, we check if they have a sibling. If they do, we update the value of <code>curr_ruler_idx</code> to the index of the next sibling.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">while</span> (<span style="color:#008000">true</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].sibling <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].sibling<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    map_parent_children(family, curr_ruler_idx); 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If the current ruler does not have a sibling, the next ruler will be the sibling of their parent. If the parent does not have a sibling, we move on to check for the grandparent and so on, until we find the next ruler in the line of succession.</p>
+<p><img src="/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession2.jpg" alt="orDer oF succeSsion"></p>
+<p>Before processing, we make sure that the current ruler is not equal to the first ruler. If they are equal, it means we have processed everyone in the family and we can terminate the <code>while</code> loop.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">while</span> (<span style="color:#008000">true</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].sibling <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">while</span> (curr_ruler_idx <span style="color:#666">!=</span> first_ruler_idx <span style="color:#666">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>                 family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>index;   
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> (curr_ruler_idx <span style="color:#666">==</span> first_ruler_idx)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    map_parent_children(family, curr_ruler_idx); 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Inside the <code>while</code> loop, we call the <code>map_parent_children</code> function again because the value of <code>curr_ruler_idx</code> may have changed. This ensures that the updated value of <code>curr_ruler_idx</code> is used when mapping the current ruler with their children.</p>
+<!-- raw HTML omitted -->
+<p>In this function, we pass a vector of <code>Details</code> called <code>family</code> and an integer variable <code>curr_ruler_idx</code> as parameters. The function maps the ruler at <code>curr_ruler_idx</code> with their children.</p>
+<p><img src="/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession3.jpg" alt="orDer oF succeSsion"></p>
+<p>First, we declare two vectors of integers: <code>next_gen_m_idx</code> will store the indices of male children of the ruler at <code>curr_ruler_idx</code>, and <code>next_gen_f_idx</code> will store the indices of female children. These vectors will be used to store the indices of the children in the family vector.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> next_gen_m_idx; <span style="color:#408080;font-style:italic">// stores index of male members of next generation
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> next_gen_f_idx; <span style="color:#408080;font-style:italic">// stores index of female members of next generation
+</span></span></span></code></pre></div><p>We iterate through the <code>family</code> vector and check if the name of the parent of the person at the current index is equal to the name of the ruler at <code>curr_ruler_idx</code>. If it is, the current ruler is the parent of the person we are processing. We then store the index of the current person in either the <code>next_gen_m_idx</code> vector or the <code>next_gen_f_idx vector</code>, depending on their gender.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> family.size(); <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (family[i].parent_name <span style="color:#666">==</span> family[curr_ruler_idx].name)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        family[curr_ruler_idx].has_child <span style="color:#666">=</span> <span style="color:#008000">true</span>;
+</span></span><span style="display:flex;"><span>        family[i].parent <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[curr_ruler_idx]; <span style="color:#408080;font-style:italic">// mapping parent
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>        <span style="color:#008000;font-weight:bold">if</span> (family[i].gender <span style="color:#666">==</span> <span style="color:#ba2121">&#34;M&#34;</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            next_gen_m_idx.push_back(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            next_gen_f_idx.push_back(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the case of siblings, the eldest sibling is the next ruler. So, we sort both the <code>next_gen_m_idx</code> and <code>next_gen_f_idx</code> vectors according to the age of the siblings. Then, we call the <code>map_siblings</code> function to determine the order of succession among the siblings.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#408080;font-style:italic">//sort both vectors according to age
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">static</span> <span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span> by_age <span style="color:#666">=</span> [family](<span style="color:#666">/</span>Const <span style="color:#b00040">int</span> i, <span style="color:#008000;font-weight:bold">const</span> <span style="color:#b00040">int</span> j)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> family[i].birth <span style="color:#666">&lt;</span> family[j].birth; <span style="color:#408080;font-style:italic">// year of birth is smaller means age is bigger
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    };   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>sort(next_gen_m_idx.begin(), next_gen_m_idx.begin(), by_age);
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>sort(next_gen_f_idx.begin(), next_gen_f_idx.begin(), by_age);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    map_siblings(next_gen_m_idx, next_gen_f_idx, family, curr_ruler_idx);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>In this function, we pass two integer vectors called <code>male_idx</code> and <code>female_idx</code>, a vector of <code>Details</code> called <code>family</code>, and an integer variable <code>curr_ruler_idx</code> as parameters. The <code>male_idx</code> and <code>female_idx</code> vectors are already sorted according to the ages of the siblings. The function&rsquo;s purpose is to form links between the siblings to determine the order of succession.</p>
+<p><img src="/assets/images/2021-04-11-orDer-oF-succeSsion-CodinGame/order_of_succession4.jpg" alt="orDer oF succeSsion"></p>
+<p>We first check if the <code>male_idx</code> vector is empty. If it is not, we set the <code>first_child</code> of the current ruler to the child at index <code>0</code> of the <code>male_idx</code> vector.</p>
+<p>If the size of <code>male_idx</code> is <code>1</code> and the <code>female_idx</code> vector is not empty, we set the sibling of the child at index <code>0</code> of <code>male_idx</code> to the child at index <code>0</code> of <code>female_idx</code>.</p>
+<p>Otherwise, we iterate through the <code>male_idx</code> vector and link the siblings.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>male_idx.empty())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    family[curr_ruler_idx].first_child <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[male_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (male_idx.size() <span style="color:#666">==</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>female_idx.empty())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            family[male_idx[<span style="color:#666">0</span>]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> male_idx.size()<span style="color:#666">-</span><span style="color:#666">1</span>; <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            family[male_idx[i]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[male_idx[i<span style="color:#666">+</span><span style="color:#666">1</span>]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If the <code>male_idx</code> vector is empty, the <code>first_child</code> of the current ruler is the child at index <code>0</code> of the <code>female_idx</code> vector.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>male_idx.empty())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    family[curr_ruler_idx].first_child <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If the number of male children is more than 1 and there is at least one female child, we link the last male child to the first female child.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>female_idx.empty())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (male_idx.size() <span style="color:#666">&gt;</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        family[male_idx.back()].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (female_idx.size() <span style="color:#666">&gt;</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> female_idx.size()<span style="color:#666">-</span><span style="color:#666">1</span>; <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            family[female_idx[i]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[i<span style="color:#666">+</span><span style="color:#666">1</span>]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;iostream&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;string&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;vector&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;algorithm&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00"></span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Details</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string name;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string parent_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> birth; <span style="color:#408080;font-style:italic">// year of birth
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>string death;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string religion;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>string gender;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> index;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">bool</span> has_child <span style="color:#666">=</span> <span style="color:#008000">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">bool</span> processed <span style="color:#666">=</span> <span style="color:#008000">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> parent;
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> sibling;
+</span></span><span style="display:flex;"><span>    Details <span style="color:#666">*</span> first_child;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details(){}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Details(std<span style="color:#666">::</span>string name_, std<span style="color:#666">::</span>string parent_name_, <span style="color:#b00040">int</span> birth_, std<span style="color:#666">::</span>string death_, std<span style="color:#666">::</span>string religion_, std<span style="color:#666">::</span>string gender_, <span style="color:#b00040">int</span> index_)<span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>        name(name_), parent_name(parent_name_), birth(birth_), death(death_), religion(religion_), 
+</span></span><span style="display:flex;"><span>        gender(gender_), index(index_), parent(<span style="color:#008000;font-weight:bold">nullptr</span>), sibling(<span style="color:#008000;font-weight:bold">nullptr</span>), first_child(<span style="color:#008000;font-weight:bold">nullptr</span>) {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">map_siblings</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> <span style="color:#666">&amp;</span> male_idx, std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> <span style="color:#666">&amp;</span> female_idx, std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Details<span style="color:#666">&gt;&amp;</span> family, <span style="color:#b00040">int</span> curr_ruler_idx)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>male_idx.empty())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        family[curr_ruler_idx].first_child <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[male_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (male_idx.size() <span style="color:#666">==</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>female_idx.empty())
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                family[male_idx[<span style="color:#666">0</span>]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> male_idx.size()<span style="color:#666">-</span><span style="color:#666">1</span>; <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                family[male_idx[i]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[male_idx[i<span style="color:#666">+</span><span style="color:#666">1</span>]];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        family[curr_ruler_idx].first_child <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> (<span style="color:#666">!</span>female_idx.empty())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (male_idx.size() <span style="color:#666">&gt;</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            family[male_idx.back()].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[<span style="color:#666">0</span>]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (female_idx.size() <span style="color:#666">&gt;</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> female_idx.size()<span style="color:#666">-</span><span style="color:#666">1</span>; <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                family[female_idx[i]].sibling <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[female_idx[i<span style="color:#666">+</span><span style="color:#666">1</span>]];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">map_parent_children</span>(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Details<span style="color:#666">&gt;&amp;</span> family, <span style="color:#b00040">int</span> curr_ruler_idx)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> next_gen_m_idx; <span style="color:#408080;font-style:italic">// stores index of male members of next generation
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> next_gen_f_idx; <span style="color:#408080;font-style:italic">// stores index of female members of next generation
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> family.size(); <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (family[i].parent_name <span style="color:#666">==</span> family[curr_ruler_idx].name)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            family[curr_ruler_idx].has_child <span style="color:#666">=</span> <span style="color:#008000">true</span>;
+</span></span><span style="display:flex;"><span>            family[i].parent <span style="color:#666">=</span> <span style="color:#666">&amp;</span>family[curr_ruler_idx]; <span style="color:#408080;font-style:italic">// mapping parent
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>            <span style="color:#008000;font-weight:bold">if</span> (family[i].gender <span style="color:#666">==</span> <span style="color:#ba2121">&#34;M&#34;</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                next_gen_m_idx.push_back(i);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                next_gen_f_idx.push_back(i);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">//sort both vectors according to age
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">static</span> <span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span> by_age <span style="color:#666">=</span> [family](<span style="color:#666">/</span>Const <span style="color:#b00040">int</span> i, <span style="color:#008000;font-weight:bold">const</span> <span style="color:#b00040">int</span> j)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> family[i].birth <span style="color:#666">&lt;</span> family[j].birth; <span style="color:#408080;font-style:italic">// year of birth is smaller means age is bigger
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>        };   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>sort(next_gen_m_idx.begin(), next_gen_m_idx.begin(), by_age);
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>sort(next_gen_f_idx.begin(), next_gen_f_idx.begin(), by_age);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        map_siblings(next_gen_m_idx, next_gen_f_idx, family, curr_ruler_idx);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>string<span style="color:#666">&gt;</span> order_of_succession(std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Details<span style="color:#666">&gt;&amp;</span> family, <span style="color:#b00040">int</span> first_ruler_idx)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>string<span style="color:#666">&gt;</span> rulers;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> curr_ruler_idx <span style="color:#666">=</span> first_ruler_idx;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    map_parent_children(family, first_ruler_idx);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">while</span> (<span style="color:#008000">true</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].death <span style="color:#666">==</span> <span style="color:#ba2121">&#34;-&#34;</span> <span style="color:#666">&amp;&amp;</span> 
+</span></span><span style="display:flex;"><span>            family[curr_ruler_idx].religion <span style="color:#666">!=</span> <span style="color:#ba2121">&#34;Catholic&#34;</span> <span style="color:#666">&amp;&amp;</span> <span style="color:#666">!</span>family[curr_ruler_idx].processed)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            rulers.push_back(family[curr_ruler_idx].name);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        family[curr_ruler_idx].processed <span style="color:#666">=</span> <span style="color:#008000">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].has_child)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].first_child<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].sibling <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].sibling<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">while</span> (curr_ruler_idx <span style="color:#666">!=</span> first_ruler_idx <span style="color:#666">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>                    family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>index;   
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">if</span> (curr_ruler_idx <span style="color:#666">==</span> first_ruler_idx)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#008000;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">if</span> (family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    curr_ruler_idx <span style="color:#666">=</span> family[curr_ruler_idx].parent<span style="color:#666">-&gt;</span>sibling<span style="color:#666">-&gt;</span>index;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        map_parent_children(family, curr_ruler_idx); 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> rulers;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> n;
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> n; std<span style="color:#666">::</span>cin.ignore();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Details<span style="color:#666">&gt;</span> family_details;
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> first_ruler_idx;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">++</span>) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>string name;
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>string parent;
+</span></span><span style="display:flex;"><span>        <span style="color:#b00040">int</span> birth;
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>string death;
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>string religion;
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>string gender;
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> name <span style="color:#666">&gt;&gt;</span> parent <span style="color:#666">&gt;&gt;</span> birth <span style="color:#666">&gt;&gt;</span> death <span style="color:#666">&gt;&gt;</span> religion <span style="color:#666">&gt;&gt;</span> gender; std<span style="color:#666">::</span>cin.ignore();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (parent <span style="color:#666">==</span> <span style="color:#ba2121">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            first_ruler_idx <span style="color:#666">=</span> i;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        family_details.push_back( Details(name, parent, birth, death, religion, gender, i));
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>string<span style="color:#666">&gt;</span> ruler_order <span style="color:#666">=</span> order_of_succession(family_details, first_ruler_idx);
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> ruler_order.size(); <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> ruler_order[i] <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Note : One test case is not passed</p>
+<p>Check out this on <a href="https://github.com/abhiabhi0/CodinGame-Solutions/blob/master/Order_of_Succession.cpp">Github</a></p>
+<p>If you have a different solution for finding orDer oF succeSsion, please share it in the comments below.</p>
+<!-- raw HTML omitted -->
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CodinGame/&#34;&gt;CodinGame&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

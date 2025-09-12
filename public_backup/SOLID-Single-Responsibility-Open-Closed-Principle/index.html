@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Notes on SOLID - Single Responsibility, Open/Closed Principle from Scaler">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>SOLID - Single Responsibility, Open/Closed Principle | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>SOLID - Single Responsibility, Open/Closed Principle</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-06-25
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+  <h2 id="single-responsibility-principle">Single Responsibility Principle</h2>
+<ul>
+<li>states that a class should do one thing, and therefore it should have only a single reason to change.</li>
+</ul>
+<p><img src="/assets/images/LLD/SRP.png" alt="SRP"></p>
+<h3 id="case-study---design-a-bird">Case study - Design a bird</h3>
+<ul>
+<li>A bird could have the following attributes:
+<ul>
+<li>Weight</li>
+<li>Colour</li>
+<li>Type</li>
+<li>Size</li>
+<li>BeakType</li>
+</ul>
+</li>
+<li>A bird would also exhibit the following behaviours:
+<ul>
+<li>Fly</li>
+<li>Eat</li>
+<li>Make a sound</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird.png" alt="SRP"></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Bird</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#b00040">int</span><span style="color:#bbb"> </span>weight;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>colour;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>type;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>size;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>beakType;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">eat</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">makeSound</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>Since each bird has a different method of flying, we would have to implement conditional statements to check the type of the bird and then call the appropriate method.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;eagle&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikeEagle();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">else</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;penguin&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikePenguin();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">else</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;parrot&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikeParrot();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The above code exhibits the following problems:
+<ul>
+<li><strong>Readability</strong> - The code is not readable. It is difficult to understand what the code is doing.</li>
+<li><strong>Testing</strong> - It is difficult to test the code. We would have to test each type of bird separately</li>
+<li><strong>Reusability</strong> - The code is not reusable. If we want to re-use the code of specific type of bird, we would have to change the above code.</li>
+<li><strong>Parallel development</strong> - The code is not parallel development friendly. If multiple developers are working on the same code, they could face merge conflicts.</li>
+<li><strong>Multiple reasons to change</strong> - The code has multiple reasons to change. If we want to change the way a type of bird flies, we would have to change the code in the fly method</li>
+</ul>
+</li>
+</ul>
+<h4 id="reasons-to-follow-srp">Reasons to follow SRP</h4>
+<ul>
+<li>overcoming the problems mentioned above</li>
+<li><strong>Maintainability</strong> - Smaller, well-organized classes are easier to search than monolithic ones.</li>
+<li><strong>Ease of testing</strong> – A class with one responsibility will have far fewer test cases.</li>
+<li><strong>Lower coupling</strong> – Less functionality in a single class will have fewer dependencies</li>
+</ul>
+<h4 id="howwhere-to-spot-violations-of-srp">How/Where to spot violations of SRP</h4>
+<ul>
+<li>multiple if-else statements</li>
+<li>Monster methods or God classes - Methods that are too long and doing much more than the name suggests.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">saveToDatabase</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#408080;font-style:italic">// Connect to database </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#408080;font-style:italic">// Create a query </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#408080;font-style:italic">// Execute the query</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#408080;font-style:italic">// Create a user defined object </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#408080;font-style:italic">// Close the connection</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><hr>
+<h2 id="openclosed-principle">Open/Closed Principle</h2>
+<ul>
+<li>states that a class should be open for extension but closed for modification. This means that we should be able to <strong>add new functionality to the class without changing the existing code</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;eagle&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikeEagle();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">else</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;penguin&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikePenguin();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">else</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(type.<span style="color:#7d9029">equals</span>(<span style="color:#ba2121">&#34;parrot&#34;</span>))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>flyLikeParrot();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>In the above code, we are checking the type of the bird and then calling the appropriate method.</li>
+<li>If we want to add a new type of bird, we would have to change the code in the fly method.</li>
+<li>This is a violation of the Open/Closed Principle</li>
+</ul>
+<h3 id="abstract-classes-and-interfaces">Abstract classes and interfaces</h3>
+<ul>
+<li>class that is declared using the abstract keyword.</li>
+<li>allows us to declare method signatures using the abstract keyword (abstract method) and forces its subclasses to implement all the declared methods.</li>
+<li>if a class has a method that is abstract, then the class itself must be abstract.</li>
+<li>Abstract classes have no restrictions on field and method modifiers, while in an interface, all are public by default</li>
+<li>Abstract classes may also have constructors which will get executed during the child object&rsquo;s instantiation.</li>
+<li>An abstract class can have abstract methods and non-abstract methods.</li>
+<li>An abstract method is a method that is declared without an implementation. It is a method that is declared using the abstract keyword and does not have a body.</li>
+</ul>
+<h4 id="when-to-use-abstract-classes-and-interfaces">When to use abstract classes and interfaces?</h4>
+<ul>
+<li>If multiple classes have common functionalities, we would like to use inheritance to avoid code duplication and also have fixed contracts so that the subclasses are forced to implement the common functionalities.</li>
+<li>If the common classes have common attributes, consider using abstract classes since they can have instance variables.</li>
+<li>If the common classes have common methods, consider using interfaces since they can have only abstract methods. However, the implementation of the methods can be different in the subclasses. Interfaces are also useful when we want to have multiple inheritance</li>
+</ul>
+<h3 id="fixing-ocp-violation-in-the-bird-class">Fixing OCP violation in the Bird class</h3>
+<ul>
+<li>In order to fix the SRP violations, we would consider having a parent class <code>Bird</code> and child classes <code>Eagle</code>, <code>Penguin</code>, and <code>Parrot</code>.</li>
+<li>Since, different birds have the same attributes and behaviours, we would want to use classes</li>
+<li>An instance of the <code>Bird</code> class does not make sense, hence we would use an abstract class.</li>
+<li>We can&rsquo;t use an interface since we would want to have instance variables</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird2.png" alt="SRP"></p>
+<blockquote>
+<p>These are my notes from the Low-Level Design (LLD) course I took at Scaler.</p>
+</blockquote>
+<blockquote>
+<p>Check Python, Java and Go code on <a href="https://github.com/abhiabhi0/scaler-fundamentals/tree/master/oop/code">Github Repo</a></p>
+</blockquote>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

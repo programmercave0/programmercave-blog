@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32. In this post we will learn about git and its terminal command. The passwords are hidden, so you have to find the passwords for next level yourself.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Bandit Level 27 to Level 31 | OverTheWire | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Bandit Level 27 to Level 31 | OverTheWire</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-12-26
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+  <p>Learn linux command by playing <a href="https://overthewire.org/wargames/bandit/">Bandit</a> wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32.</p>
+<p>In this post we will learn about git and its terminal command.</p>
+<p>The passwords are hidden, so you have to find the passwords for next level yourself.</p>
+<p><img src="/assets/images/Bandit-Overthewire/overthewire_poster.jpg" alt="Bandit OverTheWire"></p>
+<h3 id="previous-post">Previous Post</h3>
+<p><a href="/Bandit-Level-0-to-Level-5-OverTheWire">Bandit Level 0 to Level 3</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-4-to-Level-9-OverTheWire">Bandit Level 4 to Level 8</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-9-to-Level-12-OverTheWire">Bandit Level 9 to Level 11</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-12-Level-13-OverTheWire">Bandit Level 12 → Level 13</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-13-to-Level-16-OverTheWire">Bandit Level 13 to Level 15</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-16-to-Level-19-OverTheWire">Bandit Level 16 to Level 18</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-19-to-Level-20-OverTheWire">Bandit Level 19 to Level 20</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-21-to-Level-23-OverTheWire">Bandit Level 21 to Level 22</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-23-Level-24-OverTheWire">Bandit Level 23 → Level 24</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-24-Level-25-OverTheWire">Bandit Level 24 → Level 25</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-25-to-Level-26-OverTheWire">Bandit Level 25 to Level 26</a></p>
+<h2 id="bandit-level-27--level-28httpsoverthewireorgwargamesbanditbandit28html"><a href="https://overthewire.org/wargames/bandit/bandit28.html">Bandit Level 27 → Level 28</a></h2>
+<h3 id="level-goal">Level Goal</h3>
+<p>There is a git repository at <code>ssh://bandit27-git@localhost/home/bandit27-git/repo</code>. The password for the user <code>bandit27-git</code> is the same as for the user <code>bandit27</code>.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3 id="commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</h3>
+<p>git</p>
+<h3 id="solution-">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit27@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>We will use command <code>git clone</code> to clone repository. But we cannot clone it in a home directory, so make a new directory <em>programmercave</em> in <em>tmp</em> directory.</p>
+<p>Command to clone</p>
+<pre tabindex="0"><code>git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+</code></pre><p>and enter this level’s password.</p>
+<p>The password is in the README in <em>repo</em> directory and the password is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2728_terminal.jpg" alt="Bandit Level 27 28"></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-28--level-29httpsoverthewireorgwargamesbanditbandit29html"><a href="https://overthewire.org/wargames/bandit/bandit29.html">Bandit Level 28 → Level 29</a></h2>
+<h3 id="level-goal-1">Level Goal</h3>
+<p>There is a git repository at <code>ssh://bandit28-git@localhost/home/bandit28-git/repo</code>. The password for the user <code>bandit28-git</code> is the same as for the user <code>bandit28</code>.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3 id="commands-you-may-need-to-solve-this-level-1">Commands you may need to solve this level</h3>
+<p>git</p>
+<h3 id="solution--1">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit28@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>Initial part is same as the previous level. Clone the repository in your directory in <em>tmp</em> directory.</p>
+<pre tabindex="0"><code>git clone  ssh://bandit28-git@localhost/home/bandit28-git/repo
+</code></pre><p>But README.md file does not contain password.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2829_terminal1.jpg" alt="Bandit Level 28 29"></p>
+<p>The file README.md has been updated. The <code>git show</code> command shows the most recent commit on the current branch. This command shows the changes made in the README.md file. The password for the next level is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2829_terminal2.jpg" alt="Bandit Level 28 29"></p>
+<p>Reference : <a href="https://git-scm.com/docs/user-manual">https://git-scm.com/docs/user-manual</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-29--level-30httpsoverthewireorgwargamesbanditbandit30html"><a href="https://overthewire.org/wargames/bandit/bandit30.html">Bandit Level 29 → Level 30</a></h2>
+<h3 id="level-goal-2">Level Goal</h3>
+<p>There is a git repository at <code>ssh://bandit29-git@localhost/home/bandit29-git/repo</code>. The password for the user <code>bandit29-git</code> is the same as for the user <code>bandit29.</code></p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3 id="commands-you-may-need-to-solve-this-level-2">Commands you may need to solve this level</h3>
+<p>git</p>
+<h3 id="solution--2">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit29@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>Initial part is same as the previous level. Clone the repository under <em>tmp</em> directory using <code>git clone  ssh://bandit29-git@localhost/home/bandit29-git/repo</code></p>
+<p>The README file does not contain password. Infact password is not in the production. Lets check other branches.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2930_terminal1.jpg" alt="Bandit Level 29 30"></p>
+<p><code>git branch</code> command shows you the list of branch heads.</p>
+<p>The repository may also have had other branches, though, and your local repository keeps branches which track each of those remote branches, called remote-tracking branches, which you can view using the <code>-r</code> option to <code>git branch</code>.</p>
+<p><code>git checkout</code> command lets you navigate between the branches created by <code>git branch</code>.</p>
+<p>The README.md file in dev branch has the password for the next level and the password is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2930_terminal2.jpg" alt="Bandit Level 29 30"></p>
+<p>Reference : <a href="https://git-scm.com/docs/user-manual">https://git-scm.com/docs/user-manual</a><!-- raw HTML omitted -->
+<a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout">Git Checkout</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-30--level-31httpsoverthewireorgwargamesbanditbandit31html"><a href="https://overthewire.org/wargames/bandit/bandit31.html">Bandit Level 30 → Level 31</a></h2>
+<h3 id="level-goal-3">Level Goal</h3>
+<p>There is a git repository at <code>ssh://bandit30-git@localhost/home/bandit30-git/repo</code>. The password for the user <code>bandit30-git</code> is the same as for the user <code>bandit30</code>.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3 id="commands-you-may-need-to-solve-this-level-3">Commands you may need to solve this level</h3>
+<p>git</p>
+<h3 id="solution--3">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit30@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>Clone the repository in tmp directory using command <code>git clone ssh://bandit30-git@localhost/home/bandit30-git/repo</code></p>
+<p>The README.md file does not contain the password.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3031_terminal1.jpg" alt="Bandit Level 30 31"></p>
+<p><code>git show</code>, <code>git log</code> and <code>git branch -r</code> does not help us in this level.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3031_terminal2.jpg" alt="Bandit Level 30 31"></p>
+<p><code>git tag</code> create, list, delete or verify a tag object signed with GPG. This command tells us about the <code>secret</code> tag. We can view this tag using <code>git show secret</code> and the password is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3031_terminal3.jpg" alt="Bandit Level 30 31"></p>
+<p>Reference : <a href="https://git-scm.com/docs/user-manual">https://git-scm.com/docs/user-manual</a><!-- raw HTML omitted -->
+<a href="https://git-scm.com/docs/git-tag">https://git-scm.com/docs/git-tag</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-31--level-32httpsoverthewireorgwargamesbanditbandit32html"><a href="https://overthewire.org/wargames/bandit/bandit32.html">Bandit Level 31 → Level 32</a></h2>
+<h3 id="level-goal-4">Level Goal</h3>
+<p>There is a git repository at <code>ssh://bandit31-git@localhost/home/bandit31-git/repo</code>. The password for the user <code>bandit31-git</code> is the same as for the user <code>bandit31</code>.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3 id="commands-you-may-need-to-solve-this-level-4">Commands you may need to solve this level</h3>
+<p>git</p>
+<h3 id="solution--4">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit31@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>First clone the repository in <em>tmp</em> directory using <code>git clone ssh://bandit31-git@localhost/home/bandit31-git/repo</code></p>
+<p>The README.md file tells us to push file <em>key.txt</em> to the remote directory. The commands to push a file on a git repository is</p>
+<pre tabindex="0"><code>git add key.txt
+git commit -m “commit message”
+git push origin master
+</code></pre><p><img src="/assets/images/Bandit-Overthewire/bandit_l3132_terminal1.jpg" alt="Bandit Level 31 32"></p>
+<p>But when we try to add file it tell us that <em>.gitignore</em> file is ignoring our file.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3132_terminal2.jpg" alt="Bandit Level 31 32"></p>
+<p>We can delete the <em>.gitignore</em> file.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3132_terminal3.jpg" alt="Bandit Level 31 32"></p>
+<p>Now if add and push our file it will show us the password for next level and the password is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l3132_terminal4.jpg" alt="Bandit Level 31 32"></p>
+<h3 id="next-post">Next Post</h3>
+<p><a href="/Bandit-Level-32-Level-33-OverTheWire">Bandit Level 32 → Level 33</a><!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

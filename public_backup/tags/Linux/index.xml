@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on programmerCave</title>
+    <link>https://programmercave.com/tags/Linux/</link>
+    <description>Recent content in Linux on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Resize Partitions in Arch Linux</title>
+      <link>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</guid>
+      <description>Introduction Running out of space on your root partition can be a frustrating experience when using Arch Linux. Fortunately, resizing your partitions can be done easily with the help of a live USB or CD and the GParted partition editor. In this guide, we&amp;rsquo;ll walk you through the steps to resize your partitions and increase the size of your root partition in Arch Linux.&#xA;Step 1: Boot into a Live USB or CD</description>
+    </item>
+    <item>
+      <title>Complete Guide: Installing, Setting Up, and Removing PostgreSQL in Linux</title>
+      <link>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</guid>
+      <description>Introduction PostgreSQL is an open-source relational database management system. It is known for its reliability, scalability, and extensibility, making it a popular choice for enterprise-level applications. In this tutorial, we will cover how to install and set up PostgreSQL in Linux, how to create a database and table, how to insert values into the table, how to log in to a user and database, and how to completely remove PostgreSQL including all related files.</description>
+    </item>
+    <item>
+      <title>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed</title>
+      <link>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</guid>
+      <description>Introduction Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&amp;rsquo;t worry, we&amp;rsquo;ve got you covered. We&amp;rsquo;ve gone through the process of searching various websites and experimenting with different techniques, and we&amp;rsquo;ve finally found a solution. We&amp;rsquo;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot.</description>
+    </item>
+    <item>
+      <title>Krypton Level 0 to Level 2 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 0 → Level 1, Level 1 → Level 2 and Level 2 → Level 3.&#xA;Krypton Level 0 → Level 1 Level Info Welcome to Krypton! The first level is easy. The following string encodes the password using Base64: S1JZUFRPTklTR1JFQVQ=&#xA;Use this password to log in to krypton.labs.overthewire.org with username krypton1 using SSH on port 2222.</description>
+    </item>
+    <item>
+      <title>Krypton Level 3 to Level 5 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6.&#xA;Previous Post Krypton Level 0 to Level 2&#xA;Krypton Level 3 → Level 4 Level Info In this example, the cipher mechanism is not available to you, the attacker.&#xA;However, you have been lucky. You have intercepted more than one message.</description>
+    </item>
+    <item>
+      <title>Leviathan Level 0 to Level 1 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-0-to-Level-1-OverTheWire/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-0-to-Level-1-OverTheWire/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 0 → Level 1 and Level 1 → Level 2. In this post we will learn how to use a debugging tool ltrace to exploit a program.&#xA;Level 0 To login to the first level use:</description>
+    </item>
+    <item>
+      <title>Leviathan Level 2 → Level 3 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-2-3-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-2-3-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 2 → Level 3. In this post we will learn how to use a debugging tool ltrace to exploit a program and a vulnerability in access() known as TOCTOU race (Time of Check to Time of Update).</description>
+    </item>
+    <item>
+      <title>Leviathan Level 3 to Level 4 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level34-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level34-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 3 → Level 4 and Level 4 → Level 5. In this post we will learn how to use a debugging tool ltrace to exploit a program and how to convert binary to ASCII in Python 3.</description>
+    </item>
+    <item>
+      <title>Leviathan Level 5 to Level 6 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-5-to-6-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-5-to-6-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 5 → Level 6 and Level 6 → Level 7. In this post we will learn how to use a debugging tool ltrace to exploit a program and how to bruteforce password.&#xA;Previous Posts Leviathan Level 0 to Level 1 Leviathan Level 2 → Level 3 Leviathan Level 3 to Level 4</description>
+    </item>
+    <item>
+      <title>Bandit Level 24 → Level 25 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-24-Level-25--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-24-Level-25--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 24 → Level 25.&#xA;In this level you will learn how to bruteforce password and connect to a remote machine on a port.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 25 to Level 26 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-25-to-Level-26--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-25-to-Level-26--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 25 → Level 26 and 26 → Level 27.&#xA;In this level we will learn how to change shell and how size of the terminal window can also help us to crack the password.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 27 to Level 31 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-27-to-Level-31--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-27-to-Level-31--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32.&#xA;In this post we will learn about git and its terminal command.</description>
+    </item>
+    <item>
+      <title>Bandit Level 32 → Level 33 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-32-Level-33--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-32-Level-33--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 32 → Level 33.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.&#xA;Previous Post Bandit Level 0 to Level 3 Bandit Level 4 to Level 8 Bandit Level 9 to Level 11 Bandit Level 12 → Level 13 Bandit Level 13 to Level 15 Bandit Level 16 to Level 18 Bandit Level 19 to Level 20 Bandit Level 21 to Level 22 Bandit Level 23 → Level 24 Bandit Level 24 → Level 25 Bandit Level 25 to Level 26 Bandit Level 27 to Level 31</description>
+    </item>
+    <item>
+      <title>Bandit Level 19 to Level 20 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-19-to-Level-20--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-19-to-Level-20--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21.&#xA;In this post we will learn about setuid and how to use it to access files of other users.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 21 to Level 22 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-21-to-Level-23--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-21-to-Level-23--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 21 → Level 22, Level 22 → Level 23 and and Level 23 → Level 24.&#xA;In this post we will learn about crontab files.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 23 → Level 24 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-23-Level-24--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-23-Level-24--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 23 → Level 24.&#xA;In this level we will learn about corntab files and write our first shell-script in this series.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 12 → Level 13 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-12-Level-13--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-12-Level-13--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 12 → Level 13.&#xA;In this post we will learn about various compression techniques and how to decompress file. We will learn how to convert binary to hex file and vice-versa.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 13 to Level 15 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-13-to-Level-16--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-13-to-Level-16--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 13 → Level 14, Level 14 → Level 15 and Level 15 → Level 16.&#xA;In this post we will learn how to use ssh key instead of password to login in a remote machine. We will learn about Secure Scoket Layer and how to establish a connection to a remote machine on a port.</description>
+    </item>
+    <item>
+      <title>Bandit Level 16 to Level 18 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-16-to-Level-19--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-16-to-Level-19--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 16 → Level 17, Level 17 → Level 18 and Level 18 → Level 19.&#xA;In this post we will learn how to scan for open ports and how to private key to login in a remote machine.</description>
+    </item>
+    <item>
+      <title>Bandit Level 9 to Level 11 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-9-to-Level-12--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-9-to-Level-12--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 9 → Level 10, Level 10 → Level 11 and Level 11 → Level 12.&#xA;In this post we will learn how to find a sting of certain pattern in a text file. How to decode a file from certain encoding and how to transform string in command line.</description>
+    </item>
+    <item>
+      <title>Bandit Level 4 to Level 8 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-4-to-Level-9--OverTheWire/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-4-to-Level-9--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9.&#xA;In this post we will learn how to find a human readable file with certain size in bytes and with certain user.</description>
+    </item>
+    <item>
+      <title>Bandit Level 0 to Level 3 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-0-to-Level-5--OverTheWire/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-0-to-Level-5--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level0, Level 0 → Level 1, Level 1 → Level 2, Level 2 → Level 3, and Level 3 → Level 4.&#xA;In this post we will learn how to connect to a remote machine using ssh and how to find a file with certain attributes in the machine.</description>
+    </item>
+    <item>
+      <title>How to Install a Software on Ubuntu | Package Management</title>
+      <link>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</guid>
+      <description>Package management facilities helps us to install and maintain software on the system. The package file for Ubuntu and other Debian based OS ends with .deb. For eg. draw.io-amd64-12.2.2.deb&#xA;A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs.&#xA;To run a progam on a system, it rely on other programs.</description>
+    </item>
+    <item>
+      <title>How to create Password list using CUPP tool on Ubuntu</title>
+      <link>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</guid>
+      <description>People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.&#xA;CUPP(Common User Passwords Profiler) is python based free and open source tool which generates wordlist for a specific user based on the information provided.</description>
+    </item>
+    <item>
+      <title>How to Install graphics.h C/C&#43;&#43; library on Ubuntu</title>
+      <link>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</guid>
+      <description>In this post we are going to install graphics.h library on Ubuntu and to use it with gcc or g++ compiler. graphics.h provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in graphic.h library in C/C++ visit here.&#xA;To use graphics.hon Ubuntu platform we need to compile and install libgraph. libgraph is an implementation of the TurboC graphics API (graphics.</description>
+    </item>
+  </channel>
+</rss>

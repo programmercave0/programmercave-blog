@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Doubly Circular Linked List | C&#43;&#43; Implementation | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Doubly Circular Linked List | C&#43;&#43; Implementation</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2018-02-02
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Linked-List/&#34;&gt;Linked-List&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structure/&#34;&gt;Data-Structure&lt;/a&gt;
+    </div>
+  
+  <p>The nodes in a linked list are connected through <em>pointers</em>. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A <code>node</code> in a <strong>doubly circular linked list</strong> contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.</p>
+<p><strong>Related:</strong> <a href="/C-Doubly-Linked-List-using-Template-Data-Structure">Doubly Linked List</a></p>
+<p>Here is a meme to understand Circular Linked List.</p>
+<p><img src="/assets/images/cll.jpg" alt="Split Linked List"></p>
+<p>The first node of the linked list is the head and the last node is the tail. If head is NULL then the list is empty.</p>
+<p>In C++, a node can be defined using <code>struct</code>, which contain a data item and node pointers.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Node</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    T data;
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span> next;
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span> prev;
+</span></span><span style="display:flex;"><span>    Node(T value) <span style="color:#666">:</span> data(std<span style="color:#666">::</span>move(value)),
+</span></span><span style="display:flex;"><span>                    next(<span style="color:#008000;font-weight:bold">nullptr</span>),
+</span></span><span style="display:flex;"><span>                    prev(<span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                    {}
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><code>Node(T val): data(val), next(nullptr), prev(nullptr) {}</code> is the constructor for the <code>struct Node</code> which is used to initialise <code>data</code>, <code>next</code> and <code>prev</code>.  <code>T</code> means it is a generic struct and data can store values of all data types.</p>
+<p>To declare head and tail: <code>Node *head, *tail;</code></p>
+<p><img src="/assets/images/circulardoublylinkedlist.png" alt="Doubly Circular Linked List"></p>
+<p>In the above fig. Node containing 5 is head and node containing 15 is tail. <code>prev</code> pointer in head points to the last node and <code>next</code> pointer in tail points to the head.</p>
+<!-- raw HTML omitted -->
+<p>The three basic operations supported by a linked list are searching, insertion and deletion.</p>
+<!-- raw HTML omitted -->
+<p>In the <code>search</code> function a value is passed as an argument and its node is returned if found, otherwise a message says “No such element in the list” and <code>nullptr</code> is returned.</p>
+<p>The function starts searching from the head to the last node and passed value is matched with every node’s data item.</p>
+<p>Here is the code for iterative search.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Node</span> <span style="color:#666">*</span><span style="color:#00f">search</span>(T value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>node <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">while</span>(node<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span>(node<span style="color:#666">-&gt;</span>data <span style="color:#666">==</span> value)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> node;
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>         node <span style="color:#666">=</span> node<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">if</span>(node<span style="color:#666">-&gt;</span>data <span style="color:#666">==</span> value)
+</span></span><span style="display:flex;"><span>     {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> node;
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>     std<span style="color:#666">::</span>cerr <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;No such element in the list </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><code>insert</code> function insert a node with the value at the end of the linked list. If the linked list does not contain any node then the new node becomes head and tail otherwise new node is added after tail and its <code>prev</code> pointer points to tail and <code>next</code> pointer points to head. Then new node becomes tail.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">insert</span>(T value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>node <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Node(value);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(head <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        node<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        node<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        head <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        tail <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    tail <span style="color:#666">=</span> head<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>    tail<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    node<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>    node<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>    head<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    tail <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In <code>deleteNode</code> function the value is entered which is to be deleted. The function search the node containing the value using <code>search</code> function and then the node is deleted.</p>
+<p>If the searched node is <code>head</code> then node next to head is made head and then the searched node is deleted. The node is deleted only if the value exists means <code>if (node != nullptr)</code>.</p>
+<!-- raw HTML omitted -->
+<p>After deletion next and prev pointer of previous and next nodes are updated.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">deleteNode</span>(T value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>node <span style="color:#666">=</span> search(value);
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(node <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cerr <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;No such value in the list</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tail <span style="color:#666">=</span> head<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span>(tmp <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            tail<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>            head <span style="color:#666">=</span> tail<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">delete</span> tmp;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span> <span style="color:#008000;font-weight:bold">if</span>(tail <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Node <span style="color:#666">*</span>curr <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#666">=</span> tail<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>            tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> curr<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            head<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            tail <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">delete</span> curr;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">while</span>(tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">if</span>(tmp <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>                    tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>                    <span style="color:#008000;font-weight:bold">delete</span> tmp;
+</span></span><span style="display:flex;"><span>                    <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>In C++ implementation of this program we have copy constructor, move constructor, copy assignment operator, move assignment operator and destructor.</p>
+<p>Because the presence of a user-defined destructor, copy-constructor, or copy-assignment operator prevents implicit definition of the move constructor and the move assignment operator, any class for which move semantics are desirable, has to declare all five special member functions. This is called <a href="https://en.cppreference.com/w/cpp/language/rule_of_three">Rule of Five</a>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;iostream&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;utility&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00"></span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">circular_doubly_linked_list</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Node</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        T data;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span> next;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span> prev;
+</span></span><span style="display:flex;"><span>        Node(T value) <span style="color:#666">:</span> data(std<span style="color:#666">::</span>move(value)),
+</span></span><span style="display:flex;"><span>                        next(<span style="color:#008000;font-weight:bold">nullptr</span>),
+</span></span><span style="display:flex;"><span>                        prev(<span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                        {}
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>head, <span style="color:#666">*</span>tail;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">public</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>    circular_doubly_linked_list() <span style="color:#666">:</span> head(<span style="color:#008000;font-weight:bold">nullptr</span>),
+</span></span><span style="display:flex;"><span>                                    tail(<span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                                    {}
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">//copy constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    circular_doubly_linked_list(<span style="color:#008000;font-weight:bold">const</span> circular_doubly_linked_list <span style="color:#666">&amp;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">//copy assignment
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    circular_doubly_linked_list<span style="color:#666">&amp;</span> <span style="color:#008000;font-weight:bold">operator</span><span style="color:#666">=</span>(<span style="color:#008000;font-weight:bold">const</span> circular_doubly_linked_list<span style="color:#666">&amp;</span> cdll)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        circular_doubly_linked_list  <span style="color:#00f">temp</span>(cdll);
+</span></span><span style="display:flex;"><span>        temp.swap(<span style="color:#666">*</span><span style="color:#008000;font-weight:bold">this</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">*</span><span style="color:#008000;font-weight:bold">this</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">//move constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    circular_doubly_linked_list(circular_doubly_linked_list<span style="color:#666">&amp;&amp;</span>) <span style="color:#008000;font-weight:bold">noexcept</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">//move assignment
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    circular_doubly_linked_list<span style="color:#666">&amp;</span> <span style="color:#008000;font-weight:bold">operator</span><span style="color:#666">=</span>(circular_doubly_linked_list<span style="color:#666">&amp;&amp;</span> cdll) <span style="color:#008000;font-weight:bold">noexcept</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cdll.swap(<span style="color:#666">*</span><span style="color:#008000;font-weight:bold">this</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">*</span><span style="color:#008000;font-weight:bold">this</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#666">~</span>circular_doubly_linked_list();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">void</span> <span style="color:#00f">append_node</span>(T);
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">void</span> <span style="color:#00f">delete_node</span>(T);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">friend</span> <span style="color:#b00040">void</span> <span style="color:#00f">swap</span>(circular_doubly_linked_list<span style="color:#666">&amp;</span> lhs, circular_doubly_linked_list<span style="color:#666">&amp;</span> rhs)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>swap(lhs.head, rhs.head);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> U<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">friend</span> std<span style="color:#666">::</span>ostream <span style="color:#666">&amp;</span> <span style="color:#008000;font-weight:bold">operator</span><span style="color:#666">&lt;&lt;</span>(std<span style="color:#666">::</span>ostream <span style="color:#666">&amp;</span> os, <span style="color:#008000;font-weight:bold">const</span> circular_doubly_linked_list<span style="color:#666">&lt;</span>U<span style="color:#666">&gt;</span> <span style="color:#666">&amp;</span> cdll)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cdll.print_list(os);
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> os;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Node</span> <span style="color:#666">*</span>search(T value)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>node <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">while</span>(node<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span>(node<span style="color:#666">-&gt;</span>data <span style="color:#666">==</span> value)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">return</span> node;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            node <span style="color:#666">=</span> node<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span>(node<span style="color:#666">-&gt;</span>data <span style="color:#666">==</span> value)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> node;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cerr <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;No such element in the list </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b00040">void</span> <span style="color:#00f">print_list</span>(std<span style="color:#666">::</span>ostream<span style="color:#666">&amp;</span> os <span style="color:#666">=</span> std<span style="color:#666">::</span>cout) <span style="color:#008000;font-weight:bold">const</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>      Node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">while</span>(tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>          std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> tmp<span style="color:#666">-&gt;</span>data <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>          tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> tmp<span style="color:#666">-&gt;</span>data <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>circular_doubly_linked_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;::</span>circular_doubly_linked_list(<span style="color:#008000;font-weight:bold">const</span> circular_doubly_linked_list <span style="color:#666">&amp;</span> cdll)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(cdll.head <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        head <span style="color:#666">=</span> tail <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        head <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Node(cdll.head<span style="color:#666">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>curr <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>obj_curr <span style="color:#666">=</span> cdll.head;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">while</span>(obj_curr<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> cdll.head)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            curr<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Node(obj_curr<span style="color:#666">-&gt;</span>next<span style="color:#666">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>            obj_curr <span style="color:#666">=</span> obj_curr<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            curr <span style="color:#666">=</span> curr<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            curr<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        tail <span style="color:#666">=</span> curr;
+</span></span><span style="display:flex;"><span>        curr<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        head<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> curr;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>circular_doubly_linked_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;::</span>circular_doubly_linked_list(circular_doubly_linked_list<span style="color:#666">&amp;&amp;</span> cdll) <span style="color:#008000;font-weight:bold">noexcept</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    head <span style="color:#666">=</span> tail <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>    swap(<span style="color:#666">*</span><span style="color:#008000;font-weight:bold">this</span>, cdll);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> circular_doubly_linked_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;::</span>append_node(T value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>node <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Node(std<span style="color:#666">::</span>move(value));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(head <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        node<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        node<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        head <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>        tail <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    tail <span style="color:#666">=</span> head<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>    tail<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    node<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>    node<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>    head<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>    tail <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> circular_doubly_linked_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;::</span>delete_node(T value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Node <span style="color:#666">*</span>node <span style="color:#666">=</span> search(value);
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(node <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cerr <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;No such value in the list</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tail <span style="color:#666">=</span> head<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span>(tmp <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            tail<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>            head <span style="color:#666">=</span> tail<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">delete</span> tmp;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span>(tail <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Node <span style="color:#666">*</span>curr <span style="color:#666">=</span> tail;
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#666">=</span> tail<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>            tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> curr<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            head<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            tail <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">delete</span> curr;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">while</span>(tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">if</span>(tmp <span style="color:#666">==</span> node)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>                    tmp<span style="color:#666">-&gt;</span>prev<span style="color:#666">-&gt;</span>next<span style="color:#666">-&gt;</span>prev <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>                    <span style="color:#008000;font-weight:bold">delete</span> tmp;
+</span></span><span style="display:flex;"><span>                    <span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#008000;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>circular_doubly_linked_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;::~</span>circular_doubly_linked_list()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span>(head)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> head;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">while</span>(tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> head)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Node <span style="color:#666">*</span>t <span style="color:#666">=</span> tmp;
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">delete</span> t;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">delete</span> tmp;
+</span></span><span style="display:flex;"><span>        head <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    circular_doubly_linked_list<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> cdll1;
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">3</span>);
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">4</span>);
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">5</span>);
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">6</span>);
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">7</span>);
+</span></span><span style="display:flex;"><span>    cdll1.append_node(<span style="color:#666">8</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> cdll1;
+</span></span><span style="display:flex;"><span>    cdll1.delete_node(<span style="color:#666">6</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> cdll1;
+</span></span><span style="display:flex;"><span>    circular_doubly_linked_list<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> cdll2(cdll1); <span style="color:#408080;font-style:italic">// using copy constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Linked List 2: &#34;</span> <span style="color:#666">&lt;&lt;</span> cdll2;
+</span></span><span style="display:flex;"><span>    circular_doubly_linked_list<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> cdll3 <span style="color:#666">=</span> cdll1; <span style="color:#408080;font-style:italic">//using copy assignment
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Linked List 3: &#34;</span> <span style="color:#666">&lt;&lt;</span> cdll3;
+</span></span><span style="display:flex;"><span>    circular_doubly_linked_list<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> cdll4 <span style="color:#666">=</span> std<span style="color:#666">::</span>move(cdll2); <span style="color:#408080;font-style:italic">//using move constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Linked list 4: &#34;</span> <span style="color:#666">&lt;&lt;</span> cdll4;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>View this code on <a href="https://github.com/abhiabhi0/Algo-Data-Structure/blob/master/Linked_List/circulardll.cpp">Github</a>.</p>
+<!-- raw HTML omitted -->
+<p>Reference:<!-- raw HTML omitted -->
+<a href="https://amzn.to/2OarGBs">Introduction to Algorithms</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2CH9h9Z">The Algorithm Design Manual</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2NLM0dd">Data Structures and Algorithms Made Easy</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Linked-List/&#34;&gt;Linked-List&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structure/&#34;&gt;Data-Structure&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

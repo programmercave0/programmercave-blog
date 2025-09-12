@@ -1,18 +1,18 @@
 #!/bin/bash
 
-#hugo server to run locally
-# Navigate to the Hugo site directory
+# Build site
 hugo -t cayman-hugo-theme
 
-#hugo server
-# Deploy the public folder
+# Deploy submodule
 cd public
+git checkout main       # switch to branch before commit
+git pull                # update branch
 git add .
 git commit -m "new changes"
 git push
-
-# Return to the main directory and push the main repo
 cd ..
+
+# Push main repo
 git add .
 git commit -m "new changes"
 git push

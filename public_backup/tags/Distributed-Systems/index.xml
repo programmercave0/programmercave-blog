@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed-Systems on programmerCave</title>
+    <link>https://programmercave.com/tags/Distributed-Systems/</link>
+    <description>Recent content in Distributed-Systems on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Distributed-Systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interview Question: Explain Caching</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Caching/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Caching/</guid>
+      <description>Caching: The Secret Sauce for High-Performance Systems If you’re preparing for a software engineering interview, understanding caching is non-negotiable. Caching is a cornerstone of system design, optimizing performance by storing frequently accessed data in fast-access layers. Let’s break it down in simple terms.&#xA;What is Caching? Caching stores copies of data in temporary, high-speed storage (like RAM) to reduce access times. Think of it like keeping your favorite snacks on your desk instead of walking to the kitchen every time you’re hungry—faster access, less effort.</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain Consistent Hashing</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Consistent-Hashing/</link>
+      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Consistent-Hashing/</guid>
+      <description>What is Consistent Hashing? Imagine you’re distributing candy (data) among friends (servers). If a friend leaves or joins, you don’t want to reshuffle all the candy—only what’s necessary. Consistent hashing solves this problem by minimizing data movement when servers (nodes) are added or removed. It’s used by companies like Discord, Netflix, and Amazon DynamoDB to scale their systems efficiently.&#xA;How Consistent Hashing Works: A Step-by-Step Guide 1. The Hash Ring: A Circular Timeline Think of a hash ring as a clock face.</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain Load Balancer</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Load-Balancer/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Load-Balancer/</guid>
+      <description>What is a Load Balancer? A load balancer acts like a traffic cop for your application, directing incoming requests across multiple servers to prevent overload and ensure smooth performance. It’s the entry point of your system, hiding server details and optimizing traffic flow.&#xA;Placement: Sits at the edge of data centers (like a gatekeeper). Functionality: Distributes traffic to servers. Proxies requests to hide server IPs (e.g., clients only see the load balancer’s IP).</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain CAP Theorem</title>
+      <link>https://programmercave.com/Interview-Question-Explain-CAP-Theorem/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-CAP-Theorem/</guid>
+      <description>1. What is the CAP Theorem? The CAP Theorem states that a distributed system can only guarantee two out of three properties at the same time:&#xA;Consistency (C): All users see the same data simultaneously. Availability (A): The system always responds to requests (even with stale data). Partition Tolerance (P): The system works even if parts of it lose communication. Key Insight: Network partitions (e.g., server crashes, dropped messages) are unavoidable.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&#39;t worry, we&#39;ve got you covered. We&#39;ve gone through the process of searching various websites and experimenting with different techniques, and we&#39;ve finally found a solution. We&#39;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot. Please note that this tutorial is specifically for enabling natural scrolling on a touchpad, not a mouse. There are plenty of other resources available for enabling natural scrolling on a mouse.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2022-09-27
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Ubuntu/&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OpenSuse/&#34;&gt;OpenSuse&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Tumbleweed/&#34;&gt;Tumbleweed&lt;/a&gt;
+    </div>
+  
+  <h2 id="introduction">Introduction</h2>
+<p>Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&rsquo;t worry, we&rsquo;ve got you covered. We&rsquo;ve gone through the process of searching various websites and experimenting with different techniques, and we&rsquo;ve finally found a solution. We&rsquo;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot. Please note that this tutorial is specifically for enabling natural scrolling on a touchpad, not a mouse. There are plenty of other resources available for enabling natural scrolling on a mouse.</p>
+<!-- raw HTML omitted -->
+<p>If you want to manage your input devices on OpenSuse Tumbleweed, xinput is the tool you need. To install xinput, simply open a terminal and run <code>sudo zypper install xinput</code>. Once xinput is installed, you can use it to list all the input devices currently connected to your system. To do this, run <code>xinput --list</code> in the terminal. With this information, you can easily configure and customize your input devices to suit your needs.</p>
+<p><img src="/assets/images/Enable-Natural-Scrolling/pic1.png" alt="Enable Natural Scrolling for Touchpad in Linux"></p>
+<p>You should see entries for both your mouse and touchpad. To view the options available for a specific input device, use the <code>xinput --list-props</code> command followed by the device ID. For example, to view the options for your mouse, you would run <code>xinput --list-props &lt;mouse device ID&gt;</code>, and to view the options for your touchpad, you would run <code>xinput --list-props &lt;touchpad device ID&gt;</code>. This will give you a list of all the options you can set for each device, allowing you to customize them to your liking.</p>
+<!-- raw HTML omitted -->
+<p>To view the options available for your mouse using xinput on OpenSuse Tumbleweed, you can run the following command in the terminal:</p>
+<p><code>xinput --list-props 12</code></p>
+<p>Note that you will need to replace the number &ldquo;12&rdquo; with the actual device ID for your mouse, as identified by the <code>xinput --list</code> command. This command will display a list of all the options you can set for your mouse, such as the button mapping, pointer acceleration, and scroll speed. You can then use these options to customize your mouse to your liking.</p>
+<p>For example, if you want to change the scroll speed of your mouse, you can use the <code>xinput --set-prop</code> command followed by the device ID and the option you want to set. For example:</p>
+<p><code>xinput --set-prop 12 &quot;Device Accel Constant Deceleration&quot; 2</code></p>
+<p>This would set the &ldquo;Device Accel Constant Deceleration&rdquo; option for your mouse (device ID 12) to a value of 2. You can experiment with different values to find the scroll speed that works best for you.</p>
+<p><img src="/assets/images/Enable-Natural-Scrolling/pic2.png" alt="Enable Natural Scrolling for Touchpad in Linux"></p>
+<p>We can see Mouse has option for Natural Scrolling.</p>
+<p>But for Touchpad there is no options such as Natural Scrolling.</p>
+<p>If you run <code>xinput --list-props &lt;touchpad device ID&gt;</code> and do not see an option for natural scrolling, it may be because natural scrolling is not a feature that is directly supported by the touchpad itself. Instead, it is typically implemented by the operating system or desktop environment.</p>
+<p>On OpenSuse Tumbleweed, you can try enabling natural scrolling for your touchpad by going to the settings for your desktop environment (such as Gnome or KDE) and looking for the option to enable natural scrolling. Alternatively, you can try using a tool such as &ldquo;gpointing-device-settings&rdquo; to configure natural scrolling for your touchpad.</p>
+<p>If neither of these options work, it is possible that your touchpad simply does not support natural scrolling. In this case, you may need to look into using a different touchpad or mouse that does support natural scrolling.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To make changes to your touchpad configuration permanent on OpenSuse Tumbleweed, you can edit the <code>70-synaptics.conf</code> file located in the <code>/usr/share/X11/xorg.conf.d/</code> directory. This file contains the configuration settings for the Synaptics touchpad driver, which is responsible for handling input from your touchpad.</p>
+<p>To edit the file, you will need to have root privileges. You can do this by running the sudo command before the text editor of your choice. For example:</p>
+<p><code>sudo nano /usr/share/X11/xorg.conf.d/70-synaptics.conf</code></p>
+<p>This will open the <code>70-synaptics.conf</code> file in the Nano text editor. You can then make the desired changes to the file and save them by pressing <code>Ctrl+X</code> and then <code>Y</code>.</p>
+<p>After making your changes, it is a good idea to copy the <code>70-synaptics.conf</code> file to the <code>/etc/X11/xorg.conf.d/</code> directory. This will ensure that your changes are applied every time you boot your system. To copy the file, you can use the <code>cp</code> command:</p>
+<p><code>sudo cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/</code></p>
+<p>Note that it is not necessary to create a new file in the <code>/etc/X11/xorg.conf.d/</code> directory. Instead, you should simply copy the existing <code>70-synaptics.conf</code> file to this location.</p>
+<p>After copying the file and making your changes, you may need to restart your system or your X server for the changes to take effect. You can do this by using the <code>systemctl</code> command:</p>
+<p><code>sudo systemctl restart display-manager</code></p>
+<p>To enable natural scrolling for your touchpad on OpenSuse Tumbleweed, you can add the following options to the <code>70-synaptics.conf</code> file located in the <code>/usr/share/X11/xorg.conf.d/</code> directory:</p>
+<pre tabindex="0"><code>Option &#34;VertScrollDelta&#34; &#34;-27&#34;
+Option &#34;HorizScrollDelta&#34; &#34;-27&#34;
+</code></pre><p>These options should be added under the <code>Identifier &quot;touchpad catchall&quot;</code> section of the file. The <code>VertScrollDelta</code> option controls the vertical scrolling behavior of your touchpad, while the <code>HorizScrollDelta</code> option controls the horizontal scrolling behavior. Setting these options to a negative value will cause your touchpad to scroll in the opposite direction of your finger movement, which is how natural scrolling works.</p>
+<p>To make these changes permanent, you will need to copy the <code>70-synaptics.conf</code> file to the <code>/etc/X11/xorg.conf.d/</code> directory, as described above. After copying the file and making your changes, you may need to restart your system or your X server for the changes to take effect. You can do this by using the <code>systemctl</code> command:</p>
+<p><code>sudo systemctl restart display-manager</code></p>
+<p>Alternatively, you can try restarting your touchpad by running the following command:</p>
+<p><code>sudo modprobe -r psmouse; sudo modprobe psmouse</code></p>
+<p>This will unload and then reload the touchpad driver, which may cause your changes to take effect.</p>
+<p>Keep in mind that these instructions are specific to the Synaptics touchpad driver. If you are using a different touchpad driver, the options and steps for enabling natural scrolling may be different.</p>
+<p><img src="/assets/images/Enable-Natural-Scrolling/pic3.png" alt="Enable Natural Scrolling for Touchpad in Linux"></p>
+<p>If you followed the steps outlined, you should now be able to scroll in the opposite direction of your finger movement on your touchpad, which can be a more intuitive and natural way of scrolling for some users.</p>
+<!-- raw HTML omitted -->
+<p><a href="https://linuxhint.com/change_mouse_touchpad_settings_xinput_linux/">Change Mouse Settings Using Xinput</a> <!-- raw HTML omitted -->
+<a href="https://www.linkedin.com/pulse/manually-configure-synaptics-touchpad-editing-xorg-configs-basel-korj/">Manually Configure a Synaptics Touchpad By Editing Xorg Configs</a> <!-- raw HTML omitted -->
+<a href="https://bbs.archlinux.org/viewtopic.php?id=266547">Synaptics Natural Scrolling</a> <!-- raw HTML omitted -->
+<a href="https://linux.die.net/man/4/synaptics">synaptics(4) - Linux man page</a> <!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Ubuntu/&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OpenSuse/&#34;&gt;OpenSuse&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Tumbleweed/&#34;&gt;Tumbleweed&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on programmerCave</title>
+    <link>https://programmercave.com/post/</link>
+    <description>Recent content in Posts on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang - Data Structures - Mutability in Arrays vs. Slices</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Mutability-in-Arrays-vs-Slices/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Mutability-in-Arrays-vs-Slices/</guid>
+      <description>Introduction Both arrays and slices in Go allow you to change their elements after creation—this is what we mean by &amp;ldquo;mutability.&amp;rdquo; But how changes affect other parts of your code differs a lot between the two. This note builds on the basics of arrays and slices by focusing on mutability in practice, including how to control it safely in larger programs. We&amp;rsquo;ll cover advanced tips useful for experienced developers, like handling shared changes in concurrent code or designing functions that avoid surprises.</description>
+    </item>
+    <item>
+      <title>Golang - Data Structures - Slice Performance</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Slice-Performance/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Slice-Performance/</guid>
+      <description>Introduction For experienced engineers, writing code that is not only correct but also performant is a key requirement. Understanding the performance implications of how you use slices can have a significant impact on your application&amp;rsquo;s speed and memory usage.&#xA;1. The Cost of append: Growth Strategy When a slice&amp;rsquo;s capacity is exceeded, append allocates a new, larger backing array and copies the old elements to it. This copy operation is expensive.</description>
+    </item>
+    <item>
+      <title>Golang - Data Structures - Common Slice Operations</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Common-Slice-Operations/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Common-Slice-Operations/</guid>
+      <description>Introduction Beyond simple indexing and appending, Go slices can be used to implement a variety of common data structure operations. Because Go doesn&amp;rsquo;t provide these out of the box, knowing these idioms is a sign of a proficient Go developer.&#xA;1. Deleting an Element from a Slice There are two main ways to delete an element from a slice, depending on whether you need to preserve the original order.&#xA;a) Deleting Without Preserving Order (Fastest) If the order of elements doesn&amp;rsquo;t matter, the most efficient way to delete is to swap the element you want to remove with the last element, and then shrink the slice.</description>
+    </item>
+    <item>
+      <title>Golang - Data Structures - Slice Internals</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Slice-Internals/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Slice-Internals/</guid>
+      <description>Introduction Understanding how slices behave when they share a backing array is critical for avoiding bugs. The append function, in particular, has behavior that can be surprising if you don&amp;rsquo;t understand the underlying mechanics of length and capacity.&#xA;Gotcha #1: Shared Backing Arrays and Unintended Modifications When one slice is created from another, they share the same backing array. Modifying the elements of one slice will affect the other.&#xA;package main import &amp;#34;fmt&amp;#34; func main() { s1 := []int{1, 2, 3, 4, 5} s2 := s1[1:4] // s2 is [2, 3, 4] fmt.</description>
+    </item>
+    <item>
+      <title>Golang - Data Structures - Slices In-Depth</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Slices-In-Depth/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Slices-In-Depth/</guid>
+      <description>Introduction To truly master slices, you must understand their internal structure. A slice is just a small struct, called a slice header, that describes a section of a larger, hidden array called the backing array.&#xA;The Slice Header Every slice in Go can be thought of as this struct:&#xA;type SliceHeader struct { Pointer // A pointer to the first element of the backing array that the slice can access. Length // The number of elements the slice contains.</description>
+    </item>
+    <item>
+      <title>Golang - Data Structures - Arrays vs Slices</title>
+      <link>https://programmercave.com/Golang-Data-Structures-Arrays-vs-Slices/</link>
+      <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Golang-Data-Structures-Arrays-vs-Slices/</guid>
+      <description>Introduction Arrays and Slices are both used for storing sequences of data, but they have fundamental differences in how they work.&#xA;The Core Difference: Fixed vs. Dynamic Array: A fixed-size collection of elements of the same type. The size is part of its type definition. Slice: A dynamic, flexible view into the elements of an underlying array. Analogy: An array is like a shipping carton with a fixed number of slots.</description>
+    </item>
+    <item>
+      <title>iota in Golang</title>
+      <link>https://programmercave.com/iota-in-Golang/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/iota-in-Golang/</guid>
+      <description>Key Takeaways: iota automatically assigns incrementing integer values to constants. Use _ to skip values or start sequences from non-zero numbers. Combine iota with arithmetic/bit shifts for enums, flags, or memory units. Each const block resets iota to 0. String methods can make iota-based enums human-readable. What is iota in Go? iota is a built-in Go tool that simplifies creating sequences of related constants. It starts at 0 in each const block and increments by 1 for each subsequent constant.</description>
+    </item>
+    <item>
+      <title>Interview Question: Why Do We Need Interfaces in Golang?</title>
+      <link>https://programmercave.com/Interview-Question-Why-Do-We-Need-Interfaces-in-Golang/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Why-Do-We-Need-Interfaces-in-Golang/</guid>
+      <description>Introduction Imagine you’re building a zoo app in Golang where animals like dogs, cats, and llamas need to make sounds and move around. You could write separate functions for each animal, but that’d get messy fast. Enter Golang interfaces—a simple yet powerful tool that lets you handle different types with one neat solution. As a software engineer, I’ve seen this question pop up in interviews: &amp;ldquo;Why do we need interfaces in Golang when we can just define functions?</description>
+    </item>
+    <item>
+      <title>Interview Question: What are Interfaces in Golang?</title>
+      <link>https://programmercave.com/Interview-Question-What-Are-Interfaces-in-Golang/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-Are-Interfaces-in-Golang/</guid>
+      <description>Key Takeaways Interfaces in Go define method signatures and enable polymorphism, abstraction, and modularity. Implicit Implementation means types automatically implement interfaces by defining required methods—no explicit declaration is needed. The Empty Interface (interface{}) can hold any value, making it useful for generic functions but requiring type assertions for safe usage. Interface Embedding allows reusability by combining multiple interfaces into one. Type Assertions and Type Switches are essential for working with the empty interface to extract underlying types at runtime.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is the difference between new() and make() in Golang?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-the-difference-between-new-and-make-in-Golang/</link>
+      <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-the-difference-between-new-and-make-in-Golang/</guid>
+      <description>Key Takeaways new() allocates memory and returns a pointer to zeroed memory (e.g., *int, *struct). make() initializes slices, maps, or channels and returns a ready-to-use value (not a pointer). Use new() for basic types (int, bool) or structs when you need a pointer. Use make() for slices, maps, or channels to avoid runtime errors like nil pointers. Both functions handle memory automatically—no manual cleanup is required. Why Understanding new() and make() Matters in Go In Go, memory management is handled differently compared to languages like C or Java.</description>
+    </item>
+    <item>
+      <title>Interview Question: How Garbage Collection in Go works?</title>
+      <link>https://programmercave.com/Interview-Question-How-Garbage-Collection-in-Go-works/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-How-Garbage-Collection-in-Go-works/</guid>
+      <description>Key Takeaways Concurrent Execution: Go’s garbage collector runs in the background, minimizing pauses. Tri-Color Marking: Uses white, grey, and black labels to identify unused memory efficiently. Low Latency: Short pauses make Go ideal for real-time applications like servers. Write Barriers: Prevent accidental deletion of active objects during garbage collection. Interview-Ready: Understanding these concepts helps you answer memory management questions confidently. What is Garbage Collection? Garbage collection (GC) is an automatic process that frees up memory used by programs.</description>
+    </item>
+    <item>
+      <title>Memory Management in Golang</title>
+      <link>https://programmercave.com/Memory-Management-in-Golang/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Memory-Management-in-Golang/</guid>
+      <description>Memory management is a critical aspect of any programming language, influencing both performance and resource utilization. Go (Golang) excels in memory management by efficiently using two primary regions of memory: the stack and the heap. Additionally, Go employs Garbage Collection (GC) to automate the cleanup of unused memory, making it easier for developers to manage resources.&#xA;Key Takeaways Stack: Stores local variables and function calls, follows LIFO (Last In, First Out), is fast but has limited size.</description>
+    </item>
+    <item>
+      <title>When to Use sync.Mutex vs. Channels in Go?</title>
+      <link>https://programmercave.com/When-to-Use-sync-Mutex-vs-Channels-in-Go/</link>
+      <pubDate>Tue, 18 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/When-to-Use-sync-Mutex-vs-Channels-in-Go/</guid>
+      <description>Key Takeaways Use sync.Mutex for protecting internal state and ensuring atomic operations. Use Channels for transferring data ownership and coordinating multiple concurrent tasks. Channels improve code readability and safety by avoiding race conditions and deadlocks. Mutexes are faster for memory access but should be used sparingly and in performance-critical sections only after profiling. Go’s Concurrency Philosophy: Favor simplicity, use channels for communication, and don’t hesitate to use multiple goroutines. Introduction Concurrency in Go is a powerful feature that allows you to write highly efficient and scalable applications.</description>
+    </item>
+    <item>
+      <title>Understanding the select Statement in Go</title>
+      <link>https://programmercave.com/Understanding-the-select-Statement-in-Go/</link>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-the-select-Statement-in-Go/</guid>
+      <description>If you&amp;rsquo;re preparing for a software engineering interview and are new to Go (Golang), understanding the select statement is crucial. It&amp;rsquo;s a powerful tool for managing concurrency, especially when working with channels. This blog will explain everything you need to know about the select statement, including its syntax, how it works, and practical examples.&#xA;Key Takeaways The select statement in Go allows you to handle multiple channel operations simultaneously. It blocks until one of the cases is ready, or executes a default case if no channels are ready.</description>
+    </item>
+    <item>
+      <title>What are Channels in Golang?</title>
+      <link>https://programmercave.com/Channels-in-Golang/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Channels-in-Golang/</guid>
+      <description>Go&amp;rsquo;s concurrency model is one of its standout features, and channels are at the heart of it. Channels allow goroutines (lightweight threads) to communicate and synchronize their execution. In this guide, we&amp;rsquo;ll explore channels in detail, including their types, operations, use cases, and internal workings.&#xA;Key Takeaways Channels in Go: Mechanisms that allow goroutines to communicate by sending and receiving values. Unbuffered Channels: Require both sending and receiving goroutines to be ready simultaneously, ensuring synchronization.</description>
+    </item>
+    <item>
+      <title>Interview Question: Can You Explain the Lifecycle and Scheduling of a Goroutine?</title>
+      <link>https://programmercave.com/Interview-Question-Can-You-Explain-the-Lifecycle-and-Scheduling-of-a-Goroutine/</link>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Can-You-Explain-the-Lifecycle-and-Scheduling-of-a-Goroutine/</guid>
+      <description>Key Takeaways Go Scheduler Components: G (Goroutine), M (Machine), P (Processor) M:N Scheduler: Maps M goroutines to N OS threads, using GOMAXPROCS threads simultaneously. Queues in Scheduler: Global Queue (checked occasionally) and Local Run Queues (per P). Work Stealing: P with an empty queue steals tasks from another P. Goroutine Lifecycle: Creation, Execution, Blocking, Unblocking, Termination. Scheduling Algorithm: Checks Local Queue → Global Queue → Work Stealing → Executes goroutine. What are Goroutines?</description>
+    </item>
+    <item>
+      <title>Interview Question: What are the differences between Goroutines and Threads?</title>
+      <link>https://programmercave.com/Interview-Question-What-are-difference-between-Goroutines-and-Threads/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-are-difference-between-Goroutines-and-Threads/</guid>
+      <description>If you&amp;rsquo;re preparing for a software engineering interview, it&amp;rsquo;s important to understand the difference between goroutines and threads. These two concepts are related to concurrency, which is the ability of a program to execute multiple tasks simultaneously. In this blog, we&amp;rsquo;ll break down the key differences between goroutines and threads in a simple and efficient way.&#xA;Key Takeaways Goroutines are managed by the Go runtime, while threads are managed by the operating system.</description>
+    </item>
+    <item>
+      <title>Interview Question: What are Goroutines?</title>
+      <link>https://programmercave.com/Interview-Question-What-are-Goroutines/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-are-Goroutines/</guid>
+      <description>Concurrency is a cornerstone of modern software engineering, and Go (Golang) makes it accessible with Goroutines. If you’re preparing for a software engineering interview, understanding Goroutines is crucial. This guide breaks down Goroutines in simple terms, complete with examples and diagrams.&#xA;What Are Goroutines? A Goroutine is a lightweight execution thread managed by the Go runtime. Think of it as a function that runs independently and concurrently with other Goroutines.</description>
+    </item>
+    <item>
+      <title>Goroutine Scheduling: Preemptive or Nonpreemptive?</title>
+      <link>https://programmercave.com/Goroutine-Scheduling-Preemptive-or-Nonpreemptive/</link>
+      <pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Goroutine-Scheduling-Preemptive-or-Nonpreemptive/</guid>
+      <description>Understanding whether Goroutines are preemptively or nonpreemptively scheduled is critical for writing efficient concurrent code. Let’s break down how Go’s runtime manages Goroutines and why this hybrid model is unique.&#xA;Preemptive vs. Nonpreemptive Scheduling Preemptive Scheduling:&#xA;The scheduler can forcefully pause a running task (e.g., an OS thread) at any time to allow other tasks to run. Common in OS-level thread scheduling. Example: A thread running a loop can be interrupted mid-execution.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is an API Gateway?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-an-API-Gateway/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-an-API-Gateway/</guid>
+      <description>What is an API Gateway? An API Gateway is a server that acts as a single entry point for all client requests. It routes these requests to the appropriate backend services and handles responses back to the client. This centralized approach helps in managing and securing APIs efficiently, making it an essential component in modern software architecture.&#xA;Key Concepts of API Gateway Routing: Directing incoming requests to the correct backend service.</description>
+    </item>
+    <item>
+      <title>Interview Question: How Microservices Communicate?</title>
+      <link>https://programmercave.com/Interview-Question-How-Microservices-Communicate/</link>
+      <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-How-Microservices-Communicate/</guid>
+      <description>Introduction to Microservices Communication Microservices architecture involves breaking down a large application into smaller, independent services that communicate with each other to achieve overall functionality. The way these services communicate is crucial for the system&amp;rsquo;s performance, scalability, and resilience.&#xA;Communication Patterns Between Microservices There are two main types of communication between microservices:&#xA;Synchronous Communication Asynchronous Communication Let’s explore both in detail.&#xA;Synchronous Communication In synchronous communication, one service sends a request to another service and waits for a response before proceeding.</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain Caching</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Caching/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Caching/</guid>
+      <description>Caching: The Secret Sauce for High-Performance Systems If you’re preparing for a software engineering interview, understanding caching is non-negotiable. Caching is a cornerstone of system design, optimizing performance by storing frequently accessed data in fast-access layers. Let’s break it down in simple terms.&#xA;What is Caching? Caching stores copies of data in temporary, high-speed storage (like RAM) to reduce access times. Think of it like keeping your favorite snacks on your desk instead of walking to the kitchen every time you’re hungry—faster access, less effort.</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain Consistent Hashing</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Consistent-Hashing/</link>
+      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Consistent-Hashing/</guid>
+      <description>What is Consistent Hashing? Imagine you’re distributing candy (data) among friends (servers). If a friend leaves or joins, you don’t want to reshuffle all the candy—only what’s necessary. Consistent hashing solves this problem by minimizing data movement when servers (nodes) are added or removed. It’s used by companies like Discord, Netflix, and Amazon DynamoDB to scale their systems efficiently.&#xA;How Consistent Hashing Works: A Step-by-Step Guide 1. The Hash Ring: A Circular Timeline Think of a hash ring as a clock face.</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain Load Balancer</title>
+      <link>https://programmercave.com/Interview-Question-Explain-Load-Balancer/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-Load-Balancer/</guid>
+      <description>What is a Load Balancer? A load balancer acts like a traffic cop for your application, directing incoming requests across multiple servers to prevent overload and ensure smooth performance. It’s the entry point of your system, hiding server details and optimizing traffic flow.&#xA;Placement: Sits at the edge of data centers (like a gatekeeper). Functionality: Distributes traffic to servers. Proxies requests to hide server IPs (e.g., clients only see the load balancer’s IP).</description>
+    </item>
+    <item>
+      <title>Interview Question: Explain CAP Theorem</title>
+      <link>https://programmercave.com/Interview-Question-Explain-CAP-Theorem/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Explain-CAP-Theorem/</guid>
+      <description>1. What is the CAP Theorem? The CAP Theorem states that a distributed system can only guarantee two out of three properties at the same time:&#xA;Consistency (C): All users see the same data simultaneously. Availability (A): The system always responds to requests (even with stale data). Partition Tolerance (P): The system works even if parts of it lose communication. Key Insight: Network partitions (e.g., server crashes, dropped messages) are unavoidable.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is the difference between SQL and NoSQL Databases?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-the-difference-between-SQL-and-NoSQL-Databases/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-the-difference-between-SQL-and-NoSQL-Databases/</guid>
+      <description>SQL vs NoSQL: The Ultimate Guide for Software Engineering Interviews Understanding the differences between SQL and NoSQL databases is a common requirement for technical interviews. Whether you&amp;rsquo;re a new grad or a seasoned engineer, interviewers often test your ability to choose the right database for specific use cases. Let’s break down these differences to help you prepare effectively.&#xA;Why SQL vs NoSQL Matters in Interviews Interviewers assess your understanding of database fundamentals to evaluate your system design skills.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is the difference between MySQL and PostgreSQL?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-the-difference-between-MySQL-and-PostgreSQL/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-the-difference-between-MySQL-and-PostgreSQL/</guid>
+      <description>Database Type MySQL: A purely relational database management system known for its simplicity and speed, making it suitable for web applications and read-heavy workloads. PostgreSQL: An object-relational database management system (ORDBMS) that supports advanced features like table inheritance and custom data types, making it versatile for complex applications. Data Integrity and Concurrency PostgreSQL: Strongly emphasizes data integrity with Multi-Version Concurrency Control (MVCC), allowing multiple transactions without locking the database. It is ACID-compliant from the ground up.</description>
+    </item>
+    <item>
+      <title>Interview Question: How Does Internally Indexing Work in Databases?</title>
+      <link>https://programmercave.com/Interview-Question-How-Does-Internally-Indexing-Work-in-Databases/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-How-Does-Internally-Indexing-Work-in-Databases/</guid>
+      <description>Definition of Indexing Indexing is a technique used to improve the speed of data retrieval in databases by creating a separate data structure that maps search keys to their corresponding data locations. Internal Structures B-Tree Structure:&#xA;The most common structure for indexes, allowing sorted data and efficient searching, insertion, and deletion. B-Tree Diagram [Root] / \ / \ [A] [B] / \ / \ [C] [D] [E] [F] Leaf Nodes: Store actual data pointers.</description>
+    </item>
+    <item>
+      <title>Interview Question: What is Database Sharding?</title>
+      <link>https://programmercave.com/Interview-Question-What-is-Database-Sharding/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-is-Database-Sharding/</guid>
+      <description>Key Concepts of Database Sharding Definition:&#xA;Database sharding is the process of partitioning a large database into smaller, manageable pieces called shards. Each shard operates independently and contains a subset of the total data, allowing for parallel processing and improved query performance. Purpose:&#xA;The main objective of sharding is to effectively manage large datasets. As applications grow, a single database instance may struggle with increased data volume and user demand, resulting in slower response times.</description>
+    </item>
+    <item>
+      <title>Interview Question: Why Go is One of the Fastest Programming Languages?</title>
+      <link>https://programmercave.com/Interview-Question-Why-Go-is-One-of-the-Fastest-Programming-Languages/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Why-Go-is-One-of-the-Fastest-Programming-Languages/</guid>
+      <description>Explore the reasons why Go (Golang) is one of the fastest programming languages available today. This blog delves into key features that contribute to Go&amp;rsquo;s performance, including its compiled nature, efficient concurrency model with goroutines, optimized garbage collection, and simplicity in code design. Ideal for developers preparing for Golang interviews, this guide offers essential insights into how Go leverages modern hardware and achieves rapid compile times, making it a top choice for high-performance applications.</description>
+    </item>
+    <item>
+      <title>Interview Question: What Are the Challenges Faced While Working with Kafka?</title>
+      <link>https://programmercave.com/Interview-Question-What-Are-the-Challenges-Faced-While-Working-with-Kafka/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-Are-the-Challenges-Faced-While-Working-with-Kafka/</guid>
+      <description>Apache Kafka is a cornerstone of modern real-time data pipelines, but handling consumer lag is a common challenge that can affect system performance. This blog dives into what consumer lag is, its causes, and how to tackle it effectively.&#xA;This question was asked to me by Procore for the role of Senior Software Engineer.&#xA;What Is Consumer Lag? Consumer lag happens when a Kafka consumer processes messages slower than producers generate them.</description>
+    </item>
+    <item>
+      <title>Thread-Safe Stack Implementation in Go</title>
+      <link>https://programmercave.com/Thread-Safe-Stack-Implementation-in-Go/</link>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Thread-Safe-Stack-Implementation-in-Go/</guid>
+      <description>This blog demonstrates how to implement a thread-safe stack in Go using sync.RWMutex. It ensures safe concurrent access in multi-threaded environments. Below is a detailed breakdown.&#xA;Key Concepts Stack: A data structure following the Last-In-First-Out (LIFO) principle, where items are added and removed from the top.&#xA;Thread-Safety: Ensures multiple goroutines can perform operations on shared resources (the stack) without causing data corruption.&#xA;sync.RWMutex:&#xA;Read Lock (RLock): Allows multiple readers concurrently. Write Lock (Lock): Ensures exclusive access for operations like Push and Pop.</description>
+    </item>
+    <item>
+      <title>Concurrency Patterns in Go: Fan-In and Fan-Out Pattern</title>
+      <link>https://programmercave.com/Concurrency-Patterns-in-Go-Fan-In-and-Fan-Out-Pattern/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Concurrency-Patterns-in-Go-Fan-In-and-Fan-Out-Pattern/</guid>
+      <description>Concurrency is one of Go’s standout features, and two of the most popular concurrency patterns are Fan-In and Fan-Out. These patterns help manage data flow and task distribution efficiently, enabling parallelism and better resource utilization.&#xA;Fan-In Pattern The Fan-In pattern consolidates data from multiple input sources into a single output channel. This is particularly useful when multiple goroutines produce data that needs to be aggregated for further processing.&#xA;How Fan-In Works Producers: Multiple goroutines generate data independently and send it to their respective channels.</description>
+    </item>
+    <item>
+      <title>Concurrency Patterns in Go: Worker Pool Pattern</title>
+      <link>https://programmercave.com/Concurrency-Patterns-in-Go-Worker-Pool-Pattern/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Concurrency-Patterns-in-Go-Worker-Pool-Pattern/</guid>
+      <description>The Worker Pool pattern is a powerful concurrency design pattern that helps process tasks efficiently using a pool of worker goroutines. Let&amp;rsquo;s explore how it works step-by-step.&#xA;Step 1: Defining the Job A Job is a unit of work that the worker goroutines will process. In our implementation, the Job struct contains an ID field to identify the task.&#xA;// Job represents the task to be executed by a worker type Job struct { ID int } Step 2: Designing the Worker Pool The WorkerPool struct manages the workers, job queue, and results channel.</description>
+    </item>
+    <item>
+      <title>Interview Question: Build a Simple URL Shortener in Go</title>
+      <link>https://programmercave.com/Interview-Question-Build-a-Simple-URL-Shortener-in-Go/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-Build-a-Simple-URL-Shortener-in-Go/</guid>
+      <description>In this blog post, we will build a simple URL shortener in Go. This will demonstrate how to generate short codes for long URLs, store them in memory, and retrieve the original URL from the short code. We will also ensure thread-safety for concurrent access to the in-memory store using sync.Mutex.&#xA;This question was asked to me by Radisys for the role of Golang Developer.&#xA;Step 1: Data Structure for Storing URLs First, we need a place to store the URLs.</description>
+    </item>
+    <item>
+      <title>Interview Question: Thread-Safe Implementation of Map in Go</title>
+      <link>https://programmercave.com/Thread-Safe-Implementation-of-Map-in-Go/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Thread-Safe-Implementation-of-Map-in-Go/</guid>
+      <description>This blog demonstrates two approaches to implement a thread-safe map in Go: using sync.Mutex and the built-in sync.Map. These techniques ensure safe concurrent access to maps in multi-threaded environments.&#xA;This question was asked to me by Radisys for the role of Golang Developer.&#xA;Approach 1: SafeMap with sync.Mutex This implementation uses sync.Mutex to synchronize access to a map.&#xA;Structure and Methods 1. SafeMap Struct Contains:&#xA;mu sync.Mutex: The lock to synchronize map access.</description>
+    </item>
+    <item>
+      <title>Deploying a Python Telegram Bot on Oracle Cloud</title>
+      <link>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</guid>
+      <description>Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities. Here’s a step-by-step guide on setting up and deploying a bot on an Ubuntu instance in Oracle Cloud. For this example, I&amp;rsquo;ll use the Atmanam Viddhi Bot, a bot that responds to the /wisdom command, sharing random quotes from a collection on GitHub and featuring user cooldowns and interactive buttons.</description>
+    </item>
+    <item>
+      <title>A Beginner&#39;s Guide to AWS Lambda</title>
+      <link>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</guid>
+      <description>Introduction to AWS Lambda AWS Lambda is one of the most popular and widely used serverless computing services offered by Amazon Web Services (AWS). It allows developers to run code without the need to manage or provision servers. Instead, the code is executed in response to events, such as changes to data in an Amazon S3 bucket, updates to a DynamoDB table, HTTP requests via Amazon API Gateway, or scheduled events using Amazon CloudWatch.</description>
+    </item>
+    <item>
+      <title>A Comprehensive Guide to Terraform: Understanding the Fundamentals</title>
+      <link>https://programmercave.com/A-Comprehensive-Guide-to-Terraform-Understanding-the-Fundamentals/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/A-Comprehensive-Guide-to-Terraform-Understanding-the-Fundamentals/</guid>
+      <description>Terraform has become a go-to tool for infrastructure as code (IaC), allowing teams to define, manage, and automate cloud infrastructure using simple, human-readable configuration files. However, to truly harness the power of Terraform, it’s crucial to understand its basic terminologies and how they work together. This guide will walk you through the fundamental concepts of Terraform with detailed explanations and examples.&#xA;What is Terraform? Terraform, an open-source tool developed by HashiCorp, enables you to define your infrastructure as code.</description>
+    </item>
+    <item>
+      <title>Structural Design Patterns - Decorator and Facade</title>
+      <link>https://programmercave.com/Structural-Design-Patterns-Decorator-and-Facade/</link>
+      <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Structural-Design-Patterns-Decorator-and-Facade/</guid>
+      <description>Decorator&#xA;structural design pattern that allows adding new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors. Facade&#xA;structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. Decorator attaches additional responsibilities to an object dynamically. Problem Let us say we want to build a class that sends our users emails with a greeting. We can start with a simple class: public class EmailService { public void sendEmail(String email, String message) { .</description>
+    </item>
+    <item>
+      <title>Structural Design Patterns - Adapter and Flyweight</title>
+      <link>https://programmercave.com/Structural-Design-Patterns-Adapter-and-Flyweight/</link>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Structural-Design-Patterns-Adapter-and-Flyweight/</guid>
+      <description>Structural Patterns&#xA;design patterns that ease the design by identifying a simple way to realize relationships between entities. concerned with how classes and objects are composed to form larger structures. Adapter&#xA;allows the interface of an existing class to be used from another interface. It is often used to make existing classes work with others without modifying their source code. Flyweight&#xA;lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.</description>
+    </item>
+    <item>
+      <title>Creational Design Patterns - Prototype, Factory Method and Abstract Factory</title>
+      <link>https://programmercave.com/Creational-Design-Patterns-Prototype-Factory-Method-and-Abstract-Factory/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creational-Design-Patterns-Prototype-Factory-Method-and-Abstract-Factory/</guid>
+      <description>Prototype&#xA;is a creational design pattern that can be used to create objects that are similar to each other. The pattern is used to avoid the cost of creating new objects by cloning an existing object and avoiding dependencies on the class of the object that needs to be cloned. Factory&#xA;is a creational design pattern that can be used to create objects without specifying the exact class of the object that will be created.</description>
+    </item>
+    <item>
+      <title>Creational Design Patterns - Singleton and Builder</title>
+      <link>https://programmercave.com/Creational-Design-Patterns-Singleton-and-Builder/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creational-Design-Patterns-Singleton-and-Builder/</guid>
+      <description>Design Pattern&#xA;is a general, reusable solution to a commonly occurring problem within a given context in software design. are formalized best practices that the programmer can use to solve common problems when designing an application or system. Creational Design Patterns&#xA;provide various object creation mechanisms, which increase flexibility and reuse of existing code. Singleton&#xA;is a software design pattern that restricts the instantiation of a class to one object. Builder</description>
+    </item>
+    <item>
+      <title>SOLID - Liskov Substitution, Interface Segregation, and Dependency Inversion</title>
+      <link>https://programmercave.com/SOLID-Liskov-Substitution-Interface-Segregation-and-Dependency-Inversion/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/SOLID-Liskov-Substitution-Interface-Segregation-and-Dependency-Inversion/</guid>
+      <description>Liskov Substitution Principle states that objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program Let us take a look at our final version of the Bird class from SOLID - Single Responsibility, Open/Closed Principle We started with a Bird class which had SRP and OCP violations. We now have a Bird abstract class which can be extended by the Eagle, Penguin and Parrot subclasses.</description>
+    </item>
+    <item>
+      <title>SOLID - Single Responsibility, Open/Closed Principle</title>
+      <link>https://programmercave.com/SOLID-Single-Responsibility-Open-Closed-Principle/</link>
+      <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/SOLID-Single-Responsibility-Open-Closed-Principle/</guid>
+      <description>Single Responsibility Principle states that a class should do one thing, and therefore it should have only a single reason to change. Case study - Design a bird A bird could have the following attributes: Weight Colour Type Size BeakType A bird would also exhibit the following behaviours: Fly Eat Make a sound public class Bird { private int weight; private String colour; private String type; private String size; private String beakType; public void fly() { .</description>
+    </item>
+    <item>
+      <title>Polymorphism</title>
+      <link>https://programmercave.com/Polymorphism/</link>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Polymorphism/</guid>
+      <description>ability of a message to be represented in many forms. Polymorphism in Java can be achieved in two ways i.e., method overloading and method overriding. Polymorphism in Java is mainly divided into two types. Compile-time polymorphism Runtime polymorphism Compile-time polymorphism can be achieved by method overloading Runtime polymorphism can be achieved by method overriding. Subtyping concept in object-oriented programming that allows a variable of a base class to reference a derived class object.</description>
+    </item>
+    <item>
+      <title>Constructor, Access modifiers, Inheritance, Diamond Problem</title>
+      <link>https://programmercave.com/Constructor-Access-modifiers-Inheritance-Diamond-Problem/</link>
+      <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Constructor-Access-modifiers-Inheritance-Diamond-Problem/</guid>
+      <description>Constructor special method that is called when an object is created. used to initialize the object. called automatically when the object is created. used to set initial values for object attributes. it&amp;rsquo;s a method, but it has no return type implicitly returns the type of the object that it creates Syntax of a constructor&#xA;In Java, Constructor declarations begin with access modifiers: They can be public, private, protected, or package access, based on other access modifiers.</description>
+    </item>
+    <item>
+      <title>Low Level Design - What and Why?</title>
+      <link>https://programmercave.com/Low-Level-Design-What-and-Why/</link>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Low-Level-Design-What-and-Why/</guid>
+      <description>What is LLD: component-level design process that follows a step-by-step refinement process. used for designing data structures, required software architecture, source code and ultimately, performance algorithms. Overall, the data organization may be defined during requirement analysis and then refined during data design work. Post-build, each component is specified in detail Why LLD? goal of LLD or a low-level design (LLD) is to give the internal logical design of the actual program code.</description>
+    </item>
+    <item>
+      <title>Programming paradigms - Procedural vs Object Oriented Programming</title>
+      <link>https://programmercave.com/Programming-paradigms-Procedural-vs-Object-Oriented-Programming/</link>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Programming-paradigms-Procedural-vs-Object-Oriented-Programming/</guid>
+      <description>Types of Programming paradigms Imperative:&#xA;an imperative program consists of commands for the computer to perform to change state e.g. C, Java, Python, etc. Declarative:&#xA;focuses on what the program should accomplish without specifying all the details of how the program should achieve the result e.g. SQL, Lisp, etc. Imperative Procedural programming: programming paradigm that uses a sequence of steps to solve a problem. based on the concept of the procedure call.</description>
+    </item>
+    <item>
+      <title>Exploring JSONB in PostgreSQL: A Beginner&#39;s Guide to Storing and Querying Structured Data</title>
+      <link>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</guid>
+      <description>Introduction In the realm of databases, PostgreSQL stands tall, renowned for its robust features and adaptability. Among its many offerings, JSONB shines as a versatile data type, facilitating the efficient storage and retrieval of semi-structured data. This article delves into the depths of JSONB within PostgreSQL, elucidating the process of storing and querying structured data with vivid examples.&#xA;Unraveling JSONB JSONB, the binary manifestation of JSON (JavaScript Object Notation) data, serves as a pivotal component within PostgreSQL.</description>
+    </item>
+    <item>
+      <title>Unraveling the Power of Virtualization: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Unraveling-the-Power-of-Virtualization-A-Comprehensive-Guide/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Unraveling-the-Power-of-Virtualization-A-Comprehensive-Guide/</guid>
+      <description>Introduction In the dynamic realm of technology, virtualization stands as a bedrock, reshaping our approach to computing resources. Originating in the late 1960s at IBM, virtualization has undergone a profound transformation, allowing multiple operating systems and applications to coexist on a single physical machine. This blog aims to unravel the intricacies of virtualization, catering to both beginners and seasoned engineers.&#xA;Understanding Virtualization Virtualization, at its core, empowers a single physical machine to host multiple operating systems and their corresponding applications concurrently.</description>
+    </item>
+    <item>
+      <title>Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go</title>
+      <link>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</guid>
+      <description>Introduction Unit testing is a critical part of software development that ensures the reliability and functionality of code modules. In this blog post, we will explore unit testing for Go functions that interact with SQL or PostgreSQL databases. Specifically, we will look at how to create strong test cases for functions that execute database queries. To achieve this, we will use mocking to create a mock database environment. This approach separates our functions under test from the actual database, enabling us to carefully evaluate their logic and behavior.</description>
+    </item>
+    <item>
+      <title>When Designing a Product: Adapting Your Database with Schema Modifications</title>
+      <link>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</guid>
+      <description>Introduction In the world of database management and product design, it&amp;rsquo;s essential to be prepared for potential schema modifications as your product evolves. These modifications could entail various changes to the structure of your database, such as adding or removing columns, altering data types, or optimizing for performance. However, during these transformations, it&amp;rsquo;s crucial to ensure that you don&amp;rsquo;t lose the valuable data you&amp;rsquo;ve accumulated in your existing database.&#xA;Understanding the Original Table Structure Let&amp;rsquo;s begin by examining the original table described in the prompt.</description>
+    </item>
+    <item>
+      <title>Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</guid>
+      <description>Introduction The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors.</description>
+    </item>
+    <item>
+      <title>Step-by-Step Guide: Setting up Environment Variables in GitHub Actions for Go</title>
+      <link>https://programmercave.com/Step-by-Step-Guide-Setting-up-Environment-Variables-in-GitHub-Actions-for-Go/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Step-by-Step-Guide-Setting-up-Environment-Variables-in-GitHub-Actions-for-Go/</guid>
+      <description>Introduction: GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we&amp;rsquo;ll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program.</description>
+    </item>
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+    <item>
+      <title>Elevating Code Modularity: Harnessing Interfaces for Generic Types and Decoupling in Go</title>
+      <link>https://programmercave.com/Elevating-Code-Modularity-Harnessing-Interfaces-for-Generic-Types-and-Decoupling-in-Go/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Elevating-Code-Modularity-Harnessing-Interfaces-for-Generic-Types-and-Decoupling-in-Go/</guid>
+      <description>Introduction: In Go programming, interfaces serve as powerful tools for defining generic types, streamlining code, and decoupling functionality. By leveraging interfaces, you can write more efficient and flexible code that can accommodate various types without explicitly specifying each one. In the previous blog, we learned about the basics of Interfaces. This blog post will guide you through the process of using interfaces to define generic types, demonstrate how they simplify code by abstracting common behaviors and showcase how interfaces enable easy modification of functionality without impacting code that utilizes them.</description>
+    </item>
+    <item>
+      <title>Unleashing the Power of Interfaces in Go: Simplifying Code Flexibility</title>
+      <link>https://programmercave.com/Unleashing-the-Power-of-Interfaces-in-Go-Simplifying-Code-Flexibility/</link>
+      <pubDate>Fri, 14 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Unleashing-the-Power-of-Interfaces-in-Go-Simplifying-Code-Flexibility/</guid>
+      <description>Introduction: In the world of programming, flexibility is a valuable asset. It allows us to write code that can work with different types of objects, even if they have different behaviors. In Go, a powerful language, interfaces play a significant role in achieving this flexibility. In this blog post, we&amp;rsquo;ll dive into the concept of interfaces in Go, using a simple analogy and practical examples. By the end, you&amp;rsquo;ll understand how interfaces help streamline code and enhance code reusability.</description>
+    </item>
+    <item>
+      <title>From Strings to Numbers: Converting Integers and Floats in Go</title>
+      <link>https://programmercave.com/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/From-Strings-to-Numbers-Converting-Integers-and-Floats-in-Go/</guid>
+      <description>Introduction: In Go, working with integer and floating-point data types is fundamental for various programming tasks. This article will explore the integer and floating-point types available in Go, along with detailed instructions on how to convert strings to integers and floats using practical examples.&#xA;Go Integer Data Types Go provides a variety of integer data types, each with a different range and bit size. The following integer types are available:</description>
+    </item>
+    <item>
+      <title>Understanding Go: Exploring Structs and Methods</title>
+      <link>https://programmercave.com/Understanding-Go-Exploring-Structs-and-Methods/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-Go-Exploring-Structs-and-Methods/</guid>
+      <description>Introduction: Go is a statically typed, compiled programming language that offers a unique approach to object-oriented programming. Unlike languages such as C++ or Java, Go doesn&amp;rsquo;t have traditional classes. Instead, it utilizes structs and methods to achieve similar functionality. In this blog post, we&amp;rsquo;ll delve into a code snippet written in Go and explain how it works, step by step.&#xA;Code Explanation: Let&amp;rsquo;s dissect the provided Go code snippet and understand its various components.</description>
+    </item>
+    <item>
+      <title>Getting Started with Kafka and Go: Reading Messages and Inserting into a Database</title>
+      <link>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</link>
+      <pubDate>Thu, 13 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</guid>
+      <description>Introduction: Kafka is a popular distributed streaming platform that is used for building real-time data pipelines and streaming applications. It is designed to handle high-volume data streams in real-time and provide reliable and scalable data streaming. Kafka is used for a wide range of applications, including real-time analytics, monitoring, log aggregation, and messaging systems.&#xA;In this blog post, we will demonstrate how to read Kafka messages in Go and store them in a PostgreSQL database.</description>
+    </item>
+    <item>
+      <title>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search</title>
+      <link>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</link>
+      <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</guid>
+      <description>Introduction Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.&#xA;Linear Search Method The linear search method is a simple algorithm that iteratively checks each integer number from 1 to n to see if its square is equal to the input number n.</description>
+    </item>
+    <item>
+      <title>Efficiently Find Prime Numbers Till N: Basic vs. Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</guid>
+      <description>Introduction Are you looking for a way to find all the prime numbers till N? If so, then you have landed on the right page! In this blog post, we will discuss how to find all prime numbers till N using an optimized algorithm.&#xA;Finding all prime numbers till N is a common problem in computer science and mathematics. There are various ways to solve this problem, but we will be discussing an optimized algorithm that is efficient and easy to implement.</description>
+    </item>
+    <item>
+      <title>Optimized Algorithm for Checking Prime Numbers: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</guid>
+      <description>Introduction Prime numbers are a fundamental concept in mathematics and computer science. A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself. In other words, a prime number is a number that is only divisible by 1 and itself.&#xA;In this blog, we will discuss different methods to check if a number is a prime number or not, and analyze their time complexity.</description>
+    </item>
+    <item>
+      <title>Creating triggers in PostgreSQL to monitor changes in tables</title>
+      <link>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</link>
+      <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</guid>
+      <description>Introduction In a database management system, triggers are special types of stored procedures that are automatically executed in response to specific database events, such as insert, update, or delete operations on a table. Triggers can be used for a variety of purposes, such as enforcing data integrity rules, logging changes to a table, or sending notifications when certain events occur.&#xA;In this article, we will discuss how to create triggers in PostgreSQL that can send notifications when records are inserted, updated, or deleted from a table.</description>
+    </item>
+    <item>
+      <title>How to Resize Partitions in Arch Linux</title>
+      <link>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</guid>
+      <description>Introduction Running out of space on your root partition can be a frustrating experience when using Arch Linux. Fortunately, resizing your partitions can be done easily with the help of a live USB or CD and the GParted partition editor. In this guide, we&amp;rsquo;ll walk you through the steps to resize your partitions and increase the size of your root partition in Arch Linux.&#xA;Step 1: Boot into a Live USB or CD</description>
+    </item>
+    <item>
+      <title>Complete Guide: Installing, Setting Up, and Removing PostgreSQL in Linux</title>
+      <link>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</guid>
+      <description>Introduction PostgreSQL is an open-source relational database management system. It is known for its reliability, scalability, and extensibility, making it a popular choice for enterprise-level applications. In this tutorial, we will cover how to install and set up PostgreSQL in Linux, how to create a database and table, how to insert values into the table, how to log in to a user and database, and how to completely remove PostgreSQL including all related files.</description>
+    </item>
+    <item>
+      <title>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed</title>
+      <link>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</guid>
+      <description>Introduction Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&amp;rsquo;t worry, we&amp;rsquo;ve got you covered. We&amp;rsquo;ve gone through the process of searching various websites and experimenting with different techniques, and we&amp;rsquo;ve finally found a solution. We&amp;rsquo;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot.</description>
+    </item>
+    <item>
+      <title>Kefa and First Steps - CodeForces | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</guid>
+      <description>Kefa decided to make some money doing business on the Internet for exactly n days. He knows that on the i-th day (1≤i≤n) he makes ai money. Kefa loves progress, that&amp;rsquo;s why he wants to know the length of the maximum non-decreasing subsegment in sequence ai. Let us remind you that the subsegment of the sequence is its continuous fragment. A subsegment of numbers is called non-decreasing if all numbers in it follow in the non-decreasing order.</description>
+    </item>
+    <item>
+      <title>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;You have to output the order of succession to the British throne of a list of given people. The order is simple: From a descendant A, the next in the order is A’s first child B. Then, the next one is B’s first child C if any and so on. If C has no child, then the next one is B’s second child D.</description>
+    </item>
+    <item>
+      <title>Stock Exchange Losses - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;A finance company is carrying out a study on the worst stock investments and would like to acquire a program to do so. The program must be able to analyze a chronological series of stock values in order to show the largest loss that it is possible to make by buying a share at a given time t0 and by selling it at a later date t1.</description>
+    </item>
+    <item>
+      <title>Dungeons and Maps - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy.&#xA;You are given N maps for a dungeon. Each map may contain a path to a treasure T, from starting position [ startRow; startCol ]. Determine the index of the map which holds the shortest path from the starting position to T, but be careful a map may lead you to a TRAP.&#xA;A path is marked on the map with ^, v, &amp;lt;, &amp;gt; symbols, each corresponding to UP, DOWN, LEFT, RIGHT directions respectively, i.</description>
+    </item>
+    <item>
+      <title>Bank Robbers - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy and tagged under Loops and Mathematics.&#xA;A gang of R foolish robbers decides to heist a bank. In the bank there are V vaults (indexed from 0 to V-1). The robbers have managed to extract some information from the bank&amp;rsquo;s director:&#xA;The combination of a vault is composed of C characters (digits/vowels). The first N characters consist of digits from 0 to 9.</description>
+    </item>
+    <item>
+      <title>Left Rotation - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>A left rotation operation on an array of size n shifts each of the array&amp;rsquo;s elements 1 unit to the left. For example, if 2 left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].&#xA;Given an array of n integers and a number, d, perform d left rotations on the array. Then print the updated array as a single line of space-separated integers.</description>
+    </item>
+    <item>
+      <title>Repeated String - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.&#xA;Given an integer, n, find and print the number of letter a&amp;rsquo;s in the first n letters of Lilah&amp;rsquo;s infinite string.&#xA;For example, if the string s = ‘abcac’ and n = 10, the substring we consider is , abcacabcac the first 10 characters of her infinite string. There are 4 occurrences of a in the substring.</description>
+    </item>
+    <item>
+      <title>Single Elevator Simulation in C&#43;&#43;</title>
+      <link>https://programmercave.com/Single-Elevator-Simulation-in-Cpp/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Single-Elevator-Simulation-in-Cpp/</guid>
+      <description>Here we are going to implement the Single Elevator Simulation in C++. Initially the elevator is at ground floor. It is represented by 0. Floors below ground floor are represented by negative integers. The elevator has maximum capacity it can carry, maximum and minimum floor it can carry to.&#xA;The elevator accepts the request of floor the passengers want to go. If the elevator is empty then the first request sets the direction of the elevator.</description>
+    </item>
+    <item>
+      <title>Picking Numbers - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Given an array of integers, find and print the maximum number of integers you can select from the array such that the absolute difference between any two of the chosen integers is less than or equal to 1.&#xA;For example, if your array is a = [1, 1, 2, 2, 4, 4, 5, 5, 5], you can create two subarrays meeting the criterion: [1, 1, 2, 2] and [4, 4, 5, 5, 5].</description>
+    </item>
+    <item>
+      <title>Best Memes on Linked List Data Structure</title>
+      <link>https://programmercave.com/Best-Memes-on-Linked-List-Data-Structure/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Linked-List-Data-Structure/</guid>
+      <description>Here is the collection of some of the best memes on Linked List Data Structure.&#xA;Interviewer : How to reverse a Linked List? Me: Related Posts Best Memes on Windows Operating System Failure Best Memes on Javascript&#xA;Source r/ProgrammerHumor Programming Geek</description>
+    </item>
+    <item>
+      <title>Krypton Level 0 to Level 2 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-0-to-Level-2-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 0 → Level 1, Level 1 → Level 2 and Level 2 → Level 3.&#xA;Krypton Level 0 → Level 1 Level Info Welcome to Krypton! The first level is easy. The following string encodes the password using Base64: S1JZUFRPTklTR1JFQVQ=&#xA;Use this password to log in to krypton.labs.overthewire.org with username krypton1 using SSH on port 2222.</description>
+    </item>
+    <item>
+      <title>Krypton Level 3 to Level 5 | Basic Cryptographic Techniques</title>
+      <link>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Krypton-Level-3-to-Level-5-Basic-Cryptographic-Techniques/</guid>
+      <description>Learn basic cryptographic techniques by playing Krypton wargame from OverTheWire. Below is the solution of Level 3 → Level 4, Level 4 → Level 5 and Level 5 → Level 6.&#xA;Previous Post Krypton Level 0 to Level 2&#xA;Krypton Level 3 → Level 4 Level Info In this example, the cipher mechanism is not available to you, the attacker.&#xA;However, you have been lucky. You have intercepted more than one message.</description>
+    </item>
+    <item>
+      <title>Leviathan Level 0 to Level 1 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-0-to-Level-1-OverTheWire/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-0-to-Level-1-OverTheWire/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 0 → Level 1 and Level 1 → Level 2. In this post we will learn how to use a debugging tool ltrace to exploit a program.&#xA;Level 0 To login to the first level use:</description>
+    </item>
+    <item>
+      <title>Leviathan Level 2 → Level 3 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-2-3-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-2-3-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 2 → Level 3. In this post we will learn how to use a debugging tool ltrace to exploit a program and a vulnerability in access() known as TOCTOU race (Time of Check to Time of Update).</description>
+    </item>
+    <item>
+      <title>Leviathan Level 3 to Level 4 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level34-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level34-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 3 → Level 4 and Level 4 → Level 5. In this post we will learn how to use a debugging tool ltrace to exploit a program and how to convert binary to ASCII in Python 3.</description>
+    </item>
+    <item>
+      <title>Leviathan Level 5 to Level 6 | Basic Exploitation Techniques</title>
+      <link>https://programmercave.com/Leviathan-Level-5-to-6-Basic-Exploitation-Techniques/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Leviathan-Level-5-to-6-Basic-Exploitation-Techniques/</guid>
+      <description>Learn linux command by playing Leviathan wargame from OverTheWire. This wargame doesn&amp;rsquo;t require any knowledge about programming - just a bit of common sense and some knowledge about basic *nix commands.&#xA;Below is the solution of Level 5 → Level 6 and Level 6 → Level 7. In this post we will learn how to use a debugging tool ltrace to exploit a program and how to bruteforce password.&#xA;Previous Posts Leviathan Level 0 to Level 1 Leviathan Level 2 → Level 3 Leviathan Level 3 to Level 4</description>
+    </item>
+    <item>
+      <title>Bandit Level 24 → Level 25 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-24-Level-25--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-24-Level-25--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 24 → Level 25.&#xA;In this level you will learn how to bruteforce password and connect to a remote machine on a port.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 25 to Level 26 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-25-to-Level-26--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-25-to-Level-26--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 25 → Level 26 and 26 → Level 27.&#xA;In this level we will learn how to change shell and how size of the terminal window can also help us to crack the password.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 27 to Level 31 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-27-to-Level-31--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-27-to-Level-31--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 27 → Level 28, Level 28 → Level 29, Level 29 → Level 30, Level 30 → Level 31 and 31 → Level 32.&#xA;In this post we will learn about git and its terminal command.</description>
+    </item>
+    <item>
+      <title>Bandit Level 32 → Level 33 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-32-Level-33--OverTheWire/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-32-Level-33--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 32 → Level 33.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.&#xA;Previous Post Bandit Level 0 to Level 3 Bandit Level 4 to Level 8 Bandit Level 9 to Level 11 Bandit Level 12 → Level 13 Bandit Level 13 to Level 15 Bandit Level 16 to Level 18 Bandit Level 19 to Level 20 Bandit Level 21 to Level 22 Bandit Level 23 → Level 24 Bandit Level 24 → Level 25 Bandit Level 25 to Level 26 Bandit Level 27 to Level 31</description>
+    </item>
+    <item>
+      <title>Best Memes on Javascript</title>
+      <link>https://programmercave.com/Best-Memes-on-Javascript/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Javascript/</guid>
+      <description>Here is the collection of some of the best memes on Javascript.&#xA;Realted Posts: Memes on copy pasting code from Stackoverflow Best Memes on Windows Operating System Failure</description>
+    </item>
+    <item>
+      <title>Best Memes on Windows Operating System Failure</title>
+      <link>https://programmercave.com/Best-Memes-on-Microsoft-Operating-System/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Microsoft-Operating-System/</guid>
+      <description>Here is the collection of some of the best memes on Microsoft Operating System.&#xA;Realted Posts: Memes on copy pasting code from Stackoverflow Best Memes on Javascript</description>
+    </item>
+    <item>
+      <title>Bandit Level 19 to Level 20 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-19-to-Level-20--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-19-to-Level-20--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21.&#xA;In this post we will learn about setuid and how to use it to access files of other users.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 21 to Level 22 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-21-to-Level-23--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-21-to-Level-23--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 21 → Level 22, Level 22 → Level 23 and and Level 23 → Level 24.&#xA;In this post we will learn about crontab files.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 23 → Level 24 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-23-Level-24--OverTheWire/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-23-Level-24--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Bandit Level 23 → Level 24.&#xA;In this level we will learn about corntab files and write our first shell-script in this series.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 12 → Level 13 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-12-Level-13--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-12-Level-13--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 12 → Level 13.&#xA;In this post we will learn about various compression techniques and how to decompress file. We will learn how to convert binary to hex file and vice-versa.&#xA;The passwords are hidden, so you have to find the passwords for next level yourself.</description>
+    </item>
+    <item>
+      <title>Bandit Level 13 to Level 15 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-13-to-Level-16--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-13-to-Level-16--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 13 → Level 14, Level 14 → Level 15 and Level 15 → Level 16.&#xA;In this post we will learn how to use ssh key instead of password to login in a remote machine. We will learn about Secure Scoket Layer and how to establish a connection to a remote machine on a port.</description>
+    </item>
+    <item>
+      <title>Bandit Level 16 to Level 18 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-16-to-Level-19--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-16-to-Level-19--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 16 → Level 17, Level 17 → Level 18 and Level 18 → Level 19.&#xA;In this post we will learn how to scan for open ports and how to private key to login in a remote machine.</description>
+    </item>
+    <item>
+      <title>Bandit Level 9 to Level 11 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-9-to-Level-12--OverTheWire/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-9-to-Level-12--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 9 → Level 10, Level 10 → Level 11 and Level 11 → Level 12.&#xA;In this post we will learn how to find a sting of certain pattern in a text file. How to decode a file from certain encoding and how to transform string in command line.</description>
+    </item>
+    <item>
+      <title>Bandit Level 4 to Level 8 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-4-to-Level-9--OverTheWire/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-4-to-Level-9--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9.&#xA;In this post we will learn how to find a human readable file with certain size in bytes and with certain user.</description>
+    </item>
+    <item>
+      <title>Bandit Level 0 to Level 3 | OverTheWire</title>
+      <link>https://programmercave.com/Bandit-Level-0-to-Level-5--OverTheWire/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bandit-Level-0-to-Level-5--OverTheWire/</guid>
+      <description>Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level0, Level 0 → Level 1, Level 1 → Level 2, Level 2 → Level 3, and Level 3 → Level 4.&#xA;In this post we will learn how to connect to a remote machine using ssh and how to find a file with certain attributes in the machine.</description>
+    </item>
+    <item>
+      <title>Library Fine | HackerRank</title>
+      <link>https://programmercave.com/Library-Fine--HackerRank/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Library-Fine--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Your local library needs your help! Given the expected and actual return dates for a library book, create a program that calculates the fine (if any). The fee structure is as follows:&#xA;• If the book is returned on or before the expected return date, no fine will be charged (i.</description>
+    </item>
+    <item>
+      <title>Sherlock and Squares | HackerRank</title>
+      <link>https://programmercave.com/Sherlock-and-Squares--HackerRank/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Sherlock-and-Squares--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Watson likes to challenge Sherlock&amp;rsquo;s math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of square integers within that range, inclusive of the endpoints.&#xA;Note: A square integer is an integer which is the square of an integer, e.</description>
+    </item>
+    <item>
+      <title>Circular Array Rotation | HackerRank</title>
+      <link>https://programmercave.com/Circular-Array-Rotation--HackerRank/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Circular-Array-Rotation--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;John Watson knows of an operation called a right circular rotation on an array of integers. One rotation operation moves the last array element to the first position and shifts all remaining elements right one. To test Sherlock&amp;rsquo;s abilities, Watson provides Sherlock with an array of integers.</description>
+    </item>
+    <item>
+      <title>Selected Questions from Interviews with Bjarne Stroustrup Part 1| Creator of C&#43;&#43; </title>
+      <link>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup--Inventor-of-Cpp/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup--Inventor-of-Cpp/</guid>
+      <description>Bjarne Stroustrup is a Technical Fellow and Managing Director at Morgan Stanley in New York City and a Visiting Professor at Columbia University. He&amp;rsquo;s also the creator of C++.&#xA;In 1975, Bjarne got his MSc degree from Department of Mathematics at Aarhus University when the now Department of Computer Science was still embedded in the Math Department.&#xA;Bjarne Stroustrup created the C++ programming language in 1979, and it’s still just as important today as it was 38 years ago, especially with its expansion into mobile development.</description>
+    </item>
+    <item>
+      <title>Selected Questions from Interviews with Bjarne Stroustrup Part 2| Creator of C&#43;&#43;</title>
+      <link>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2--Creator-of-C-/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Selected-Questions-from-Interviews-with-Bjarne-Stroustrup-Part-2--Creator-of-C-/</guid>
+      <description>This is the second post of the series Selected Questions from Interviews with Bjarne Stroustrup. Selected Questions from Interviews with Bjarne Stroustrup Part 1 Selected Questions from Interviews with Bjarne Stroustrup Part 2.&#xA;Interview by Pramod Shadishidhaa: Mapping the Journey. A podcast with transcript. July 2017. Pramod: BELL labs was the go to place for top computer scientists. How did you get this opportunity? What was the experience working with some great engineers at Bell Labs?</description>
+    </item>
+    <item>
+      <title>Drawing Book | HackerRank</title>
+      <link>https://programmercave.com/Drawing-Book--HackerRank/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Drawing-Book--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time.</description>
+    </item>
+    <item>
+      <title>Pointers in C&#43;&#43;</title>
+      <link>https://programmercave.com/Pointers-in-C-Explained/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Pointers-in-C-Explained/</guid>
+      <description>A pointer is a special type of variable which holds the address of a value. A pointer is declared using * (asterisk).&#xA;int a = 5; //an integer variable int * ptr; // an integer pointer or a pointer to an int ptr = &amp;amp;a; // assign address of a to ptr In the above figure (a), a and ptr are name of location in the memory and value stored at a is 5 and value stored at ptr is 0x41a.</description>
+    </item>
+    <item>
+      <title>Migratory Birds - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You have been asked to help study the population of birds migrating across the continent. Each type of bird you are interested in will be identified by an integer value. Each time a particular kind of bird is spotted, its id number will be added to your array of sightings. You would like to be able to find out which type of bird is most common given a list of sightings.</description>
+    </item>
+    <item>
+      <title>Between Two Sets - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:&#xA;The elements of the first array are all factors of the integer being considered The integer being considered is a factor of all elements of the second array These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.&#xA;For example, given the arrays a =[2, 6] and b = [24, 36], there are two numbers between them: 6 and 12.</description>
+    </item>
+    <item>
+      <title>Kangaroo HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You are choreographing a circus show with various animals. For one act, you are given two kangaroos o a number line ready to jump in the positive direction (i.e, toward positive infinity).&#xA;• The first kangaroo starts at location x1 and moves at a rate of v1 meters per jump. • The second kangaroo starts at location x2 and moves at a rate of v2 meters per jump.&#xA;You have to figure out a way to get both kangaroos at the same location at the same time as part of the show.</description>
+    </item>
+    <item>
+      <title>Memes on copy pasting code from Stackoverflow</title>
+      <link>https://programmercave.com/Memes-on-copy-pasting-code-from-Stackoverflow/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Memes-on-copy-pasting-code-from-Stackoverflow/</guid>
+      <description>We have all copied code from stackoverflow.com, github.com and from other sources. Please mention other sources to copy code from. These websites has helped us a lot to become a good programmer.&#xA;Stackoverflow was launched on 2008 by Jeff Atwood and Joel Spolsky. It is written in C#. It is owned by Stack Exchange Network. Stack Exchange Network has some good websites too. codereview.stackexchange has helped me a lot as a programmer.</description>
+    </item>
+    <item>
+      <title>How to scroll Amazon Affiliate Marketing cards horizontally on a website</title>
+      <link>https://programmercave.com/How-to-scroll-Amazon-Affiliate-Marketing-cards-horizontally-on-a-website/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-scroll-Amazon-Affiliate-Marketing-cards-horizontally-on-a-website/</guid>
+      <description>I wanted to put my amazon affiliate marketing product on website. But on smaller screens it was messing up my website&amp;rsquo;s interface. I searched on internet tried many things but no result. Then I tried it with &amp;lt;table&amp;gt; in html and css and it worked. Here is the code for that.&#xA;Table with only one reow is needed and we will put products&amp;rsquo; card on that row and when the table width is greater than screen&amp;rsquo;s width it will scroll horizontaly.</description>
+    </item>
+    <item>
+      <title>How to Install a Software on Ubuntu | Package Management</title>
+      <link>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</guid>
+      <description>Package management facilities helps us to install and maintain software on the system. The package file for Ubuntu and other Debian based OS ends with .deb. For eg. draw.io-amd64-12.2.2.deb&#xA;A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs.&#xA;To run a progam on a system, it rely on other programs.</description>
+    </item>
+    <item>
+      <title>Kruskal&#39;s Algorithm | Minimum Spanning Tree</title>
+      <link>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</guid>
+      <description>When edges connects all vertices in a graph and form a tree then it is known as spanning tree. While connecting edges no cycle should be formed. A minimum spanning tree is the spanning tree whose sum of edge weights is as small as possible.&#xA;Initially no vertices are connected to any other vertex means the spanning tree does not contain any edges, it only contain vertices. Kruskal’s algorithm adds an edge to the tree which has the smallest weight if it does not create a cycle.</description>
+    </item>
+    <item>
+      <title>Prime Numbers and Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</guid>
+      <description>A prime number is an integer n &amp;gt; 1 which is only divisible by 1 and n(itself). For example, 2, 3, 5 are prime numbers, but 6, 8, 9 are not prime numbers.&#xA;Every integer n &amp;gt; 1 can be uniquely expressed as the product of prime numbers. For example 8 = 2 * 2 * 2.&#xA;A perfect number is a number n if n is equal to the sum of its factors between 1 and n – 1.</description>
+    </item>
+    <item>
+      <title>Roy and Code Streak | HackerEarth Challenge</title>
+      <link>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</guid>
+      <description>This is the HackerEarth challenge of easy level. Problem Link Roy and Code Streak.&#xA;Problem: Roy is working on HackerEarth Profile. Right now he is working on User Statistics. One of the statistics data (Code Streak) is as follows:&#xA;Given the User Activity Data, find the maximum number of continuous correct solutions submitted by any user. Seems easy eh? Here&amp;rsquo;s the catch! In order to maximize this number a user could have submitted a correct answer to the same problem which he has already solved.</description>
+    </item>
+    <item>
+      <title>How to Manipulate Bits in C and C&#43;&#43;</title>
+      <link>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</guid>
+      <description>All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.&#xA;Bits representation In programming, an n bit integer is stored as a binary number that consists of n bits. So a 32-bit integer consists of 32 bits and 64 bit integer consists of 64 bits.</description>
+    </item>
+    <item>
+      <title>Stack Overflow Vulnerability</title>
+      <link>https://programmercave.com/Stack-Overflow-Vulnerability/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stack-Overflow-Vulnerability/</guid>
+      <description>Stack overflow is a type of buffer overflow vulnerability. When we pour water in a glass more than its capacity the water spills or overflow, similarly when we enter data in a buffer more than its capacity the data overflows to adjacents memory location causing program to crash. This is know as buffer overflow.&#xA;Stack Overflow is an old vulnerability. We will see this vulnerabiltiy in the C or C++ languages, because in these languages we can use pointer freely.</description>
+    </item>
+    <item>
+      <title>How to create Password list using CUPP tool on Ubuntu</title>
+      <link>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</guid>
+      <description>People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.&#xA;CUPP(Common User Passwords Profiler) is python based free and open source tool which generates wordlist for a specific user based on the information provided.</description>
+    </item>
+    <item>
+      <title>How to Install graphics.h C/C&#43;&#43; library on Ubuntu</title>
+      <link>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</guid>
+      <description>In this post we are going to install graphics.h library on Ubuntu and to use it with gcc or g++ compiler. graphics.h provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in graphic.h library in C/C++ visit here.&#xA;To use graphics.hon Ubuntu platform we need to compile and install libgraph. libgraph is an implementation of the TurboC graphics API (graphics.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Simple Pendulum Animation on Ubuntu Machine</title>
+      <link>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</guid>
+      <description>Here is the code to animate simple pendulum on Ubuntu Machine.&#xA;We have to add #include &amp;lt;graphics.h&amp;gt; header file.&#xA;If you want to install C/C++ graphic.h header file on Ubuntu you can visit this post. How to Install graphics.h C/C++ library on Ubuntu&#xA;We have to also write int gd = DETECT, gm; initgraph(&amp;amp;gd, &amp;amp;gm, NULL);&#xA;initgraph() initializes the graphics system by loading a graphics driver from disk (or validating a registered driver), and putting the system into graphics mode.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Tic Tac Toe</title>
+      <link>https://programmercave.com/C-Tic-Tac-Toe/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Tic-Tac-Toe/</guid>
+      <description>Here is the simple C++ implementation of Tic Tac Toe.&#xA;#include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; void draw_board(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { std::cout &amp;lt;&amp;lt; &amp;#34; 0 1 2 \n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; for (int i = 0; i &amp;lt; vec.size(); i++) { std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; ; for (int j = 0; j &amp;lt; vec[i].size(); j++) { std::cout &amp;lt;&amp;lt; &amp;#34;| &amp;#34; &amp;lt;&amp;lt; vec[i][j] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } std::cout &amp;lt;&amp;lt; &amp;#34;|&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; } } void enter(unsigned int row, unsigned int col, char ch, std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { vec[row][col] = ch; } bool check(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { //to check diagonals if ((vec[0][0] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;X&amp;#39;) || (vec[0][2] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;X&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player X won this game\n&amp;#34;; return true; } else if ((vec[0][0] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;O&amp;#39;) || (vec[0][2] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;O&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player O won this game\n&amp;#34;; return true; } //to check horizonatal and vertical for (int i = 0; i &amp;lt; vec.</description>
+    </item>
+    <item>
+      <title>Dijkstra&#39;s Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</guid>
+      <description>Dijkstra&amp;rsquo;s algorithm finds shortest paths from the source vertex to all vertices in the graph. The condition for the algorithm is that all edge weights should be non-negative. Thus, Dijkstra’s algorithm is efficient than the Bellman-Ford algorithm because it processes each edge only once, since it knows that there are no negative-weight edges in the graph.&#xA;In fig. (a) there is no negative-weight cycle, fig. (b) contains a negative-weight cycle</description>
+    </item>
+    <item>
+      <title>Bellman Ford Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</guid>
+      <description>Bellman–Ford algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex.&#xA;The algorithm returns TRUE if there is no negative-weight cycle and FALSE if there is a negative-weight cycle reachable from the source vertex. If there is a negative-weight cycle that is reachable from source vertex, then no solution exists.</description>
+    </item>
+    <item>
+      <title>Breadth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</guid>
+      <description>Breadth first search (BFS) explores the graph level by level. First it explore every vertex that is connected to source vertex. If the vertex is discovered, it becomes gray or black. Initially all the vertices are white.&#xA;If vertex 1 is the source vertex, then it is at level 0. Vertex 2 and 4 are at level 1 and vertex 3 and 5 are at level 2. Vertex 6 is at level 3.</description>
+    </item>
+    <item>
+      <title>Depth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</guid>
+      <description>Depth first search explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started.&#xA;Initially all the vertices are white and when a vertex is discovered it becomes gray and then black when it is finished or processed.</description>
+    </item>
+    <item>
+      <title>Move all Odd numbers after Even numbers in Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</guid>
+      <description>Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.&#xA;For eg.&#xA;Given Linked List : 1, 2, 3, 4, 5, 6, 7 After Modification : 2, 4, 6, 1, 3, 5, 7 From the above fig. we can see that how the function will work.&#xA;While the head of the list is odd, the head is copied to an auxiliary node and element next to the head will become new head.</description>
+    </item>
+    <item>
+      <title>Merge two sorted Linked List (in-place) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</guid>
+      <description>Given two sorted Linked List, we have to merge them without using another linked list.&#xA;List 1 : { 5, 10, 18, 25 } List 2 : { 6, 8, 11, 20 } Merged List : { 5, 6, 8, 10, 11, 18, 20, 25 } From the above fig. we can see that merging two linked list is same as merging two sorted array in mergesort.&#xA;Related: Merge Sort</description>
+    </item>
+    <item>
+      <title>Split Singly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</guid>
+      <description>Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list.&#xA;Input : { 2, 3, 18, 25, 5 } Output List 1 : { 2, 3, 18 } Output List 2 : { 25, 5 } Here is a meme to understand Circular Linked List</description>
+    </item>
+    <item>
+      <title>Doubly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.</description>
+    </item>
+    <item>
+      <title>How to Reverse a Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</guid>
+      <description>Given a singly linked list, we have to reverse it.&#xA;Input list: { a, b, c, d, e } Output list: { e, d, c, b, a } There are two ways to reverse a linked list, iterative method and recursive method.&#xA;Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } Node* recursiveReverse(Node* head) { if(head == nullptr) return nullptr; if(head-&amp;gt;next == nullptr) return head; Node *firstElement = head; Node *secondElement = firstElement-&amp;gt;next; head = firstElement-&amp;gt;next; firstElement-&amp;gt;next = nullptr; //unlink first node Node *remainingList = recursiveReverse(head); secondElement-&amp;gt;next = firstElement; return remainingList; } #include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; template &amp;lt;class T&amp;gt; class LinkedList { struct Node { T data; Node * next; Node(T value) : data(std::move(value)), next(nullptr) {} }; Node *head; public: LinkedList() : head(nullptr) {} LinkedList(const LinkedList&amp;amp; ll) = delete; //copy constructor LinkedList(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move constructor LinkedList&amp;amp; operator=(const LinkedList&amp;amp; ll) = delete; //copy assignment LinkedList&amp;amp; operator=(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move assignment ~LinkedList(); void insert(T); void printList(); void iterativeReverse() { head = iterativeReverse(head); } private: Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } }; template &amp;lt;class T&amp;gt; void LinkedList&amp;lt;T&amp;gt;::insert(T data) { Node *node = new Node(std::move(data)); Node *tmp = head; if(tmp == nullptr) { head = node; } else { while(tmp-&amp;gt;next !</description>
+    </item>
+    <item>
+      <title>How to find the Length of Loop in Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</guid>
+      <description>Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.&#xA;To find loop in the linked list, we need two node pointers slowPtr and fastPtr which starts from the head. slowPtr increments by one node while fastPtr increments by two nodes. If these pointers point at the same node after starting from head then loop exists. This algorithm is known as Floyd Cycle Finding Algorithm.</description>
+    </item>
+    <item>
+      <title>Selection sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Selection-sort-using-STL/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Selection-sort-using-STL/</guid>
+      <description>Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array.&#xA;First the algorithm finds the smallest element in the array which is 1 and it is added to the sorted array and then the algorithm finds smallest element in the remaining array and so on.</description>
+    </item>
+    <item>
+      <title>Merge Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Merge-Sort/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Merge-Sort/</guid>
+      <description>Merge sort follows divide-and-conquer approach. It divides an array of n elements into two subarrays of n/2 elements each. Then it sort the two subarrays recursively using merge sort. And then these subarrays are merged to produce a single sorted array.&#xA;If the size of the array is even then the size of subarrays is equal and if it is odd then first array has one element more than the second array.</description>
+    </item>
+    <item>
+      <title>Insertion Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</guid>
+      <description>Insertion sort is an efficient algorithm for sorting a small number of elements. The algorithm selects an element from the unsorted array and put it in the proper position in the sorted. This process is repeated until all elements in the array are sorted. The sorting is in-place means array consists of sorted portion and unsorted portion in it.&#xA;The index of the key starts from 1. The algorithm finds the correct position of the key in the array and put the key at that position and then the element with next index becomes key.</description>
+    </item>
+    <item>
+      <title>Doubly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</link>
+      <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.&#xA;The first node of the linked list is the head and the last node is the tail.</description>
+    </item>
+    <item>
+      <title>Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</link>
+      <pubDate>Thu, 27 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</guid>
+      <description>A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty.</description>
+    </item>
+    <item>
+      <title>Quicksort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</guid>
+      <description>Like mergesort, quicksort also follows divide-and-conquer approach. The algorithm selects an element as pivot. The input array is divided into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are sorted independently and then merged to form a single sorted array.&#xA;Related : Merge Sort&#xA;In fig. (a) 4 is selected as the pivot and in fig.</description>
+    </item>
+    <item>
+      <title>Heapsort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</guid>
+      <description>Heapsort is implemented using heap data structure. Heap helps us to represent binary tree without using any pointers. Using heap an array can be viewed as a binary tree and each node of the tree stores an element of the array.&#xA;There are two kinds of binary heaps: max-heaps and min-heaps. In max-heap, the value stored at the parent node is greater than the value stored at its children nodes. Thus in a max-heap, root node contains the largest element.</description>
+    </item>
+  </channel>
+</rss>

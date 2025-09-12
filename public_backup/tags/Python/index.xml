@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on programmerCave</title>
+    <link>https://programmercave.com/tags/Python/</link>
+    <description>Recent content in Python on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a Python Telegram Bot on Oracle Cloud</title>
+      <link>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</guid>
+      <description>Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities. Here’s a step-by-step guide on setting up and deploying a bot on an Ubuntu instance in Oracle Cloud. For this example, I&amp;rsquo;ll use the Atmanam Viddhi Bot, a bot that responds to the /wisdom command, sharing random quotes from a collection on GitHub and featuring user cooldowns and interactive buttons.</description>
+    </item>
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+    <item>
+      <title>How to create Password list using CUPP tool on Ubuntu</title>
+      <link>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</guid>
+      <description>People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.&#xA;CUPP(Common User Passwords Profiler) is python based free and open source tool which generates wordlist for a specific user based on the information provided.</description>
+    </item>
+  </channel>
+</rss>

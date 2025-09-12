@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph-Algorithms on programmerCave</title>
+    <link>https://programmercave.com/tags/Graph-Algorithms/</link>
+    <description>Recent content in Graph-Algorithms on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Graph-Algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kruskal&#39;s Algorithm | Minimum Spanning Tree</title>
+      <link>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kruskals-Algorithm--Minimum-Spanning-Tree/</guid>
+      <description>When edges connects all vertices in a graph and form a tree then it is known as spanning tree. While connecting edges no cycle should be formed. A minimum spanning tree is the spanning tree whose sum of edge weights is as small as possible.&#xA;Initially no vertices are connected to any other vertex means the spanning tree does not contain any edges, it only contain vertices. Kruskal’s algorithm adds an edge to the tree which has the smallest weight if it does not create a cycle.</description>
+    </item>
+    <item>
+      <title>Dijkstra&#39;s Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Dijkstras-Algorithm-using-STL/</guid>
+      <description>Dijkstra&amp;rsquo;s algorithm finds shortest paths from the source vertex to all vertices in the graph. The condition for the algorithm is that all edge weights should be non-negative. Thus, Dijkstra’s algorithm is efficient than the Bellman-Ford algorithm because it processes each edge only once, since it knows that there are no negative-weight edges in the graph.&#xA;In fig. (a) there is no negative-weight cycle, fig. (b) contains a negative-weight cycle</description>
+    </item>
+    <item>
+      <title>Bellman Ford Algorithm | Single-Source Shortest Path</title>
+      <link>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Bellman-Ford-Algorithm-using-STL/</guid>
+      <description>Bellman–Ford algorithm finds shortest path from the source vertex to all vertices in the graph. The graph can contain negative-weight edges, but it should not contain a negative-weight cycle that is reachable from the source vertex.&#xA;The algorithm returns TRUE if there is no negative-weight cycle and FALSE if there is a negative-weight cycle reachable from the source vertex. If there is a negative-weight cycle that is reachable from source vertex, then no solution exists.</description>
+    </item>
+    <item>
+      <title>Breadth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Breadth-First-Search-using-Adjacency-List/</guid>
+      <description>Breadth first search (BFS) explores the graph level by level. First it explore every vertex that is connected to source vertex. If the vertex is discovered, it becomes gray or black. Initially all the vertices are white.&#xA;If vertex 1 is the source vertex, then it is at level 0. Vertex 2 and 4 are at level 1 and vertex 3 and 5 are at level 2. Vertex 6 is at level 3.</description>
+    </item>
+    <item>
+      <title>Depth First Search using Adjacency List | Graph traversal</title>
+      <link>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Depth-First-Search-using-Adjacency-List/</guid>
+      <description>Depth first search explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started.&#xA;Initially all the vertices are white and when a vertex is discovered it becomes gray and then black when it is finished or processed.</description>
+    </item>
+  </channel>
+</rss>

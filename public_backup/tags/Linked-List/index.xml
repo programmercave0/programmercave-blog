@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linked-List on programmerCave</title>
+    <link>https://programmercave.com/tags/Linked-List/</link>
+    <description>Recent content in Linked-List on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Linked-List/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Move all Odd numbers after Even numbers in Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Move-all-Even-numbers-before-Odd-numbers-in-Singly-Linked-List-Using-STL/</guid>
+      <description>Given a Singly Linked List, we have to modify it such that all Even numbers appear before Odd numbers.&#xA;For eg.&#xA;Given Linked List : 1, 2, 3, 4, 5, 6, 7 After Modification : 2, 4, 6, 1, 3, 5, 7 From the above fig. we can see that how the function will work.&#xA;While the head of the list is odd, the head is copied to an auxiliary node and element next to the head will become new head.</description>
+    </item>
+    <item>
+      <title>Merge two sorted Linked List (in-place) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Merge-two-sorted-Linked-List-in-place/</guid>
+      <description>Given two sorted Linked List, we have to merge them without using another linked list.&#xA;List 1 : { 5, 10, 18, 25 } List 2 : { 6, 8, 11, 20 } Merged List : { 5, 6, 8, 10, 11, 18, 20, 25 } From the above fig. we can see that merging two linked list is same as merging two sorted array in mergesort.&#xA;Related: Merge Sort</description>
+    </item>
+    <item>
+      <title>Split Singly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Split-Singly-Circular-Linked-List-program/</guid>
+      <description>Given a Singly Circular Linked List, we have to split it into two equal halves. If the number of nodes in the given list is odd then first list will have one node more than the second list.&#xA;Input : { 2, 3, 18, 25, 5 } Output List 1 : { 2, 3, 18 } Output List 2 : { 25, 5 } Here is a meme to understand Circular Linked List</description>
+    </item>
+    <item>
+      <title>Doubly Circular Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Circular-Linked-List-program/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly circular linked list contains a data item and two node pointers, one to the previous node and one to the next node. In doubly linked list we can traverse in both direction.</description>
+    </item>
+    <item>
+      <title>How to Reverse a Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Reverse-the-Linked-List-Iterative-Method-program/</guid>
+      <description>Given a singly linked list, we have to reverse it.&#xA;Input list: { a, b, c, d, e } Output list: { e, d, c, b, a } There are two ways to reverse a linked list, iterative method and recursive method.&#xA;Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } Node* recursiveReverse(Node* head) { if(head == nullptr) return nullptr; if(head-&amp;gt;next == nullptr) return head; Node *firstElement = head; Node *secondElement = firstElement-&amp;gt;next; head = firstElement-&amp;gt;next; firstElement-&amp;gt;next = nullptr; //unlink first node Node *remainingList = recursiveReverse(head); secondElement-&amp;gt;next = firstElement; return remainingList; } #include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; template &amp;lt;class T&amp;gt; class LinkedList { struct Node { T data; Node * next; Node(T value) : data(std::move(value)), next(nullptr) {} }; Node *head; public: LinkedList() : head(nullptr) {} LinkedList(const LinkedList&amp;amp; ll) = delete; //copy constructor LinkedList(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move constructor LinkedList&amp;amp; operator=(const LinkedList&amp;amp; ll) = delete; //copy assignment LinkedList&amp;amp; operator=(const LinkedList&amp;amp;&amp;amp; ll) = delete; //move assignment ~LinkedList(); void insert(T); void printList(); void iterativeReverse() { head = iterativeReverse(head); } private: Node* iterativeReverse(Node* head) { Node *previous = nullptr; Node *nextNode = nullptr; while(head) { nextNode = head-&amp;gt;next; head-&amp;gt;next = previous; previous = head; head = nextNode; } return previous; } }; template &amp;lt;class T&amp;gt; void LinkedList&amp;lt;T&amp;gt;::insert(T data) { Node *node = new Node(std::move(data)); Node *tmp = head; if(tmp == nullptr) { head = node; } else { while(tmp-&amp;gt;next !</description>
+    </item>
+    <item>
+      <title>How to find the Length of Loop in Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Linked-List-containing-Loop-Floyd-Cycle-finding-Algorithm-program/</guid>
+      <description>Given a Linked List, we have to find does loop exist in Linked List and if yes, find the length of loop.&#xA;To find loop in the linked list, we need two node pointers slowPtr and fastPtr which starts from the head. slowPtr increments by one node while fastPtr increments by two nodes. If these pointers point at the same node after starting from head then loop exists. This algorithm is known as Floyd Cycle Finding Algorithm.</description>
+    </item>
+    <item>
+      <title>Doubly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</link>
+      <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Doubly-Linked-List-using-Template-Data-Structure/</guid>
+      <description>The nodes in a linked list are connected through pointers. Pointers represent the address of a location in a memory. The order in a linked list is determined by a pointer in each node. A node in a doubly linked list contains a data item and a node pointer to the next node. In a singly linked list we can traverse only in one direction.&#xA;The first node of the linked list is the head and the last node is the tail.</description>
+    </item>
+    <item>
+      <title>Singly Linked List | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</link>
+      <pubDate>Thu, 27 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Singly-Linked-List-using-Template-Data-Structure-/</guid>
+      <description>A linked list is a linear data structure where each element, called a node, is connected to the next element through a pointer. In a singly linked list, each node contains a data item and a pointer to the next node in the list. The order of the list is determined by the pointers, and the first node is called the head while the last node is called the tail. If the head is NULL, then the list is empty.</description>
+    </item>
+  </channel>
+</rss>

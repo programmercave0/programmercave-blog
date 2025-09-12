@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackerearth on programmerCave</title>
+    <link>https://programmercave.com/tags/Hackerearth/</link>
+    <description>Recent content in Hackerearth on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Hackerearth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Roy and Code Streak | HackerEarth Challenge</title>
+      <link>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</guid>
+      <description>This is the HackerEarth challenge of easy level. Problem Link Roy and Code Streak.&#xA;Problem: Roy is working on HackerEarth Profile. Right now he is working on User Statistics. One of the statistics data (Code Streak) is as follows:&#xA;Given the User Activity Data, find the maximum number of continuous correct solutions submitted by any user. Seems easy eh? Here&amp;rsquo;s the catch! In order to maximize this number a user could have submitted a correct answer to the same problem which he has already solved.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operating-System on programmerCave</title>
+    <link>https://programmercave.com/tags/Operating-System/</link>
+    <description>Recent content in Operating-System on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Operating-System/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Install a Software on Ubuntu | Package Management</title>
+      <link>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</guid>
+      <description>Package management facilities helps us to install and maintain software on the system. The package file for Ubuntu and other Debian based OS ends with .deb. For eg. draw.io-amd64-12.2.2.deb&#xA;A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs.&#xA;To run a progam on a system, it rely on other programs.</description>
+    </item>
+  </channel>
+</rss>

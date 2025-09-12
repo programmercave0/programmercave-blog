@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Notes on SOLID - Liskov Substitution, Interface Segregation, and Dependency Inversion from Scaler">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>SOLID - Liskov Substitution, Interface Segregation, and Dependency Inversion | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>SOLID - Liskov Substitution, Interface Segregation, and Dependency Inversion</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-06-27
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+  <h2 id="liskov-substitution-principle">Liskov Substitution Principle</h2>
+<ul>
+<li>states that objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program</li>
+<li>Let us take a look at our final version of the <code>Bird</code> class from <a href="/SOLID-Single-Responsibility-Open-Closed-Principle">SOLID - Single Responsibility, Open/Closed Principle</a></li>
+<li>We started with a <code>Bird</code> class which had SRP and OCP violations. We now have a <code>Bird</code> abstract class which can be extended by the <code>Eagle</code>, <code>Penguin</code> and <code>Parrot</code> subclasses.</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird2.png" alt="SRP"></p>
+<ul>
+<li>All the subclasses of <code>Bird</code> have to implement this method. A penguin cannot fly, yet we have added a <code>fly()</code> method to the <code>Penguin</code> class.</li>
+<li>In the above methods, we are trying to force a contract on a class which does not follow it.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#666">&lt;</span>Bird<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>birds<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>List.<span style="color:#7d9029">of</span>(<span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Eagle(),<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Penguin(),<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Parrot());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">for</span><span style="color:#bbb"> </span>(Bird<span style="color:#bbb"> </span>bird<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>birds)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>bird.<span style="color:#7d9029">fly</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>This is a violation of the Liskov Substitution Principle.</li>
+<li>if we have a <code>Bird</code> object, we should be able to replace it with an instance of its subclasses without altering the correctness of the program.</li>
+<li>In our case, we cannot replace a <code>Bird</code> object with a <code>Penguin</code> object because the <code>Penguin</code> object requires special handling.</li>
+</ul>
+<h3 id="fixing-liskov-substitution-violation">Fixing Liskov Substitution violation</h3>
+<h4 id="creating-new-abstract-classes">Creating new abstract classes</h4>
+<ul>
+<li>A way to solve the issue with the <code>Penguin</code> class is to create a new set of abstract classes, <code>FlyableBird</code> and <code>NonFlyableBird</code>.</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird3.png" alt="SRP"></p>
+<ul>
+<li>This is an example of multi-level inheritance.</li>
+<li>The issue with the above approach is that we are tying behaviour to the class hierarchy. If we want to add a new type of behaviour, we will have to add a new abstract class.</li>
+<li>For instance if we can have birds that can swim and birds that cannot swim, we will have to create a new abstract class <code>SwimableBird</code> and <code>NonSwimableBird</code> and add them to the class hierarchy.</li>
+<li>But now how do you extends from two abstract classes? You can&rsquo;t. Then we would have to create classes with composite behaviours such as <code>SwimableFlyableBird</code> and <code>SwimableNonFlyableBird</code>.</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird4.png" alt="SRP"></p>
+<ul>
+<li>This is why we should not tie behaviour to the class hierarchy.</li>
+</ul>
+<h4 id="creating-new-interfaces">Creating new interfaces</h4>
+<ul>
+<li>We can create an <code>Flyable</code> interface and an <code>Swimmable</code> interface.</li>
+<li>The <code>Penguin</code> class will implement the <code>Swimmable</code> interface and the <code>Eagle</code> and <code>Parrot</code> classes will implement the <code>Flyable</code> interface.</li>
+</ul>
+<p><img src="/assets/images/LLD/Bird5.png" alt="SRP"></p>
+<ul>
+<li>To identify violations, we can check if we can replace a class with its subclasses having to handle special cases and expect the same behaviour.</li>
+<li>Prefer using interfaces over abstract classes to implement behaviour since abstract classes tend to tie behaviour to the class hierarchy.</li>
+</ul>
+<hr>
+<h2 id="interface-segregation-principle">Interface Segregation Principle</h2>
+<ul>
+<li>states that many client-specific interfaces are better than one general-purpose interface.</li>
+<li>Clients should not be forced to implement a function they do no need.</li>
+<li>Declaring methods in an interface that the client doesn’t need pollutes the interface and leads to a “bulky” or “fat” interface</li>
+<li>A fat interface is an interface that has too many methods.</li>
+<li>If we have a fat interface, we will have to implement all the methods in the interface even if we don’t use them.</li>
+<li>Let us take the example of our <code>Bird</code> class. To not tie the behaviour to the class hierarchy, we created an interface <code>Flyable</code> and implemented it in the <code>Eagle</code> and <code>Parrot</code> classes.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">interface</span> <span style="color:#00f;font-weight:bold">Flyable</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">makeSound</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>Along with the <code>fly()</code> method, we also have the <code>makeSound()</code> method in the <code>Flyable</code> interface. This is because the <code>Eagle</code> and <code>Parrot</code> classes both make sounds when they fly.</li>
+<li>But what if we have a class that implements the <code>Flyable</code> interface? The class does not make a sound when it flies.</li>
+<li>This is a violation of the interface segregation principle. We should not have the <code>makeSound()</code> method in the <code>Flyable</code> interface.</li>
+</ul>
+<hr>
+<h2 id="dependency-inversion-principle">Dependency Inversion Principle</h2>
+<ul>
+<li>refers to the decoupling of software modules. This way, instead of high-level modules depending on low-level modules, both will depend on abstractions.</li>
+<li>High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features.</li>
+<li>To achieve that, you need to introduce an abstraction that decouples the high-level and low-level modules from each other.</li>
+<li>Our <code>Bird</code> class looks pretty neat now. We have separated the behaviour into different lean interfaces which are implemented by the classes that need them. When we add new sub-classes we identify an issue. For birds that have the same behaviour, we have to implement the same behaviour multiple times.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Eagle</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>Flyable<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;Eagle is gliding&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Sparrow</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>Flyable<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;Sparrow is gliding&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The above can be solved by adding a default method to the <code>Flyable</code> interface. This way, we can avoid code duplication. But which method should be the default implementation? What if in future we add more birds that have the same behaviour? We will have to change the default implementation or either duplicate the code.</li>
+<li>Instead of default implementations, let us abstract the common behaviours to a separate helper classes. We will create a <code>GlidingBehaviour</code> class and a <code>FlappingBehaviour</code> class. The <code>Eagle</code> and <code>Sparrow</code> classes will implement the <code>Flyable</code> interface and use the <code>GlidingBehaviour</code> class. The <code>Parrot</code> class will implement the <code>Flyable</code> interface and use the <code>FlappingBehaviour</code> class.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Eagle</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>Flyable<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>GlidingBehaviour<span style="color:#bbb"> </span>glidingBehaviour;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Eagle</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">glidingBehaviour</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>GlidingBehaviour();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>glidingBehaviour.<span style="color:#7d9029">fly</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>Now we have a problem. The <code>Eagle</code> class is tightly coupled to the <code>GlidingBehaviour</code> class. If we want to change the behaviour of the <code>Eagle</code> class, we will have to open the Eagle class to change the behaviour. This is a violation of the dependency inversion principle. We should not depend on concrete classes. We should depend on abstractions.</li>
+<li>Naturally, we rely on interfaces as the abstraction. We create a new interface <code>FlyingBehaviour</code> and implement it in the <code>GlidingBehaviour</code> and <code>FlappingBehaviour</code> classes. The <code>Eagle</code> class will now depend on the <code>FlyingBehaviour</code> interface.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">interface</span> <span style="color:#00f;font-weight:bold">FlyingBehaviour</span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">GlidingBehaviour</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>FlyingBehaviour{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#7d9029">out</span>.<span style="color:#7d9029">println</span>(<span style="color:#ba2121">&#34;Eagle is gliding&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Eagle</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>Flyable<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>FlyingBehaviour<span style="color:#bbb"> </span>flyingBehaviour;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Eagle</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">flyingBehaviour</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>GlidingBehaviour();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">fly</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>flyingBehaviour.<span style="color:#7d9029">fly</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><blockquote>
+<p>These are my notes from the Low-Level Design (LLD) course I took at Scaler.</p>
+</blockquote>
+<blockquote>
+<p>Check Python, Java and Go code on <a href="https://github.com/abhiabhi0/scaler-fundamentals/tree/master/oop/code">Github Repo</a></p>
+</blockquote>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

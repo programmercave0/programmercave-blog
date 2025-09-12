@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Notes on Creational Design Patterns - Singleton and Builder from Scaler">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Creational Design Patterns - Singleton and Builder | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Creational Design Patterns - Singleton and Builder</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-07-03
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+  <p><strong>Design Pattern</strong></p>
+<ul>
+<li>is a general, reusable solution to a commonly occurring problem within a given context in software design.</li>
+<li>are formalized best practices that the programmer can use to solve common problems when designing an application or system.</li>
+</ul>
+<p><strong>Creational Design Patterns</strong></p>
+<ul>
+<li>provide various object creation mechanisms, which increase flexibility and reuse of existing code.</li>
+</ul>
+<p><strong>Singleton</strong></p>
+<ul>
+<li>is a software design pattern that restricts the instantiation of a class to one object.</li>
+</ul>
+<p><strong>Builder</strong></p>
+<ul>
+<li>lets you construct complex objects step by step.</li>
+<li>allows you to produce different types and representations of an object using the same construction code.</li>
+</ul>
+<hr>
+<h2 id="singleton">Singleton</h2>
+<h3 id="problems">Problems</h3>
+<ul>
+<li>
+<p><strong>Shared resource</strong></p>
+<ul>
+<li>Imagine you have a class that is responsible for managing the database connection. You want to make sure that only one instance of this class exists in your application. If you create multiple instances of this class, you will end up with multiple database connections, which is not what you want.</li>
+<li>Similarly, there can be a class that is responsible for managing the logging mechanism. You want to make sure that only one instance of this class exists in your application. If you create multiple instances of this class, you will end up with multiple log files, which is not what you want.</li>
+</ul>
+</li>
+<li>
+<p><strong>Single access point</strong></p>
+<ul>
+<li>Applications often require configuration. For example, you might want to configure the database connection parameters. You want to make sure that only one instance of this class exists in your application. A configuration class should have a single access point to the configuration parameters. If you create multiple instances of this class, you will end up with multiple configuration files.</li>
+</ul>
+</li>
+</ul>
+<h3 id="solution">Solution</h3>
+<ul>
+<li>is a <strong>creational design pattern</strong> that lets you ensure that a class has only one instance, while providing a global access point to this instance.</li>
+<li>To implement the Singleton patter, the following steps are required:
+<ul>
+<li><strong>Constructor hiding</strong>:
+<ul>
+<li>The constructor of the singleton class should be private or protected.</li>
+<li>This will prevent other classes from instantiating the singleton class.</li>
+</ul>
+</li>
+<li><strong>Global access point</strong>:
+<ul>
+<li>The singleton class should provide a global access point to get the instance of the singleton class.</li>
+<li>This global access point should be static and should return the same instance of the singleton class every time it is called.</li>
+<li>If the instance does not exist, it should create the instance and then return it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="simple-singleton-in-java">Simple Singleton in Java</h4>
+<ul>
+<li>first step is to hide the constructor by making it private. This will prevent other classes from instantiating the singleton class.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>above code restricts the instantiation of the Database class. Now, we need to provide a global access point to get the instance of the Database class.</li>
+<li>We can do this by creating a static method that returns the instance of the Database class. If the instance does not exist, it should create the instance and then return it.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span><span style="color:#00f">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(instance<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span>instance;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="thread-safe-singleton-in-java">Thread-Safe Singleton in Java</h4>
+<ul>
+<li>above code is not thread-safe.</li>
+<li>If two threads call the <code>getInstance()</code> method at the same time, both threads will check if the instance variable is null. Both threads will find that the instance variable is null.</li>
+<li>Both threads will create a new instance of the Database class. This will result in two instances of the Database class.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span><span style="color:#00f">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(instance<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span>instance;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="double-checked-locking-in-java">Double-Checked Locking in Java</h4>
+<ul>
+<li>above code is thread-safe. However, it is not efficient.</li>
+<li>If two threads call the getInstance() method at the same time, both threads will check if the instance variable is null. Both threads will find that the instance variable is null. Both threads will wait for the lock to be released.</li>
+<li>Once the lock is released, one thread will create a new instance of the Database class. The other thread will wait for the lock to be released. Once the lock is released, it will create a new instance of the Database class. This will result in two instances of the Database class.</li>
+<li>To make the above code efficient, we can use double-checked locking.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span><span style="color:#00f">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(instance<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span><span style="color:#008000;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>(Database.<span style="color:#7d9029">class</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">				</span><span style="color:#008000;font-weight:bold">if</span><span style="color:#bbb"> </span>(instance<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">					</span>instance<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">				</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span>instance;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="singleton-pattern-in-python">Singleton Pattern in Python</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ConnectionPool</span>(<span style="color:#008000">object</span>):
+</span></span><span style="display:flex;"><span>    _instance <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __new__(cls):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> cls<span style="color:#666">.</span>_instance <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Creating the object&#34;</span>)
+</span></span><span style="display:flex;"><span>            cls<span style="color:#666">.</span>_instance <span style="color:#666">=</span> <span style="color:#008000">super</span>(ConnectionPool, cls)<span style="color:#666">.</span>__new__(cls)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> cls<span style="color:#666">.</span>_instance
+</span></span></code></pre></div><ul>
+<li>The object is created on the first call to the class:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pool1 <span style="color:#666">=</span> ConnectionPool()
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(pool1)
+</span></span></code></pre></div><pre tabindex="0"><code>Creating the object
+&lt;__main__.ConnectionPool object at 0x7f15ecf9fe80&gt;
+</code></pre><ul>
+<li>But the second call returns the same instance. The message “Creating the object” does not print, nor is a different object returned:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pool2 <span style="color:#666">=</span> ConnectionPool()
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(pool2)
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Are they the same object?&#34;</span>, pool1 <span style="color:#a2f;font-weight:bold">is</span> pool2)
+</span></span></code></pre></div><pre tabindex="0"><code>&lt;__main__.ConnectionPool object at 0x7f15ecf9fe80&gt;
+Are they the same object? True
+</code></pre><h4 id="singleton-pattern-in-golang">Singleton Pattern in Golang</h4>
+<h5 id="using-user-defined-function">Using user-defined function</h5>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> lock = <span style="color:#666">&amp;</span>sync.Mutex{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> connectionPool <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> connPoolInstance <span style="color:#666">*</span>connectionPool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">GetInstance</span>() <span style="color:#666">*</span>connectionPool {
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> connPoolInstance <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        lock.<span style="color:#00f">Lock</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">defer</span> lock.<span style="color:#00f">Unlock</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> connPoolInstance <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>            fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Creating Connection Pool Instance Now&#34;</span>)
+</span></span><span style="display:flex;"><span>            connPoolInstance = <span style="color:#666">&amp;</span>connectionPool{}
+</span></span><span style="display:flex;"><span>        } <span style="color:#008000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Connection Pool Instance already created-1&#34;</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#008000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Connection Pool Instance already created-2&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> connPoolInstance
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Above code ensures that only one instance of the <code>connectionPool</code> struct is created.</li>
+<li>There is a check at the start for nil <code>connPoolInstance</code>. This is to prevent the expensive lock operations every time <code>Getinstance()</code> method is called. If this check fails then it means that <code>connPoolInstance</code> is already created</li>
+<li>The <code>connPoolInstance</code> is created inside the lock.</li>
+<li>There is another check for nil <code>connPoolInstance</code> after the lock is acquired. This is to make sure that if more than one goroutine bypass the first check then only one goroutine is able to create the singleton instance otherwise each of the goroutine will create its own instance of the single struct.</li>
+</ul>
+<h5 id="using-synconce">Using sync.Once</h5>
+<ul>
+<li><code>sync.Once</code> will only perform the operation only once</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> once sync.Once
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> connectionPool <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> connPoolInstance <span style="color:#666">*</span>connectionPool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">GetInstanceUsingSync</span>() <span style="color:#666">*</span>connectionPool {
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> connPoolInstance <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        once.<span style="color:#00f">Do</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">func</span>() {
+</span></span><span style="display:flex;"><span>                fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Creating Connection Pool Instance Now&#34;</span>)
+</span></span><span style="display:flex;"><span>                connPoolInstance = <span style="color:#666">&amp;</span>connectionPool{}
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>    } <span style="color:#008000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Connection Pool Instance already created-2&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> connPoolInstance
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="builder">Builder</h2>
+<h3 id="problems-1">Problems</h3>
+<ul>
+<li>
+<p><strong>Complex object creation</strong></p>
+<ul>
+<li>There are multiple ways to create an object, but constructors are the primary technique used for creating instances of a class. However, constructors become unmanageable when there is a need to create an object with many parameters. This is known as the **telescoping constructor anti-pattern.</li>
+<li>The telescoping constructor anti-pattern is a code smell that indicates that the class has too many constructors. This is a code smell because it is difficult to maintain and extend the class.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validation and failing object creation</strong></p>
+<ul>
+<li>There are cases when you want to validate the parameters before creating an object. For example, you might want to validate the parameters before creating a database connection. If the parameters are invalid, you might want to throw an exception.</li>
+<li>However, if we use the default constructor, we cannot fail object creation</li>
+</ul>
+</li>
+<li>
+<p><strong>Immutability</strong></p>
+<ul>
+<li>Mutable objects are objects whose state can be changed after they are created. Immutable objects are objects whose state cannot be changed after they are created. Immutable objects are easier to maintain and extend whereas mutable objects can lead to bugs.</li>
+<li>However, if we use the default constructor, we cannot create immutable objects.</li>
+</ul>
+</li>
+</ul>
+<h3 id="solution-1">Solution</h3>
+<h4 id="using-inner-class-in-java">Using Inner Class in Java</h4>
+<ul>
+<li>we can use a class to accept parameters for object creation. The parameter class is type safe, and it is easy to identify the parameters.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>host;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#b00040">int</span><span style="color:#bbb"> </span>port;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>username;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>password;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>(DatabaseParameters<span style="color:#bbb"> </span>parameter)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">host</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>parameter.<span style="color:#7d9029">host</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">port</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>parameter.<span style="color:#7d9029">port</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">username</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>parameter.<span style="color:#7d9029">username</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">password</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>parameter.<span style="color:#7d9029">password</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DatabaseParameters</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>host;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">int</span><span style="color:#bbb"> </span>port;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>username;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>password;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>above code is type safe. However, it is not easy to use.</li>
+<li>We need to create an instance of the <code>DatabaseParameters</code> class and then pass it to the Database class. This is not a good approach because it is difficult to maintain and extend the code.</li>
+<li>Similarly, if we even want to change a single parameter name, we have to open the database class for modification.</li>
+<li>Instead, we should move the destructuring of the parameter class and validation logic to the Parameter class.</li>
+<li>This will require creating a Database constructor with all the fields. Again, why would developers not just want to use the constructor instead? - So we need a way to allow the parameter class to create the Database object while not exposing a constructor.
+-This can be done using an inner class. This inner class is known as the <strong>builder class</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>host;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#b00040">int</span><span style="color:#bbb"> </span>port;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>username;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>password;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#00f">Database</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DatabaseBuilder</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>host;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#b00040">int</span><span style="color:#bbb"> </span>port;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>username;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>password;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>Database<span style="color:#bbb"> </span><span style="color:#00f">build</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>Database<span style="color:#bbb"> </span>database<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>database.<span style="color:#7d9029">host</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">host</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>database.<span style="color:#7d9029">port</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">port</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>database.<span style="color:#7d9029">username</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">username</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span>database.<span style="color:#7d9029">password</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">this</span>.<span style="color:#7d9029">password</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span>database;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>above code now allows us to create a Database object using the DatabaseBuilder class.</li>
+<li>We can fail object creation by adding a validation hook to the build method. The objects created are immutable because the Database class does not have any setters. And the developer can create objects with any permutation of parameters.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Database<span style="color:#bbb"> </span>database<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Database.<span style="color:#7d9029">DatabaseBuilder</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>.<span style="color:#7d9029">host</span>(<span style="color:#ba2121">&#34;localhost&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>.<span style="color:#7d9029">port</span>(3306)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>.<span style="color:#7d9029">username</span>(<span style="color:#ba2121">&#34;root&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>.<span style="color:#7d9029">password</span>(<span style="color:#ba2121">&#34;password&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>.<span style="color:#7d9029">build</span>();<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="builder-pattern-in-python">Builder Pattern in Python</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">__future__</span> <span style="color:#008000;font-weight:bold">import</span> annotations
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">abc</span> <span style="color:#008000;font-weight:bold">import</span> ABC, abstractmethod
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Builder</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">with_name</span>(self, name: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> Builder:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">with_url</span>(self, host: <span style="color:#008000">str</span>, port: <span style="color:#008000">int</span>) <span style="color:#666">-&gt;</span> Builder:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">build</span>(self) <span style="color:#666">-&gt;</span> Database:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DatabaseBuilder</span>(Builder):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self) <span style="color:#666">-&gt;</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_database <span style="color:#666">=</span> Database()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">with_name</span>(self, name: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> DatabaseBuilder:
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_database<span style="color:#666">.</span>_name <span style="color:#666">=</span> name
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">with_url</span>(self, host: <span style="color:#008000">str</span>, port: <span style="color:#008000">int</span>) <span style="color:#666">-&gt;</span> DatabaseBuilder:
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_database<span style="color:#666">.</span>_host <span style="color:#666">=</span> host
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_database<span style="color:#666">.</span>_port <span style="color:#666">=</span> port
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">build</span>(self) <span style="color:#666">-&gt;</span> Database:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> self<span style="color:#666">.</span>is_valid():
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">raise</span> <span style="color:#d2413a;font-weight:bold">ValueError</span>(<span style="color:#ba2121">&#34;Invalid database configuration&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_database
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">is_valid</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">bool</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_database<span style="color:#666">.</span>_name <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Database</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, name<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">None</span>, host<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">None</span>, port<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_name <span style="color:#666">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_host <span style="color:#666">=</span> host
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_port <span style="color:#666">=</span> port
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __repr__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;Database(name=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_name<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, host=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_host<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, port=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_port<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">)&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#ba2121">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Building a valid database</span>
+</span></span><span style="display:flex;"><span>        db <span style="color:#666">=</span> DatabaseBuilder()<span style="color:#666">.</span>with_name(<span style="color:#ba2121">&#34;MyDB&#34;</span>)<span style="color:#666">.</span>with_url(<span style="color:#ba2121">&#34;localhost&#34;</span>, <span style="color:#666">3306</span>)<span style="color:#666">.</span>build()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(db)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Building an invalid database (missing name)</span>
+</span></span><span style="display:flex;"><span>        invalid_db <span style="color:#666">=</span> DatabaseBuilder()<span style="color:#666">.</span>with_url(<span style="color:#ba2121">&#34;localhost&#34;</span>, <span style="color:#666">3306</span>)<span style="color:#666">.</span>build()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(invalid_db)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">except</span> <span style="color:#d2413a;font-weight:bold">ValueError</span> <span style="color:#008000;font-weight:bold">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(e)
+</span></span></code></pre></div><h4 id="builder-pattern-in-golang">Builder pattern in Golang</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> builder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;errors&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> Database <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	name <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>	host <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>	port <span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> DatabaseBuilder <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	database <span style="color:#666">*</span>Database
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">NewDatabaseBuilder</span>() <span style="color:#666">*</span>DatabaseBuilder {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>DatabaseBuilder{database: <span style="color:#666">&amp;</span>Database{}}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DatabaseBuilder) <span style="color:#00f">WithName</span>(name <span style="color:#b00040">string</span>) <span style="color:#666">*</span>DatabaseBuilder {
+</span></span><span style="display:flex;"><span>	b.database.name = name
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DatabaseBuilder) <span style="color:#00f">WithUrl</span>(host <span style="color:#b00040">string</span>, port <span style="color:#b00040">int</span>) <span style="color:#666">*</span>DatabaseBuilder {
+</span></span><span style="display:flex;"><span>	b.database.host = host
+</span></span><span style="display:flex;"><span>	b.database.port = port
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DatabaseBuilder) <span style="color:#00f">Build</span>() (<span style="color:#666">*</span>Database, <span style="color:#b00040">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> !b.<span style="color:#00f">isValid</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000;font-weight:bold">nil</span>, errors.<span style="color:#00f">New</span>(<span style="color:#ba2121">&#34;invalid database configuration&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.database, <span style="color:#008000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DatabaseBuilder) <span style="color:#00f">isValid</span>() <span style="color:#b00040">bool</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.database.name <span style="color:#666">!=</span> <span style="color:#ba2121">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>References:</strong>
+<a href="https://python-patterns.guide/gang-of-four/singleton/">Singleton Pattern in Python</a></p>
+<p><a href="https://golangbyexample.com/singleton-design-pattern-go/">Singleton Pattern in Golang</a></p>
+<blockquote>
+<p>These are my notes from the Low-Level Design (LLD) course I took at Scaler.</p>
+</blockquote>
+<blockquote>
+<p>Check Python, Java and Go code on <a href="https://github.com/abhiabhi0/design-patterns">Github Repo</a></p>
+</blockquote>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

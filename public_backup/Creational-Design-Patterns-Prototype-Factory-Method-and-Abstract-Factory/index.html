@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Notes on Creational Design Patterns - Prototype, Factory Method and Abstract Factory from Scaler">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Creational Design Patterns - Prototype, Factory Method and Abstract Factory | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Creational Design Patterns - Prototype, Factory Method and Abstract Factory</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-07-09
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+  <p><strong>Prototype</strong></p>
+<ul>
+<li>is a creational design pattern that can be used to create objects that are similar to each other.</li>
+<li>The pattern is used to avoid the cost of creating new objects by cloning an
+existing object and avoiding dependencies on the class of the object that needs to be cloned.</li>
+</ul>
+<p><strong>Factory</strong></p>
+<ul>
+<li>is a creational design pattern that can be used to create objects without specifying the exact class of the object that will be created.</li>
+<li>The pattern is used to avoid dependencies on the class of the object that needs to be created.</li>
+</ul>
+<hr>
+<h2 id="prototype">Prototype</h2>
+<ul>
+<li>
+<p>allows us to hide the complexity of making new instances from the client.</p>
+</li>
+<li>
+<p>The concept is to copy an existing object rather than creating a new instance from scratch, something that may include costly operations.</p>
+</li>
+<li>
+<p>The existing object acts as a prototype and contains the state of the object. The newly copied object may change same properties only if required.</p>
+</li>
+<li>
+<p>This approach saves costly resources and time, especially when object creation is a heavy process.</p>
+</li>
+<li>
+<p>Let us say we have to create a new <code>User</code> API and we want to test it. To test it, we need to create a new user. We can create a new user by using the <code>new</code> keyword.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>User(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;john@doe.in&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;1234567890&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>We might be calling a separate API to get these random values for the user. So each time we want to create a new user we have to call the API.</li>
+<li>Instead, we can create a new user by cloning an existing user and modifying the fields that are necessary. This way we can avoid calling the API each time we want to create a new user.</li>
+<li>To clone an existing user, we have to implement a common interface for all the user objects <code>clone()</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">User</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">clone</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>User(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;john@doe.in&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;1234567890&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>user2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>user.<span style="color:#7d9029">clone</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>user2.<span style="color:#7d9029">setId</span>(2);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>Apart from reducing the cost of creating new objects, the prototype pattern also helps in reducing the complexity of creating new objects.</li>
+<li>The client code does not have to deal with the complexity of creating new objects. It can simply clone the existing object and modify it as per its needs.</li>
+<li>The client code does not have a dependency on the class of the object that it is cloning.</li>
+</ul>
+<h3 id="prototype-registry">Prototype Registry</h3>
+<ul>
+<li>prototype pattern can be extended to use a registry of pre-defined prototypes.</li>
+<li>The registry can be used to store a set of pre-defined prototypes. The client code can then request a clone of a prototype from the registry instead of creating a new object from scratch.</li>
+<li>The registry can be implemented as a key-value store where the key is the name of the prototype and the value is the prototype object.</li>
+</ul>
+<p><strong>Example</strong></p>
+<ul>
+<li>we might want to create different types of users. A user with a Student role, a user with a Teacher role, and a user with an Admin role.</li>
+<li>Each such different type of user might have some fields that are specific to the type so the fields to be copied might be different.</li>
+<li>We can create a registry of pre-defined prototypes for each of these roles</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">interface</span> <span style="color:#00f;font-weight:bold">UserRegistry</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>User<span style="color:#bbb"> </span><span style="color:#00f">getPrototype</span>(UserRole<span style="color:#bbb"> </span>role);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">addPrototype</span>(UserRole<span style="color:#bbb"> </span>role,<span style="color:#bbb"> </span>User<span style="color:#bbb"> </span>user);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">UserRegistryImpl</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">implements</span><span style="color:#bbb"> </span>UserRegistry<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">private</span><span style="color:#bbb"> </span>Map<span style="color:#666">&lt;</span>UserRole,<span style="color:#bbb"> </span>User<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>registry<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap<span style="color:#666">&lt;&gt;</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">getPrototype</span>(UserRole<span style="color:#bbb"> </span>role)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span>registry.<span style="color:#7d9029">get</span>(role).<span style="color:#7d9029">clone</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#b00040">void</span><span style="color:#bbb"> </span><span style="color:#00f">addPrototype</span>(UserRole<span style="color:#bbb"> </span>role,<span style="color:#bbb"> </span>User<span style="color:#bbb"> </span>user)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>registry.<span style="color:#7d9029">put</span>(role,<span style="color:#bbb"> </span>user);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>UserRegistry<span style="color:#bbb"> </span>registry<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>UserRegistryImpl();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>registry.<span style="color:#7d9029">addPrototype</span>(UserRole.<span style="color:#7d9029">STUDENT</span>,<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Student(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;john@doe.in&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;1234567890&#34;</span>,<span style="color:#bbb"> </span>UserRole.<span style="color:#7d9029">STUDENT</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;CS&#34;</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>registry.<span style="color:#7d9029">getPrototype</span>(UserRole.<span style="color:#7d9029">STUDENT</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>user.<span style="color:#7d9029">setId</span>(1);<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="prototype-pattern-in-python">Prototype Pattern in Python</h3>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">abc</span> <span style="color:#008000;font-weight:bold">import</span> ABC, abstractmethod
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">copy</span> <span style="color:#008000;font-weight:bold">import</span> deepcopy
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">enum</span> <span style="color:#008000;font-weight:bold">import</span> Enum
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ObjectClonable</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">clone</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MLModel</span>(ObjectClonable):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, model_type, description, training_split, validation_split, alpha, beta):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_model_type <span style="color:#666">=</span> model_type
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_description <span style="color:#666">=</span> description
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_training_split <span style="color:#666">=</span> training_split
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_validation_split <span style="color:#666">=</span> validation_split
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_alpha <span style="color:#666">=</span> alpha
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_beta <span style="color:#666">=</span> beta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">clone</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> deepcopy(self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># Getter and Setter methods</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">model_type</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_model_type
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@model_type.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">model_type</span>(self, model_type):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_model_type <span style="color:#666">=</span> model_type
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">description</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_description
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@description.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">description</span>(self, description):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_description <span style="color:#666">=</span> description
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_split</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_training_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@training_split.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_split</span>(self, training_split):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_training_split <span style="color:#666">=</span> training_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_split</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_validation_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@validation_split.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_split</span>(self, validation_split):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_validation_split <span style="color:#666">=</span> validation_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">alpha</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_alpha
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@alpha.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">alpha</span>(self, alpha):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_alpha <span style="color:#666">=</span> alpha
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">beta</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_beta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@beta.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">beta</span>(self, beta):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_beta <span style="color:#666">=</span> beta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __str__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#ba2121">f</span><span style="color:#ba2121">&#39;MLModel(type=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_model_type<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, description=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_description<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, &#39;</span> \
+</span></span><span style="display:flex;"><span>               <span style="color:#ba2121">f</span><span style="color:#ba2121">&#39;training_split=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_training_split<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, validation_split=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_validation_split<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, &#39;</span> \
+</span></span><span style="display:flex;"><span>               <span style="color:#ba2121">f</span><span style="color:#ba2121">&#39;alpha=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_alpha<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">, beta=</span><span style="color:#b68;font-weight:bold">{</span>self<span style="color:#666">.</span>_beta<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ModelType</span>(Enum):
+</span></span><span style="display:flex;"><span>    LR <span style="color:#666">=</span> <span style="color:#ba2121">&#34;LR&#34;</span>
+</span></span><span style="display:flex;"><span>    SVM <span style="color:#666">=</span> <span style="color:#ba2121">&#34;SVM&#34;</span>
+</span></span><span style="display:flex;"><span>    DT <span style="color:#666">=</span> <span style="color:#ba2121">&#34;DT&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Step 4: Create and populate registry</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ModelRegistry</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_models <span style="color:#666">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">register_model</span>(self, model):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_models[model<span style="color:#666">.</span>model_type] <span style="color:#666">=</span> model
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_model</span>(self, model_type):
+</span></span><span style="display:flex;"><span>        model <span style="color:#666">=</span> self<span style="color:#666">.</span>_models<span style="color:#666">.</span>get(model_type)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> model<span style="color:#666">.</span>clone() <span style="color:#008000;font-weight:bold">if</span> model <span style="color:#008000;font-weight:bold">else</span> <span style="color:#008000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Example usage</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#ba2121">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># Create models</span>
+</span></span><span style="display:flex;"><span>    lr_model <span style="color:#666">=</span> MLModel(ModelType<span style="color:#666">.</span>LR, <span style="color:#ba2121">&#34;Linear Regression Model&#34;</span>, <span style="color:#666">0.7</span>, <span style="color:#666">0.3</span>, <span style="color:#666">0.01</span>, <span style="color:#666">0.1</span>)
+</span></span><span style="display:flex;"><span>    svm_model <span style="color:#666">=</span> MLModel(ModelType<span style="color:#666">.</span>SVM, <span style="color:#ba2121">&#34;Support Vector Machine Model&#34;</span>, <span style="color:#666">0.6</span>, <span style="color:#666">0.4</span>, <span style="color:#666">0.02</span>, <span style="color:#666">0.2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># Register models</span>
+</span></span><span style="display:flex;"><span>    registry <span style="color:#666">=</span> ModelRegistry()
+</span></span><span style="display:flex;"><span>    registry<span style="color:#666">.</span>register_model(lr_model)
+</span></span><span style="display:flex;"><span>    registry<span style="color:#666">.</span>register_model(svm_model)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># Retrieve and clone models</span>
+</span></span><span style="display:flex;"><span>    cloned_lr_model <span style="color:#666">=</span> registry<span style="color:#666">.</span>get_model(ModelType<span style="color:#666">.</span>LR)
+</span></span><span style="display:flex;"><span>    cloned_lr_model<span style="color:#666">.</span>description <span style="color:#666">=</span> <span style="color:#ba2121">&#34;Linear Regression Model Cloned&#34;</span>
+</span></span><span style="display:flex;"><span>    cloned_svm_model <span style="color:#666">=</span> registry<span style="color:#666">.</span>get_model(ModelType<span style="color:#666">.</span>SVM)
+</span></span><span style="display:flex;"><span>    cloned_svm_model<span style="color:#666">.</span>description <span style="color:#666">=</span> <span style="color:#ba2121">&#34;Support Vector Machine Model Cloned&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(lr_model)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(cloned_lr_model)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(svm_model)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(cloned_svm_model)
+</span></span></code></pre></div><h3 id="prototype-pattern-in-golang">Prototype Pattern in Golang</h3>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> prototype
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> ObjectClonable <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">Clone</span>() <span style="color:#666">*</span>MLModel
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> MLModel <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	modelType       ModelType
+</span></span><span style="display:flex;"><span>	description     <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>	trainingSplit   <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	validationSplit <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	alpha           <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	beta            <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">Clone</span>() <span style="color:#666">*</span>MLModel {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>MLModel{
+</span></span><span style="display:flex;"><span>		modelType:       m.modelType,
+</span></span><span style="display:flex;"><span>		description:     m.description,
+</span></span><span style="display:flex;"><span>		trainingSplit:   m.trainingSplit,
+</span></span><span style="display:flex;"><span>		validationSplit: m.validationSplit,
+</span></span><span style="display:flex;"><span>		alpha:           m.alpha,
+</span></span><span style="display:flex;"><span>		beta:            m.beta,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Getter and Setter methods
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetModelType</span>() ModelType {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.modelType
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetModelType</span>(modelType ModelType) {
+</span></span><span style="display:flex;"><span>	m.modelType = modelType
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetDescription</span>() <span style="color:#b00040">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.description
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetDescription</span>(description <span style="color:#b00040">string</span>) {
+</span></span><span style="display:flex;"><span>	m.description = description
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetTrainingSplit</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.trainingSplit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetTrainingSplit</span>(trainingSplit <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	m.trainingSplit = trainingSplit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetValidationSplit</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.validationSplit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetValidationSplit</span>(validationSplit <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	m.validationSplit = validationSplit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetAlpha</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.alpha
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetAlpha</span>(alpha <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	m.alpha = alpha
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">GetBeta</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> m.beta
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (m <span style="color:#666">*</span>MLModel) <span style="color:#00f">SetBeta</span>(beta <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	m.beta = beta
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> ModelType <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>	LR  ModelType = <span style="color:#ba2121">&#34;LR&#34;</span>
+</span></span><span style="display:flex;"><span>	SVM ModelType = <span style="color:#ba2121">&#34;SVM&#34;</span>
+</span></span><span style="display:flex;"><span>	DT  ModelType = <span style="color:#ba2121">&#34;DT&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> ModelRegistry <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	models <span style="color:#008000;font-weight:bold">map</span>[ModelType]<span style="color:#666">*</span>MLModel
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">NewModelRegistry</span>() <span style="color:#666">*</span>ModelRegistry {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>ModelRegistry{
+</span></span><span style="display:flex;"><span>		models: <span style="color:#008000">make</span>(<span style="color:#008000;font-weight:bold">map</span>[ModelType]<span style="color:#666">*</span>MLModel),
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>ModelRegistry) <span style="color:#00f">RegisterModel</span>(model <span style="color:#666">*</span>MLModel) {
+</span></span><span style="display:flex;"><span>	r.models[model.<span style="color:#00f">GetModelType</span>()] = model
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>ModelRegistry) <span style="color:#00f">GetModel</span>(modelType ModelType) <span style="color:#666">*</span>MLModel {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> model, exists <span style="color:#666">:=</span> r.models[modelType]; exists {
+</span></span><span style="display:flex;"><span>		<span style="color:#008000;font-weight:bold">return</span> model.<span style="color:#00f">Clone</span>()
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="factory">Factory</h2>
+<ul>
+<li>is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created.</li>
+<li>This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.</li>
+<li>The client code can request an object from a factory object without having to know the class of the object that will be returned. The factory object can create the object and return it to the client code.</li>
+</ul>
+<h3 id="simple-factory">Simple Factory</h3>
+<ul>
+<li>is a creational pattern that provides a static method for creating objects.</li>
+<li>The method can be used to create objects without having to specify the exact class of the object that will be created. This is done by creating a factory class that contains a static method for creating objects.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">UserFactory</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">static</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">createUser</span>(UserRole<span style="color:#bbb"> </span>role)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">switch</span><span style="color:#bbb"> </span>(role)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span><span style="color:#008000;font-weight:bold">case</span><span style="color:#bbb"> </span>STUDENT:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">				</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Student(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span><span style="color:#008000;font-weight:bold">case</span><span style="color:#bbb"> </span>TEACHER:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">				</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Teacher(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">			</span><span style="color:#008000;font-weight:bold">case</span><span style="color:#bbb"> </span>ADMIN:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">				</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Admin(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>UserFactory.<span style="color:#7d9029">createUser</span>(UserRole.<span style="color:#7d9029">STUDENT</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The complete steps to implement the simple factory pattern are:
+<ul>
+<li><strong>Factory class</strong> - Create a factory class that contains a static method for creating objects</li>
+<li><strong>Conditional</strong> - Use a conditional statement to create the object based on the input.</li>
+<li><strong>Request</strong> - Request an object from the factory class without having to know the class of the object that will be returned</li>
+</ul>
+</li>
+</ul>
+<h3 id="factory-method">Factory Method</h3>
+<ul>
+<li>
+<p>simple factory method is easy to implement, but it has a few drawbacks.</p>
+</li>
+<li>
+<p>The factory class is not extensible. If we want to add a new type of user, we will have to modify the factory class.</p>
+</li>
+<li>
+<p>Also, the factory class is not reusable. If we want to create a factory for creating different types of objects, we will have to create a new factory class.</p>
+</li>
+<li>
+<p>To overcome these drawbacks, we can use the factory method pattern.</p>
+</li>
+<li>
+<p>In the factory method the responsibility of creating the object is shifted to the child classes.</p>
+</li>
+<li>
+<p>The factory method is implemented in the base class and the child classes can override the factory method to create objects of their own type.</p>
+</li>
+<li>
+<p>The factory method is also known as the virtual constructor.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f">@AllArgsContructor</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">UserFactory</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">createUser</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">StudentFactory</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">extends</span><span style="color:#bbb"> </span>UserFactory<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">createUser</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Student(firstName,<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>UserFactory<span style="color:#bbb"> </span>factory<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>StudentFactory();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>user<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>factory.<span style="color:#7d9029">createUser</span>(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The complete steps to implement the factory method pattern are:
+<ul>
+<li><strong>Base factory interface</strong> - Create a factory class that contains a method for creating objects.</li>
+<li><strong>Child factory class</strong> - Create a child class that extends the base factory class and overrides the factory method to create objects of its own type.</li>
+<li><strong>Request</strong> - Request an object from the factory class without having to know the class of the object that will be returned.</li>
+</ul>
+</li>
+</ul>
+<h4 id="factory-method-in-python">Factory Method in Python</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">abc</span> <span style="color:#008000;font-weight:bold">import</span> ABC, abstractmethod
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Button</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_border <span style="color:#666">=</span> border
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">border</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_border
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@border.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">border</span>(self, value: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_border <span style="color:#666">=</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ButtonFactory</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">RoundButton</span>(Button):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__(border)
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_radius <span style="color:#666">=</span> radius
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">radius</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_radius
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Round Button was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">RoundButtonFactory</span>(ButtonFactory):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> RoundButton(border, radius)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">SquareButton</span>(Button):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__(border)
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_length <span style="color:#666">=</span> length
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">length</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_length
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Square Button was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">SquareButtonFactory</span>(ButtonFactory):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> SquareButton(border, length)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">client_code</span>(factory: ButtonFactory):
+</span></span><span style="display:flex;"><span>    button <span style="color:#666">=</span> factory<span style="color:#666">.</span>createButton(border<span style="color:#666">=</span><span style="color:#666">1.0</span>, radius<span style="color:#666">=</span><span style="color:#666">5.0</span>, length<span style="color:#666">=</span><span style="color:#666">10.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    button<span style="color:#666">.</span>render()
+</span></span><span style="display:flex;"><span>    button<span style="color:#666">.</span>onClick()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main</span>():
+</span></span><span style="display:flex;"><span>    round_button_factory <span style="color:#666">=</span> RoundButtonFactory()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Using RoundButtonFactory:&#34;</span>)
+</span></span><span style="display:flex;"><span>    client_code(round_button_factory)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    square_button_factory <span style="color:#666">=</span> SquareButtonFactory()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Using SquareButtonFactory:&#34;</span>)
+</span></span><span style="display:flex;"><span>    client_code(square_button_factory)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#ba2121">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><h4 id="factory-method-in-golang">Factory Method in Golang</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> factorymethod
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Button is the abstract product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> Button <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">OnClick</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">SetBorder</span>(border <span style="color:#b00040">float64</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// RoundButton is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> RoundButton <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	border <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	radius <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Rendered RoundButton!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">OnClick</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Round Button was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">SetBorder</span>(border <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	b.border = border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">GetRadius</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.radius
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>RoundButton) <span style="color:#00f">SetRadius</span>(radius <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	b.radius = radius
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// SquareButton is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> SquareButton <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	border <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	length <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Rendered SquareButton!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">OnClick</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Square Button was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">SetBorder</span>(border <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	b.border = border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">GetLength</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.length
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>SquareButton) <span style="color:#00f">SetLength</span>(length <span style="color:#b00040">float64</span>) {
+</span></span><span style="display:flex;"><span>	b.length = length
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// ButtonFactory is the abstract factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> ButtonFactory <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">CreateButton</span>(border <span style="color:#b00040">float64</span>, radius <span style="color:#b00040">float64</span>, length <span style="color:#b00040">float64</span>) Button
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// RoundButtonFactory is a concrete factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> RoundButtonFactory <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>RoundButtonFactory) <span style="color:#00f">CreateButton</span>(border <span style="color:#b00040">float64</span>, radius <span style="color:#b00040">float64</span>, length <span style="color:#b00040">float64</span>) Button {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>RoundButton{
+</span></span><span style="display:flex;"><span>		border: border,
+</span></span><span style="display:flex;"><span>		radius: radius,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// SquareButtonFactory is a concrete factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> SquareButtonFactory <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>SquareButtonFactory) <span style="color:#00f">CreateButton</span>(border <span style="color:#b00040">float64</span>, radius <span style="color:#b00040">float64</span>, length <span style="color:#b00040">float64</span>) Button {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>SquareButton{
+</span></span><span style="display:flex;"><span>		border: border,
+</span></span><span style="display:flex;"><span>		length: length,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">ClientCode</span>(factory ButtonFactory) {
+</span></span><span style="display:flex;"><span>	button <span style="color:#666">:=</span> factory.<span style="color:#00f">CreateButton</span>(<span style="color:#666">1.0</span>, <span style="color:#666">5.0</span>, <span style="color:#666">10.0</span>)
+</span></span><span style="display:flex;"><span>	button.<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>	button.<span style="color:#00f">OnClick</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="abstract-factory">Abstract Factory</h3>
+<ul>
+<li>is a creational pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes</li>
+</ul>
+<p><strong>Example</strong></p>
+<ul>
+<li>We have already created a <code>User</code> abstract class. Now we will create the concrete classes <code>Student</code> and <code>Teacher</code>.</li>
+<li>To restrict the usage of subclasses, we can create factories for each of the concrete classes. The <code>StudentFactory</code> will be used to create <code>Student</code> objects and the <code>TeacherFactory</code> will be used to create <code>Teacher</code> objects.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">StudentFactory</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">createStudent</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Student(firstName,<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">TeacherFactory</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span><span style="color:#00f">createTeacher</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>Teacher(firstName,<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>StudentFactory<span style="color:#bbb"> </span>studentFactory<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>StudentFactory();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Student<span style="color:#bbb"> </span>student<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>studentFactory.<span style="color:#7d9029">createStudent</span>(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>TeacherFactory<span style="color:#bbb"> </span>teacherFactory<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>TeacherFactory();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Teacher<span style="color:#bbb"> </span>teacher<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>teacherFactory.<span style="color:#7d9029">createTeacher</span>(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>But now we have a problem, we can use the factories to create any type of student and teacher. Should a teacher teaching Physics be able to teach a student of Biology class?</li>
+<li>This is where the concept of related or a family of objects comes into play. The <code>Student</code> and <code>Teacher</code> objects are related to each other.</li>
+<li>A teacher should only be able to teach a student of the same class. So we can create a factory that can create a family of related objects. The <code>ClassroomFactory</code> will be used to create <code>Student</code> and <code>Teacher</code> objects of the same class.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ClassroomFactory</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span>Student<span style="color:#bbb"> </span><span style="color:#00f">createStudent</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">abstract</span><span style="color:#bbb"> </span>Teacher<span style="color:#bbb"> </span><span style="color:#00f">createTeacher</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>Now we can create concrete factories for each family of related objects that we want to create.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">BiologyClassroomFactory</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">extends</span><span style="color:#bbb"> </span>ClassroomFactory<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>Student<span style="color:#bbb"> </span><span style="color:#00f">createStudent</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>BiologyStudent(firstName,<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#a2f">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#008000;font-weight:bold">public</span><span style="color:#bbb"> </span>Teacher<span style="color:#bbb"> </span><span style="color:#00f">createTeacher</span>(String<span style="color:#bbb"> </span>firstName,<span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>lastName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#008000;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>BiologyTeacher(firstName,<span style="color:#bbb"> </span>lastName);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The class <code>ClassroomFactory</code> is an abstract class that contains the factory methods for creating the objects.</li>
+<li>The child classes can override the factory methods to create objects of their own type. The client code can request an object from the factory class without having to know the class of the object that will be returned.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ClassroomFactory<span style="color:#bbb"> </span>factory<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">new</span><span style="color:#bbb"> </span>BiologyClassroomFactory();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Student<span style="color:#bbb"> </span>student<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>factory.<span style="color:#7d9029">createStudent</span>(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Teacher<span style="color:#bbb"> </span>teacher<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>factory.<span style="color:#7d9029">createTeacher</span>(<span style="color:#ba2121">&#34;John&#34;</span>,<span style="color:#bbb"> </span><span style="color:#ba2121">&#34;Doe&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>The class <code>ClassroomFactory</code> becomes our abstract factory that essentially is a factory of factories.</li>
+</ul>
+<h4 id="abstract-factory-in-python">Abstract Factory in Python</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">abc</span> <span style="color:#008000;font-weight:bold">import</span> ABC, abstractmethod
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Abstract Product: Button</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Button</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_border <span style="color:#666">=</span> border
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">border</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_border
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Product: DarkButton</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DarkButton</span>(Button):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__(border)
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_radius <span style="color:#666">=</span> radius
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">radius</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_radius
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Dark Btn was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Abstract Product: Radio</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Radio</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onSelect</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Product: DarkRadio</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DarkRadio</span>(Radio):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onSelect</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;DarkRadio selected!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;DarkRadio rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Abstract Factory</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">ThemeFactory</span>(ABC):
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createRadio</span>(self) <span style="color:#666">-&gt;</span> Radio:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Factory: DarkThemeFactory</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DarkThemeFactory</span>(ThemeFactory):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> DarkButton(border, radius)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createRadio</span>(self) <span style="color:#666">-&gt;</span> Radio:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> DarkRadio()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Product: LightButton</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">LightButton</span>(Button):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, border: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__(border)
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>_length <span style="color:#666">=</span> length
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">length</span>(self) <span style="color:#666">-&gt;</span> <span style="color:#008000">float</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>_length
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onClick</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Light Btn was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Product: LightRadio</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">LightRadio</span>(Radio):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">onSelect</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;LightRadio selected!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">render</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;LightRadio rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Concrete Factory: LightThemeFactory</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">LightThemeFactory</span>(ThemeFactory):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createButton</span>(self, border: <span style="color:#008000">float</span>, length: <span style="color:#008000">float</span>, radius: <span style="color:#008000">float</span>) <span style="color:#666">-&gt;</span> Button:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> LightButton(border, length)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">createRadio</span>(self) <span style="color:#666">-&gt;</span> Radio:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> LightRadio()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Client code</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">client_code</span>(factory: ThemeFactory):
+</span></span><span style="display:flex;"><span>    button <span style="color:#666">=</span> factory<span style="color:#666">.</span>createButton(border<span style="color:#666">=</span><span style="color:#666">1.0</span>, length<span style="color:#666">=</span><span style="color:#666">10.0</span>, radius<span style="color:#666">=</span><span style="color:#666">5.0</span>)
+</span></span><span style="display:flex;"><span>    button<span style="color:#666">.</span>render()
+</span></span><span style="display:flex;"><span>    button<span style="color:#666">.</span>onClick()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    radio <span style="color:#666">=</span> factory<span style="color:#666">.</span>createRadio()
+</span></span><span style="display:flex;"><span>    radio<span style="color:#666">.</span>render()
+</span></span><span style="display:flex;"><span>    radio<span style="color:#666">.</span>onSelect()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Using DarkThemeFactory:&#34;</span>)
+</span></span><span style="display:flex;"><span>    dark_factory <span style="color:#666">=</span> DarkThemeFactory()
+</span></span><span style="display:flex;"><span>    client_code(dark_factory)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Using LightThemeFactory:&#34;</span>)
+</span></span><span style="display:flex;"><span>    light_factory <span style="color:#666">=</span> LightThemeFactory()
+</span></span><span style="display:flex;"><span>    client_code(light_factory)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#ba2121">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><h4 id="abstract-factory-in-golang">Abstract Factory in Golang</h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> abstractfactory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Button is the abstract product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> Button <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">OnClick</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// DarkButton is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> DarkButton <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	border <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	radius <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DarkButton) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Rendered DarkButton!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DarkButton) <span style="color:#00f">OnClick</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Dark Btn was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DarkButton) <span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>DarkButton) <span style="color:#00f">GetRadius</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.radius
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Radio is the abstract product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> Radio <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">OnSelect</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// DarkRadio is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> DarkRadio <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>DarkRadio) <span style="color:#00f">OnSelect</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;DarkRadio selected!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>DarkRadio) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;DarkRadio rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// LightButton is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> LightButton <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	border <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>	length <span style="color:#b00040">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>LightButton) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Rendered LightButton!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>LightButton) <span style="color:#00f">OnClick</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Light Btn was clicked!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>LightButton) <span style="color:#00f">GetBorder</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.border
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (b <span style="color:#666">*</span>LightButton) <span style="color:#00f">GetLength</span>() <span style="color:#b00040">float64</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> b.length
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// LightRadio is a concrete product
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> LightRadio <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>LightRadio) <span style="color:#00f">OnSelect</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;LightRadio selected!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (r <span style="color:#666">*</span>LightRadio) <span style="color:#00f">Render</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;LightRadio rendered!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// ThemeFactory is the abstract factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> ThemeFactory <span style="color:#008000;font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">CreateButton</span>(border, length, radius <span style="color:#b00040">float64</span>) Button
+</span></span><span style="display:flex;"><span>	<span style="color:#00f">CreateRadio</span>() Radio
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// DarkThemeFactory is a concrete factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> DarkThemeFactory <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>DarkThemeFactory) <span style="color:#00f">CreateButton</span>(border, length, radius <span style="color:#b00040">float64</span>) Button {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>DarkButton{border: border, radius: radius}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>DarkThemeFactory) <span style="color:#00f">CreateRadio</span>() Radio {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>DarkRadio{}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// LightThemeFactory is a concrete factory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> LightThemeFactory <span style="color:#008000;font-weight:bold">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>LightThemeFactory) <span style="color:#00f">CreateButton</span>(border, length, radius <span style="color:#b00040">float64</span>) Button {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>LightButton{border: border, length: length}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> (f <span style="color:#666">*</span>LightThemeFactory) <span style="color:#00f">CreateRadio</span>() Radio {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>LightRadio{}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Client code
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">ClientCode</span>(factory ThemeFactory) {
+</span></span><span style="display:flex;"><span>	button <span style="color:#666">:=</span> factory.<span style="color:#00f">CreateButton</span>(<span style="color:#666">1.0</span>, <span style="color:#666">10.0</span>, <span style="color:#666">5.0</span>)
+</span></span><span style="display:flex;"><span>	button.<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>	button.<span style="color:#00f">OnClick</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	radio <span style="color:#666">:=</span> factory.<span style="color:#00f">CreateRadio</span>()
+</span></span><span style="display:flex;"><span>	radio.<span style="color:#00f">Render</span>()
+</span></span><span style="display:flex;"><span>	radio.<span style="color:#00f">OnSelect</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="advantages-of-abstract-factory">Advantages of Abstract Factory</h4>
+<ul>
+<li><strong>Isolate concrete classes</strong> - The client code is not coupled to the concrete classes of the objects that it creates.</li>
+<li><strong>Easy to exchange product families</strong> - The client code can request an object from the factory class without having to know the class of the object that will be returned. This makes it easy to exchange product families.</li>
+<li><strong>Promotes consistency among products</strong> - The client code can request an object from the factory class without having to know the class of the object that will be returned. This makes it easy to maintain consistency among products.</li>
+</ul>
+<hr>
+<p><strong>References:</strong></p>
+<p><a href="https://github.com/abhiabhi0/design-patterns">Github</a></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/System-Design/&#34;&gt;System-Design&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Software-Engineering/&#34;&gt;Software-Engineering&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

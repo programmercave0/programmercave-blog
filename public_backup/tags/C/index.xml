@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on programmerCave</title>
+    <link>https://programmercave.com/tags/C/</link>
+    <description>Recent content in C on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stack Overflow Vulnerability</title>
+      <link>https://programmercave.com/Stack-Overflow-Vulnerability/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stack-Overflow-Vulnerability/</guid>
+      <description>Stack overflow is a type of buffer overflow vulnerability. When we pour water in a glass more than its capacity the water spills or overflow, similarly when we enter data in a buffer more than its capacity the data overflows to adjacents memory location causing program to crash. This is know as buffer overflow.&#xA;Stack Overflow is an old vulnerability. We will see this vulnerabiltiy in the C or C++ languages, because in these languages we can use pointer freely.</description>
+    </item>
+  </channel>
+</rss>

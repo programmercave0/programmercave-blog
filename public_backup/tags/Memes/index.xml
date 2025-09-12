@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memes on programmerCave</title>
+    <link>https://programmercave.com/tags/Memes/</link>
+    <description>Recent content in Memes on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Memes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Best Memes on Linked List Data Structure</title>
+      <link>https://programmercave.com/Best-Memes-on-Linked-List-Data-Structure/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Linked-List-Data-Structure/</guid>
+      <description>Here is the collection of some of the best memes on Linked List Data Structure.&#xA;Interviewer : How to reverse a Linked List? Me: Related Posts Best Memes on Windows Operating System Failure Best Memes on Javascript&#xA;Source r/ProgrammerHumor Programming Geek</description>
+    </item>
+    <item>
+      <title>Best Memes on Javascript</title>
+      <link>https://programmercave.com/Best-Memes-on-Javascript/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Javascript/</guid>
+      <description>Here is the collection of some of the best memes on Javascript.&#xA;Realted Posts: Memes on copy pasting code from Stackoverflow Best Memes on Windows Operating System Failure</description>
+    </item>
+    <item>
+      <title>Best Memes on Windows Operating System Failure</title>
+      <link>https://programmercave.com/Best-Memes-on-Microsoft-Operating-System/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Best-Memes-on-Microsoft-Operating-System/</guid>
+      <description>Here is the collection of some of the best memes on Microsoft Operating System.&#xA;Realted Posts: Memes on copy pasting code from Stackoverflow Best Memes on Javascript</description>
+    </item>
+    <item>
+      <title>Memes on copy pasting code from Stackoverflow</title>
+      <link>https://programmercave.com/Memes-on-copy-pasting-code-from-Stackoverflow/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Memes-on-copy-pasting-code-from-Stackoverflow/</guid>
+      <description>We have all copied code from stackoverflow.com, github.com and from other sources. Please mention other sources to copy code from. These websites has helped us a lot to become a good programmer.&#xA;Stackoverflow was launched on 2008 by Jeff Atwood and Joel Spolsky. It is written in C#. It is owned by Stack Exchange Network. Stack Exchange Network has some good websites too. codereview.stackexchange has helped me a lot as a programmer.</description>
+    </item>
+  </channel>
+</rss>

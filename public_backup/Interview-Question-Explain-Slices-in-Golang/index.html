@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Prepare for your Golang interview with this comprehensive guide on slices, covering key properties, differences from arrays, operations, and more.">
+  <meta name="keywords" content="Golang,, Go, slices,, Golang, interview, preparation,, Go, programming,, dynamic, arrays,, Go, language, concepts">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Interview Question: Explain Slices in Golang | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Interview Question: Explain Slices in Golang</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2025-01-18
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;http://localhost:1313/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+  <p>Slices in Go are essential for handling collections of data flexibly and efficiently. This guide will help you grasp the core concepts of slices, ensuring you are well-prepared for your upcoming Golang interview.</p>
+<h3 id="what-are-slices">What Are Slices?</h3>
+<p>Slices are built on top of arrays and offer a dynamic way to manage sequences of elements. They consist of three main components:</p>
+<ul>
+<li><strong>Pointer</strong>: Points to the first element of the underlying array.</li>
+<li><strong>Length</strong>: Indicates the number of elements in the slice.</li>
+<li><strong>Capacity</strong>: The maximum number of elements the slice can accommodate without requiring reallocation.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">var</span> a = []<span style="color:#b00040">int</span>{<span style="color:#666">10</span>, <span style="color:#666">20</span>, <span style="color:#666">30</span>, <span style="color:#666">40</span>, <span style="color:#666">50</span>}
+</span></span><span style="display:flex;"><span>	b <span style="color:#666">:=</span> a[:<span style="color:#666">3</span>]
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(b) <span style="color:#408080;font-style:italic">// [10 20 30]
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#008000">len</span>(b)) <span style="color:#408080;font-style:italic">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	fmt.<span style="color:#00f">Println</span>(<span style="color:#008000">cap</span>(b)) <span style="color:#408080;font-style:italic">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>}
+</span></span></code></pre></div><pre tabindex="0"><code>Underlying Array: [10, 20, 30, 40, 50]
+Slice Header: {
+  Pointer: -&gt; [10, 20, 30, 40, 50],
+  Length: 3,
+  Capacity: 5
+}
+</code></pre><p><img src="/assets/images/Golang/Slice.png" alt="Explain Slices in Golang"></p>
+<h3 id="key-properties-of-slices">Key Properties of Slices</h3>
+<ol>
+<li><strong>Dynamic Lengths</strong>: Unlike arrays, slices can grow or shrink during runtime.</li>
+<li><strong>Shared Underlying Arrays</strong>: Multiple slices can reference the same array; changes in one slice affect others.</li>
+<li><strong>Value Semantics</strong>: Assigning a slice copies its header but not its underlying array.</li>
+</ol>
+<h3 id="differences-between-slices-and-arrays">Differences Between Slices and Arrays</h3>
+<ul>
+<li>
+<p><strong>Arrays</strong>:</p>
+<ul>
+<li>Fixed size (e.g., <code>[5]int</code>).</li>
+<li>Value types; copying an array duplicates the entire array.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">var</span> a [<span style="color:#666">5</span>]<span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#666">:=</span> a
+</span></span><span style="display:flex;"><span>    b[<span style="color:#666">2</span>] = <span style="color:#666">7</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#00f">Println</span>(a, b) <span style="color:#408080;font-style:italic">// Output: [0 0 0 0 0] [0 0 7 0 0]
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Slices</strong>:</p>
+<ul>
+<li>Dynamic lengths and capacities.</li>
+<li>Share the same underlying array when assigned.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>    a <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>}
+</span></span><span style="display:flex;"><span>    b <span style="color:#666">:=</span> a[<span style="color:#666">2</span>:]
+</span></span><span style="display:flex;"><span>    b[<span style="color:#666">0</span>] = <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#00f">Println</span>(a, b) <span style="color:#408080;font-style:italic">// Output: [1 2 0 4 5] [0 4 5]
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>}
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="slice-header-structure">Slice Header Structure</h3>
+<p>Internally, a slice is represented by a struct:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> runtime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> slice <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    ptr   unsafe.Pointer
+</span></span><span style="display:flex;"><span>    len   <span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>    cap   <span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When passed to functions, only the slice header is copied; the underlying array remains unchanged.</p>
+<h3 id="common-operations-on-slices">Common Operations on Slices</h3>
+<ol>
+<li>
+<p><strong>Appending Elements</strong>:
+Use the <code>append</code> function to add elements dynamically.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>slice <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>slice = <span style="color:#008000">append</span>(slice, <span style="color:#666">4</span>, <span style="color:#666">5</span>)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#00f">Println</span>(slice) <span style="color:#408080;font-style:italic">// Output: [1, 2, 3, 4, 5]
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Copying Slices</strong>:
+Use <code>copy</code> to transfer elements between slices.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>src <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>dst <span style="color:#666">:=</span> <span style="color:#008000">make</span>([]<span style="color:#b00040">int</span>, <span style="color:#008000">len</span>(src))
+</span></span><span style="display:flex;"><span><span style="color:#008000">copy</span>(dst, src)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#00f">Println</span>(dst) <span style="color:#408080;font-style:italic">// Output: [1, 2, 3]
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Using Slices as Stacks</strong>:
+Implement stack operations using slices.</p>
+<p>Push operation:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>stack <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{}
+</span></span><span style="display:flex;"><span>stack = <span style="color:#008000">append</span>(stack, <span style="color:#666">10</span>) <span style="color:#408080;font-style:italic">// Push
+</span></span></span></code></pre></div><p>Pop operation:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>val <span style="color:#666">:=</span> stack[<span style="color:#008000">len</span>(stack)<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#408080;font-style:italic">// Peek
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>stack = stack[:<span style="color:#008000">len</span>(stack)<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#408080;font-style:italic">// Pop
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Modifying Slices in Functions</strong>:
+Changes within functions affect the original slice due to shared underlying arrays.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">negate</span>(s []<span style="color:#b00040">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> i <span style="color:#666">:=</span> <span style="color:#008000;font-weight:bold">range</span> s {
+</span></span><span style="display:flex;"><span>        s[i] = <span style="color:#666">-</span>s[i]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>    a <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">negate</span>(a)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#00f">Println</span>(a) <span style="color:#408080;font-style:italic">// Output: [-1 -2 -3]
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Inserting Elements</strong>:
+Shift elements to insert new values.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">Insert</span>(slice []<span style="color:#b00040">int</span>, index, value <span style="color:#b00040">int</span>) []<span style="color:#b00040">int</span> {
+</span></span><span style="display:flex;"><span>    slice = <span style="color:#008000">append</span>(slice, <span style="color:#666">0</span>) <span style="color:#408080;font-style:italic">// Extend length
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    <span style="color:#008000">copy</span>(slice[index<span style="color:#666">+</span><span style="color:#666">1</span>:], slice[index:])
+</span></span><span style="display:flex;"><span>    slice[index] = value
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> slice
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>slice <span style="color:#666">:=</span> []<span style="color:#b00040">int</span>{<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>slice = <span style="color:#00f">Insert</span>(slice, <span style="color:#666">1</span>, <span style="color:#666">99</span>)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#00f">Println</span>(slice) <span style="color:#408080;font-style:italic">// Output: [1, 99, 2]
+</span></span></span></code></pre></div></li>
+</ol>
+<h3 id="nil-vs-empty-slices">Nil vs. Empty Slices</h3>
+<ul>
+<li>A <strong>nil slice</strong> has no underlying array.</li>
+<li>An <strong>empty slice</strong> has a length of zero but can still grow.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> nilSlice []<span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>emptySlice <span style="color:#666">:=</span> <span style="color:#008000">make</span>([]<span style="color:#b00040">int</span>, <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#00f">Println</span>(nilSlice <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span>) <span style="color:#408080;font-style:italic">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>fmt.<span style="color:#00f">Println</span>(emptySlice <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span>) <span style="color:#408080;font-style:italic">// false
+</span></span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
+<p>Understanding slices is crucial for efficient coding in Go. Familiarize yourself with their properties and operations to excel in your Golang interviews. Mastering these concepts will enhance your ability to write effective and maintainable code in Go.</p>
+<h4 id="citations">Citations:</h4>
+<ul>
+<li><a href="https://www.interviewbit.com/golang-interview-questions/">Golang Interview Questions - InterviewBit</a></li>
+<li><a href="https://www.guvi.in/blog/golang-interview-questions-and-answers/">Golang Interview Questions and Answers - Guvi</a></li>
+<li><a href="https://www.educative.io/blog/50-golang-interview-questions">50 Golang Interview Questions - Educative</a></li>
+<li><a href="https://dev.to/crusty0gphr/tricky-golang-interview-questions-part-1-slice-header-3oo0">Tricky Golang Interview Questions Part 1: Slice Header - Dev.to</a></li>
+<li><a href="https://testbook.com/interview/golang-interview-questions">Golang Interview Questions - Testbook</a></li>
+<li><a href="https://www.simplilearn.com/golang-interview-questions-article">Golang Interview Questions - Simplilearn</a></li>
+</ul>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;http://localhost:1313/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="http://localhost:1313/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

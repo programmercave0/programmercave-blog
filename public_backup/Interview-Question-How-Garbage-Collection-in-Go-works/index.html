@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn how Go&#39;s garbage collector works using a concurrent, tri-color mark-sweep algorithm. Simple explanations for software engineering interview prep.">
+  <meta name="keywords" content="Go, garbage, collection,, tri-color, algorithm,, mark-sweep,, write, barriers,, concurrent, GC,, memory, management,, interview, preparation,, software, engineer, interview">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Interview Question: How Garbage Collection in Go works? | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Interview Question: How Garbage Collection in Go works?</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2025-02-20
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+  <h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Concurrent Execution</strong>: Go’s garbage collector runs in the background, minimizing pauses.</li>
+<li><strong>Tri-Color Marking</strong>: Uses white, grey, and black labels to identify unused memory efficiently.</li>
+<li><strong>Low Latency</strong>: Short pauses make Go ideal for real-time applications like servers.</li>
+<li><strong>Write Barriers</strong>: Prevent accidental deletion of active objects during garbage collection.</li>
+<li><strong>Interview-Ready</strong>: Understanding these concepts helps you answer memory management questions confidently.</li>
+</ul>
+<p><img src="/assets/images/Golang/Garbage-Collection-in-Go.png" alt="How Garbage Collection in Go works?"></p>
+<h2 id="what-is-garbage-collection">What is Garbage Collection?</h2>
+<p>Garbage collection (GC) is an automatic process that frees up memory used by programs. In Go, it acts like a background cleaner that identifies and deletes unused objects while your application runs. This ensures that your program doesn&rsquo;t run out of memory and maintains optimal performance.</p>
+<h2 id="how-gos-garbage-collector-works-a-step-by-step-guide">How Go’s Garbage Collector Works: A Step-by-Step Guide</h2>
+<h3 id="1-concurrent-execution">1. Concurrent Execution</h3>
+<h4 id="problem-with-traditional-gc">Problem with Traditional GC</h4>
+<ul>
+<li>Traditional garbage collectors stop the entire program temporarily (stop-the-world), causing delays.</li>
+</ul>
+<h4 id="gos-solution">Go’s Solution</h4>
+<ul>
+<li>Go’s garbage collector runs concurrently alongside your code, minimizing pauses.</li>
+</ul>
+<h4 id="example">Example</h4>
+<ul>
+<li>Imagine cleaning a room while people are still working in it, instead of waiting for everyone to leave.</li>
+</ul>
+<h3 id="2-tri-color-marking-algorithm">2. Tri-Color Marking Algorithm</h3>
+<p>Go uses a tri-color marking algorithm to label objects and decide what to delete:</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White</td>
+<td>Not checked yet (might be garbage).</td>
+</tr>
+<tr>
+<td>Grey</td>
+<td>Checked but needs further inspection.</td>
+</tr>
+<tr>
+<td>Black</td>
+<td>Confirmed as active (not garbage).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="how-it-works">How It Works</h4>
+<ul>
+<li><strong>Start</strong>: All objects are initially white.</li>
+<li><strong>Mark Roots</strong>: Global variables, active functions, etc., are marked grey.</li>
+<li><strong>Process Grey Objects</strong>:
+<ul>
+<li>Inspect references in a grey object.</li>
+<li>Turn its referenced white objects grey.</li>
+<li>Turn the original object black.</li>
+</ul>
+</li>
+<li><strong>Repeat</strong> until no grey objects remain.</li>
+<li><strong>Delete</strong>: All remaining white objects are deleted.</li>
+</ul>
+<h4 id="why-its-efficient">Why It’s Efficient</h4>
+<ul>
+<li>No long pauses.</li>
+<li>Only scans active objects.</li>
+</ul>
+<h3 id="3-mark-sweep-phases">3. Mark-Sweep Phases</h3>
+<ul>
+<li><strong>Mark Phase</strong>: Identifies active objects using the tri-color marking.</li>
+<li><strong>Sweep Phase</strong>: Deletes white (unused) objects.</li>
+<li><strong>Concurrent Execution</strong>: Both phases run in the background, ensuring minimal disruption.</li>
+</ul>
+<h2 id="write-barriers-keeping-things-safe">Write Barriers: Keeping Things Safe</h2>
+<p>When the garbage collector and your application run simultaneously, issues can arise. For example:</p>
+<ul>
+<li>If a black object (marked as active) suddenly references a white object (unchecked), the white object might get deleted by mistake.</li>
+</ul>
+<h4 id="how-write-barriers-help">How Write Barriers Help</h4>
+<ul>
+<li><strong>How</strong>: If a black object references a white object, the write barrier turns the white object grey.</li>
+<li><strong>Result</strong>: The garbage collector rechecks the white object, ensuring it’s not deleted prematurely.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Go’s garbage collector is designed for performance and simplicity. By combining concurrent execution, tri-color marking, and write barriers, it keeps applications fast and memory-efficient. For interviews, focus on explaining these concepts with real-world examples (e.g., servers handling thousands of requests).</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

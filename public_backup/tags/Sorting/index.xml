@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sorting on programmerCave</title>
+    <link>https://programmercave.com/tags/Sorting/</link>
+    <description>Recent content in Sorting on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Sorting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Selection sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Selection-sort-using-STL/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Selection-sort-using-STL/</guid>
+      <description>Selection sort is an in-place sorting algorithm. In the input array there is a sorted portion and an unsorted portion. The algorithm repeatedly finds the smallest element in the unsorted portion of the array and puts it at the end of the sorted portion of the array.&#xA;First the algorithm finds the smallest element in the array which is 1 and it is added to the sorted array and then the algorithm finds smallest element in the remaining array and so on.</description>
+    </item>
+    <item>
+      <title>Merge Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Merge-Sort/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Merge-Sort/</guid>
+      <description>Merge sort follows divide-and-conquer approach. It divides an array of n elements into two subarrays of n/2 elements each. Then it sort the two subarrays recursively using merge sort. And then these subarrays are merged to produce a single sorted array.&#xA;If the size of the array is even then the size of subarrays is equal and if it is odd then first array has one element more than the second array.</description>
+    </item>
+    <item>
+      <title>Insertion Sort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Insertion-Sort-using-STL-Sorting/</guid>
+      <description>Insertion sort is an efficient algorithm for sorting a small number of elements. The algorithm selects an element from the unsorted array and put it in the proper position in the sorted. This process is repeated until all elements in the array are sorted. The sorting is in-place means array consists of sorted portion and unsorted portion in it.&#xA;The index of the key starts from 1. The algorithm finds the correct position of the key in the array and put the key at that position and then the element with next index becomes key.</description>
+    </item>
+    <item>
+      <title>Quicksort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Quicksort-Sorting/</guid>
+      <description>Like mergesort, quicksort also follows divide-and-conquer approach. The algorithm selects an element as pivot. The input array is divided into two subarrays. All elements in left subarray are less than pivot and all elements in right subarray are greater than pivot. These two subarrays are sorted independently and then merged to form a single sorted array.&#xA;Related : Merge Sort&#xA;In fig. (a) 4 is selected as the pivot and in fig.</description>
+    </item>
+    <item>
+      <title>Heapsort | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Implementation-of-Heapsort-Sorting/</guid>
+      <description>Heapsort is implemented using heap data structure. Heap helps us to represent binary tree without using any pointers. Using heap an array can be viewed as a binary tree and each node of the tree stores an element of the array.&#xA;There are two kinds of binary heaps: max-heaps and min-heaps. In max-heap, the value stored at the parent node is greater than the value stored at its children nodes. Thus in a max-heap, root node contains the largest element.</description>
+    </item>
+  </channel>
+</rss>

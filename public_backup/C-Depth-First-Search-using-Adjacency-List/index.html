@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Depth first search explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started. ">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Depth First Search using Adjacency List | Graph traversal | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Depth First Search using Adjacency List | Graph traversal</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2018-03-05
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Graph-Algorithms/&#34;&gt;Graph-Algorithms&lt;/a&gt;
+    </div>
+  
+  <p><strong>Depth first search</strong> explores on a single path in a graph as long as it find undiscovered vertices. When an edge leads to the discovered vertices it backtrack to the previous vertex and explores along the edge where it find undiscovered vertices. Finally it backtracks to the source vertex from where it started.</p>
+<p>Initially all the vertices are white and when a vertex is discovered it becomes gray and then black when it is finished or processed.</p>
+<p><img src="/assets/images/dfs.png" alt="Depth First Search">
+<img src="/assets/images/dfs_.png" alt="Depth First Search"></p>
+<p>First source vertex 1 is discovered so it becomes gray. Then vertex 4 is discovered. Since there are no vertex after vertex 4 on that path so vertex 4 is processed or finished and it becomes black. Then vertex 2 is discovered and so on. When vertex 3 is processed, control backtracks to the previous vertex which is 2.</p>
+<!-- raw HTML omitted -->
+<p>To store the color of the current vertex, we need a data structure.</p>
+<p>Here is the implementation of the function <code>depth_first_search</code> and <code>depth_first_search_visit</code>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">enum</span> <span style="color:#00f;font-weight:bold">Color</span> {WHITE, GRAY, BLACK};
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Vertex</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#b00040">int</span> id;
+</span></span><span style="display:flex;"><span>      Color color;
+</span></span><span style="display:flex;"><span>      Vertex(<span style="color:#b00040">int</span> _id) <span style="color:#666">:</span> id(_id),
+</span></span><span style="display:flex;"><span>                        color(Color<span style="color:#666">::</span>WHITE)
+</span></span><span style="display:flex;"><span>                        {}
+</span></span><span style="display:flex;"><span>   };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">depth_first_search</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span><span style="color:#666">&amp;</span> <span style="color:#a0a000">u</span>: vertices)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">if</span> (vertices[u.id].color <span style="color:#666">==</span> WHITE)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>         depth_first_search_visit(u.id);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> <span style="color:#00f">depth_first_search_visit</span>(<span style="color:#b00040">int</span> u)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   vertices[u].color <span style="color:#666">=</span> GRAY;
+</span></span><span style="display:flex;"><span>   std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> vertices[u].id <span style="color:#666">&lt;&lt;</span><span style="color:#ba2121">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span><span style="color:#666">&amp;</span> v <span style="color:#666">=</span> adjacent[u].head;
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">if</span> (vertices[v<span style="color:#666">-&gt;</span>dest_id].color <span style="color:#666">==</span> WHITE)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>         depth_first_search_visit(v<span style="color:#666">-&gt;</span>dest_id);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   vertices[u].color <span style="color:#666">=</span> BLACK;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Variable <code>color</code> in struct <code>Vertex</code> stores color for the given vertex.</p>
+<p>The time complexity of Depth First Search is <em>O(n+m)</em> where <em>n</em> is the number of vertices and <em>m</em> is the number of edges.</p>
+<!-- raw HTML omitted -->
+<p>Here is the C++ Implementation for Depth First Search using Adjacency List</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;iostream&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00">#include</span> <span style="color:#bc7a00">&lt;vector&gt;</span><span style="color:#bc7a00">
+</span></span></span><span style="display:flex;"><span><span style="color:#bc7a00"></span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Graph</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">int</span> vertex_count;
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">enum</span> <span style="color:#00f;font-weight:bold">Color</span> {WHITE, GRAY, BLACK};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Vertex</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#b00040">int</span> id;
+</span></span><span style="display:flex;"><span>      Color color;
+</span></span><span style="display:flex;"><span>      Vertex(<span style="color:#b00040">int</span> _id) <span style="color:#666">:</span> id(_id),
+</span></span><span style="display:flex;"><span>                        color(Color<span style="color:#666">::</span>WHITE)
+</span></span><span style="display:flex;"><span>                        {}
+</span></span><span style="display:flex;"><span>   };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Adj_list_node</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#b00040">int</span> dest_id;
+</span></span><span style="display:flex;"><span>      Adj_list_node <span style="color:#666">*</span> next;
+</span></span><span style="display:flex;"><span>      Adj_list_node(<span style="color:#b00040">int</span> _dest_id) <span style="color:#666">:</span> dest_id(_dest_id),
+</span></span><span style="display:flex;"><span>                                    next (<span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>                                    {}
+</span></span><span style="display:flex;"><span>   };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">struct</span> <span style="color:#00f;font-weight:bold">Adj_list</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      Adj_list_node <span style="color:#666">*</span>head;
+</span></span><span style="display:flex;"><span>   };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Vertex<span style="color:#666">&gt;</span> vertices;
+</span></span><span style="display:flex;"><span>   std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>Adj_list<span style="color:#666">&gt;</span> adjacent;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">public</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>   Graph(<span style="color:#b00040">int</span>);
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">void</span> <span style="color:#00f">add_edge</span>(<span style="color:#b00040">int</span>, <span style="color:#b00040">int</span>);
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">void</span> <span style="color:#00f">depth_first_search</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#008000;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#b00040">void</span> depth_first_search_visit(<span style="color:#b00040">int</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph<span style="color:#666">::</span>Graph(<span style="color:#b00040">int</span> v)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   vertex_count <span style="color:#666">=</span> v;
+</span></span><span style="display:flex;"><span>   adjacent.resize(vertex_count);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> vertex_count; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>       vertices.push_back( Vertex(i) );
+</span></span><span style="display:flex;"><span>       adjacent[i].head <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">nullptr</span>;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> Graph<span style="color:#666">::</span>depth_first_search()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span><span style="color:#666">&amp;</span> <span style="color:#a0a000">u</span>: vertices)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">if</span> (vertices[u.id].color <span style="color:#666">==</span> WHITE)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>         depth_first_search_visit(u.id);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> Graph<span style="color:#666">::</span>depth_first_search_visit(<span style="color:#b00040">int</span> u)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   vertices[u].color <span style="color:#666">=</span> GRAY;
+</span></span><span style="display:flex;"><span>   std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> vertices[u].id <span style="color:#666">&lt;&lt;</span><span style="color:#ba2121">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">const</span> <span style="color:#008000;font-weight:bold">auto</span><span style="color:#666">&amp;</span> v <span style="color:#666">=</span> adjacent[u].head;
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">if</span> (vertices[v<span style="color:#666">-&gt;</span>dest_id].color <span style="color:#666">==</span> WHITE)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>         depth_first_search_visit(v<span style="color:#666">-&gt;</span>dest_id);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   vertices[u].color <span style="color:#666">=</span> BLACK;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">void</span> Graph<span style="color:#666">::</span>add_edge(<span style="color:#b00040">int</span> src, <span style="color:#b00040">int</span> dest)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   Adj_list_node <span style="color:#666">*</span>node <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Adj_list_node(dest);
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">if</span> (adjacent[src].head <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      adjacent[src].head <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      Adj_list_node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> adjacent[src].head;
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">while</span> (tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>             tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#408080;font-style:italic">//undirected graph
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>   node <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">new</span> Adj_list_node(src);
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">if</span> (adjacent[dest].head <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      adjacent[dest].head <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>     Adj_list_node <span style="color:#666">*</span>tmp <span style="color:#666">=</span> adjacent[dest].head;
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">while</span> (tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nullptr</span>)
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#666">=</span> tmp<span style="color:#666">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     tmp<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   Graph grp(<span style="color:#666">4</span>);
+</span></span><span style="display:flex;"><span>   grp.add_edge(<span style="color:#666">0</span>, <span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>   grp.add_edge(<span style="color:#666">1</span>, <span style="color:#666">2</span>);
+</span></span><span style="display:flex;"><span>   grp.add_edge(<span style="color:#666">2</span>, <span style="color:#666">3</span>);
+</span></span><span style="display:flex;"><span>   grp.add_edge(<span style="color:#666">2</span>, <span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>   grp.add_edge(<span style="color:#666">0</span>, <span style="color:#666">3</span>);
+</span></span><span style="display:flex;"><span>   grp.depth_first_search();
+</span></span><span style="display:flex;"><span>   std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Reference:<!-- raw HTML omitted -->
+<a href="https://amzn.to/2OarGBs">Introduction to Algorithms</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2CH9h9Z">The Algorithm Design Manual</a><!-- raw HTML omitted -->
+<a href="https://amzn.to/2NLM0dd">Data Structures and Algorithms Made Easy</a><!-- raw HTML omitted -->
+Competitive Programmer’s Handbook - Antti Laaksonen<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Graph-Algorithms/&#34;&gt;Graph-Algorithms&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

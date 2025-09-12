@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C&#43;&#43; for each method.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2023-03-03
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structures/&#34;&gt;Data-Structures&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Mathematics/&#34;&gt;Mathematics&lt;/a&gt;
+    </div>
+  
+  <h2 id="introduction">Introduction</h2>
+<p>Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.</p>
+<h2 id="linear-search-method">Linear Search Method</h2>
+<p>The linear search method is a simple algorithm that iteratively checks each integer number from 1 to <code>n</code> to see if its square is equal to the input number n. If a number <code>i</code> is found such that <code>i*i = n</code>, then <code>i</code> is returned as the square root of <code>n</code>. If no such number is found, then the algorithm returns nothing.</p>
+<p>Here is the implementation of the linear search method in C++:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">linear_search_mtd</span>(<span style="color:#b00040">int</span> n)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> (<span style="color:#b00040">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;=</span> n; <span style="color:#666">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (i<span style="color:#666">*</span>i <span style="color:#666">==</span> n)
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> i;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="binary-search-method">Binary Search Method</h2>
+<p>The binary search method is a more efficient algorithm for finding the square root of a number. It works by repeatedly dividing the search interval in half and checking if the middle number squared is equal to <code>n</code>. If the middle number squared is less than n, then the search interval is updated to the right half of the interval. Otherwise, the search interval is updated to the left half of the interval. This process continues until the square root of n is found.</p>
+<p><img src="/assets/images/Square-Root/sq_root1.png" alt="Square Root of Number">
+<img src="/assets/images/Square-Root/sq_root2.png" alt="Square Root of Number"></p>
+<p>Here is the implementation of the binary search method in C++:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">binary_search_mtd</span>(<span style="color:#b00040">int</span> n)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#b00040">int</span> l <span style="color:#666">=</span> <span style="color:#666">1</span>, r <span style="color:#666">=</span> n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">while</span> (l <span style="color:#666">&lt;=</span> r)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#b00040">int</span> mid <span style="color:#666">=</span> (l<span style="color:#666">+</span>r)<span style="color:#666">/</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> (mid<span style="color:#666">*</span>mid <span style="color:#666">==</span> n)
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> mid;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span> <span style="color:#008000;font-weight:bold">if</span> (mid<span style="color:#666">*</span>mid <span style="color:#666">&lt;</span> n)
+</span></span><span style="display:flex;"><span>            l <span style="color:#666">=</span> mid<span style="color:#666">+</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">else</span> 
+</span></span><span style="display:flex;"><span>            r <span style="color:#666">=</span> mid<span style="color:#666">-</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="comparison-between-linear-search-and-binary-search-methods">Comparison between Linear Search and Binary Search Methods</h2>
+<p>The binary search method is more efficient than the linear search method for finding the square root of a number. This is because the binary search method has a time complexity of <strong>O(log n)</strong>, while the linear search method has a time complexity of <strong>O(n)</strong>. In other words, the binary search method can find the square root of a number much faster than the linear search method, especially for large values of n.</p>
+<p>If you&rsquo;d like to see the complete code for checking prime numbers using an optimized algorithm, you can find it on <a href="https://github.com/abhiabhi0/Algo-Data-Structure/blob/master/Maths/find_sq_root.cpp">Github</a>
+.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In conclusion, finding the square root of a number is a common problem in mathematics and computer science. The linear search method and binary search method are two algorithms that can be used to solve this problem. The binary search method is more efficient than the linear search method, especially for large values of n. Both methods have been implemented in C++ and can be used depending on the specific requirements of the problem at hand.</p>
+<hr>
+<p>By the way, if you&rsquo;re a teacher or parent looking for resources to help your child get ready for school, you might be interested in these fun and informative workbooks developed by a pre-school teacher. Covering all the basic skills needed for school-readiness, they&rsquo;re perfect for the pre-school education niche. Check them out here: <a href="https://ce8977zhz1vrft28uay3ofipe9.hop.clickbank.net/?cbpage=wfpaffiliate">WORKSHEETS FOR PRESCHOOL</a></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Algorithm/&#34;&gt;Algorithm&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Data-Structures/&#34;&gt;Data-Structures&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Mathematics/&#34;&gt;Mathematics&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

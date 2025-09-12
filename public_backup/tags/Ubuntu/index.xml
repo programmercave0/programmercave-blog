@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on programmerCave</title>
+    <link>https://programmercave.com/tags/Ubuntu/</link>
+    <description>Recent content in Ubuntu on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Resize Partitions in Arch Linux</title>
+      <link>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</guid>
+      <description>Introduction Running out of space on your root partition can be a frustrating experience when using Arch Linux. Fortunately, resizing your partitions can be done easily with the help of a live USB or CD and the GParted partition editor. In this guide, we&amp;rsquo;ll walk you through the steps to resize your partitions and increase the size of your root partition in Arch Linux.&#xA;Step 1: Boot into a Live USB or CD</description>
+    </item>
+    <item>
+      <title>Complete Guide: Installing, Setting Up, and Removing PostgreSQL in Linux</title>
+      <link>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</guid>
+      <description>Introduction PostgreSQL is an open-source relational database management system. It is known for its reliability, scalability, and extensibility, making it a popular choice for enterprise-level applications. In this tutorial, we will cover how to install and set up PostgreSQL in Linux, how to create a database and table, how to insert values into the table, how to log in to a user and database, and how to completely remove PostgreSQL including all related files.</description>
+    </item>
+    <item>
+      <title>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed</title>
+      <link>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</guid>
+      <description>Introduction Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&amp;rsquo;t worry, we&amp;rsquo;ve got you covered. We&amp;rsquo;ve gone through the process of searching various websites and experimenting with different techniques, and we&amp;rsquo;ve finally found a solution. We&amp;rsquo;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot.</description>
+    </item>
+    <item>
+      <title>How to Install a Software on Ubuntu | Package Management</title>
+      <link>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-a-Software-on-Ubuntu--Package-Management/</guid>
+      <description>Package management facilities helps us to install and maintain software on the system. The package file for Ubuntu and other Debian based OS ends with .deb. For eg. draw.io-amd64-12.2.2.deb&#xA;A package file is a compressed collection of files necessary to install a software or an application. It also includes metadata about the package such as text description of package and name of dependencies the software needs.&#xA;To run a progam on a system, it rely on other programs.</description>
+    </item>
+    <item>
+      <title>How to create Password list using CUPP tool on Ubuntu</title>
+      <link>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</guid>
+      <description>People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.&#xA;CUPP(Common User Passwords Profiler) is python based free and open source tool which generates wordlist for a specific user based on the information provided.</description>
+    </item>
+    <item>
+      <title>How to Install graphics.h C/C&#43;&#43; library on Ubuntu</title>
+      <link>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</guid>
+      <description>In this post we are going to install graphics.h library on Ubuntu and to use it with gcc or g++ compiler. graphics.h provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in graphic.h library in C/C++ visit here.&#xA;To use graphics.hon Ubuntu platform we need to compile and install libgraph. libgraph is an implementation of the TurboC graphics API (graphics.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Simple Pendulum Animation on Ubuntu Machine</title>
+      <link>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</guid>
+      <description>Here is the code to animate simple pendulum on Ubuntu Machine.&#xA;We have to add #include &amp;lt;graphics.h&amp;gt; header file.&#xA;If you want to install C/C++ graphic.h header file on Ubuntu you can visit this post. How to Install graphics.h C/C++ library on Ubuntu&#xA;We have to also write int gd = DETECT, gm; initgraph(&amp;amp;gd, &amp;amp;gm, NULL);&#xA;initgraph() initializes the graphics system by loading a graphics driver from disk (or validating a registered driver), and putting the system into graphics mode.</description>
+    </item>
+  </channel>
+</rss>

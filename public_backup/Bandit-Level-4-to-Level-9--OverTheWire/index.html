@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9. In this post we will learn how to find a human readable file with certain size in bytes and with certain user. The passwords are hidden, so you have to find the passwords for next level yourself.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Bandit Level 4 to Level 8 | OverTheWire | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Bandit Level 4 to Level 8 | OverTheWire</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-12-22
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+  <p>Learn linux command by playing <a href="https://overthewire.org/wargames/bandit/">Bandit</a> wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 4 → Level 5, Level 5 → Level 6, Level 6 → Level 7, Level 7 → Level 8, and Level 8 → Level 9.</p>
+<p>In this post we will learn how to find a human readable file with certain size in bytes and with certain user.</p>
+<p>The passwords are hidden, so you have to find the passwords for next level yourself.</p>
+<p><img src="/assets/images/Bandit-Overthewire/overthewire_poster.jpg" alt="Bandit OverTheWire"></p>
+<h3 id="previous-post">Previous Post</h3>
+<p><a href="/Bandit-Level-0-to-Level-5-OverTheWire">Bandit Level 0 to Level 3</a></p>
+<h2 id="bandit-level-4--level-5httpsoverthewireorgwargamesbanditbandit5html"><a href="https://overthewire.org/wargames/bandit/bandit5.html">Bandit Level 4 → Level 5</a></h2>
+<h3 id="level-goal">Level Goal</h3>
+<p>The password for the next level is stored in the only human-readable file in the <strong>inhere</strong> directory.<!-- raw HTML omitted --> Tip: if your terminal is messed up, try the “reset” command.</p>
+<h3 id="commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</h3>
+<p>ls, cd, cat, file, du, find</p>
+<h3 id="solution-">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit4@bandit.labs.overthewire.org -p 2220</code> password is  <code>****</code> .</p>
+<p><code>file</code> command is used to determine a file’s type or what file contains.</p>
+<p>In <em>inhere</em> directory, there are 10 files <em>-file00, -file01, …, -file09</em>. The human-readable file means the content of that file is ASCII and we can find the type of content of a file by running command</p>
+<pre tabindex="0"><code>file ./-file00 
+</code></pre><pre tabindex="0"><code>file ./-file01
+</code></pre><p>&hellip;</p>
+<pre tabindex="0"><code>file ./file07
+</code></pre><p>We found that <em>-file07</em> contains ASCII text.</p>
+<p>Instead of checking each file we can use <code>find</code> and <code>xargs</code> command.</p>
+<p><code>find</code> program searches a given directory (and its subdirectories) for files based on a variety of attributes.</p>
+<p>Command <code>find . -type f</code> searches all regular files in the current directory. Current directory is specified by . (dot).</p>
+<p>The <code>xargs</code> command performs an interesting function. It accepts input from standard input and converts it into an argument list for a specified command.</p>
+<p>Command <code>find . -type f | xargs file</code> finds all the regular files in the current directory and <code>xargs</code> constructs an argument list for <code>file</code> command and then executes it.</p>
+<p>The password for the next level is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l45_terminal.jpg" alt="Bandit Level 4 5"></p>
+<p>Reference : <a href="https://amzn.to/2PDVmZz">The Linux Command Line – A Complete Introduction</a><!-- raw HTML omitted -->
+<a href="https://stackoverflow.com/questions/12654026/how-to-count-all-the-human-readable-files-in-bash">https://stackoverflow.com/questions/12654026/how-to-count-all-the-human-readable-files-in-bash</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-5--level-6httpsoverthewireorgwargamesbanditbandit6html"><a href="https://overthewire.org/wargames/bandit/bandit6.html">Bandit Level 5 → Level 6</a></h2>
+<h3 id="level-goal-1">Level Goal</h3>
+<p>The password for the next level is stored in a file somewhere under the <strong>inhere</strong> directory and has all of the following properties:<!-- raw HTML omitted --></p>
+<ul>
+<li>human-readable</li>
+<li>1033 bytes in size</li>
+<li>not executable</li>
+</ul>
+<h3 id="commands-you-may-need-to-solve-this-level-1">Commands you may need to solve this level</h3>
+<p>ls, cd, cat, file, du, find</p>
+<h3 id="solution--1">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit5@bandit.labs.overthewire.org -p 2220</code> password is  <code>****</code> .</p>
+<p>In manual pages of <code>find</code> command it is mentioned that option <code>-size</code> is used to specify size of the file and <code>c</code> is used for bytes. <code>-executable</code> matches the executable files, so <code>! -executables</code> matches the non executable files. We then pipe this output to <code>xargs</code> command which tells the content of the file found. Command is</p>
+<pre tabindex="0"><code>find . -type f -size 1033c ! - executable | xargs file
+</code></pre><p>The password for the next level is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l56_terminal.jpg" alt="Bandit Level 5 6"></p>
+<p>Reference : <a href="https://amzn.to/2PDVmZz">The Linux Command Line – A Complete Introduction</a><!-- raw HTML omitted -->
+<a href="http://man7.org/linux/man-pages/man1/find.1.html">http://man7.org/linux/man-pages/man1/find.1.html</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-6--level-7httpsoverthewireorgwargamesbanditbandit7html"><a href="https://overthewire.org/wargames/bandit/bandit7.html">Bandit Level 6 → Level 7</a></h2>
+<h3 id="level-goal-2">Level Goal</h3>
+<p>The password for the next level is <strong>stored somewhere on the server</strong> and has all of the following properties:<!-- raw HTML omitted --></p>
+<ul>
+<li>owned by user bandit7</li>
+<li>owned by group bandit6</li>
+<li>33 bytes in size</li>
+</ul>
+<h3 id="commands-you-may-need-to-solve-this-level-2">Commands you may need to solve this level</h3>
+<p>ls, cd, cat, file, du, find, grep</p>
+<h3 id="solution--2">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit6@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>Since the password is stored <em>somewhere on the server</em>. Lets go to the root directory by running command <code>cd ..</code> two times.</p>
+<p>From manual page of <code>find</code> command :</p>
+<p><code>-user</code> <em>uname</em><!-- raw HTML omitted -->
+File is owned by user uname (numeric user ID allowed).<!-- raw HTML omitted -->
+<code>-size</code> <em>n[cwbkMG]</em><!-- raw HTML omitted -->
+File uses n units of space, rounding up.  The following suffixes can be used:<!-- raw HTML omitted -->
+&lsquo;c&rsquo;    for bytes<!-- raw HTML omitted -->
+<code>-group</code> <em>gname</em>
+File belongs to group gname (numeric group ID allowed).<!-- raw HTML omitted --></p>
+<p>From the given, <code>uname</code> is <em>bandit7</em>, <code>gname</code> is <em>bandit6</em> and <code>n</code> is <em>33c</em>.</p>
+<p>We want file with ASCII content and <code>xargs file</code> will tell us about that.</p>
+<p>So the command is :</p>
+<pre tabindex="0"><code>find -user bandit7 -group bandit6 -size 33c | xargs file
+</code></pre><p>The password for the next level is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l67_terminal.jpg" alt="Bandit Level 6 7"></p>
+<p>Reference : <a href="https://amzn.to/2PDVmZz">The Linux Command Line – A Complete Introduction</a><!-- raw HTML omitted -->
+<a href="http://man7.org/linux/man-pages/man1/find.1.html">http://man7.org/linux/man-pages/man1/find.1.html</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-7--level-8httpsoverthewireorgwargamesbanditbandit8html"><a href="https://overthewire.org/wargames/bandit/bandit8.html">Bandit Level 7 → Level 8</a></h2>
+<h3 id="level-goal-3">Level Goal</h3>
+<p>The password for the next level is stored in the file <strong>data.txt</strong> next to the word <strong>millionth</strong></p>
+<h3 id="commands-you-may-need-to-solve-this-level-3">Commands you may need to solve this level</h3>
+<p>grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+<h3 id="solution--3">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit7@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>Here we can use <code>grep</code> program. <code>grep</code> is used to find text patterns within file. The text we have to find is <em>millionth</em> and the password for next level is next to it.</p>
+<p>The command is :</p>
+<pre tabindex="0"><code>cat data.txt | grep millionth
+</code></pre><p>The password for next level is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l78_terminal.jpg" alt="Bandit Level 7 8"></p>
+<p>Reference : <a href="https://amzn.to/2PDVmZz">The Linux Command Line – A Complete Introduction</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-8--level-9httpsoverthewireorgwargamesbanditbandit9html"><a href="https://overthewire.org/wargames/bandit/bandit9.html">Bandit Level 8 → Level 9</a></h2>
+<h3 id="level-goal-4">Level Goal</h3>
+<p>The password for the next level is stored in the file <strong>data.txt</strong> and is the only line of text that occurs only once</p>
+<h3 id="commands-you-may-need-to-solve-this-level-4">Commands you may need to solve this level</h3>
+<p>grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+<h3 id="solution--4">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit8@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>We will use command <code>sort</code> to sort all texts in the file. Command <code>uniq</code> with option <code>u</code> i.e. <code>uniq -u</code> only prints unique lines. So the command is :</p>
+<pre tabindex="0"><code>sort data.txt | uniq -u
+</code></pre><p>and password is <code>****</code> .</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l89_terminal.jpg" alt="Bandit Level 8 9"></p>
+<p>Reference : <a href="http://man7.org/linux/man-pages/man1/uniq.1.html">http://man7.org/linux/man-pages/man1/uniq.1.html</a><!-- raw HTML omitted -->
+<a href="https://askubuntu.com/questions/915570/how-do-i-find-a-single-unique-line-in-a-file">https://askubuntu.com/questions/915570/how-do-i-find-a-single-unique-line-in-a-file</a></p>
+<h3 id="next-post">Next Post</h3>
+<p><a href="/Bandit-Level-9-to-Level-12-OverTheWire">Bandit Level 9 to Level 11</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-12-Level-13-OverTheWire">Bandit Level 12 → Level 13</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-13-to-Level-16-OverTheWire">Bandit Level 13 to Level 15</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-16-to-Level-19-OverTheWire">Bandit Level 16 to Level 18</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-19-to-Level-20-OverTheWire">Bandit Level 19 to Level 20</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-21-to-Level-23-OverTheWire">Bandit Level 21 to Level 22</a>
+<!-- raw HTML omitted -->
+<a href="/Bandit-Level-23-Level-24-OverTheWire">Bandit Level 23 → Level 24</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-24-Level-25-OverTheWire">Bandit Level 24 → Level 25</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-25-to-Level-26-OverTheWire">Bandit Level 25 to Level 26</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-27-to-Level-31-OverTheWire">Bandit Level 27 to Level 31</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-32-Level-33-OverTheWire">Bandit Level 32 → Level 33</a><!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

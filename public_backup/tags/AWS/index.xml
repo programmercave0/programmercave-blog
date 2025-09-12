@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on programmerCave</title>
+    <link>https://programmercave.com/tags/AWS/</link>
+    <description>Recent content in AWS on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/AWS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Beginner&#39;s Guide to AWS Lambda</title>
+      <link>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</guid>
+      <description>Introduction to AWS Lambda AWS Lambda is one of the most popular and widely used serverless computing services offered by Amazon Web Services (AWS). It allows developers to run code without the need to manage or provision servers. Instead, the code is executed in response to events, such as changes to data in an Amazon S3 bucket, updates to a DynamoDB table, HTTP requests via Amazon API Gateway, or scheduled events using Amazon CloudWatch.</description>
+    </item>
+  </channel>
+</rss>

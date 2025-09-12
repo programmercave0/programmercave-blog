@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Unit testing is a critical part of software development that ensures the reliability and functionality of code modules. In this blog post, we will explore unit testing for Go functions that interact with SQL or PostgreSQL databases. Specifically, we will look at how to create strong test cases for functions that execute database queries. To achieve this, we will use mocking to create a mock database environment. This approach separates our functions under test from the actual database, enabling us to carefully evaluate their logic and behavior. We will take you through the process of creating effective unit tests that validate the functionality of Go functions integrated with SQL interactions using a mock database environment for seamless and comprehensive testing.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-01-04
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/PostgreSQL/&#34;&gt;PostgreSQL&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/SQL/&#34;&gt;SQL&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/DataBase/&#34;&gt;DataBase&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;
+    </div>
+  
+  <h2 id="introduction">Introduction</h2>
+<p>Unit testing is a critical part of software development that ensures the reliability and functionality of code modules. In this blog post, we will explore unit testing for Go functions that interact with SQL or PostgreSQL databases. Specifically, we will look at how to create strong test cases for functions that execute database queries. To achieve this, we will use mocking to create a mock database environment. This approach separates our functions under test from the actual database, enabling us to carefully evaluate their logic and behavior. We will take you through the process of creating effective unit tests that validate the functionality of Go functions integrated with SQL interactions using a mock database environment for seamless and comprehensive testing.</p>
+<p><img src="/assets/images/go-unit-test-cases/unit_test_case.png" alt="Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go"></p>
+<h2 id="understanding-the-studentgo-file">Understanding the student.go File</h2>
+<p>The <code>student.go</code> file encapsulates functionalities related to student data management in a Go application. It contains:</p>
+<ol>
+<li>
+<p><strong>StudentConfig Struct</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">type</span> StudentConfig <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    StudentID   <span style="color:#b00040">int</span>
+</span></span><span style="display:flex;"><span>    FirstName   <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>    LastName    <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>    DateOfBirth <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>    Gender      <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>    Email       <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>    PhoneNumber <span style="color:#b00040">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>StudentConfig</code> struct defines the structure for storing student-related information, including their unique ID, personal details, and contact information.</p>
+</li>
+<li>
+<p><strong>SQL Queries</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>    insertOrUpdateStudentConfig = <span style="color:#ba2121">`
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">    INSERT INTO student (student_id, first_name, last_name, date_of_birth, gender, email, phone_number)
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">    VALUES ($1, $2, $3, $4, $5, $6, $7)
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">    ON CONFLICT (student_id) DO UPDATE
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">    SET
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        first_name = $2,
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        last_name = $3,
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        date_of_birth = $4,
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        gender = $5,
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        email = $6,
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">        phone_number = $7;
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    getStudentConfig = <span style="color:#ba2121">`
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">SELECT student_id, first_name, last_name, date_of_birth, gender, email, phone_number
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">FROM student
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">WHERE student_id = $1
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">`</span>
+</span></span></code></pre></div><p>The file contains SQL queries represented as constants. These queries handle inserting or updating student data and retrieving student information based on a given <code>student_id</code>.</p>
+</li>
+<li>
+<p><strong>Functions for Database Interactions</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">InsertOrUpdateStudentConfig</span>(db <span style="color:#666">*</span>sql.DB, student StudentConfig) (StudentConfig, <span style="color:#b00040">error</span>) {
+</span></span><span style="display:flex;"><span>    tx, err <span style="color:#666">:=</span> db.<span style="color:#00f">Begin</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> StudentConfig{}, fmt.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;could not begin transaction: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _, err = tx.<span style="color:#00f">Exec</span>(insertOrUpdateStudentConfig,
+</span></span><span style="display:flex;"><span>        student.StudentID,
+</span></span><span style="display:flex;"><span>        student.FirstName,
+</span></span><span style="display:flex;"><span>        student.LastName,
+</span></span><span style="display:flex;"><span>        student.DateOfBirth,
+</span></span><span style="display:flex;"><span>        student.Gender,
+</span></span><span style="display:flex;"><span>        student.Email,
+</span></span><span style="display:flex;"><span>        student.PhoneNumber,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        tx.<span style="color:#00f">Rollback</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> StudentConfig{}, fmt.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;error executing query: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    err = tx.<span style="color:#00f">Commit</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> StudentConfig{}, fmt.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;error committing transaction: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    insertedConfig, err <span style="color:#666">:=</span> <span style="color:#00f">GetStudentConfig</span>(db, student.StudentID)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> StudentConfig{}, fmt.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;error fetching inserted student configuration: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> insertedConfig, <span style="color:#008000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">GetStudentConfig</span>(db <span style="color:#666">*</span>sql.DB, studentID <span style="color:#b00040">int</span>) (StudentConfig, <span style="color:#b00040">error</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">var</span> student StudentConfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    row <span style="color:#666">:=</span> db.<span style="color:#00f">QueryRow</span>(getStudentConfig, studentID)
+</span></span><span style="display:flex;"><span>    err <span style="color:#666">:=</span> row.<span style="color:#00f">Scan</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.StudentID,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.FirstName,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.LastName,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.DateOfBirth,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.Gender,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.Email,
+</span></span><span style="display:flex;"><span>        <span style="color:#666">&amp;</span>student.PhoneNumber,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> StudentConfig{}, fmt.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;error fetching student configuration: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> student, <span style="color:#008000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>InsertOrUpdateStudentConfig</code>: Inserts a new student record into the database or updates an existing one, utilizing the SQL query <code>insertOrUpdateStudentConfig</code>.</li>
+<li><code>GetStudentConfig</code>: Retrieves student information from the database based on the provided <code>student_id</code>, using the SQL query <code>getStudentConfig</code>.</li>
+</ul>
+<p>These functions interact with the SQL database (<code>db</code>) by executing SQL queries and handling the data accordingly.</p>
+</li>
+</ol>
+<hr>
+<p>This file contains essential functions and SQL queries responsible for managing student data interactions with an SQL database in a Go application. We&rsquo;ll be focusing on creating unit tests for these functions in the subsequent sections to ensure their accuracy and reliability.</p>
+<h2 id="unit-test-cases">Unit Test Cases</h2>
+<h3 id="testinsertorupdatestudentconfig">TestInsertOrUpdateStudentConfig</h3>
+<p>Let&rsquo;s break down each line of the <code>TestInsertOrUpdateStudentConfig</code> function and explain its significance in testing the <code>InsertOrUpdateStudentConfig</code> function from the <code>student.go</code> file:</p>
+<ol>
+<li>
+<p><strong>Creating a Mocked Database Connection</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">TestInsertOrUpdateStudentConfig</span>(t <span style="color:#666">*</span>testing.T) {
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Create a mocked database connection
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    db, mock, err <span style="color:#666">:=</span> sqlmock.<span style="color:#00f">New</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;error creating mock database: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">defer</span> db.<span style="color:#00f">Close</span>()
+</span></span></code></pre></div><ul>
+<li><code>sqlmock.New()</code>: Initializes a mocked database (<code>db</code>) and a mock object (<code>mock</code>) to simulate database interactions.</li>
+<li><code>defer db.Close()</code>: Defers closing the database connection until the function exits, ensuring proper cleanup.</li>
+</ul>
+</li>
+<li>
+<p><strong>Initializing Test Data</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Initialize your StudentConfig for testing
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    student <span style="color:#666">:=</span> StudentConfig{
+</span></span><span style="display:flex;"><span>        StudentID:   <span style="color:#666">1</span>,
+</span></span><span style="display:flex;"><span>        FirstName:   <span style="color:#ba2121">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>        LastName:    <span style="color:#ba2121">&#34;Doe&#34;</span>,
+</span></span><span style="display:flex;"><span>        DateOfBirth: <span style="color:#ba2121">&#34;1999-01-01&#34;</span>,
+</span></span><span style="display:flex;"><span>        Gender:      <span style="color:#ba2121">&#34;Male&#34;</span>,
+</span></span><span style="display:flex;"><span>        Email:       <span style="color:#ba2121">&#34;john@example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>        PhoneNumber: <span style="color:#ba2121">&#34;1234567890&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><ul>
+<li>Creates a sample <code>StudentConfig</code> struct (<code>student</code>) with predefined data for testing purposes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mocking Database Expectations</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Create expected database query and mock behavior for InsertOrUpdateStudentConfig
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    mock.<span style="color:#00f">ExpectBegin</span>()
+</span></span><span style="display:flex;"><span>    mock.<span style="color:#00f">ExpectExec</span>(regexp.<span style="color:#00f">QuoteMeta</span>(insertOrUpdateStudentConfig)).<span style="color:#00f">WithArgs</span>(student.StudentID, student.FirstName, student.LastName, student.DateOfBirth, student.Gender, student.Email, student.PhoneNumber).<span style="color:#00f">WillReturnResult</span>(sqlmock.<span style="color:#00f">NewResult</span>(<span style="color:#666">0</span>, <span style="color:#666">1</span>))
+</span></span><span style="display:flex;"><span>    mock.<span style="color:#00f">ExpectCommit</span>()
+</span></span><span style="display:flex;"><span>    mock.<span style="color:#00f">ExpectQuery</span>(regexp.<span style="color:#00f">QuoteMeta</span>(getStudentConfig)).<span style="color:#00f">WithArgs</span>(student.StudentID).
+</span></span><span style="display:flex;"><span>        <span style="color:#00f">WillReturnRows</span>(sqlmock.<span style="color:#00f">NewRows</span>([]<span style="color:#b00040">string</span>{<span style="color:#ba2121">&#34;student_id&#34;</span>, <span style="color:#ba2121">&#34;first_name&#34;</span>, <span style="color:#ba2121">&#34;last_name&#34;</span>, <span style="color:#ba2121">&#34;date_of_birth&#34;</span>, <span style="color:#ba2121">&#34;gender&#34;</span>, <span style="color:#ba2121">&#34;email&#34;</span>, <span style="color:#ba2121">&#34;phone_number&#34;</span>}).
+</span></span><span style="display:flex;"><span>            <span style="color:#00f">AddRow</span>(student.StudentID, student.FirstName, student.LastName, student.DateOfBirth, student.Gender, student.Email, student.PhoneNumber))
+</span></span></code></pre></div><ul>
+<li><code>mock.ExpectBegin()</code>, <code>mock.ExpectExec()</code>, <code>mock.ExpectCommit()</code>: Sets up expectations for the sequence of SQL actions expected when calling <code>InsertOrUpdateStudentConfig</code>. It simulates the beginning of a transaction, an execution of an SQL query, and committing the transaction.</li>
+<li><code>mock.ExpectQuery()</code>: Sets the expectation for the SQL query that would be triggered internally by the <code>GetStudentConfig</code> function within the <code>InsertOrUpdateStudentConfig</code> function.</li>
+<li><code>regexp.QuoteMeta(getStudentConfig)</code>: This constructs a regex pattern to match the SQL query string (<code>getStudentConfig</code>) used within the <code>GetStudentConfig</code> function in <code>student.go</code>. It prepares the mock to expect this specific query to be executed.</li>
+</ul>
+<p><strong>Defining Return Rows for the Mocked Query</strong></p>
+<ul>
+<li><code>WillReturnRows</code>: Specifies the expected rows that the mocked query should return when triggered.</li>
+<li><code>sqlmock.NewRows([]string{...})</code>: Creates a set of rows with column names defined in the array. This prepares the structure of the returned rows.</li>
+<li><code>AddRow()</code>: Adds a row to the expected result set, populating it with values corresponding to the columns defined in <code>NewRows</code>.</li>
+</ul>
+<p><strong>Why is this Necessary?</strong></p>
+<p>In the context of testing <code>InsertOrUpdateStudentConfig</code>, it&rsquo;s essential to understand that this function internally calls <code>GetStudentConfig</code> after performing an insertion or update. Mocking the <code>GetStudentConfig</code> query is crucial because:</p>
+<ul>
+<li>It ensures that the test focuses solely on the behavior of <code>InsertOrUpdateStudentConfig</code> without actually executing the <code>GetStudentConfig</code> query against a real database.</li>
+<li>By setting expectations for <code>GetStudentConfig</code>, it allows the test to simulate the subsequent behavior and validate the flow within <code>InsertOrUpdateStudentConfig</code> after the database insertion or update.</li>
+</ul>
+<p>Mocking the <code>GetStudentConfig</code> query with expected return rows allows the test to confirm that after inserting or updating a student&rsquo;s information, the function successfully performs a subsequent fetch of that student&rsquo;s data without actually executing a real query against a database. This isolation is key in unit testing to verify the behavior of the function under test.</p>
+</li>
+<li>
+<p><strong>Testing the Function</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Test InsertOrUpdateStudentConfig function
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    insertedConfig, err <span style="color:#666">:=</span> <span style="color:#00f">InsertOrUpdateStudentConfig</span>(db, student)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;InsertOrUpdateStudentConfig failed: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><ul>
+<li>Calls the <code>InsertOrUpdateStudentConfig</code> function with the mock database and test data.</li>
+<li>Checks for errors during function execution.</li>
+</ul>
+</li>
+<li>
+<p><strong>Assertions</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Add assertions to check the correctness of insertedConfig
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    <span style="color:#008000;font-weight:bold">if</span> insertedConfig.StudentID <span style="color:#666">!=</span> student.StudentID {
+</span></span><span style="display:flex;"><span>        t.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;Expected StudentID: %d, Got: %d&#34;</span>, student.StudentID, insertedConfig.StudentID)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> insertedConfig.FirstName <span style="color:#666">!=</span> student.FirstName {
+</span></span><span style="display:flex;"><span>        t.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;Expected FirstName: %s, Got: %s&#34;</span>, student.FirstName, insertedConfig.FirstName)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Similarly, add assertions for other fields if needed
+</span></span></span></code></pre></div><ul>
+<li>Validates the returned <code>insertedConfig</code> against the input <code>student</code> data to ensure the function behaves correctly.</li>
+<li>Compares each field of the expected and actual <code>StudentConfig</code> structs to verify correctness.</li>
+</ul>
+</li>
+<li>
+<p><strong>Verifying Mock Expectations</strong></p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic">// Ensure all expectations were met
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>    <span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">:=</span> mock.<span style="color:#00f">ExpectationsWereMet</span>(); err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>        t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;mock expectations were not met: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Ensures that all the expected interactions with the mock database were met during the test execution. This confirms that the <code>InsertOrUpdateStudentConfig</code> function behaved as expected according to the defined mock behavior.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>The <code>insertOrUpdateStudentConfig</code> function is thoroughly tested by this comprehensive testing setup, which emulates database interactions using a mock environment to ensure its correctness and adherence to expected database operations defined in the function from <code>student.go</code> file.</p>
+<h3 id="testgetstudentconfig">TestGetStudentConfig</h3>
+<p>The structure and assertions in the <code>TestGetStudentConfig</code> function are similar to those in <code>TestInsertOrUpdateStudentConfig</code>. Given the similarity in testing approaches and the behavior being tested, no further explanation is necessary as it mirrors the process utilized in <code>TestInsertOrUpdateStudentConfig</code>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">TestGetStudentConfig</span>(t <span style="color:#666">*</span>testing.T) {
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Create a mocked database connection
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	db, mock, err <span style="color:#666">:=</span> sqlmock.<span style="color:#00f">New</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;error creating mock database: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">defer</span> db.<span style="color:#00f">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Initialize a StudentConfig for testing
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	studentID <span style="color:#666">:=</span> <span style="color:#666">1</span>
+</span></span><span style="display:flex;"><span>	expectedStudent <span style="color:#666">:=</span> StudentConfig{
+</span></span><span style="display:flex;"><span>		StudentID:   studentID,
+</span></span><span style="display:flex;"><span>		FirstName:   <span style="color:#ba2121">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>		LastName:    <span style="color:#ba2121">&#34;Doe&#34;</span>,
+</span></span><span style="display:flex;"><span>		DateOfBirth: <span style="color:#ba2121">&#34;1999-01-01&#34;</span>,
+</span></span><span style="display:flex;"><span>		Gender:      <span style="color:#ba2121">&#34;Male&#34;</span>,
+</span></span><span style="display:flex;"><span>		Email:       <span style="color:#ba2121">&#34;john@example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>		PhoneNumber: <span style="color:#ba2121">&#34;1234567890&#34;</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Define the expected SELECT query and mock behavior for GetStudentConfig
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	mock.<span style="color:#00f">ExpectQuery</span>(regexp.<span style="color:#00f">QuoteMeta</span>(getStudentConfig)).<span style="color:#00f">WithArgs</span>(studentID).
+</span></span><span style="display:flex;"><span>		<span style="color:#00f">WillReturnRows</span>(sqlmock.<span style="color:#00f">NewRows</span>([]<span style="color:#b00040">string</span>{<span style="color:#ba2121">&#34;student_id&#34;</span>, <span style="color:#ba2121">&#34;first_name&#34;</span>, <span style="color:#ba2121">&#34;last_name&#34;</span>, <span style="color:#ba2121">&#34;date_of_birth&#34;</span>, <span style="color:#ba2121">&#34;gender&#34;</span>, <span style="color:#ba2121">&#34;email&#34;</span>, <span style="color:#ba2121">&#34;phone_number&#34;</span>}).
+</span></span><span style="display:flex;"><span>			<span style="color:#00f">AddRow</span>(expectedStudent.StudentID, expectedStudent.FirstName, expectedStudent.LastName, expectedStudent.DateOfBirth, expectedStudent.Gender, expectedStudent.Email, expectedStudent.PhoneNumber))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Test GetStudentConfig function
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	retrievedStudent, err <span style="color:#666">:=</span> <span style="color:#00f">GetStudentConfig</span>(db, studentID)
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;GetStudentConfig failed: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Add assertions to check the correctness of retrievedStudent
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">if</span> retrievedStudent.StudentID <span style="color:#666">!=</span> expectedStudent.StudentID {
+</span></span><span style="display:flex;"><span>		t.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;Expected StudentID: %d, Got: %d&#34;</span>, expectedStudent.StudentID, retrievedStudent.StudentID)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> retrievedStudent.FirstName <span style="color:#666">!=</span> expectedStudent.FirstName {
+</span></span><span style="display:flex;"><span>		t.<span style="color:#00f">Errorf</span>(<span style="color:#ba2121">&#34;Expected FirstName: %s, Got: %s&#34;</span>, expectedStudent.FirstName, retrievedStudent.FirstName)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Similarly, add assertions for other fields if needed
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Ensure all expectations were met
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">if</span> err <span style="color:#666">:=</span> mock.<span style="color:#00f">ExpectationsWereMet</span>(); err <span style="color:#666">!=</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		t.<span style="color:#00f">Fatalf</span>(<span style="color:#ba2121">&#34;mock expectations were not met: %v&#34;</span>, err)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<p>The complete code is available on <a href="https://github.com/abhiabhi0/Golang-Codes/tree/main/unit_test_cases">Github</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>When integrating SQL database interactions within functions, unit testing is the foundation of strong software development. In this exploration, we looked at how to test Go functions that handle SQL queries by using mock databases.</p>
+<p>We broke down the <code>student.go</code> file in order to understand why unit tests are important for isolating functionality. These include the <code>StudentConfig</code> struct, SQL queries and database interaction functions.</p>
+<p>The respective functions’ behavior was carefully tested by the test functions, <code>TestInsertOrUpdateStudentConfig</code> and <code>TestGetStudentConfig</code>. We made sure that these functions were correct without affecting the real database by simulating database interactions through mock environments.</p>
+<p>Unit testing SQL-integrated functions in Go requires a lot of setup, from creating mock database connections to defining expected behaviors for SQL queries. This ensures that they work as expected and handle database interactions well.</p>
+<p>Developers strengthen their codebase by adopting unit testing methodologies, which improves its reliability and maintainability. The purpose of this blog was to demystify unit testing in Go’s SQL integrated functions so that developers can create robust applications that are resistant to errors.</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/PostgreSQL/&#34;&gt;PostgreSQL&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/SQL/&#34;&gt;SQL&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/DataBase/&#34;&gt;DataBase&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn how to implement a thread-safe stack in Go using sync.RWMutex. This tutorial explains stack operations, ensuring data consistency and safety in multi-threaded environments with efficient read-write locking.">
+  <meta name="keywords" content="thread-safe, stack,, Go, programming,, sync.RWMutex,, concurrent, programming,, Golang, stack,, multi-threading,, concurrent, data, structure,, Go, synchronization,, stack, implementation, in, Go,, thread-safe, operations">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Thread-Safe Stack Implementation in Go | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Thread-Safe Stack Implementation in Go</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-11-25
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;
+    </div>
+  
+  <p>This blog demonstrates how to implement a <strong>thread-safe stack</strong> in Go using <code>sync.RWMutex</code>. It ensures safe concurrent access in multi-threaded environments. Below is a detailed breakdown.</p>
+<hr>
+<h3 id="key-concepts"><strong>Key Concepts</strong></h3>
+<ol>
+<li>
+<p><strong>Stack</strong>: A data structure following the <strong>Last-In-First-Out (LIFO)</strong> principle, where items are added and removed from the top.</p>
+</li>
+<li>
+<p><strong>Thread-Safety</strong>: Ensures multiple goroutines can perform operations on shared resources (the stack) without causing data corruption.</p>
+</li>
+<li>
+<p><strong>sync.RWMutex</strong>:</p>
+<ul>
+<li><strong>Read Lock (<code>RLock</code>)</strong>: Allows multiple readers concurrently.</li>
+<li><strong>Write Lock (<code>Lock</code>)</strong>: Ensures exclusive access for operations like <code>Push</code> and <code>Pop</code>.</li>
+</ul>
+</li>
+</ol>
+<p>This boosts performance by allowing concurrent reads but restricting writes.</p>
+<hr>
+<h3 id="structure-and-methods"><strong>Structure and Methods</strong></h3>
+<h4 id="1-itemtype"><strong>1. ItemType</strong></h4>
+<p>Defined as an empty interface (<code>interface{}</code>), it allows the stack to hold any type of data (e.g., int, string, structs).</p>
+<h4 id="2-stack-struct"><strong>2. Stack Struct</strong></h4>
+<p>Contains:</p>
+<ul>
+<li><code>items []ItemType</code>: Holds the stack elements.</li>
+<li><code>rwLock sync.RWMutex</code>: Manages concurrent access.</li>
+</ul>
+<hr>
+<h3 id="methods"><strong>Methods</strong></h3>
+<ul>
+<li>
+<p><strong>New()</strong>:<br>
+Initializes and returns a new empty stack.</p>
+</li>
+<li>
+<p><strong>Push(t ItemType)</strong>:<br>
+Adds an item to the top:</p>
+<ol>
+<li>Acquires a <strong>write lock</strong> (<code>Lock()</code>) to block other operations.</li>
+<li>Appends the item.</li>
+<li>Releases the lock (<code>Unlock()</code>).</li>
+</ol>
+</li>
+<li>
+<p><strong>Pop()</strong>:<br>
+Removes and returns the top item:</p>
+<ol>
+<li>Acquires a write lock.</li>
+<li>Removes the last item from the slice.</li>
+<li>Resizes the slice.</li>
+<li>Releases the lock.</li>
+</ol>
+</li>
+<li>
+<p><strong>Size()</strong>:<br>
+Returns the number of items in the stack:</p>
+<ol>
+<li>Acquires a <strong>read lock</strong> (<code>RLock()</code>), allowing other reads simultaneously.</li>
+<li>Returns the size.</li>
+<li>Releases the lock (<code>RUnlock()</code>).</li>
+</ol>
+</li>
+<li>
+<p><strong>All()</strong>:<br>
+Returns all items in the stack with a read lock.</p>
+</li>
+<li>
+<p><strong>IsEmpty()</strong>:<br>
+Checks if the stack is empty, using a read lock.</p>
+</li>
+</ul>
+<hr>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// ItemType - The type of item in the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> ItemType <span style="color:#008000;font-weight:bold">interface</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Stack - Stack of items.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">type</span> Stack <span style="color:#008000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Slice of type ItemType, it holds items in the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	items []ItemType
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// rwLock for handling concurrent operations on the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	rwLock sync.RWMutex
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// New - Creates a new Stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">New</span>() <span style="color:#666">*</span>Stack {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	stack.items = []ItemType{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> stack
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Push - Adds an Item to the top of the stack
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">Push</span>(t ItemType) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">//Initialize items slice if not initialized
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">if</span> stack.items <span style="color:#666">==</span> <span style="color:#008000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		stack.items = []ItemType{}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Acquire read, write lock before inserting a new item in the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">Lock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Performs append operation.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.items = <span style="color:#008000">append</span>(stack.items, t)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// This will release read, write lock
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">Unlock</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Pop removes an Item from the top of the stack
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">Pop</span>() <span style="color:#666">*</span>ItemType {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Acquire read, write lock as items are going to modify.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">Lock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Popping item from items slice.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	item <span style="color:#666">:=</span> stack.items[<span style="color:#008000">len</span>(stack.items)<span style="color:#666">-</span><span style="color:#666">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">//Adjusting the item&#39;s length accordingly
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.items = stack.items[<span style="color:#666">0</span> : <span style="color:#008000">len</span>(stack.items)<span style="color:#666">-</span><span style="color:#666">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Release read-write lock.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">Unlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Return last popped item
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">&amp;</span>item
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Size return size i.e. number of items present in stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">Size</span>() <span style="color:#b00040">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Acquire read lock
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">RLock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// defer operation of unlocking.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">defer</span> stack.rwLock.<span style="color:#00f">RUnlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Return length of items slice.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">len</span>(stack.items)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// All - return all items present in stack
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">All</span>() []ItemType {
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Acquire read lock
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">RLock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// defer operation of unlocking.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">defer</span> stack.rwLock.<span style="color:#00f">RUnlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Return items slice to the caller.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">return</span> stack.items
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// IsEmpty - Check is stack is empty or not.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> (stack <span style="color:#666">*</span>Stack) <span style="color:#00f">IsEmpty</span>() <span style="color:#b00040">bool</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Acquire read lock
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	stack.rwLock.<span style="color:#00f">RLock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// defer operation of unlock.
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	<span style="color:#008000;font-weight:bold">defer</span> stack.rwLock.<span style="color:#00f">RUnlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">len</span>(stack.items) <span style="color:#666">==</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	stack <span style="color:#666">:=</span> Stack{}
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">10</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">20</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">30</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">40</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">50</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Push</span>(<span style="color:#666">60</span>)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>	stack.<span style="color:#00f">Pop</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Println</span>(stack.<span style="color:#00f">All</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="conclusion"><strong>Conclusion</strong></h3>
+<p>The thread-safe stack in Go demonstrates the power of <code>sync.RWMutex</code> for managing shared resources. Its methods ensure <strong>safe concurrent reads and writes</strong>, making it a robust solution for handling stacks in multi-threaded programs.</p>
+<p>This implementation is essential knowledge for anyone working with concurrent programming in Go.</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

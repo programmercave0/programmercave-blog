@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphics on programmerCave</title>
+    <link>https://programmercave.com/tags/Graphics/</link>
+    <description>Recent content in Graphics on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Graphics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Install graphics.h C/C&#43;&#43; library on Ubuntu</title>
+      <link>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Install-graphics.h-C-C-library-on-Ubuntu/</guid>
+      <description>In this post we are going to install graphics.h library on Ubuntu and to use it with gcc or g++ compiler. graphics.h provides access to a simple graphics library that makes it possible to draw lines, rectangles, ovals, arcs, polygons, images, and strings on a graphical window. To know about functions in graphic.h library in C/C++ visit here.&#xA;To use graphics.hon Ubuntu platform we need to compile and install libgraph. libgraph is an implementation of the TurboC graphics API (graphics.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;: Simple Pendulum Animation on Ubuntu Machine</title>
+      <link>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Simple-Pendulum-Animation-on-Ubuntu-Machine/</guid>
+      <description>Here is the code to animate simple pendulum on Ubuntu Machine.&#xA;We have to add #include &amp;lt;graphics.h&amp;gt; header file.&#xA;If you want to install C/C++ graphic.h header file on Ubuntu you can visit this post. How to Install graphics.h C/C++ library on Ubuntu&#xA;We have to also write int gd = DETECT, gm; initgraph(&amp;amp;gd, &amp;amp;gm, NULL);&#xA;initgraph() initializes the graphics system by loading a graphics driver from disk (or validating a registered driver), and putting the system into graphics mode.</description>
+    </item>
+  </channel>
+</rss>

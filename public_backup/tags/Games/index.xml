@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Games on programmerCave</title>
+    <link>https://programmercave.com/tags/Games/</link>
+    <description>Recent content in Games on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;: Tic Tac Toe</title>
+      <link>https://programmercave.com/C-Tic-Tac-Toe/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/C-Tic-Tac-Toe/</guid>
+      <description>Here is the simple C++ implementation of Tic Tac Toe.&#xA;#include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; void draw_board(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { std::cout &amp;lt;&amp;lt; &amp;#34; 0 1 2 \n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; for (int i = 0; i &amp;lt; vec.size(); i++) { std::cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; ; for (int j = 0; j &amp;lt; vec[i].size(); j++) { std::cout &amp;lt;&amp;lt; &amp;#34;| &amp;#34; &amp;lt;&amp;lt; vec[i][j] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } std::cout &amp;lt;&amp;lt; &amp;#34;|&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; std::cout &amp;lt;&amp;lt; &amp;#34; +---+---+---+\n&amp;#34;; } } void enter(unsigned int row, unsigned int col, char ch, std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { vec[row][col] = ch; } bool check(const std::vector&amp;lt; std::vector&amp;lt;char&amp;gt; &amp;gt;&amp;amp; vec) { //to check diagonals if ((vec[0][0] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;X&amp;#39;) || (vec[0][2] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;X&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;X&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player X won this game\n&amp;#34;; return true; } else if ((vec[0][0] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][2] == &amp;#39;O&amp;#39;) || (vec[0][2] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[1][1] == &amp;#39;O&amp;#39; &amp;amp;&amp;amp; vec[2][0] == &amp;#39;O&amp;#39;)) { std::cout &amp;lt;&amp;lt; &amp;#34;Player O won this game\n&amp;#34;; return true; } //to check horizonatal and vertical for (int i = 0; i &amp;lt; vec.</description>
+    </item>
+  </channel>
+</rss>

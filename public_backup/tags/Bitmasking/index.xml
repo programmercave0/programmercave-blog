@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitmasking on programmerCave</title>
+    <link>https://programmercave.com/tags/Bitmasking/</link>
+    <description>Recent content in Bitmasking on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Bitmasking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Manipulate Bits in C and C&#43;&#43;</title>
+      <link>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</guid>
+      <description>All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.&#xA;Bits representation In programming, an n bit integer is stored as a binary number that consists of n bits. So a 32-bit integer consists of 32 bits and 64 bit integer consists of 64 bits.</description>
+    </item>
+  </channel>
+</rss>

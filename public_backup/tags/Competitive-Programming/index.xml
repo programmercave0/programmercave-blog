@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Competitive-Programming on programmerCave</title>
+    <link>https://programmercave.com/tags/Competitive-Programming/</link>
+    <description>Recent content in Competitive-Programming on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Competitive-Programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</guid>
+      <description>Introduction The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors.</description>
+    </item>
+    <item>
+      <title>Rearranging an Array: Transforming arr[i] into arr[arr[i]]</title>
+      <link>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Rearranging-an-Array-Transforming-arri-into-arrarri/</guid>
+      <description>Introduction Aspiring software developers and computer science engineering enthusiasts often encounter captivating challenges that put their problem-solving abilities to the test. In this beginner&amp;rsquo;s guide to data structures and algorithms, we delve into a fascinating problem involving arrays. We will explore a step-by-step solution to rearrange the elements in the input array, leading to a transformation where each element at index i becomes the value at index arr[i].&#xA;The Problem Let&amp;rsquo;s consider the problem statement:</description>
+    </item>
+    <item>
+      <title>Efficiently Finding the Square Root of a Number: Linear Search vs Binary Search</title>
+      <link>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</link>
+      <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Finding-the-Square-Root-of-a-Number-Linear-Search-vs-Binary-Search/</guid>
+      <description>Introduction Finding the square root of a number is a common problem in mathematics and computer science. In this blog post, we will focus on the linear search and binary search methods for finding the square root of a number, and provide an implementation in C++ for each method.&#xA;Linear Search Method The linear search method is a simple algorithm that iteratively checks each integer number from 1 to n to see if its square is equal to the input number n.</description>
+    </item>
+    <item>
+      <title>Efficiently Find Prime Numbers Till N: Basic vs. Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Efficiently-Find-Prime-Numbers-Till-N-Basic-vs-Sieve-of-Eratosthenes/</guid>
+      <description>Introduction Are you looking for a way to find all the prime numbers till N? If so, then you have landed on the right page! In this blog post, we will discuss how to find all prime numbers till N using an optimized algorithm.&#xA;Finding all prime numbers till N is a common problem in computer science and mathematics. There are various ways to solve this problem, but we will be discussing an optimized algorithm that is efficient and easy to implement.</description>
+    </item>
+    <item>
+      <title>Optimized Algorithm for Checking Prime Numbers: A Comprehensive Guide</title>
+      <link>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Optimized-Algorithm-for-Checking-Prime-Numbers-A-Comprehensive-Guide/</guid>
+      <description>Introduction Prime numbers are a fundamental concept in mathematics and computer science. A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself. In other words, a prime number is a number that is only divisible by 1 and itself.&#xA;In this blog, we will discuss different methods to check if a number is a prime number or not, and analyze their time complexity.</description>
+    </item>
+    <item>
+      <title>Kefa and First Steps - CodeForces | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kefa-and-First-Steps-CodeForces-C-Implementation/</guid>
+      <description>Kefa decided to make some money doing business on the Internet for exactly n days. He knows that on the i-th day (1≤i≤n) he makes ai money. Kefa loves progress, that&amp;rsquo;s why he wants to know the length of the maximum non-decreasing subsegment in sequence ai. Let us remind you that the subsegment of the sequence is its continuous fragment. A subsegment of numbers is called non-decreasing if all numbers in it follow in the non-decreasing order.</description>
+    </item>
+    <item>
+      <title>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;You have to output the order of succession to the British throne of a list of given people. The order is simple: From a descendant A, the next in the order is A’s first child B. Then, the next one is B’s first child C if any and so on. If C has no child, then the next one is B’s second child D.</description>
+    </item>
+    <item>
+      <title>Stock Exchange Losses - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;A finance company is carrying out a study on the worst stock investments and would like to acquire a program to do so. The program must be able to analyze a chronological series of stock values in order to show the largest loss that it is possible to make by buying a share at a given time t0 and by selling it at a later date t1.</description>
+    </item>
+    <item>
+      <title>Dungeons and Maps - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy.&#xA;You are given N maps for a dungeon. Each map may contain a path to a treasure T, from starting position [ startRow; startCol ]. Determine the index of the map which holds the shortest path from the starting position to T, but be careful a map may lead you to a TRAP.&#xA;A path is marked on the map with ^, v, &amp;lt;, &amp;gt; symbols, each corresponding to UP, DOWN, LEFT, RIGHT directions respectively, i.</description>
+    </item>
+    <item>
+      <title>Bank Robbers - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy and tagged under Loops and Mathematics.&#xA;A gang of R foolish robbers decides to heist a bank. In the bank there are V vaults (indexed from 0 to V-1). The robbers have managed to extract some information from the bank&amp;rsquo;s director:&#xA;The combination of a vault is composed of C characters (digits/vowels). The first N characters consist of digits from 0 to 9.</description>
+    </item>
+    <item>
+      <title>Left Rotation - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Left-Rotation-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>A left rotation operation on an array of size n shifts each of the array&amp;rsquo;s elements 1 unit to the left. For example, if 2 left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].&#xA;Given an array of n integers and a number, d, perform d left rotations on the array. Then print the updated array as a single line of space-separated integers.</description>
+    </item>
+    <item>
+      <title>Repeated String - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Repeated-String-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.&#xA;Given an integer, n, find and print the number of letter a&amp;rsquo;s in the first n letters of Lilah&amp;rsquo;s infinite string.&#xA;For example, if the string s = ‘abcac’ and n = 10, the substring we consider is , abcacabcac the first 10 characters of her infinite string. There are 4 occurrences of a in the substring.</description>
+    </item>
+    <item>
+      <title>Picking Numbers - HackerRank | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Picking-Numbers-HackerRank-Challenge-Cpp-Implementation/</guid>
+      <description>Given an array of integers, find and print the maximum number of integers you can select from the array such that the absolute difference between any two of the chosen integers is less than or equal to 1.&#xA;For example, if your array is a = [1, 1, 2, 2, 4, 4, 5, 5, 5], you can create two subarrays meeting the criterion: [1, 1, 2, 2] and [4, 4, 5, 5, 5].</description>
+    </item>
+    <item>
+      <title>Library Fine | HackerRank</title>
+      <link>https://programmercave.com/Library-Fine--HackerRank/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Library-Fine--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Your local library needs your help! Given the expected and actual return dates for a library book, create a program that calculates the fine (if any). The fee structure is as follows:&#xA;• If the book is returned on or before the expected return date, no fine will be charged (i.</description>
+    </item>
+    <item>
+      <title>Sherlock and Squares | HackerRank</title>
+      <link>https://programmercave.com/Sherlock-and-Squares--HackerRank/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Sherlock-and-Squares--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Watson likes to challenge Sherlock&amp;rsquo;s math ability. He will provide a starting and ending value describing a range of integers. Sherlock must determine the number of square integers within that range, inclusive of the endpoints.&#xA;Note: A square integer is an integer which is the square of an integer, e.</description>
+    </item>
+    <item>
+      <title>Circular Array Rotation | HackerRank</title>
+      <link>https://programmercave.com/Circular-Array-Rotation--HackerRank/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Circular-Array-Rotation--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;John Watson knows of an operation called a right circular rotation on an array of integers. One rotation operation moves the last array element to the first position and shifts all remaining elements right one. To test Sherlock&amp;rsquo;s abilities, Watson provides Sherlock with an array of integers.</description>
+    </item>
+    <item>
+      <title>Drawing Book | HackerRank</title>
+      <link>https://programmercave.com/Drawing-Book--HackerRank/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Drawing-Book--HackerRank/</guid>
+      <description>This is an easy hackerrank challenge which will help you to become good at competitive programming. There are various competitive programming websites like CodeChef, HackerEarth, Codeforces where you can practice coding.&#xA;Brie’s Drawing teacher asks her class to open their books to a page number. Brie can either start turning pages from the front of the book or from the back of the book. She always turns pages one at a time.</description>
+    </item>
+    <item>
+      <title>Migratory Birds - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Migratory-Birds-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You have been asked to help study the population of birds migrating across the continent. Each type of bird you are interested in will be identified by an integer value. Each time a particular kind of bird is spotted, its id number will be added to your array of sightings. You would like to be able to find out which type of bird is most common given a list of sightings.</description>
+    </item>
+    <item>
+      <title>Between Two Sets - HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Between-Two-Sets-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:&#xA;The elements of the first array are all factors of the integer being considered The integer being considered is a factor of all elements of the second array These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.&#xA;For example, given the arrays a =[2, 6] and b = [24, 36], there are two numbers between them: 6 and 12.</description>
+    </item>
+    <item>
+      <title>Kangaroo HackerRank Challenge | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Kangaroo-HackerRank-Challenge-C-Implementation/</guid>
+      <description>You are choreographing a circus show with various animals. For one act, you are given two kangaroos o a number line ready to jump in the positive direction (i.e, toward positive infinity).&#xA;• The first kangaroo starts at location x1 and moves at a rate of v1 meters per jump. • The second kangaroo starts at location x2 and moves at a rate of v2 meters per jump.&#xA;You have to figure out a way to get both kangaroos at the same location at the same time as part of the show.</description>
+    </item>
+    <item>
+      <title>Prime Numbers and Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</guid>
+      <description>A prime number is an integer n &amp;gt; 1 which is only divisible by 1 and n(itself). For example, 2, 3, 5 are prime numbers, but 6, 8, 9 are not prime numbers.&#xA;Every integer n &amp;gt; 1 can be uniquely expressed as the product of prime numbers. For example 8 = 2 * 2 * 2.&#xA;A perfect number is a number n if n is equal to the sum of its factors between 1 and n – 1.</description>
+    </item>
+    <item>
+      <title>Roy and Code Streak | HackerEarth Challenge</title>
+      <link>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Roy-and-Code-Streak--HackerEarth-Challenge/</guid>
+      <description>This is the HackerEarth challenge of easy level. Problem Link Roy and Code Streak.&#xA;Problem: Roy is working on HackerEarth Profile. Right now he is working on User Statistics. One of the statistics data (Code Streak) is as follows:&#xA;Given the User Activity Data, find the maximum number of continuous correct solutions submitted by any user. Seems easy eh? Here&amp;rsquo;s the catch! In order to maximize this number a user could have submitted a correct answer to the same problem which he has already solved.</description>
+    </item>
+    <item>
+      <title>How to Manipulate Bits in C and C&#43;&#43;</title>
+      <link>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bit-Manipulation-in-C-and-C-/</guid>
+      <description>All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.&#xA;Bits representation In programming, an n bit integer is stored as a binary number that consists of n bits. So a 32-bit integer consists of 32 bits and 64 bit integer consists of 64 bits.</description>
+    </item>
+  </channel>
+</rss>

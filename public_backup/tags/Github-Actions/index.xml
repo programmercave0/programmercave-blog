@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github-Actions on programmerCave</title>
+    <link>https://programmercave.com/tags/Github-Actions/</link>
+    <description>Recent content in Github-Actions on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Github-Actions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step-by-Step Guide: Setting up Environment Variables in GitHub Actions for Go</title>
+      <link>https://programmercave.com/Step-by-Step-Guide-Setting-up-Environment-Variables-in-GitHub-Actions-for-Go/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Step-by-Step-Guide-Setting-up-Environment-Variables-in-GitHub-Actions-for-Go/</guid>
+      <description>Introduction: GitHub Actions is a powerful platform that allows developers to automate workflows and build, test, and deploy their applications with ease. One common use case is to securely pass environment variables, such as API keys or passwords, to a Go program during the workflow execution in GitHub Actions. In this blog, we&amp;rsquo;ll walk through the process of setting up repository secrets, creating a GitHub Actions workflow, and using those secrets as environment variables in a Go program.</description>
+    </item>
+  </channel>
+</rss>

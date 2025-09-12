@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on programmerCave</title>
+    <link>https://programmercave.com/tags/Cloud/</link>
+    <description>Recent content in Cloud on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a Python Telegram Bot on Oracle Cloud</title>
+      <link>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Deploying-a-Python-Telegram-Bot-on-Oracle-Cloud/</guid>
+      <description>Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities. Here’s a step-by-step guide on setting up and deploying a bot on an Ubuntu instance in Oracle Cloud. For this example, I&amp;rsquo;ll use the Atmanam Viddhi Bot, a bot that responds to the /wisdom command, sharing random quotes from a collection on GitHub and featuring user cooldowns and interactive buttons.</description>
+    </item>
+    <item>
+      <title>A Beginner&#39;s Guide to AWS Lambda</title>
+      <link>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/A-Beginners-Guide-to-AWS-Lambda/</guid>
+      <description>Introduction to AWS Lambda AWS Lambda is one of the most popular and widely used serverless computing services offered by Amazon Web Services (AWS). It allows developers to run code without the need to manage or provision servers. Instead, the code is executed in response to events, such as changes to data in an Amazon S3 bucket, updates to a DynamoDB table, HTTP requests via Amazon API Gateway, or scheduled events using Amazon CloudWatch.</description>
+    </item>
+    <item>
+      <title>A Comprehensive Guide to Terraform: Understanding the Fundamentals</title>
+      <link>https://programmercave.com/A-Comprehensive-Guide-to-Terraform-Understanding-the-Fundamentals/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/A-Comprehensive-Guide-to-Terraform-Understanding-the-Fundamentals/</guid>
+      <description>Terraform has become a go-to tool for infrastructure as code (IaC), allowing teams to define, manage, and automate cloud infrastructure using simple, human-readable configuration files. However, to truly harness the power of Terraform, it’s crucial to understand its basic terminologies and how they work together. This guide will walk you through the fundamental concepts of Terraform with detailed explanations and examples.&#xA;What is Terraform? Terraform, an open-source tool developed by HashiCorp, enables you to define your infrastructure as code.</description>
+    </item>
+  </channel>
+</rss>

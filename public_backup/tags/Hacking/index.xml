@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacking on programmerCave</title>
+    <link>https://programmercave.com/tags/Hacking/</link>
+    <description>Recent content in Hacking on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stack Overflow Vulnerability</title>
+      <link>https://programmercave.com/Stack-Overflow-Vulnerability/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stack-Overflow-Vulnerability/</guid>
+      <description>Stack overflow is a type of buffer overflow vulnerability. When we pour water in a glass more than its capacity the water spills or overflow, similarly when we enter data in a buffer more than its capacity the data overflows to adjacents memory location causing program to crash. This is know as buffer overflow.&#xA;Stack Overflow is an old vulnerability. We will see this vulnerabiltiy in the C or C++ languages, because in these languages we can use pointer freely.</description>
+    </item>
+    <item>
+      <title>How to create Password list using CUPP tool on Ubuntu</title>
+      <link>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-create-Password-list-using-CUPP-tool-on-ubuntu/</guid>
+      <description>People do not create complex passwords. Their password consists of their name or surname, date of birth, favourite football team etc, so they can remember it easily. There are many tools which create password list using these parameters. Here we are going to discuss about one such tool CUPP and how to create password lists using it.&#xA;CUPP(Common User Passwords Profiler) is python based free and open source tool which generates wordlist for a specific user based on the information provided.</description>
+    </item>
+  </channel>
+</rss>

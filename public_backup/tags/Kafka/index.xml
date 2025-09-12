@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka on programmerCave</title>
+    <link>https://programmercave.com/tags/Kafka/</link>
+    <description>Recent content in Kafka on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interview Question: What Are the Challenges Faced While Working with Kafka?</title>
+      <link>https://programmercave.com/Interview-Question-What-Are-the-Challenges-Faced-While-Working-with-Kafka/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Interview-Question-What-Are-the-Challenges-Faced-While-Working-with-Kafka/</guid>
+      <description>Apache Kafka is a cornerstone of modern real-time data pipelines, but handling consumer lag is a common challenge that can affect system performance. This blog dives into what consumer lag is, its causes, and how to tackle it effectively.&#xA;This question was asked to me by Procore for the role of Senior Software Engineer.&#xA;What Is Consumer Lag? Consumer lag happens when a Kafka consumer processes messages slower than producers generate them.</description>
+    </item>
+    <item>
+      <title>Getting Started with Kafka and Go: Reading Messages and Inserting into a Database</title>
+      <link>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</link>
+      <pubDate>Thu, 13 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</guid>
+      <description>Introduction: Kafka is a popular distributed streaming platform that is used for building real-time data pipelines and streaming applications. It is designed to handle high-volume data streams in real-time and provide reliable and scalable data streaming. Kafka is used for a wide range of applications, including real-time analytics, monitoring, log aggregation, and messaging systems.&#xA;In this blog post, we will demonstrate how to read Kafka messages in Go and store them in a PostgreSQL database.</description>
+    </item>
+  </channel>
+</rss>

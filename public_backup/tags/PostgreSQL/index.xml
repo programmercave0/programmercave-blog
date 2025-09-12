@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PostgreSQL on programmerCave</title>
+    <link>https://programmercave.com/tags/PostgreSQL/</link>
+    <description>Recent content in PostgreSQL on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/PostgreSQL/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring JSONB in PostgreSQL: A Beginner&#39;s Guide to Storing and Querying Structured Data</title>
+      <link>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Exploring-JSONB-in-PostgreSQL-A-Beginner-Guide-to-Storing-and-Querying-Structure-Data/</guid>
+      <description>Introduction In the realm of databases, PostgreSQL stands tall, renowned for its robust features and adaptability. Among its many offerings, JSONB shines as a versatile data type, facilitating the efficient storage and retrieval of semi-structured data. This article delves into the depths of JSONB within PostgreSQL, elucidating the process of storing and querying structured data with vivid examples.&#xA;Unraveling JSONB JSONB, the binary manifestation of JSON (JavaScript Object Notation) data, serves as a pivotal component within PostgreSQL.</description>
+    </item>
+    <item>
+      <title>Writing Unit Tests for SQL-Integrated Functions with Mock Databases in Go</title>
+      <link>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Writing-Unit-Tests-for-SQL-Integrated-Functions-with-Mock-Databases-in-Go/</guid>
+      <description>Introduction Unit testing is a critical part of software development that ensures the reliability and functionality of code modules. In this blog post, we will explore unit testing for Go functions that interact with SQL or PostgreSQL databases. Specifically, we will look at how to create strong test cases for functions that execute database queries. To achieve this, we will use mocking to create a mock database environment. This approach separates our functions under test from the actual database, enabling us to carefully evaluate their logic and behavior.</description>
+    </item>
+    <item>
+      <title>When Designing a Product: Adapting Your Database with Schema Modifications</title>
+      <link>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/schema-modifications-evolving-databases-postgresql/</guid>
+      <description>Introduction In the world of database management and product design, it&amp;rsquo;s essential to be prepared for potential schema modifications as your product evolves. These modifications could entail various changes to the structure of your database, such as adding or removing columns, altering data types, or optimizing for performance. However, during these transformations, it&amp;rsquo;s crucial to ensure that you don&amp;rsquo;t lose the valuable data you&amp;rsquo;ve accumulated in your existing database.&#xA;Understanding the Original Table Structure Let&amp;rsquo;s begin by examining the original table described in the prompt.</description>
+    </item>
+    <item>
+      <title>Getting Started with Kafka and Go: Reading Messages and Inserting into a Database</title>
+      <link>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</link>
+      <pubDate>Thu, 13 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Getting-Started-with-Kafka-and-Go-Reading-Messages-and-Inserting-into-a-Database/</guid>
+      <description>Introduction: Kafka is a popular distributed streaming platform that is used for building real-time data pipelines and streaming applications. It is designed to handle high-volume data streams in real-time and provide reliable and scalable data streaming. Kafka is used for a wide range of applications, including real-time analytics, monitoring, log aggregation, and messaging systems.&#xA;In this blog post, we will demonstrate how to read Kafka messages in Go and store them in a PostgreSQL database.</description>
+    </item>
+    <item>
+      <title>Creating triggers in PostgreSQL to monitor changes in tables</title>
+      <link>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</link>
+      <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Creating-triggers-in-PostgreSQL-to-monitor-changes-in-tables/</guid>
+      <description>Introduction In a database management system, triggers are special types of stored procedures that are automatically executed in response to specific database events, such as insert, update, or delete operations on a table. Triggers can be used for a variety of purposes, such as enforcing data integrity rules, logging changes to a table, or sending notifications when certain events occur.&#xA;In this article, we will discuss how to create triggers in PostgreSQL that can send notifications when records are inserted, updated, or deleted from a table.</description>
+    </item>
+  </channel>
+</rss>

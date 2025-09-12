@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>How to Manipulate Bits in C and C&#43;&#43; | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>How to Manipulate Bits in C and C&#43;&#43;</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-10-19
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Bitmasking/&#34;&gt;Bitmasking&lt;/a&gt;
+    </div>
+  
+  <p>All data in computer is represented in binary i.e. in 0 or 1. Computers or machines do not understand our languages, they understand bits. Generally programmer do not care about operations at the bit level. But sometimes a programmer has to dive in a deeper level and work on bits.</p>
+<h1 id="bits-representation">Bits representation</h1>
+<p>In programming, an n bit integer is stored as a binary number that consists of n bits. So a 32-bit integer consists of 32 bits and 64 bit integer consists of 64 bits. In C++ programming language int data type is 16-bit, 32-bit and 64-bit type. <a href="https://en.cppreference.com/w/cpp/language/types">see here</a></p>
+<p>Here is the bit representation of 32 bit int number 10:<!-- raw HTML omitted -->
+00000000000000000000000000001010</p>
+<p>In C++, <code>int</code> is either <em>signed</em> or <em>unsigned</em> and so a bit representation is either <em>signed</em> or <em>unsigned</em>.</p>
+<p><img src="/assets/images/bitmtable1.png" alt="Range"></p>
+<p>In a signed representation, first bit represents the sign of a number (0 for positive and 1 for negative), and remaining n-1 bits contains the magnitude of the number.
+<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->
+There is a connection between a signed and an unsigned representation. A signed number <code>-x</code> equals an unsigned number 2<!-- raw HTML omitted -->n<!-- raw HTML omitted --> – x.<!-- raw HTML omitted -->
+-x (signed) = 2<!-- raw HTML omitted -->n<!-- raw HTML omitted --> - x (unsigned)</p>
+<pre tabindex="0"><code>int a = -10;
+unsigned int b = a;
+std::cout &lt;&lt; a &lt;&lt; &#34;\n&#34;; /* -10 */
+std::cout &lt;&lt; b &lt;&lt; &#34;\n&#34;; /* 4294967286 */
+</code></pre><p>In a signed representation, the next number after 2<!-- raw HTML omitted -->n – 1<!-- raw HTML omitted --> – 1 is -2<!-- raw HTML omitted -->n<!-- raw HTML omitted --> – 1, and in an unsigned representation, the next number after 2<!-- raw HTML omitted -->n<!-- raw HTML omitted --> – 1 is <code>0</code>.</p>
+<h1 id="bit-operations">Bit Operations</h1>
+<p><img src="/assets/images/bitmtable2.png" alt="Operations"></p>
+<p>We can use &amp; operator to check if a number is even or odd. If <code>x &amp; 1 = 0</code> then <code>x</code> is even and if <code>x &amp; 1 = 1</code> then <code>x</code> is odd. We can also say that, <code>x</code> is divisible by 2<!-- raw HTML omitted -->k<!-- raw HTML omitted --> exactly when x &amp; (2<!-- raw HTML omitted -->k<!-- raw HTML omitted --> – 1) = 0.</p>
+<p><code>x&lt;&lt;k</code> corresponds to multiplying <code>x</code> by 2<!-- raw HTML omitted -->k<!-- raw HTML omitted -->, and <code>x&gt;&gt;k</code> corresponds to dividing <code>x</code> by 2<!-- raw HTML omitted -->k<!-- raw HTML omitted --> rounded down to an integer.</p>
+<h1 id="common-bit-tasks">Common Bit Tasks</h1>
+<p><strong>Binary representation of <em>unsigned int</em>:</strong></p>
+<pre tabindex="0"><code>void binary(unsigned int num)
+{
+	for(int i = 256; i &gt; 0; i = i/2) {
+		if(num &amp; i) 
+			std::cout &lt;&lt; &#34;1 &#34;;
+		else
+			std::cout &lt;&lt; &#34;0 &#34;;
+	}
+	std::cout &lt;&lt; std::endl;
+}
+</code></pre><p><strong>Setting Bit at <em>position</em>:</strong></p>
+<pre tabindex="0"><code>int set_bit(int num, int position)
+{
+	int mask = 1 &lt;&lt; position;
+	return num | mask;
+}
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<strong>Getting Bit at <em>position</em>:</strong></p>
+<pre tabindex="0"><code>bool get_bit(int num, int position)
+{
+	bool bit = num &amp; (1 &lt;&lt; position);
+	return bit;
+}
+</code></pre><p><strong>Clearing Bit at <em>position</em>:</strong></p>
+<pre tabindex="0"><code>int clear_bit(int num, int position)
+{
+	int mask = 1 &lt;&lt; position;
+	return num &amp; ~mask;
+}
+</code></pre><h1 id="representing-sets">Representing Sets</h1>
+<p>Bits representation of an integer are 0-indexed and the index starts from right side i.e. least significant bit. So we can represent every subset of the set <code>{0, 1, 2, ..., n-1}</code> as an <em>n</em> bit integer and whose bits indicate which element belongs to the subset. If bit at index 3 is 1 and at index 4 is 0 in binary representation of a number, then 3 belongs to the subset and 4  does not belong to the subset.</p>
+<p>For a 32-bit integer, the set is {0, 1, 2,&hellip;, 31} and the subset is {1, 3, 4, 8}. The binary representation of the set is:
+00000000000000000000000100011010<!-- raw HTML omitted -->
+and decimal representation is 2<!-- raw HTML omitted -->8<!-- raw HTML omitted --> + 2<!-- raw HTML omitted -->4<!-- raw HTML omitted --> + 2<!-- raw HTML omitted -->3<!-- raw HTML omitted --> + 2<!-- raw HTML omitted -->1<!-- raw HTML omitted --> = 282.</p>
+<p>Code to form subset and add elements to it:</p>
+<pre tabindex="0"><code>int add_elements_to_subset()
+{
+	int subset = 0;
+	subset = subset | (1 &lt;&lt; 1);
+	subset = subset | (1 &lt;&lt; 3);
+	subset = subset | (1 &lt;&lt; 4);
+	subset = subset | (1 &lt;&lt; 8);
+	return subset;
+}
+</code></pre><p>Code to print elements of the subset:</p>
+<pre tabindex="0"><code>void printing_subset(int subset)
+{
+	for (int i = 0; i &lt; 32; i++) 
+	{
+		if (subset &amp; (1 &lt;&lt; i)) std::cout &lt;&lt; i &lt;&lt; &#34; &#34;;
+	}
+}
+</code></pre><h1 id="additional-functions">Additional functions</h1>
+<p>The g++ compiler provides the following functions for counting bits:<!-- raw HTML omitted -->
+•<code> __builtin_clz(x)</code>: the number of zeros at the beginning of the number<!-- raw HTML omitted -->
+• <code>__builtin_ctz(x)</code>: the number of zeros at the end of the number<!-- raw HTML omitted -->
+• <code>__builtin_popcount(x)</code>: the number of ones in the number<!-- raw HTML omitted -->
+• <code>__builtin_parity(x)</code>: the parity (even or odd) of the number of ones<!-- raw HTML omitted --></p>
+<p>Reference: <!-- raw HTML omitted -->
+Competitive Programmer’s Handbook - Antti Laaksonen</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Competitive-Programming/&#34;&gt;Competitive-Programming&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Bitmasking/&#34;&gt;Bitmasking&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

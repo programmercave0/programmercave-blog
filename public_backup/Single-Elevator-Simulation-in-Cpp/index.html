@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Here we are going to implement the Single Elevator Simulation in C&#43;&#43;. Initially the elevator is at ground floor. It is represented by 0. Floors below ground floor are represented by negative integers.The elevator has maximum capacity it can carry, maximum and minimum floor it can carry to.The elevator accepts the request of floor the passengers want to go. If the elevator is empty then the first request sets the direction of the elevator. After that it checks whether requests are valid. For eg. if the direction of elevator is UP, current floor is 3 and if the passenger enters request for floor -1 then the request is discarded and the passenger does not enter in the elevator.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Single Elevator Simulation in C&#43;&#43; | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Single Elevator Simulation in C&#43;&#43;</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2020-04-16
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Project/&#34;&gt;Project&lt;/a&gt;
+    </div>
+  
+  <p>Here we are going to implement the <strong>Single Elevator Simulation in C++</strong>. Initially the elevator is at ground floor. It is represented by 0. Floors below ground floor are represented by negative integers.
+The elevator has maximum capacity it can carry, maximum and minimum floor it can carry to.</p>
+<p>The elevator accepts the request of floor the passengers want to go. If the elevator is empty then the first request sets the direction of the elevator. After that it checks whether requests are valid. For eg. if the direction of elevator is UP, current floor is 3 and if the passenger enters request for floor -1 then the request is discarded and the passenger does not enter in the elevator.</p>
+<p>Below is the class diagram of Elevator class.</p>
+<p><img src="/assets/images/2020-04-16-Single-Elevator-Simulation-in-Cpp/c++_elevator_simulation.jpg" alt="C++ Elevator Simulation"></p>
+<p>(<code>-</code>) means the attributes and methods are private. (<code>+</code>) means the attributes and methods are public.</p>
+<p><code>Direction</code> is the <code>enum</code> data type which can take the one of the two values (<code>UP</code>, <code>DOWN</code>). <code>direction</code> is the enum variable.</p>
+<p><code>requests</code> is an integer <code>vector</code> which store the requests entered by passengers. <code>min_floor</code> and <code>max_floor</code> store the minimum floor and maximum floor in the building respectively.</p>
+<p><code>current_floor</code> stores the floor at which the elevator is currently. Initially it is 0 that means the elevator is at ground floor.</p>
+<p><code>passengers</code> stores the current number of passengers in the elevator. Initially it is 0.</p>
+<p><code>capacity</code> stores the maximum number of people the elevator can carry.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Elevator</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">enum</span> <span style="color:#00f;font-weight:bold">Direction</span>{ UP, DOWN };
+</span></span><span style="display:flex;"><span>	Direction direction;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#b00040">int</span><span style="color:#666">&gt;</span> requests <span style="color:#666">=</span> {};
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> min_floor; <span style="color:#408080;font-style:italic">//Undergroud floor will be shown using negative value
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 	<span style="color:#b00040">int</span> max_floor;
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> current_floor <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#408080;font-style:italic">//ground floor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 	std<span style="color:#666">::</span>size_t passengers <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>size_t capacity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#008000;font-weight:bold">public</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span> 	Elevator(<span style="color:#b00040">int</span> min_floor, <span style="color:#b00040">int</span> max_floor, std<span style="color:#666">::</span>size_t capacity) <span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span> 			min_floor(min_floor),
+</span></span><span style="display:flex;"><span> 			max_floor(max_floor),
+</span></span><span style="display:flex;"><span> 			capacity(capacity)
+</span></span><span style="display:flex;"><span> 			{}
+</span></span><span style="display:flex;"><span> 	<span style="color:#666">~</span>Elevator() {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">void</span> <span style="color:#00f">start_elevator</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#008000;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">void</span> set_request();
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> <span style="color:#00f">check_request</span>(<span style="color:#b00040">int</span> floor) <span style="color:#008000;font-weight:bold">const</span>;
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> <span style="color:#00f">is_valid_request</span>(<span style="color:#b00040">int</span> floor);
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">void</span> <span style="color:#00f">set_direction</span>(<span style="color:#b00040">int</span> floor);
+</span></span><span style="display:flex;"><span> };
+</span></span></code></pre></div><p>The constructor accepts the minimum floor, maximum floor in the building and the capacity of the elevator.</p>
+<p><code>check_request()</code> function checks whether the passenger’s request is valid. The floor passenger wants to visit is passed as an argument and if the request is valid it returns 0.</p>
+<p>There are many reasons for an invalid request. If the elevator is going upward and passenger wants to go downward then 1 is returned. If the elevator is going downward and passenger wants to go upward then 2 is returned. If the floor entered by passenger does not exist then 3 is returned.</p>
+<p>Here is C++ implementation of <code>check_request()</code> :</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> Elevator<span style="color:#666">::</span>check_request(<span style="color:#b00040">int</span> floor) <span style="color:#008000;font-weight:bold">const</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">if</span> (passengers <span style="color:#666">!=</span> <span style="color:#666">0</span> <span style="color:#666">&amp;&amp;</span> direction <span style="color:#666">==</span> UP <span style="color:#666">&amp;&amp;</span> floor <span style="color:#666">&lt;</span> current_floor)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (passengers <span style="color:#666">!=</span> <span style="color:#666">0</span> <span style="color:#666">&amp;&amp;</span> direction <span style="color:#666">==</span> DOWN <span style="color:#666">&amp;&amp;</span> floor <span style="color:#666">&gt;</span> current_floor)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (floor <span style="color:#666">&gt;</span> max_floor <span style="color:#666">||</span> floor <span style="color:#666">&lt;</span> min_floor)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">3</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>check_request()</code> is a constant function because it does not modify any variable.</p>
+<!-- raw HTML omitted -->
+<p><code>is_valid_request()</code> calls <code>check_request()</code> and outputs the error and returns the issue number.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> Elevator<span style="color:#666">::</span>is_valid_request(<span style="color:#b00040">int</span> floor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> issue_num <span style="color:#666">=</span> check_request(floor);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">if</span> (issue_num <span style="color:#666">==</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Elevator is going UP.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (issue_num <span style="color:#666">==</span> <span style="color:#666">2</span>)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Elevator is going DOWN.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (issue_num <span style="color:#666">==</span> <span style="color:#666">3</span>)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;This floor does not exist</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">return</span> issue_num;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When the elevator is empty, the first valid floor number sets the direction of the elevator. If the entered floor number is greater than the current floor number than the direction is upward else the direction is downward. This is done with the help of <code>set_direction()</code> function in which floor number is passed as an argument.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> Elevator<span style="color:#666">::</span>set_direction(<span style="color:#b00040">int</span> floor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">if</span> (floor <span style="color:#666">&gt;</span> current_floor)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		direction <span style="color:#666">=</span> UP;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (floor <span style="color:#666">&lt;</span> current_floor)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		direction <span style="color:#666">=</span> DOWN;
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>set_request()</code> function accept passengers request, check their validity and then add them in requests array. String variable <code>dest_floors_str</code> store all requests for eg “1 2 3 4 7”. <code>dest_floor_str</code> store request for a single floor for eg. “1” or “2” or “3”. Integer variable <code>dest_floor</code> store request for a single floor as integer.</p>
+<p><code>stringstream</code> variable <code>sstream</code> helps to enter single floor request into <code>dest_floor_str</code> from <code>dest_floors_str</code>. When no request is entered, enter “GO” to go to next floor. Also to exit from the program when the elevator is empty enter “GO”.</p>
+<p><code>is_valid_request()</code> is called to check whether entered floor is valid. If it is valid then we check the number of passengers in the elevator. If the number of passenger is zero means this is the first request and it is used to set the direction of the elevator, so <code>set_direction()</code> is called. After than this request is added to the <code>requests</code> array and number of passenger is incremented.</p>
+<p>If the number of passengers in the elevator is equal to the capacity of the elevator, means we cannot add any more request so we exit from this function.</p>
+<!-- raw HTML omitted -->
+<p>Here is the C++ implementation of <code>set_request()</code> :</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> Elevator<span style="color:#666">::</span>set_request() 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>string dest_floors_str; <span style="color:#408080;font-style:italic">//stores all floors request
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 	std<span style="color:#666">::</span>string dest_floor_str; <span style="color:#408080;font-style:italic">//stores single floor in string
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 	<span style="color:#b00040">int</span> dest_floor; <span style="color:#408080;font-style:italic">// stores single floor as integer
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span> 		
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>size_t num_of_reqs <span style="color:#666">=</span> capacity <span style="color:#666">-</span> passengers;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span> <span style="color:#666">&lt;&lt;</span> num_of_reqs <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34; passengers can enter in the elevator right now</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Enter </span><span style="color:#b62;font-weight:bold">\&#34;</span><span style="color:#ba2121">GO</span><span style="color:#b62;font-weight:bold">\&#34;</span><span style="color:#ba2121"> if no one enters from the floor </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Or to exit from program if elevator is idle</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Enter destination floor number.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>getline(std<span style="color:#666">::</span>cin, dest_floors_str);
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>stringstream sstream(dest_floors_str);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">while</span> (sstream <span style="color:#666">&gt;&gt;</span> dest_floor_str)
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">if</span> (dest_floor_str <span style="color:#666">==</span> <span style="color:#ba2121">&#34;GO&#34;</span> <span style="color:#666">||</span> dest_floor_str <span style="color:#666">==</span> <span style="color:#ba2121">&#34;Go&#34;</span> <span style="color:#666">||</span> dest_floor_str <span style="color:#666">==</span> <span style="color:#ba2121">&#34;go&#34;</span> <span style="color:#666">||</span> dest_floor_str <span style="color:#666">==</span> <span style="color:#ba2121">&#34;gO&#34;</span>)
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			<span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			dest_floor <span style="color:#666">=</span> std<span style="color:#666">::</span>stoi(dest_floor_str);
+</span></span><span style="display:flex;"><span> 			<span style="color:#008000;font-weight:bold">if</span> (passengers <span style="color:#666">&lt;</span> capacity)
+</span></span><span style="display:flex;"><span> 			{
+</span></span><span style="display:flex;"><span> 				<span style="color:#b00040">int</span> is_valid <span style="color:#666">=</span> is_valid_request(dest_floor);
+</span></span><span style="display:flex;"><span> 				<span style="color:#008000;font-weight:bold">if</span> (is_valid <span style="color:#666">==</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span> 				{
+</span></span><span style="display:flex;"><span> 					<span style="color:#008000;font-weight:bold">if</span> (passengers <span style="color:#666">==</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>		 			{
+</span></span><span style="display:flex;"><span> 	 					set_direction(dest_floor);
+</span></span><span style="display:flex;"><span> 	 				}
+</span></span><span style="display:flex;"><span> 	 				requests.push_back(dest_floor);
+</span></span><span style="display:flex;"><span> 					passengers<span style="color:#666">++</span>;
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span> 			}
+</span></span><span style="display:flex;"><span> 			<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (passengers <span style="color:#666">==</span> capacity)
+</span></span><span style="display:flex;"><span> 			{
+</span></span><span style="display:flex;"><span> 				std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Elevator full!! Cannot accept more requests</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span> 				<span style="color:#008000;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span> 			}
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>start_elevator()</code> is the function which is called in the <code>main()</code> function. It calls <code>set_request()</code> which enters valid requests in the requests array. Then the array is sorted. For eg. the requests are entered in [4, 2, 3, 1] after sorting they are [1, 2, 3, 4] because first the elevator will stop at 1 then 2 ans so on.</p>
+<p>A <code>while</code> loop is run until all requests are executed. Integer variable <code>next_floor</code> is set with the next floor to visit. Then all requests of the <code>next_floor</code> is deleted from the array and respective number of <code>passengers</code> are decremented. Then this <code>next_floor</code> becomes the <code>current_floor</code>.</p>
+<p>If elevator is at the extreme floor then the direction is reversed.</p>
+<p>When the floor is reached at floor 1, again requests are entered in the array and the array stores [2, 3, 4, 6, 4, 7]. To let this happen and to run elevator continuously again <code>set_request()</code> is called in the while loop.</p>
+<p>Here is the C++ implementation of <code>start_elevator()</code> :</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">void</span> Elevator<span style="color:#666">::</span>start_elevator()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">FLOOR : &#34;</span> <span style="color:#666">&lt;&lt;</span> current_floor <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\t</span><span style="color:#ba2121">Number of Occupants : &#34;</span> <span style="color:#666">&lt;&lt;</span> passengers <span style="color:#666">&lt;&lt;</span><span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#408080;font-style:italic">//Entering requests for first time
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 	set_request(); 
+</span></span><span style="display:flex;"><span> 	std<span style="color:#666">::</span>sort(requests.begin(), requests.end());
+</span></span><span style="display:flex;"><span> 	<span style="color:#b00040">int</span> next_floor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#008000;font-weight:bold">while</span> (<span style="color:#666">!</span>requests.empty())
+</span></span><span style="display:flex;"><span> 	{
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">if</span> (direction <span style="color:#666">==</span> UP)
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			next_floor <span style="color:#666">=</span> requests[<span style="color:#666">0</span>];
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (direction <span style="color:#666">==</span> DOWN)
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			next_floor <span style="color:#666">=</span> requests[requests.size() <span style="color:#666">-</span> <span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">auto</span> next_floor_req <span style="color:#666">=</span> std<span style="color:#666">::</span>find(requests.begin(), requests.end(), next_floor);
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">while</span> (next_floor_req <span style="color:#666">!=</span> requests.end())
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			requests.erase(next_floor_req); <span style="color:#408080;font-style:italic">//removing next floor&#39;s requests
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 			passengers<span style="color:#666">--</span>;
+</span></span><span style="display:flex;"><span> 			next_floor_req <span style="color:#666">=</span> std<span style="color:#666">::</span>find(requests.begin(), requests.end(), next_floor);
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span> 		current_floor <span style="color:#666">=</span> next_floor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 		std<span style="color:#666">::</span>string dir;
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">if</span> (direction <span style="color:#666">==</span> UP)
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			dir <span style="color:#666">=</span> <span style="color:#ba2121">&#34;UP&#34;</span>;
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span> 		{		
+</span></span><span style="display:flex;"><span> 			dir <span style="color:#666">=</span> <span style="color:#ba2121">&#34;DOWN&#34;</span>;
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 		<span style="color:#408080;font-style:italic">//Entering requests for current floor
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span> 		std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">=======================================================</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>
+</span></span><span style="display:flex;"><span>    		<span style="color:#ba2121">&#34;FLOOR : &#34;</span> <span style="color:#666">&lt;&lt;</span> current_floor 
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\t</span><span style="color:#ba2121">Number of Occupants : &#34;</span> <span style="color:#666">&lt;&lt;</span> passengers 
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n\n</span><span style="color:#ba2121">DIRECTION : &#34;</span> <span style="color:#666">&lt;&lt;</span> dir 
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\t</span><span style="color:#ba2121">Total Capacity : &#34;</span> <span style="color:#666">&lt;&lt;</span> capacity
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n\n</span><span style="color:#ba2121">Minimum floor number is &#34;</span> <span style="color:#666">&lt;&lt;</span> min_floor
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\t</span><span style="color:#ba2121">Maximum floor number is &#34;</span> <span style="color:#666">&lt;&lt;</span> max_floor
+</span></span><span style="display:flex;"><span>    		<span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n\n</span><span style="color:#ba2121">=======================================================</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 		<span style="color:#008000;font-weight:bold">if</span> (current_floor <span style="color:#666">==</span> max_floor)
+</span></span><span style="display:flex;"><span> 		{
+</span></span><span style="display:flex;"><span> 			direction <span style="color:#666">=</span> DOWN;
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span>		<span style="color:#008000;font-weight:bold">else</span> <span style="color:#00f">if</span> (current_floor <span style="color:#666">==</span> min_floor) 		
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span> 			direction <span style="color:#666">=</span> UP;
+</span></span><span style="display:flex;"><span> 		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 		set_request();
+</span></span><span style="display:flex;"><span> 		std<span style="color:#666">::</span>sort(requests.begin(), requests.end());	
+</span></span><span style="display:flex;"><span> 	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In <code>main()</code> function maximum floor, minimum floor and capacity of the elevator is entered. Then <code>start_elevator()</code> is called.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#b00040">int</span> <span style="color:#00f">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>string capacity_str, min_floor_num_str, max_floor_num_str;
+</span></span><span style="display:flex;"><span>	<span style="color:#b00040">int</span> min_floor_num, max_floor_num;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>size_t capacity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Enter minimum floor number, maximum floor number in the building</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> min_floor_num_str;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> max_floor_num_str;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	min_floor_num <span style="color:#666">=</span> std<span style="color:#666">::</span>stoi(min_floor_num_str);
+</span></span><span style="display:flex;"><span>	max_floor_num <span style="color:#666">=</span> std<span style="color:#666">::</span>stoi(max_floor_num_str);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#ba2121">&#34;Enter capacity for the elevator</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span>;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> capacity_str;
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>cin.ignore();
+</span></span><span style="display:flex;"><span>	std<span style="color:#666">::</span>stringstream capacity_stream(capacity_str);
+</span></span><span style="display:flex;"><span>	capacity_stream <span style="color:#666">&gt;&gt;</span> capacity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	Elevator elevator(min_floor_num, max_floor_num, capacity);
+</span></span><span style="display:flex;"><span>	elevator.start_elevator();	
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Command to compile <code>g++ elevator_design.cpp -o elevator_design</code></p>
+<p>And to run <code>./elevator_design</code></p>
+<p>Get the full code on <a href="https://github.com/abhiabhi0/Small-Projects/blob/master/Elevator-Design-C++-Implementation/elevator_design.cpp">Github</a></p>
+<p>If you have any improvements or suggestions then please comment below.</p>
+<!-- raw HTML omitted -->
+<p><a href="/C-Tic-Tac-Toe">C++: Tic Tac Toe</a><!-- raw HTML omitted --></p>
+<p><a href="/C-Simple-Pendulum-Animation-on-Ubuntu-Machine">C++: Simple Pendulum Animation on Ubuntu Machine</a><!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cpp/&#34;&gt;Cpp&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Project/&#34;&gt;Project&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

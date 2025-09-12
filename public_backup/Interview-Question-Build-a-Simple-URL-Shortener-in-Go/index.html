@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn how to create a simple and thread-safe URL shortener in Go using `sync.Mutex` for safe concurrent access to an in-memory map. Discover the implementation of generating unique short codes, storing mappings, and retrieving original URLs.">
+  <meta name="keywords" content="URL, shortener,, Go, programming,, sync.Mutex,, thread-safe,, in-memory, map,, concurrent, access,, Go, concurrency,, random, string, generation,, short, code, generation,, simple, URL, shortener, in, Go,, scalable, URL, shortener., interview, question,, software, engineer">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Interview Question: Build a Simple URL Shortener in Go | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Interview Question: Build a Simple URL Shortener in Go</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-11-20
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+  <p>In this blog post, we will build a simple URL shortener in Go. This will demonstrate how to generate short codes for long URLs, store them in memory, and retrieve the original URL from the short code. We will also ensure thread-safety for concurrent access to the in-memory store using <code>sync.Mutex</code>.</p>
+<p><em>This question was asked to me by Radisys for the role of Golang Developer.</em></p>
+<hr>
+<h3 id="step-1-data-structure-for-storing-urls"><strong>Step 1: Data Structure for Storing URLs</strong></h3>
+<p>First, we need a place to store the URLs. Since we want our URL shortener to be fast and simple, we will use an in-memory map to store the mapping between the short codes and the original URLs. We also need a way to safely access this map in a multi-threaded environment, which is where <code>sync.Mutex</code> comes in.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;math/rand&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ba2121">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// A map to store URLs in memory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">var</span> urlStore = <span style="color:#008000">make</span>(<span style="color:#008000;font-weight:bold">map</span>[<span style="color:#b00040">string</span>]<span style="color:#b00040">string</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">var</span> mu sync.Mutex <span style="color:#408080;font-style:italic">// Mutex to handle concurrent access
+</span></span></span></code></pre></div><ul>
+<li><strong><code>urlStore</code></strong>: A map that stores the short code as the key and the corresponding long URL as the value.</li>
+<li><strong><code>mu</code></strong>: A mutex to ensure thread-safe access to the <code>urlStore</code>.</li>
+</ul>
+<hr>
+<h3 id="step-2-generate-a-short-code"><strong>Step 2: Generate a Short Code</strong></h3>
+<p>To shorten the URL, we need to generate a short code. The short code will be a random alphanumeric string. We will define a function to generate this random string and ensure that it is unique before storing it.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Initialize the random seed
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">init</span>() {
+</span></span><span style="display:flex;"><span>	rand.<span style="color:#00f">Seed</span>(time.<span style="color:#00f">Now</span>().<span style="color:#00f">UnixNano</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Generates a random string of fixed length (short code)
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">generateShortCode</span>(length <span style="color:#b00040">int</span>) <span style="color:#b00040">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">const</span> charset = <span style="color:#ba2121">&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#34;</span>
+</span></span><span style="display:flex;"><span>	code <span style="color:#666">:=</span> <span style="color:#008000">make</span>([]<span style="color:#b00040">byte</span>, length)
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">for</span> i <span style="color:#666">:=</span> <span style="color:#008000;font-weight:bold">range</span> code {
+</span></span><span style="display:flex;"><span>		code[i] = charset[rand.<span style="color:#00f">Intn</span>(<span style="color:#008000">len</span>(charset))]
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">string</span>(code)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong><code>generateShortCode</code></strong>: This function generates a random string of a fixed length (6 characters in this case). It uses a predefined charset consisting of lowercase letters, uppercase letters, and digits.</li>
+</ul>
+<hr>
+<h3 id="step-3-store-the-url-mapping"><strong>Step 3: Store the URL Mapping</strong></h3>
+<p>Once we have a short code, we need to store the mapping between the short code and the long URL. To ensure uniqueness, we will check if the generated short code already exists in the <code>urlStore</code> map. If it does, we generate a new code.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// ShortenURL takes a long URL and returns a short code
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">ShortenURL</span>(longURL <span style="color:#b00040">string</span>) <span style="color:#b00040">string</span> {
+</span></span><span style="display:flex;"><span>	mu.<span style="color:#00f">Lock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">defer</span> mu.<span style="color:#00f">Unlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Generate a unique short code
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	shortCode <span style="color:#666">:=</span> <span style="color:#00f">generateShortCode</span>(<span style="color:#666">6</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">for</span> urlStore[shortCode] <span style="color:#666">!=</span> <span style="color:#ba2121">&#34;&#34;</span> { <span style="color:#408080;font-style:italic">// Ensure uniqueness
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>		shortCode = <span style="color:#00f">generateShortCode</span>(<span style="color:#666">6</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Store the mapping in memory
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	urlStore[shortCode] = longURL
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> shortCode
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong><code>ShortenURL</code></strong>: This function takes the long URL as input, generates a short code, and stores the mapping in <code>urlStore</code>. If the generated short code already exists, it generates a new one until a unique code is found.</li>
+</ul>
+<hr>
+<h3 id="step-4-retrieve-the-original-url"><strong>Step 4: Retrieve the Original URL</strong></h3>
+<p>To retrieve the original URL from the short code, we will define a function that looks up the short code in the <code>urlStore</code> map. If the short code exists, it will return the corresponding long URL.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// GetOriginalURL retrieves the original URL from a short code
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">GetOriginalURL</span>(shortCode <span style="color:#b00040">string</span>) (<span style="color:#b00040">string</span>, <span style="color:#b00040">bool</span>) {
+</span></span><span style="display:flex;"><span>	mu.<span style="color:#00f">Lock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">defer</span> mu.<span style="color:#00f">Unlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	longURL, exists <span style="color:#666">:=</span> urlStore[shortCode]
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">return</span> longURL, exists
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong><code>GetOriginalURL</code></strong>: This function takes the short code as input and looks it up in the <code>urlStore</code>. If the short code exists, it returns the original URL; otherwise, it returns <code>false</code>.</li>
+</ul>
+<hr>
+<h3 id="step-5-putting-it-all-together"><strong>Step 5: Putting It All Together</strong></h3>
+<p>Now that we have all the necessary functions, let&rsquo;s put everything together in the <code>main</code> function. We will demonstrate how to shorten a URL and retrieve the original URL using the generated short code.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#408080;font-style:italic">// Main for demonstration
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span><span style="color:#008000;font-weight:bold">func</span> <span style="color:#00f">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Shorten a URL
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	longURL <span style="color:#666">:=</span> <span style="color:#ba2121">&#34;https://example.com&#34;</span>
+</span></span><span style="display:flex;"><span>	shortCode <span style="color:#666">:=</span> <span style="color:#00f">ShortenURL</span>(longURL)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#00f">Printf</span>(<span style="color:#ba2121">&#34;Short code for %s: %s\n&#34;</span>, longURL, shortCode)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#408080;font-style:italic">// Retrieve the original URL
+</span></span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"></span>	originalURL, exists <span style="color:#666">:=</span> <span style="color:#00f">GetOriginalURL</span>(shortCode)
+</span></span><span style="display:flex;"><span>	<span style="color:#008000;font-weight:bold">if</span> exists {
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#00f">Printf</span>(<span style="color:#ba2121">&#34;Original URL for short code %s: %s\n&#34;</span>, shortCode, originalURL)
+</span></span><span style="display:flex;"><span>	} <span style="color:#008000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#00f">Println</span>(<span style="color:#ba2121">&#34;Short code not found!&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>The <code>main</code> function demonstrates the entire process:
+<ul>
+<li>A long URL is shortened using <code>ShortenURL</code>.</li>
+<li>The original URL is retrieved using <code>GetOriginalURL</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="example-output"><strong>Example Output:</strong></h4>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Short code for https://example.com: aB3cD1
+</span></span><span style="display:flex;"><span>Original URL for short code aB3cD1: https://example.com
+</span></span></code></pre></div><hr>
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<p>In this post, we have built a simple URL shortener in Go. The key features of this implementation include:</p>
+<ul>
+<li><strong>Thread-Safety</strong>: Using <code>sync.Mutex</code> ensures that the URL store can be accessed concurrently without race conditions.</li>
+<li><strong>Short Code Generation</strong>: We used a random string generation function to create unique short codes.</li>
+<li><strong>URL Mapping</strong>: The short codes are mapped to long URLs and stored in memory for fast access.</li>
+</ul>
+<h3 id="advantages"><strong>Advantages</strong></h3>
+<ul>
+<li><strong>Simple and Fast</strong>: The use of an in-memory map ensures fast lookups and code generation.</li>
+<li><strong>Thread-Safe</strong>: The implementation is safe to use in a multi-goroutine environment.</li>
+</ul>
+<h3 id="limitations"><strong>Limitations</strong></h3>
+<ul>
+<li><strong>Ephemeral Storage</strong>: Since the data is stored in memory, it is lost when the program exits.</li>
+<li><strong>Scalability</strong>: This approach may not scale well for large datasets (e.g., millions of URLs) as it uses in-memory storage.</li>
+</ul>
+<hr>
+<h3 id="possible-extensions"><strong>Possible Extensions</strong></h3>
+<ul>
+<li><strong>Persistent Storage</strong>: You can integrate a database like MySQL or PostgreSQL to store the URL mappings permanently.</li>
+<li><strong>REST API</strong>: You can expose the URL shortening and retrieval functionality via a REST API, making it accessible over the web.</li>
+</ul>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Go/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

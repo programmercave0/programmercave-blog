@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Learn linux command by playing Bandit wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21. In this post we will learn about setuid and how to use it to access files of other users. The passwords are hidden, so you have to find the passwords for next level yourself.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Bandit Level 19 to Level 20 | OverTheWire | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Bandit Level 19 to Level 20 | OverTheWire</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-12-25
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+  <p>Learn linux command by playing <a href="https://overthewire.org/wargames/bandit/">Bandit</a> wargame. The Bandit wargame is aimed at absolute beginners. It will teach the basics needed to be able to play other wargames. Below is the solution of Level 19 → Level 20 and Level 20 → Level 21.</p>
+<p>In this post we will learn about setuid and how to use it to access files of other users.</p>
+<p>The passwords are hidden, so you have to find the passwords for next level yourself.</p>
+<p><img src="/assets/images/Bandit-Overthewire/overthewire_poster.jpg" alt="Bandit OverTheWire"></p>
+<h3 id="previous-post">Previous Post</h3>
+<p><a href="/Bandit-Level-0-to-Level-5-OverTheWire">Bandit Level 0 to Level 3</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-4-to-Level-9-OverTheWire">Bandit Level 4 to Level 8</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-9-to-Level-12-OverTheWire">Bandit Level 9 to Level 11</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-12-Level-13-OverTheWire">Bandit Level 12 → Level 13</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-13-to-Level-16-OverTheWire">Bandit Level 13 to Level 15</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-16-to-Level-19-OverTheWire">Bandit Level 16 to Level 18</a><!-- raw HTML omitted --></p>
+<h2 id="bandit-level-19--level-20httpsoverthewireorgwargamesbanditbandit20html"><a href="https://overthewire.org/wargames/bandit/bandit20.html">Bandit Level 19 → Level 20</a></h2>
+<h3 id="level-goal">Level Goal</h3>
+<p>To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.</p>
+<h3 id="solution-">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit19@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p><strong>Setuid</strong>, which stands for set user ID on execution, is a special type of file permission in Unix and Unix-like operating systems such as Linux and BSD. It is a security tool that permits users to run certain programs with escalated privileges.</p>
+<p>When an executable file&rsquo;s setuid permission is set, users may execute that program with a level of access that matches the user who owns the file.</p>
+<p>When viewing a file&rsquo;s permissions with the <code>ls -l</code> command, the setuid permission is displayed as an &ldquo;<strong>s</strong>&rdquo; in the &ldquo;user execute&rdquo; bit position.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l1920_terminal.jpg" alt="Bandit Level 19 20"></p>
+<p>Here setuid is set for the binary file (<code>-rwsr-x--</code>) and the user is <em>bandit20</em>. So if execute <code>./bandit20-do</code> it will run as user <em>bandit20</em> and password for <em>bandit20</em> is stored in <em>/etc/bandit_paas/bandit20</em> which is only accessible through user <em>bandit20</em>.</p>
+<p>The command is</p>
+<pre tabindex="0"><code>./bandit20-do cat /etc/bandit_pass/bandit20
+</code></pre><p>and the password is <code>****</code> .</p>
+<p>Reference : <a href="https://www.computerhope.com/jargon/s/setuid.htm">https://www.computerhope.com/jargon/s/setuid.htm</a></p>
+<!-- raw HTML omitted -->
+<h2 id="bandit-level-20--level-21httpsoverthewireorgwargamesbanditbandit21html"><a href="https://overthewire.org/wargames/bandit/bandit21.html">Bandit Level 20 → Level 21</a></h2>
+<h3 id="level-goal-1">Level Goal</h3>
+<p>There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+<p><strong>NOTE:</strong> Try connecting to your own network daemon to see if it works as you think</p>
+<h3 id="commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</h3>
+<p>ssh, nc, cat, bash, screen, tmux, Unix ‘job control’ (bg, fg, jobs, &amp;, CTRL-Z, …)</p>
+<h3 id="solution--1">Solution :</h3>
+<p>Command to connect remote host : <code>ssh bandit20@bandit.labs.overthewire.org -p 2220</code> password is <code>****</code> .</p>
+<p>First lets see how to create a TCP listener connection on our local machine. For this purpose we will use netcat program and option <code>-l</code> specify that <code>nc</code> should listen for an incoming connection rather than initiate a connection to a remote host. We will open two terminal and in first terminal the command is <code>nc -l localhost -p 5000</code>. The netcat server is listening to port 5000. <code>-p</code> specifies the source port <code>nc</code> should use.</p>
+<p>Now in second terminal netcat client establishes connection to the server on port 5000. The command to do that is <code>nc -v localhost 5000</code>. Option <code>-v</code> give more verbose output.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit2021.gif" alt="Bandit Level 20 21"></p>
+<p>Now login to a remote machine as user bandit20.</p>
+<p>Binary file <em>suconnect</em> has escalated privilege as user <em>bandit21</em>. After running command <code>./suconnect</code> it shows how to use command i.e. <em>Usage: ./suconnect</em> <!-- raw HTML omitted --></p>
+<p>It also shows “<em>This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back</em>”.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2021_terminal2.jpg" alt="Bandit Level 20 21"></p>
+<p>First we have to establish a TCP connection like we did above. We can connect on any port for eg. port 12345. Then we pass the password of current level (bandit20). And if the password is correct, it will display password for level 21.</p>
+<p>In terminal 1 server will listen on port 12345 and password of the current level is passed. Command is</p>
+<pre tabindex="0"><code>nc -l localhost -p 12345 &lt; /etc/bandit_pass/bandit20
+</code></pre><p>In terminal 2 binary file suconncet will connect to server on port 12345 and if password matches, password for next level is displayed on the terminal 1. Command is</p>
+<pre tabindex="0"><code>./suconnect 12345
+</code></pre><p>and the password is <code>****</code> .</p>
+<p>Here connection is also established on port 12346.</p>
+<p><img src="/assets/images/Bandit-Overthewire/bandit_l2021_terminal3.jpg" alt="Bandit Level 20 21"></p>
+<p>Reference : <a href="https://unix.stackexchange.com/a/214480/244874">https://unix.stackexchange.com/a/214480/244874</a><!-- raw HTML omitted -->
+<a href="https://linux.die.net/man/1/nc">https://linux.die.net/man/1/nc</a><!-- raw HTML omitted -->
+<a href="https://www.billycody.com/otw-wargames/bandit/bandit-level-20">https://www.billycody.com/otw-wargames/bandit/bandit-level-20</a><!-- raw HTML omitted --></p>
+<h3 id="next-post">Next Post</h3>
+<p><a href="/Bandit-Level-21-to-Level-23-OverTheWire">Bandit Level 21 to Level 22</a>
+<!-- raw HTML omitted -->
+<a href="/Bandit-Level-23-Level-24-OverTheWire">Bandit Level 23 → Level 24</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-24-Level-25-OverTheWire">Bandit Level 24 → Level 25</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-25-to-Level-26-OverTheWire">Bandit Level 25 to Level 26</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-27-to-Level-31-OverTheWire">Bandit Level 27 to Level 31</a><!-- raw HTML omitted -->
+<a href="/Bandit-Level-32-Level-33-OverTheWire">Bandit Level 32 → Level 33</a><!-- raw HTML omitted --></p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Linux/&#34;&gt;Linux&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/OverTheWire-Bandit/&#34;&gt;OverTheWire-Bandit&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/CTF/&#34;&gt;CTF&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

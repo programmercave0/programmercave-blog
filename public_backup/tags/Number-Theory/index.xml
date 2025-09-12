@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Number-Theory on programmerCave</title>
+    <link>https://programmercave.com/tags/Number-Theory/</link>
+    <description>Recent content in Number-Theory on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Number-Theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding the Euclidean Algorithm for Finding the Greatest Common Divisor (GCD) | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Understanding-the-Euclidean-Algorithm-for-Finding-the-Greatest-Common-Divisor-GCD-Cpp-Implementation/</guid>
+      <description>Introduction The Euclidean algorithm has stood the test of time as one of the most efficient methods for finding the Greatest Common Divisor (GCD) of two integers. Its elegant simplicity and effectiveness have made it a staple in various mathematical and computational applications. In this comprehensive guide, we will delve into the inner workings of the Euclidean algorithm, step-by-step, and explore its recursive and iterative implementations. By the end of this article, you will have a deep understanding of the Euclidean algorithm, allowing you to apply it confidently in your mathematical endeavors.</description>
+    </item>
+    <item>
+      <title>Prime Numbers and Sieve of Eratosthenes</title>
+      <link>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Prime-Numbers-and-Sieve-of-Eratosthenes/</guid>
+      <description>A prime number is an integer n &amp;gt; 1 which is only divisible by 1 and n(itself). For example, 2, 3, 5 are prime numbers, but 6, 8, 9 are not prime numbers.&#xA;Every integer n &amp;gt; 1 can be uniquely expressed as the product of prime numbers. For example 8 = 2 * 2 * 2.&#xA;A perfect number is a number n if n is equal to the sum of its factors between 1 and n – 1.</description>
+    </item>
+  </channel>
+</rss>

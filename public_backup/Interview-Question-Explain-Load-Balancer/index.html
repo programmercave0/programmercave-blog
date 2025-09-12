@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Ace your software engineering interview with this comprehensive guide on load balancers. Learn core concepts, deployment strategies, algorithms, types, and key configurations.">
+  <meta name="keywords" content="load, balancer, interview, guide,, scalability, techniques,, server, health, checks,, reverse, proxy,, SSL, offloading,, round, robin, algorithm,, AWS, load, balancer,, DNS, vs, network, load, balancer,, high, availability, systems,, software, engineering, interview, preparation">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Interview Question: Explain Load Balancer | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Interview Question: Explain Load Balancer</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2025-02-02
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Distributed-Systems/&#34;&gt;Distributed-Systems&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+  <h2 id="what-is-a-load-balancer"><strong>What is a Load Balancer?</strong></h2>
+<p>A <strong>load balancer</strong> acts like a traffic cop for your application, directing incoming requests across multiple servers to prevent overload and ensure smooth performance. It’s the entry point of your system, hiding server details and optimizing traffic flow.</p>
+<ul>
+<li><strong>Placement</strong>: Sits at the edge of data centers (like a gatekeeper).</li>
+<li><strong>Functionality</strong>:
+<ul>
+<li>Distributes traffic to servers.</li>
+<li>Proxies requests to hide server IPs (e.g., clients only see the load balancer’s IP).</li>
+<li>Routes responses back to users.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Visual Analogy</strong>: Imagine a supermarket with 10 cashiers. The load balancer ensures customers (requests) are evenly distributed to avoid long queues.</p>
+<p><img src="/assets/images/Distributed-System/Load-Balancer.png" alt="Explain Load Balancer"></p>
+<hr>
+<h2 id="why-use-a-load-balancer"><strong>Why Use a Load Balancer?</strong></h2>
+<h3 id="1-scalability">1. <strong>Scalability</strong></h3>
+<ul>
+<li><strong>Horizontal Scaling</strong>: Add/remove servers like adding more cashiers during rush hour.</li>
+<li><strong>Traffic Spikes</strong>: Distribute sudden surges (e.g., Black Friday sales) without crashing servers.</li>
+</ul>
+<h3 id="2-resilience">2. <strong>Resilience</strong></h3>
+<ul>
+<li><strong>Health Checks</strong>: Like a doctor checking pulse, the load balancer pings servers to ensure they’re alive.</li>
+<li><strong>Auto-Adjustment</strong>: Removes unhealthy servers and adds new ones during traffic spikes.</li>
+</ul>
+<h3 id="3-higher-availability">3. <strong>Higher Availability</strong></h3>
+<ul>
+<li><strong>Rolling Deployments</strong>: Update servers one by one (e.g., deploy code to Server 1, test, then move to Server 2).</li>
+<li><strong>Zero Downtime</strong>: Users never notice updates.</li>
+</ul>
+<h3 id="4-security">4. <strong>Security</strong></h3>
+<ul>
+<li><strong>DDoS Protection</strong>: Blocks malicious traffic before it reaches servers.</li>
+<li><strong>IP Masking</strong>: Hides server IPs, reducing attack surfaces.</li>
+</ul>
+<h3 id="5-performance">5. <strong>Performance</strong></h3>
+<ul>
+<li><strong>SSL Offloading</strong>: Handles encryption/decryption, freeing servers to focus on processing requests.</li>
+<li><strong>Traffic Compression</strong>: Sends smaller data packets for faster responses.</li>
+</ul>
+<hr>
+<h2 id="deployment-process-with-a-load-balancer"><strong>Deployment Process with a Load Balancer</strong></h2>
+<p>Here’s how companies deploy updates without downtime:</p>
+<ol>
+<li><strong>Detach a Server</strong>: Temporarily remove Server 1 from the pool.</li>
+<li><strong>Deploy Code</strong>: Update the application on Server 1.</li>
+<li><strong>Sanity Check</strong>: Test if Server 1 works post-update.</li>
+<li><strong>Reattach</strong>: Add Server 1 back to the pool.</li>
+<li><strong>Repeat</strong>: Do this for all servers sequentially.</li>
+</ol>
+<p><strong>Visual Guide</strong>:</p>
+<pre tabindex="0"><code>[Client] → [Load Balancer]  
+           ↓         ↓  
+        [Server 1 (Updated)]  [Server 2 (Old)] → ...  
+</code></pre><hr>
+<h2 id="how-load-balancers-work"><strong>How Load Balancers Work</strong></h2>
+<h3 id="reverse-proxy"><strong>Reverse Proxy</strong></h3>
+<ul>
+<li>Accepts client requests → forwards to servers → returns responses.</li>
+<li><strong>Example</strong>: When you visit <code>example.com</code>, the load balancer (not the server) handles your request.</li>
+</ul>
+<h3 id="health-checks"><strong>Health Checks</strong></h3>
+<ul>
+<li><strong>Active Checks</strong>: Regularly sends “Are you alive?” signals to servers.</li>
+<li><strong>Recovery</strong>: If Server 2 fails, traffic shifts to Server 1 and 3. Once Server 2 recovers, it rejoins the pool.</li>
+</ul>
+<h3 id="self-scaling"><strong>Self-Scaling</strong></h3>
+<ul>
+<li><strong>AWS Example</strong>: Automatically scales from 1 to 100 nodes during traffic surges.</li>
+</ul>
+<hr>
+<h2 id="load-balancing-algorithms"><strong>Load Balancing Algorithms</strong></h2>
+<ol>
+<li>
+<p><strong>Round Robin</strong>:</p>
+<ul>
+<li>Sends requests sequentially: Server 1 → Server 2 → Server 3 → repeat.</li>
+<li><em>Use Case</em>: Evenly distributed, stateless traffic (e.g., static websites).</li>
+</ul>
+</li>
+<li>
+<p><strong>Weighted Round Robin</strong>:</p>
+<ul>
+<li>Assigns more requests to powerful servers (e.g., Server 1 handles 60% traffic).</li>
+</ul>
+</li>
+<li>
+<p><strong>Least Connections</strong>:</p>
+<ul>
+<li>Directs traffic to the server with the fewest active requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>IP Hash</strong>:</p>
+<ul>
+<li>Uses client IP to assign a fixed server (useful for session persistence).</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>Clients → [Load Balancer]  
+           ↙   ↓   ↘  
+        [S1] [S2] [S3]  
+</code></pre><hr>
+<h2 id="key-configuration-components"><strong>Key Configuration Components</strong></h2>
+<ol>
+<li>
+<p><strong>Listeners</strong>:</p>
+<ul>
+<li>Rules for traffic entry (e.g., HTTP on port 80 → Server port 8080).</li>
+</ul>
+</li>
+<li>
+<p><strong>Routing</strong>:</p>
+<ul>
+<li>Conditional rules (e.g., send <code>/admin</code> requests to admin servers).</li>
+</ul>
+</li>
+<li>
+<p><strong>Target Groups</strong>:</p>
+<ul>
+<li>Group servers by role (e.g., <code>static-content-servers</code>, <code>payment-servers</code>).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="types-of-load-balancers"><strong>Types of Load Balancers</strong></h2>
+<ol>
+<li>
+<p><strong>Application Load Balancer (ALB)</strong>:</p>
+<ul>
+<li><strong>Layer 7 (HTTP/HTTPS)</strong>: Routes based on URL paths (e.g., <code>/api</code> vs <code>/images</code>).</li>
+<li><em>Example</em>: AWS ALB.</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Load Balancer (NLB)</strong>:</p>
+<ul>
+<li><strong>Layer 4 (TCP/UDP)</strong>: Handles high-speed, low-latency traffic (e.g., gaming).</li>
+</ul>
+</li>
+<li>
+<p><strong>DNS Load Balancer</strong>:</p>
+<ul>
+<li>Distributes traffic via DNS (e.g., returns different IPs for <code>example.com</code>).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="interview-cheat-sheet"><strong>Interview Cheat Sheet</strong></h2>
+<ul>
+<li><strong>Explain Scalability</strong>: “Load balancers let you add servers horizontally to handle traffic spikes.”</li>
+<li><strong>Health Checks</strong>: “They ensure only healthy servers get traffic, improving reliability.”</li>
+<li><strong>Round Robin vs Least Connections</strong>: “Round Robin cycles servers; Least Connections picks the least busy one.”</li>
+</ul>
+<p><strong>Common Questions</strong>:</p>
+<ol>
+<li>
+<p><strong>How does a load balancer improve security?</strong></p>
+<ul>
+<li><em>Answer</em>: Hides server IPs, blocks DDoS attacks, and manages SSL.</li>
+</ul>
+</li>
+<li>
+<p><strong>What happens if a server fails during deployment?</strong></p>
+<ul>
+<li><em>Answer</em>: The load balancer reroutes traffic to active servers.</li>
+</ul>
+</li>
+</ol>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Distributed-Systems/&#34;&gt;Distributed-Systems&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Interview-Questions/&#34;&gt;Interview-Questions&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

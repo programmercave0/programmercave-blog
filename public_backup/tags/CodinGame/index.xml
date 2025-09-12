@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CodinGame on programmerCave</title>
+    <link>https://programmercave.com/tags/CodinGame/</link>
+    <description>Recent content in CodinGame on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/CodinGame/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>orDer oF succeSsion - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/orDer-oF-succeSsion-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;You have to output the order of succession to the British throne of a list of given people. The order is simple: From a descendant A, the next in the order is A’s first child B. Then, the next one is B’s first child C if any and so on. If C has no child, then the next one is B’s second child D.</description>
+    </item>
+    <item>
+      <title>Stock Exchange Losses - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Stock-Exchange-Losses-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Medium.&#xA;A finance company is carrying out a study on the worst stock investments and would like to acquire a program to do so. The program must be able to analyze a chronological series of stock values in order to show the largest loss that it is possible to make by buying a share at a given time t0 and by selling it at a later date t1.</description>
+    </item>
+    <item>
+      <title>Dungeons and Maps - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Dungeons-and-Maps-CodinGame-C-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy.&#xA;You are given N maps for a dungeon. Each map may contain a path to a treasure T, from starting position [ startRow; startCol ]. Determine the index of the map which holds the shortest path from the starting position to T, but be careful a map may lead you to a TRAP.&#xA;A path is marked on the map with ^, v, &amp;lt;, &amp;gt; symbols, each corresponding to UP, DOWN, LEFT, RIGHT directions respectively, i.</description>
+    </item>
+    <item>
+      <title>Bank Robbers - CodinGame | C&#43;&#43; Implementation</title>
+      <link>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Bank-Robbers-CodinGame-Challenge-Cpp-Implementation/</guid>
+      <description>The problem is from CodinGame with difficulty level Easy and tagged under Loops and Mathematics.&#xA;A gang of R foolish robbers decides to heist a bank. In the bank there are V vaults (indexed from 0 to V-1). The robbers have managed to extract some information from the bank&amp;rsquo;s director:&#xA;The combination of a vault is composed of C characters (digits/vowels). The first N characters consist of digits from 0 to 9.</description>
+    </item>
+  </channel>
+</rss>

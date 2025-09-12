@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tumbleweed on programmerCave</title>
+    <link>https://programmercave.com/tags/Tumbleweed/</link>
+    <description>Recent content in Tumbleweed on programmerCave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://programmercave.com/tags/Tumbleweed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Resize Partitions in Arch Linux</title>
+      <link>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/How-to-Resize-Partitions-in-Arch-Linux/</guid>
+      <description>Introduction Running out of space on your root partition can be a frustrating experience when using Arch Linux. Fortunately, resizing your partitions can be done easily with the help of a live USB or CD and the GParted partition editor. In this guide, we&amp;rsquo;ll walk you through the steps to resize your partitions and increase the size of your root partition in Arch Linux.&#xA;Step 1: Boot into a Live USB or CD</description>
+    </item>
+    <item>
+      <title>Complete Guide: Installing, Setting Up, and Removing PostgreSQL in Linux</title>
+      <link>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Complete-Guide-Installing-Setting-Up-and-Removing-PostgreSQL-in-Linux/</guid>
+      <description>Introduction PostgreSQL is an open-source relational database management system. It is known for its reliability, scalability, and extensibility, making it a popular choice for enterprise-level applications. In this tutorial, we will cover how to install and set up PostgreSQL in Linux, how to create a database and table, how to insert values into the table, how to log in to a user and database, and how to completely remove PostgreSQL including all related files.</description>
+    </item>
+    <item>
+      <title>How to Enable Natural Scrolling for Touchpad on OpenSuse Tumbleweed</title>
+      <link>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://programmercave.com/Enable-Natural-Scrolling-for-Touchpad-in-Linux/</guid>
+      <description>Introduction Are you having trouble getting natural scrolling to work on your touchpad after updating OpenSuse Tumbleweed? Don&amp;rsquo;t worry, we&amp;rsquo;ve got you covered. We&amp;rsquo;ve gone through the process of searching various websites and experimenting with different techniques, and we&amp;rsquo;ve finally found a solution. We&amp;rsquo;ll walk you through the steps we took to get natural scrolling working on our touchpad, including modifying the wrong configuration file, encountering the dreaded blank screen of death, and rolling back to a previous snapshot.</description>
+    </item>
+  </channel>
+</rss>

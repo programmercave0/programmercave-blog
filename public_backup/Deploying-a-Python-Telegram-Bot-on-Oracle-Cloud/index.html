@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGYYYX4F59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LGYYYX4F59');
+  </script>
+
+  <!-- Bidvertiser2098189 -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.123.7">
+  
+  
+      
+  
+  
+  
+  <meta name="description" content="Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://programmercave.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://programmercave.com/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Deploying a Python Telegram Bot on Oracle Cloud | programmerCave</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    programmerCave
+  </h1>
+  <nav>
+    
+    
+      
+      
+      
+      <a href="/" class="btn">Home</a>
+    
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Deploying a Python Telegram Bot on Oracle Cloud</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2024-10-29
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cloud/&#34;&gt;Cloud&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Python/&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Bot/&#34;&gt;Bot&lt;/a&gt;
+    </div>
+  
+  <p>Deploying a Telegram bot on Oracle Cloud provides reliable uptime and cost-effective hosting for a wide range of bot functionalities. Here’s a step-by-step guide on setting up and deploying a bot on an Ubuntu instance in Oracle Cloud. For this example, I&rsquo;ll use the <em>Atmanam Viddhi Bot</em>, a bot that responds to the <code>/wisdom</code> command, sharing random quotes from a collection on GitHub and featuring user cooldowns and interactive buttons.</p>
+<h2 id="step-1-set-up-oracle-cloud-infrastructure">Step 1: Set Up Oracle Cloud Infrastructure</h2>
+<ol>
+<li>
+<p><strong>Create a Compute Instance</strong></p>
+<ul>
+<li>
+<p>In the Oracle Cloud Console, go to <code>Instances</code>, click <code>Create Instance</code>, and follow the prompts to set up your new instance.</p>
+</li>
+<li>
+<p>Select <strong>Ubuntu 20.04 minimal</strong> as the operating system. Once created, Oracle provides an SSH key pair for secure access.</p>
+</li>
+<li>
+<p>Save the private SSH key provided by Oracle on your local machine
+<img src="/assets/images/Python-Telegram-Bot-Oracle/python-bot-oracle-ssh-keys.png" alt="SSH"></p>
+</li>
+<li>
+<p>Ensure it has appropriate permissions by running this command:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#666">600</span> path/to/downloaded/ssh-key
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Connect to Your Instance</strong></p>
+<ul>
+<li>Open a terminal and connect to your Oracle instance using the SSH key saved from the setup:
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -i path/to/downloaded/ssh-key ubuntu@your-instance-ip
+</span></span></code></pre></div></li>
+<li>You can get <code>username</code> and <code>instance-ip</code> from the Oracle Cloud Console.
+<img src="/assets/images/Python-Telegram-Bot-Oracle/ip-instance.png" alt="ip-instance"></li>
+</ul>
+</li>
+</ol>
+<h2 id="step-2-install-required-tools">Step 2: Install Required Tools</h2>
+<p>Once connected to your instance, update your package manager and install essential tools like Python, Git, and Nano.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install python3-pip git nano -y
+</span></span></code></pre></div><h2 id="step-3-clone-your-bots-repository">Step 3: Clone Your Bot&rsquo;s Repository</h2>
+<p>Next, clone the GitHub repository where the bot’s code is stored and navigate into the project directory:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone &lt;repo-url&gt;
+</span></span><span style="display:flex;"><span><span style="color:#008000">cd</span> atmanam_viddhi_bot
+</span></span></code></pre></div><h2 id="step-4-install-dependencies">Step 4: Install Dependencies</h2>
+<p>The bot’s dependencies are managed in a <code>requirements.txt</code> file. Use pip to install them:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install -r requirements.txt
+</span></span></code></pre></div><h2 id="step-5-add-your-bot-token">Step 5: Add Your Bot Token</h2>
+<p>Edit the <code>.env</code> file to securely store your bot token, which Telegram provides when you create your bot.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano .env
+</span></span></code></pre></div><p>In this file, add the following line with your bot’s unique token:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>BOT_TOKEN=your-bot-token-here
+</span></span></code></pre></div><h2 id="step-6-configure-systemd-for-bot-service">Step 6: Configure Systemd for Bot Service</h2>
+<p>To ensure the bot runs continuously and restarts automatically if it crashes, create a Systemd service. This setup also allows you to start, stop, and monitor the bot as a service.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/systemd/system/atmanam-viddhi-bot.service
+</span></span></code></pre></div><p>In this file, add the following configuration:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">Description</span><span style="color:#666">=</span><span style="color:#ba2121">Atmanam Viddhi Telegram Bot</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">After</span><span style="color:#666">=</span><span style="color:#ba2121">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">Type</span><span style="color:#666">=</span><span style="color:#ba2121">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">User</span><span style="color:#666">=</span><span style="color:#ba2121">ubuntu</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">WorkingDirectory</span><span style="color:#666">=</span><span style="color:#ba2121">/home/ubuntu/atmanam_viddhi_bot</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">Environment</span><span style="color:#666">=</span><span style="color:#ba2121">PATH=/home/ubuntu/.local/bin:/usr/local/bin:/usr/bin:/bin</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">ExecStart</span><span style="color:#666">=</span><span style="color:#ba2121">/usr/bin/python3 -u /home/ubuntu/atmanam_viddhi_bot/bot.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">Restart</span><span style="color:#666">=</span><span style="color:#ba2121">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">RestartSec</span><span style="color:#666">=</span><span style="color:#ba2121">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#7d9029">WantedBy</span><span style="color:#666">=</span><span style="color:#ba2121">multi-user.target</span>
+</span></span></code></pre></div><h2 id="step-7-enable-and-start-the-bot-service">Step 7: Enable and Start the Bot Service</h2>
+<p>To apply the Systemd changes, reload the daemon, enable the service, and start it:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl <span style="color:#008000">enable</span> atmanam-viddhi-bot
+</span></span><span style="display:flex;"><span>sudo systemctl start atmanam-viddhi-bot
+</span></span></code></pre></div><h2 id="key-features-of-the-bot">Key Features of the Bot</h2>
+<p>The Atmanam Viddhi Bot performs a few essential functions:</p>
+<ol>
+<li><strong>Responds to the /wisdom Command</strong>: The bot listens for a <code>/wisdom</code> command and, when triggered, fetches a random excerpt from a GitHub repository.</li>
+<li><strong>User Cooldown Periods</strong>: Each user has a cooldown period between requests to prevent spam.</li>
+<li><strong>Interactive Buttons</strong>: The bot sends interactive buttons, including Amazon links for relevant books, enhancing the user experience.</li>
+<li><strong>Support for Multiple Simultaneous Users</strong>: The bot can handle requests from multiple users at once without interruption.</li>
+</ol>
+<h2 id="advantages-of-oracle-cloud-deployment">Advantages of Oracle Cloud Deployment</h2>
+<p>By deploying on Oracle Cloud, you enjoy:</p>
+<ul>
+<li><strong>24/7 Uptime</strong>: The bot remains active without relying on local machines.</li>
+<li><strong>Automatic Crash Recovery</strong>: Systemd ensures the bot restarts if it encounters an issue.</li>
+<li><strong>Easy Updates</strong>: Deploying updates to the bot is as simple as a <code>git pull</code> in the project directory.</li>
+<li><strong>Free and Lightweight Hosting</strong>: Oracle Cloud’s free tier is ideal for bots with minimal resource requirements.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Deploying a Python bot on Oracle Cloud is a streamlined process, particularly with Oracle’s free tier and the support for continuous service through Systemd. With this setup, you’re able to run the Atmanam Viddhi Bot, allowing it to share wisdom with users around the clock.</p>
+
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      &lt;a href=&#34;https://programmercave.com/tags/Cloud/&#34;&gt;Cloud&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Python/&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;https://programmercave.com/tags/Bot/&#34;&gt;Bot&lt;/a&gt;
+    </div>
+  
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+  <h3>Promotions:</h3>
+    <p><b><a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a>:</b> Visit <a href="https://atmanamviddhi.in/" target="_blank">Atmanam Viddhi</a> to embark on a journey of self-discovery and appreciation. This platform offers daily wisdom from timeless philosophical texts, guiding you to cultivate gratitude and affirm your divine nature. By writing down your gratitude and affirmations, you'll connect with your inner self and unlock a path to profound personal growth and spiritual awakening. Join the community today and start transforming your life with the power of reflection and affirmation!</p>  
+
+    <p><b><a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a>:</b> Tired of coding? <a href="https://lovable.dev/?via=programmercave" target="_blank">Lovable</a> is your AI-powered full-stack engineer! Go from idea to fully functional app in minutes. Perfect for founders, designers, and product teams. Try it now!</p>
+
+    <p><b><a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>:</b> Master system design with <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a>, the ultimate resource for cracking interviews and building scalable systems! Their comprehensive courses simplify complex concepts using visual aids, real-world examples, and structured lessons, making learning engaging and effective. Whether you're a beginner or an experienced engineer, <a href="https://bytebytego.com?fpr=programmercave" target="_blank">ByteByteGo</a> equips you with the skills top tech companies demand. Gain in-depth knowledge of distributed systems, microservices, and high-level architecture to excel in your career. Don't just prepare—ace your system design interviews with confidence! 🚀 Start learning today and take your skills to the next level</p>
+
+    <p><b><a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>:</b> Unlock your coding potential with <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a>, the ultimate EdTech platform for aspiring developers! Whether you're a beginner or looking to advance, <a href="https://namastedev.com?_aff=1738041847176" target="_blank">NamasteDev</a> offers top-tier courses like Namaste React, Namaste Node.js, and Frontend System Design—all designed for self-paced, project-based learning. Learn from industry experts, build real-world projects, and stay ahead with the latest tech trends. Join a thriving community of learners and take your skills to the next level. Start your journey today and open the door to endless career opportunities. Level up with NamasteDev—where learning meets innovation! 🚀🔥</p>
+
+    <p><b><a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler Academy</a>:</b> Elevate your tech career with <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a>! Join a community dedicated to transforming careers in technology. With over 15,000 successful career transitions and partnerships with 900+ placement partners, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> offers tailored learning experiences that can help you become part of the top 1% in the tech industry. <br>
+    Explore a variety of programs, participate in live classes, and gain access to valuable resources designed to enhance your skills. Whether you're looking to advance in your current role or pivot to a new career, <a href="https://www.scaler.com?unlock_code=MAIL575E" target="_blank">Scaler</a> provides the support and guidance you need to succeed. Don't miss out—book your free live class today!</p> 
+    
+    <a href="https://programmercave.com/" class="fa fa-home"></a>
+
+    <a href="https://www.facebook.com/programmercave" class="fab fa-facebook"></a>
+
+    <a href="https://github.com/abhiabhi0" class="fab fa-github"></a>
+
+    <a href="https://twitter.com/programmercave" class="fab fa-twitter"></a>
+
+    <a href="https://medium.com/@programmercave0" class="fab fa-medium"></a>
+
+    <a href="https://www.instagram.com/programmercave" class="fab fa-instagram"></a>
+
+    <a href="https://t.me/programmercave" class="fab fa-telegram"></a>
+
+    <a href="https://www.youtube.com/channel/UCGpGM7FBgVm7Cmuo6OrUYGQ" class="fab fa-youtube"></a>
+
+    <p>Copyright © 2025 programmerCave</p>  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'G-LGYYYX4F59', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+
+  <script type="text/javascript">
+    var infolinks_pid = 3210490;
+    var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>
